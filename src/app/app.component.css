@@ -1,0 +1,12 @@
+custom-header {
+    background-color: #5857c9;
+    background-image: linear-gradient(to right, #2065b9 0%, #55afe8 100%);
+    padding: 20px;
+}
+
+side-menu {
+    height: 100%;
+    border-right: 1px solid gray;
+    background-color: white;
+    padding: 10px 0;
+}

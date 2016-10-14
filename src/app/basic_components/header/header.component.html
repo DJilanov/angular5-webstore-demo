@@ -1,0 +1,8 @@
+<header>
+    <div class="col-xs-12">
+        <a href="#" class="logo pull-left">
+            <img src="../../../img/navigation-logo.png">
+        </a>
+        <custom-button [buttonOptions]="logoutButton" (click)="logOut()" *ngIf="showLogOutBtn()"></custom-button>
+    </div>
+</header>
