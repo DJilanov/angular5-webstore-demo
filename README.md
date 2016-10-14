@@ -1,2 +1,2 @@
 # Description
-EPOD singe page application
+Angular singe page application
