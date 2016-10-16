@@ -6,4 +6,6 @@ export class Config {
     // language
     public static get defaultLang():string { return "bg"; }
     // urls
+    public static get categoriesUrl():string { return "localhost:8080"; }
+    public static get productsUrl():string { return "localhost:8080"; }
 }

@@ -6,6 +6,25 @@
     var ObjectId = require('mongodb').ObjectID;
     var mongoose = require('mongoose');
     var config = require('./config').getConfig();
+    // database arrays
+    var products = [];
+    var categories = [];
+    /**
+     * @fetchAllProducts It fetch all the products from the back-end
+     * @req {Object} The query from the front-end
+     * @res {Object} The res to the front-end
+     */
+    function fetchAllProducts(req, res) {
+        res.json(products);
+    }
+    /**
+     * @fetchAllCategories It fetch all the categories from the back-end
+     * @req {Object} The query from the front-end
+     * @res {Object} The res to the front-end
+     */
+    function fetchAllCategories(req, res) {
+        res.json(categories);
+    }
     /**
      * @find It searches in the back-end by query
      * @req {Object} The query from the front-end
@@ -39,21 +58,21 @@
         to_date = +to_date;
         // the query we will send
         query['$and'] = [];
-        if(parameters.fullName.length > 1) {
+        if (parameters.fullName.length > 1) {
             query['$and'].push({
                 "fullName": parameters.fullName
             })
         }
-        if(parameters.issue_name.length > 1) {
+        if (parameters.issue_name.length > 1) {
             query['$and'].push({
-                $or:[
-                     {"issue_name" : parameters.issue_name},
-                     {"issue_parent" : parameters.issue_name},
-                     {"issue_epic" : parameters.issue_name}
+                $or: [
+                    { "issue_name": parameters.issue_name },
+                    { "issue_parent": parameters.issue_name },
+                    { "issue_epic": parameters.issue_name }
                 ]
             })
         }
-        if(parameters.worklog_started.length > 1) {
+        if (parameters.worklog_started.length > 1) {
             query['$and'].push({
                 "worklog_started": {
                     $gte: parseInt(from_date)
@@ -92,9 +111,14 @@
         // we cache the product list when we open the back-end for faster working speed
         mongoose.connection.on('connected', function() {
             console.log('[dbConnector]Mongoose default connection open');
-            mongoose.connection.db.collection('worklogs', function(err, collection) {
+            mongoose.connection.db.collection('products', function(err, collection) {
                 collection.find().toArray(function(err, docs) {
-                    worklogs = docs;
+                    products = docs;
+                });
+            });
+            mongoose.connection.db.collection('categories', function(err, collection) {
+                collection.find().toArray(function(err, docs) {
+                    categories = docs;
                 });
             });
         });
@@ -122,6 +146,8 @@
 
     module.exports = {
         find: find,
-        connectDb: connectDb
+        connectDb: connectDb,
+        fetchAllProducts: fetchAllProducts,
+        fetchAllCategories: fetchAllCategories
     };
 }());

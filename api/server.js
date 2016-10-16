@@ -12,7 +12,6 @@ var dbFinder = require('./dbFinder');
 // we connect to the db using the credentials and fetch the db localy
 dbFinder.connectDb();
 dbUpdator.connectDb();
-
 // this will let us get nv.PORT || 8080;        // set our port
 
 // ROUTES FOR OUR API
@@ -42,14 +41,12 @@ app.all('/*', function(req, res, next) {
     next();
 });
 // when we call from the fetcher service we return the result
-app.get('/api/home', function(req, res) {
-    dbFinder.find(req, res);
+app.get('/api/getProducts', function(req, res) {
+    dbFinder.fetchAllProducts(req, res);
 });
-
-// when we call from the fetcher service we return the releases from jira
-app.get('/api/category', function(req, res) {
-    // if we send the parameter as true , we call jira for result not our service
-    dbFinder.find(req, res);
+// when we call from the fetcher service we return the result
+app.get('/api/getCategories', function(req, res) {
+    dbFinder.fetchAllCategories(req, res);
 });
 
 console.log('Server is UP at ' + port);

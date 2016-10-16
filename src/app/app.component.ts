@@ -1,5 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { Router } from '@angular/router';
+import { FetcherService } from './services/fetcher.service';
 
 @Component({
     selector: 'app',
@@ -9,36 +10,16 @@ import { Router } from '@angular/router';
 
 export class AppComponent implements OnInit {
 
+    private products: Array<Object>;
+    private categories: Array<Object>;
+
     constructor(
-        private router: Router
-    ) {};
+        private router: Router,
+        private fetcher: FetcherService
+    ) {
+        fetcher.getProducts().subscribe(result => this.products = result.json());
+        fetcher.getCategories().subscribe(result => this.categories = result.json());
+    };
 
-    private showLogScreen: Boolean = true;
-
-    public logOutBtnClick() {
-        this.showLogScreen = true;
-    }
-
-    public logIn() {
-        this.showLogScreen = false;
-    }
-
-    public showLogInScreen() {
-        var token = localStorage.getItem('/access_token');
-        // check does it exist
-        if(token) {
-            // check is it full
-            if((this.showLogScreen) && (token.length < 5)) {
-                return true;
-            } else {
-                return false;
-            }
-        } else {
-            return true;
-        }
-    }
-    /**
-    * @ngOnInit on init
-    */
     public ngOnInit() {}
 }

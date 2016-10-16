@@ -32,6 +32,7 @@ import { PageNotFoundComponent } from './components/page_not_found/page_not_foun
 
 // Services
 import { Config } from './config';
+import { FetcherService } from './services/fetcher.service';
 
 export const firebaseConfig = {
     apiKey: "AIzaSyDUHZkBVC5g1x3wzs6YPE8Mpf3jif-vu1w",
@@ -80,10 +81,9 @@ export const firebaseConfig = {
         // languages
         Language,
         EnglishDictionary,
-        BulgarianDictionary
+        BulgarianDictionary,
         // services of the app
-        // LocalStorageService,
-        // DriverService,
+        FetcherService
     ]
 })
 
