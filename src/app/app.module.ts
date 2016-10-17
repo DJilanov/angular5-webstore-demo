@@ -30,9 +30,13 @@ import { SideMenuComponent } from './components/side_menu/side_menu.component';
 import { ContactsComponent } from './components/contacts/contacts.component';
 import { PageNotFoundComponent } from './components/page_not_found/page_not_found.component';
 
-// Services
+// Config
 import { Config } from './config';
+
+// Services
 import { FetcherService } from './services/fetcher.service';
+import { CategoriesService } from './services/categories.service';
+import { ProductsService } from './services/products.service';
 
 export const firebaseConfig = {
     apiKey: "AIzaSyDUHZkBVC5g1x3wzs6YPE8Mpf3jif-vu1w",
@@ -83,7 +87,9 @@ export const firebaseConfig = {
         EnglishDictionary,
         BulgarianDictionary,
         // services of the app
-        FetcherService
+        FetcherService,
+        CategoriesService,
+        ProductsService
     ]
 })
 

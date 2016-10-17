@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { Http, Headers, RequestOptions } from '@angular/http';
 
 import { Config } from '../config';
@@ -14,14 +14,14 @@ export class FetcherService {
     * @return {Array} categories
     */
     public getCategories() {
-        return this.http.get( Config.categoriesUrl ).map( res => res.json() );
+        return this.http.get( Config.categoriesUrl );
     }
     /**
     * @getProducts get all products
     * @return {Array} all drivers
     */
     public getProducts() {
-        return this.http.get( Config.productsUrl ).map( res => res.json() );
+        return this.http.get( Config.productsUrl );
     }
 
     constructor( private http: Http ) {}

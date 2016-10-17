@@ -41,11 +41,11 @@ app.all('/*', function(req, res, next) {
     next();
 });
 // when we call from the fetcher service we return the result
-app.get('/api/getProducts', function(req, res) {
+app.get('/api/products', function(req, res) {
     dbFinder.fetchAllProducts(req, res);
 });
 // when we call from the fetcher service we return the result
-app.get('/api/getCategories', function(req, res) {
+app.get('/api/categories', function(req, res) {
     dbFinder.fetchAllCategories(req, res);
 });
 

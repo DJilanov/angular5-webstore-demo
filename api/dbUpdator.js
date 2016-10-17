@@ -45,7 +45,6 @@
     }
 
     module.exports = {
-        find: find,
         connectDb: connectDb
     };
 }());

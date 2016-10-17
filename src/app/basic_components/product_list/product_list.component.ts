@@ -1,4 +1,5 @@
-import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Language } from '../../language/language.service';
 
 // import { DateComponent } from '../date/date.component';
 
@@ -8,19 +9,17 @@ import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
     templateUrl: './product_list.component.html'
 })
 
-export class ProductListComponent implements OnInit {
+export class ProductListComponent {
     @Input()
-    postOptions: Object;
+    products: Array<Object>;
 
-    @Output()
-    cPayChanged = new EventEmitter();
-
-    private showOverlay = false;
+    @Input()
+    category: Array<Object>;
 
     /**
-     * @ngOnInit on init
+     * @constructor on init
      */
-    public ngOnInit() {
-
-    }
+    public constructor(
+        private language: Language
+    ) {}
 }

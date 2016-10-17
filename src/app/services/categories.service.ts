@@ -1,5 +1,4 @@
-import { Injectable } from '@angular/core';
-import { Http, Headers, RequestOptions } from '@angular/http';
+import { Injectable, EventEmitter } from '@angular/core';
 
 import { Config } from '../config';
 
@@ -8,21 +7,31 @@ import { Config } from '../config';
 /**
  * @DriverService used on all connections to the back-end for the drivers
  */
-export class FetcherService {
+export class CategoriesService {
+
+    public categoriesUpdate: EventEmitter<any>;
+    /**
+    * @info: Contains all of the categories
+    */
+    private categoryArray = Array<Object>();
+
     /**
     * @getCategories get all categories
-    * @return {Array} categories
+    * @return {Array} all categoties
     */
     public getCategories() {
-        return this.http.get( Config.categoriesUrl ).map( res => res.json() );
-    }
-    /**
-    * @getProducts get all products
-    * @return {Array} all drivers
-    */
-    public getProducts() {
-        return this.http.get( Config.productsUrl ).map( res => res.json() );
+        return this.categoryArray;
     }
 
-    constructor( private http: Http ) {}
+    /**
+    * @setCategories set all categories
+    */
+    public setCategories(categories) {
+        this.categoryArray = categories;
+        this.categoriesUpdate.emit(categories);
+    }
+
+    constructor() {
+        this.categoriesUpdate = new EventEmitter();
+    }
 }

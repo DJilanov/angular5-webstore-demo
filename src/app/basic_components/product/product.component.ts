@@ -10,17 +10,12 @@ import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
 
 export class ProductComponent implements OnInit {
     @Input()
-    postOptions: Object;
-
-    @Output()
-    cPayChanged = new EventEmitter();
-
-    private showOverlay = false;
+    productObject: Object;
 
     /**
      * @ngOnInit on init
      */
     public ngOnInit() {
-
+        
     }
 }
