@@ -1,3 +1,19 @@
 .logo {
     display: block;
 }
+
+.custom-navi {
+    margin-left: 20px;
+}
+
+.custom-navi li :hover {
+    background-color: #2065b9;
+}
+
+.custom-navi li :focus { 
+    background-color: #2065b9;
+}
+
+.custom-navi li a {
+    color: white!important
+}

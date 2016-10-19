@@ -20,7 +20,6 @@ import { HeaderComponent } from './basic_components/header/header.component';
 import { SearchComponent } from './basic_components/search/search.component';
 import { ProductComponent } from './basic_components/product/product.component';
 import { CarouselComponent } from './basic_components/carousel/carousel.component';
-import { ProductListComponent } from './basic_components/product_list/product_list.component';
 import { NotificationComponent } from './basic_components/notification/notification.component';
 
 // Components
@@ -29,6 +28,7 @@ import { HomeComponent } from './components/home/home.component';
 import { SideMenuComponent } from './components/side_menu/side_menu.component';
 import { ContactsComponent } from './components/contacts/contacts.component';
 import { PageNotFoundComponent } from './components/page_not_found/page_not_found.component';
+import { ProductListComponent } from './components/product_list/product_list.component';
 
 // Config
 import { Config } from './config';

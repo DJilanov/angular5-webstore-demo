@@ -1,8 +1,20 @@
-<header>
-    <div class="col-xs-12">
-        <a href="#" class="logo pull-left">
-            <img src="../../../img/navigation-logo.png">
-        </a>
-        <custom-button [buttonOptions]="logoutButton" (click)="logOut()" *ngIf="showLogOutBtn()"></custom-button>
+<header class="container">
+  <a [routerLink]="['/']" class="logo pull-left">
+      <img src="../../../img/navigation-logo.png">
+  </a>
+  <form class="navbar-form navbar-right">
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="{{language.getTexts('headerSearchFor')}}">
     </div>
+    <button type="submit" class="btn btn-default">{{language.getTexts('headerSearch')}}</button>
+  </form>
+  <ul class="nav navbar-nav navbar-left custom-navi" 
+    *ngIf="categories.length > 0">
+    <li *ngFor="let category of categories">
+      <a [routerLink]="['products', category.link]">{{category.title[language.language]}}</a>
+    </li>
+    <li>
+    <a [routerLink]="['contacts']">{{language.getTexts('headerContact')}}</a>
+    </li>
+  </ul>
 </header>

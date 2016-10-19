@@ -1,6 +1,9 @@
 import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
 import {LocalStorage, SessionStorage} from "angular2-localstorage/WebStorage";
 import { Router } from '@angular/router';
+import { CategoriesService } from '../../services/categories.service';
+import { ProductsService } from '../../services/products.service';
+import { Language } from '../../language/language.service';
 
 // import { DateComponent } from '../date/date.component';
 
@@ -17,43 +20,29 @@ export class HeaderComponent implements OnInit {
     @Output()
     logOutBtnClick = new EventEmitter();
 
+    private products =  Array<Object>();
+
+    private categories = Array<Object>();
+
     constructor(
+        private language: Language,
+        private productsService: ProductsService,
+        private categoriesService: CategoriesService,
         private router: Router
-    ) {};
-
-    private importButton = {
-        class: 'green white-font',
-        hasIcon: true,
-        radius: true,
-        text: 'IMPORT DS'
+    ) {
+      this.products = productsService.getProducts();
+      this.categories = categoriesService.getCategories();
+      // on categories update we update the local array
+      this.productsService.productsUpdate.subscribe(products => this.onProductsUpdate(products));
+      this.categoriesService.categoriesUpdate.subscribe(categories => this.onCategoriesUpdate(categories));
     };
 
-    private createorderButton = {
-        class: '',
-        hasIcon: true,
-        iconClass: 'glyphicon-flash',
-        radius: true,
-        text: 'CREATE ORDER'
-    };
-
-    private logoutButton = {
-        class: 'pull-right',
-        hasIcon: false,
-        radius: false,
-        text: 'Log Out'
-    };
-
-    public logOut() {
-        localStorage.setItem('/access_token','');
-        this.router.navigate(['/']);
-        this.logOutBtnClick.emit();
+    private onCategoriesUpdate(categories) {
+      this.categories = categories;
     }
 
-    public showLogOutBtn() {
-        // return this.access_token.length > 5;
-        if(localStorage.getItem('/access_token')) {
-            return localStorage.getItem('/access_token').length > 5;
-        }
+    private onProductsUpdate(products) {
+      this.products = products;
     }
 
     /**

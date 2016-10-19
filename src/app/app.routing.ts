@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 // Views
 import { HomeComponent } from './components/home/home.component';
+import { ProductListComponent } from './components/product_list/product_list.component';
 import { ContactsComponent } from './components/contacts/contacts.component';
 import { PageNotFoundComponent } from './components/page_not_found/page_not_found.component';
 
@@ -14,8 +15,19 @@ const appRoutes: Routes = [
     data: {
       title: 'Home'
     }
-  },
-  { 
+  }, { 
+    path: 'products/:category', 
+    component: ProductListComponent,
+    data: {
+      title: 'Product List'
+    }
+  },{ 
+    path: 'contacts', 
+    component: ContactsComponent,
+    data: {
+      title: 'Contacts'
+    }
+  }, { 
     path: '**', 
     component: PageNotFoundComponent
   }
