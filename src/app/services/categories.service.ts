@@ -31,6 +31,14 @@ export class CategoriesService {
         this.categoriesUpdate.emit(categories);
     }
 
+    public getCategoryByLink(link) {
+        for(var categoryCounter = 0; categoryCounter < this.categoryArray.length; categoryCounter++) {
+            if(this.categoryArray[categoryCounter]['link'] == link) {
+                return this.categoryArray[categoryCounter];
+            }
+        }
+    }
+
     constructor() {
         this.categoriesUpdate = new EventEmitter();
     }
