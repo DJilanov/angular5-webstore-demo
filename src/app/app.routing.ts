@@ -5,6 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 // Views
 import { HomeComponent } from './components/home/home.component';
 import { ProductListComponent } from './components/product_list/product_list.component';
+import { DetailsComponent } from './components/details/details.component';
 import { ContactsComponent } from './components/contacts/contacts.component';
 import { PageNotFoundComponent } from './components/page_not_found/page_not_found.component';
 
@@ -21,7 +22,13 @@ const appRoutes: Routes = [
     data: {
       title: 'Product List'
     }
-  },{ 
+  }, { 
+    path: 'details/:productLink', 
+    component: DetailsComponent,
+    data: {
+      title: 'Details'
+    }
+  }, { 
     path: 'contacts', 
     component: ContactsComponent,
     data: {

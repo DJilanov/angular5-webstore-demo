@@ -29,6 +29,8 @@ import { SideMenuComponent } from './components/side_menu/side_menu.component';
 import { ContactsComponent } from './components/contacts/contacts.component';
 import { PageNotFoundComponent } from './components/page_not_found/page_not_found.component';
 import { ProductListComponent } from './components/product_list/product_list.component';
+import { CartComponent } from './components/cart/cart.component';
+import { DetailsComponent } from './components/details/details.component';
 
 // Config
 import { Config } from './config';
@@ -70,7 +72,9 @@ export const firebaseConfig = {
         SideMenuComponent,
         HomeComponent,
         ContactsComponent,
-        PageNotFoundComponent
+        PageNotFoundComponent,
+        CartComponent,
+        DetailsComponent
     ],
     // Bootstraping
     bootstrap: [ 

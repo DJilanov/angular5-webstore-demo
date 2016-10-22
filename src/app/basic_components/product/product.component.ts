@@ -1,4 +1,5 @@
 import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
 
 // import { DateComponent } from '../date/date.component';
 
@@ -18,4 +19,8 @@ export class ProductComponent implements OnInit {
     public ngOnInit() {
         
     }
+
+    constructor(
+        private router: Router
+    ){}
 }

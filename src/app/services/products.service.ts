@@ -43,6 +43,14 @@ export class ProductsService {
         return productsByCategory;
     }
 
+    public getProductByLink(link) {
+        for(var productsCounter = 0; productsCounter < this.products.length; productsCounter++) {
+            if(this.products[productsCounter]['link'] == link) {
+                return this.products[productsCounter];
+            }
+        }
+    }
+
     constructor() {
         this.productsUpdate = new EventEmitter();
     }
