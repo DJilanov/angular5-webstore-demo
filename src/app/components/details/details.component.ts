@@ -5,7 +5,7 @@ import { ProductsService } from '../../services/products.service';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
-    selector: 'details',
+    selector: 'custom-details',
     styleUrls: ['./details.component.css'],
     templateUrl: './details.component.html'
 })

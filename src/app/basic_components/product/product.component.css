@@ -1,0 +1,12 @@
+.product {
+    color: black;
+}
+.image-holder {
+    background-color: gray;
+    position: relative;
+}
+
+.like {
+    position: absolute;
+    top: 0;
+}
