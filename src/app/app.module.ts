@@ -15,6 +15,7 @@ import { EnglishDictionary } from './language/en.dictionary';
 import { BulgarianDictionary } from './language/bg.dictionary';
 
 // Basic Components
+import { ImageComponent } from './basic_components/image/image.component';
 import { ButtonComponent } from './basic_components/button/button.component';
 import { HeaderComponent } from './basic_components/header/header.component';
 import { SearchComponent } from './basic_components/search/search.component';
@@ -60,6 +61,7 @@ export const firebaseConfig = {
     // Components & Views
     declarations: [ 
         AppComponent,
+        ImageComponent,
         ButtonComponent,
         HeaderComponent,
         SearchComponent,

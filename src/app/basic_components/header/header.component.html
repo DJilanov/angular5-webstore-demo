@@ -1,4 +1,4 @@
-<header class="container">
+<header>
   <a [routerLink]="['/']" class="logo pull-left">
       <img src="../../../img/navigation-logo.png">
   </a>
@@ -14,7 +14,7 @@
       <a [routerLink]="['products', category.link]">{{category.title[language.language]}}</a>
     </li>
     <li>
-    <a [routerLink]="['contacts']">{{language.getTexts('headerContact')}}</a>
+      <a [routerLink]="['contacts']">{{language.getTexts('headerContact')}}</a>
     </li>
   </ul>
 </header>

@@ -1,4 +1,63 @@
-<div class="col-xs-12" 
-    [routerLink]="['details, productObject.link]">
-    {{productObject.title}}
-</div>
+<a [routerLink]="['/details', productObject.link]">
+  <div class="col-xs-12 product">
+    <div class="image-holder">
+      <image 
+        [src]="productObject.main_image"
+        [alt]="productObject.title"></image>
+      <div class="like">
+        <i class="fa fa-heart" aria-hidden="true"></i>
+      </div>
+    </div>
+    <div class="title">
+      {{productObject.title}}
+    </div>
+    <div>
+      звездички за скор
+    </div>
+    <div class="params" *ngIf="productObject.params">
+      <ul *ngFor="let params of productObject.params[language.language]">
+        <li>{{params}}</li>
+      </ul>
+    </div>
+    <div class="description">
+      {{productObject.description[language.language]}}
+    </div>
+    <div class="price">
+      <span>{{language.getTexts('price')}}</span>
+      <span class="new-price">{{productObject.new_price}}</span>
+      <span class="old-price">{{productObject.old_price}}</span>
+    </div>
+  </div>
+</a>
+<!-- Copy the design of http://www.sony.com/electronics/tv/t/televisions -->
+<!-- {
+    "_id": {
+        "$oid": "5804f5114188d122ea5d5066"
+    },
+    "category": "ram",
+    "main_image": "",
+    "other_images": [],
+    "title": "Kingston, Integral, DELL  PC3200",
+    "description": {
+        "bg": "Съвместима с INTEL и AMD дънни платки",
+        "en": "Съвместима с INTEL и AMD дънни платкиEN"
+    },
+    "more_info": {
+        "bg": "Допълнителна информация",
+        "en": "Допълнителна информацияEN"
+    },
+    "more_details": {
+        "bg": "Допълнителна информация",
+        "en": "Допълнителна информацияEN"
+    },
+    "new_price": "16.00",
+    "old_price": "",
+    "daily_offer": true,
+    "zIndex": 2,
+    "shown": true,
+    "count": 5,
+    "is_new": false,
+    "carousel": true,
+    "link": "pamet_ddr400_1gb_patriot_pc3200",
+    "make": "Kingston"
+} -->
