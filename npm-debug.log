@@ -1,0 +1,59 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'rebuild',
+1 verbose cli   'node-sass' ]
+2 info using npm@3.10.8
+3 info using node@v6.8.1
+4 info readInstalled object
+5 verbose rebuild path, id [ 'C:\\work\\training_seo\\node_modules\\node-sass',
+5 verbose rebuild   'node-sass@3.9.3' ]
+6 silly rebuild set [ 'C:\\work\\training_seo\\node_modules\\node-sass' ]
+7 info build C:\work\training_seo\node_modules\node-sass
+8 info lifecycle node-sass@3.9.3~preinstall: node-sass@3.9.3
+9 silly lifecycle node-sass@3.9.3~preinstall: no script for preinstall, continuing
+10 info linkStuff node-sass@3.9.3
+11 silly linkStuff node-sass@3.9.3 has C:\work\training_seo\node_modules as its parent node_modules
+12 verbose linkBins node-sass@3.9.3
+13 verbose link bins [ { 'node-sass': 'bin/node-sass' },
+13 verbose link bins   'C:\\work\\training_seo\\node_modules\\.bin',
+13 verbose link bins   false ]
+14 verbose linkMans node-sass@3.9.3
+15 verbose rebuildBundles node-sass@3.9.3
+16 verbose rebuildBundles [ '.bin',
+16 verbose rebuildBundles   'async-foreach',
+16 verbose rebuildBundles   'chalk',
+16 verbose rebuildBundles   'cross-spawn',
+16 verbose rebuildBundles   'gaze',
+16 verbose rebuildBundles   'get-stdin',
+16 verbose rebuildBundles   'glob',
+16 verbose rebuildBundles   'in-publish',
+16 verbose rebuildBundles   'lodash.clonedeep',
+16 verbose rebuildBundles   'meow',
+16 verbose rebuildBundles   'mkdirp',
+16 verbose rebuildBundles   'nan',
+16 verbose rebuildBundles   'node-gyp',
+16 verbose rebuildBundles   'npmlog',
+16 verbose rebuildBundles   'request',
+16 verbose rebuildBundles   'sass-graph' ]
+17 verbose stack Error: EPERM: operation not permitted, open 'C:\work\training_seo\node_modules\.bin\node-sass'
+17 verbose stack     at Error (native)
+18 verbose cwd C:\work\training_seo
+19 error Windows_NT 6.1.7601
+20 error argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "rebuild" "node-sass"
+21 error node v6.8.1
+22 error npm  v3.10.8
+23 error path C:\work\training_seo\node_modules\.bin\node-sass
+24 error code EPERM
+25 error errno -4048
+26 error syscall open
+27 error Error: EPERM: operation not permitted, open 'C:\work\training_seo\node_modules\.bin\node-sass'
+27 error     at Error (native)
+27 error  { Error: EPERM: operation not permitted, open 'C:\work\training_seo\node_modules\.bin\node-sass'
+27 error     at Error (native)
+27 error   errno: -4048,
+27 error   code: 'EPERM',
+27 error   syscall: 'open',
+27 error   path: 'C:\\work\\training_seo\\node_modules\\.bin\\node-sass' }
+28 error Please try running this command again as root/Administrator.
+29 verbose exit [ -4048, true ]
