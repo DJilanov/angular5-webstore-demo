@@ -42,6 +42,7 @@ export class ProductListComponent {
                 this.categoryLink = params['category'];
                 this.products = [];
                 this.productsService.productsUpdate.subscribe(products => this.onProductsUpdate(products));
+                this.categoriesService.categoriesUpdate.subscribe(categories => this.onCategoriesUpdate(categories));
                 return;
             }
             this.products = this.productsService.getProductsByCategory(this.category['products']);
@@ -49,12 +50,19 @@ export class ProductListComponent {
     }
 
     private onProductsUpdate(products) {
+        // if we doesnt have fetched the categories we cant get the products based on it...
+        if((this.categoryLink !== undefined) && (this.category['link'] !== undefined)) {
+            this.products = this.productsService.getProductsByCategory(this.category['products']);
+        }
+    }
+
+    private onCategoriesUpdate(categories) {
         if(this.categoryLink !== undefined) {
             this.category = this.categoriesService.getCategoryByLink(this.categoryLink);
-            if(this.category == undefined) {
-                debugger;
+            // if we fetch first the products then categories ( low chanse ) there is problem with the setting
+            if((this.products.length == 0) && (this.productsService.getProducts().length > 0)) {
+                this.products = this.productsService.getProductsByCategory(this.category['products']);
             }
-            this.products = this.productsService.getProductsByCategory(this.category['products']);
         }
     }
 }

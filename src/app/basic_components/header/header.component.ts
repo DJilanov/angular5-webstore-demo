@@ -1,5 +1,4 @@
 import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
-import {LocalStorage, SessionStorage} from "angular2-localstorage/WebStorage";
 import { Router } from '@angular/router';
 import { CategoriesService } from '../../services/categories.service';
 import { ProductsService } from '../../services/products.service';
@@ -14,8 +13,6 @@ import { Language } from '../../language/language.service';
 })
 
 export class HeaderComponent implements OnInit {
-
-    @LocalStorage() public access_token:String;
 
     @Output()
     logOutBtnClick = new EventEmitter();
