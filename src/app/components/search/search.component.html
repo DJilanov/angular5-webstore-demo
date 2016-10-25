@@ -1,0 +1,9 @@
+<custom-carousel 
+  [carouselOptions]=carouselOptions>
+</custom-carousel>
+<div *ngFor="let category of categories">
+  <product-list 
+    [category]=category 
+    [products]=productsByCategory(category)>
+  </product-list>
+</div>

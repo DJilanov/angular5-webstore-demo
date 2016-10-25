@@ -17,3 +17,8 @@
 .custom-navi li a {
     color: white!important
 }
+
+.cart {
+    margin-right: 20px;
+    color: white;
+}

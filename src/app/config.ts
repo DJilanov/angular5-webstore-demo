@@ -8,4 +8,5 @@ export class Config {
     // urls
     public static get categoriesUrl():string { return "http://c57e77b7.ngrok.io/api/categories"; }
     public static get productsUrl():string { return "http://c57e77b7.ngrok.io/api/products"; }
+    public static get mapCoordinates():Object { return { lat: 42.711330, lng: 23.375995, zoom: 13 }; }
 }

@@ -6,7 +6,9 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { ProductListComponent } from './components/product_list/product_list.component';
 import { DetailsComponent } from './components/details/details.component';
+import { SearchComponent } from './components/search/search.component';
 import { ContactsComponent } from './components/contacts/contacts.component';
+import { CartComponent } from './components/cart/cart.component';
 import { PageNotFoundComponent } from './components/page_not_found/page_not_found.component';
 
 const appRoutes: Routes = [
@@ -27,6 +29,18 @@ const appRoutes: Routes = [
     component: DetailsComponent,
     data: {
       title: 'Details'
+    }
+  }, { 
+    path: 'cart', 
+    component: CartComponent,
+    data: {
+      title: 'Cart'
+    }
+  }, { 
+    path: 'search:query', 
+    component: SearchComponent,
+    data: {
+      title: 'Search'
     }
   }, { 
     path: 'contacts', 

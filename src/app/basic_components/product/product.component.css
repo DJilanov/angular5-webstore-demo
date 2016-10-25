@@ -4,6 +4,7 @@
 .image-holder {
     background-color: gray;
     position: relative;
+    text-align: center;
 }
 
 .like {

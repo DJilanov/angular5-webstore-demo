@@ -5,14 +5,16 @@
         [src]="productObject.main_image"
         [alt]="productObject.title"></image>
       <div class="like">
-        <i class="fa fa-heart" aria-hidden="true"></i>
+        <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
       </div>
     </div>
     <div class="title">
-      {{productObject.title}}
+      {{productObject.title[language.language]}}
     </div>
     <div>
       звездички за скор
+      <rating [(ngModel)]="productObject.rating" max="5" stateOn="glyphicon-star"
+          stateOff="glyphicon-star-empty"></rating>
     </div>
     <div class="params" *ngIf="productObject.params">
       <ul *ngFor="let params of productObject.params[language.language]">

@@ -1,4 +1,7 @@
 import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
+import { Language } from '../../language/language.service';
+
+import { Config } from '../../config';
 
 // import { DateComponent } from '../date/date.component';
 
@@ -8,12 +11,11 @@ import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
     templateUrl: './contacts.component.html'
 })
 
-export class ContactsComponent implements OnInit {
+export class ContactsComponent {
 
-    /**
-     * @ngOnInit on init
-     */
-    public ngOnInit() {
+    private mapCoordinates = Config.mapCoordinates;
 
-    }
+    constructor(
+        private language: Language
+    ) {}
 }

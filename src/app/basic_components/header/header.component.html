@@ -3,6 +3,9 @@
       <img src="../../../img/navigation-logo.png">
   </a>
   <form class="navbar-form navbar-right">
+    <a [routerLink]="['cart']" class="cart">
+      <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+    </a>
     <div class="form-group">
       <input type="text" class="form-control" placeholder="{{language.getTexts('headerSearchFor')}}">
     </div>
@@ -15,9 +18,6 @@
     </li>
     <li>
       <a [routerLink]="['contacts']">{{language.getTexts('headerContact')}}</a>
-    </li>
-    <li>
-      <a [routerLink]="['cart']">иконка количка</a>
     </li>
   </ul>
 </header>

@@ -5,6 +5,7 @@ import { AngularFireModule } from 'angularfire2';
 import { FormsModule }   from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { Ng2BootstrapModule } from 'ng2-bootstrap/ng2-bootstrap';
+import { AgmCoreModule } from 'angular2-google-maps/core';
 
 // Router
 import { routing, appRoutingProviders } from './app.routing';
@@ -18,7 +19,6 @@ import { BulgarianDictionary } from './language/bg.dictionary';
 import { ImageComponent } from './basic_components/image/image.component';
 import { ButtonComponent } from './basic_components/button/button.component';
 import { HeaderComponent } from './basic_components/header/header.component';
-import { SearchComponent } from './basic_components/search/search.component';
 import { ProductComponent } from './basic_components/product/product.component';
 import { CarouselComponent } from './basic_components/carousel/carousel.component';
 import { NotificationComponent } from './basic_components/notification/notification.component';
@@ -32,6 +32,7 @@ import { PageNotFoundComponent } from './components/page_not_found/page_not_foun
 import { ProductListComponent } from './components/product_list/product_list.component';
 import { CartComponent } from './components/cart/cart.component';
 import { DetailsComponent } from './components/details/details.component';
+import { SearchComponent } from './components/search/search.component';
 
 // Config
 import { Config } from './config';
@@ -41,14 +42,6 @@ import { FetcherService } from './services/fetcher.service';
 import { CategoriesService } from './services/categories.service';
 import { ProductsService } from './services/products.service';
 
-export const firebaseConfig = {
-    apiKey: "AIzaSyDUHZkBVC5g1x3wzs6YPE8Mpf3jif-vu1w",
-    authDomain: "neon-victory-130213.firebaseapp.com",
-    databaseURL: "https://neon-victory-130213.firebaseio.com",
-    storageBucket: "neon-victory-130213.appspot.com",
-    messagingSenderId: "835631843033"
-};
-
 @NgModule({
     // Modules & Libs
     imports: [
@@ -56,7 +49,10 @@ export const firebaseConfig = {
         FormsModule,
         HttpModule,
         routing,
-        Ng2BootstrapModule
+        Ng2BootstrapModule,
+        AgmCoreModule.forRoot({
+          apiKey: 'AIzaSyDBbPzFEwNVTHNoZ-bz7YYqO1eMRPqTyUA'
+        })
     ],
     // Components & Views
     declarations: [ 
@@ -64,7 +60,6 @@ export const firebaseConfig = {
         ImageComponent,
         ButtonComponent,
         HeaderComponent,
-        SearchComponent,
         ProductComponent,
         CarouselComponent,
         ProductListComponent,
@@ -75,6 +70,7 @@ export const firebaseConfig = {
         ContactsComponent,
         PageNotFoundComponent,
         CartComponent,
+        SearchComponent,
         DetailsComponent
     ],
     // Bootstraping
