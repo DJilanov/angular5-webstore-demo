@@ -12,11 +12,13 @@ import { LocalStorageService, SessionStorageService } from 'ng2-webstorage';
 
 export class CartComponent implements OnInit {
 
+    public cartCategory: Object = {};
     public cartProducts;
 
     constructor(private storage:LocalStorageService) {}
  
     public ngOnInit() {
+        // we save the products in the cart via ID and amount. We later get the products by id
         this.cartProducts = this.storage.retrieve('cartProducts');
     }
 }
