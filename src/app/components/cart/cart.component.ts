@@ -2,6 +2,7 @@ import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
 import { Language } from '../../language/language.service';
 import { CategoriesService } from '../../services/categories.service';
 import { ProductsService } from '../../services/products.service';
+import { LocalStorageService, SessionStorageService } from 'ng2-webstorage';
 
 @Component({
     selector: 'cart',
@@ -11,25 +12,11 @@ import { ProductsService } from '../../services/products.service';
 
 export class CartComponent implements OnInit {
 
-    private products =  Array<Object>();
+    public cartProducts;
 
-    constructor(
-        private language: Language,
-        private productsService: ProductsService,
-        private categoriesService: CategoriesService
-    ) {
-      this.products = productsService.getProducts();
-      // on categories update we update the local array
-      this.productsService.productsUpdate.subscribe(products => this.onProductsUpdate(products));
-    };
-
-    private onProductsUpdate(products) {
-      this.products = products;
-    }
-    /**
-     * @ngOnInit on init
-     */
+    constructor(private storage:LocalStorageService) {}
+ 
     public ngOnInit() {
-        
+        this.cartProducts = this.storage.retrieve('cartProducts');
     }
 }
