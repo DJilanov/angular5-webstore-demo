@@ -1,0 +1,34 @@
+<div class="form-section">
+  <h2>{{formOptions.title}}</h2>
+  <form (ngSubmit)="formOptions.onsubmit(ngForm)" #form="ngForm">
+    <div *ngFor="let field of formOptions.formFields" class="form-group">
+      <label [attr.for]="field.targetName">{{field.label}}</label>
+      <template [ngIf]="field.inputType == 'textarea'">
+        <textarea 
+          [(ngModel)]="ngForm[field.targetName]"
+          [attr.required]="field.required" 
+          class="form-control" 
+          name={{field.targetName}} 
+          id="{{field.targetName}}" 
+          rows="3" 
+          placeholder="{{field.placeholder}}">
+        </textarea>
+      </template>
+      <template [ngIf]="field.inputType != 'textarea'">
+        <input 
+          [(ngModel)]="ngForm[field.targetName]"
+          [attr.required]="field.required" 
+          type={{field.inputType}} 
+          class="form-control" 
+          name={{field.targetName}} 
+          id={{field.targetName}} 
+          placeholder={{field.placeholder}}>
+      </template>
+    </div>
+    <button type="submit"
+      [disabled]="ngForm.valid"
+      class={{formOptions.submitBtn.class}}>
+      {{formOptions.submitBtn.text}}
+    </button>
+  </form>
+</div>

@@ -5,28 +5,7 @@
       <h2>{{language.getTexts('contactPhoneTitle')}}</h2>
       <h4>{{language.getTexts('contactPhone')}}</h4>
     </div>
-    <div class="form-section">
-      <h2>{{language.getTexts('contactFormTitle')}}</h2>
-      <form>
-        <div class="form-group">
-          <label for="name">{{language.getTexts('contactFormYourName')}}</label>
-          <input type="text" class="form-control" id="name" placeholder="{{language.getTexts('contactFormYourNameEnter')}}">
-        </div>
-        <div class="form-group">
-          <label for="email">{{language.getTexts('contactFormYourEmail')}}</label>
-          <input type="email" class="form-control" id="email" placeholder="{{language.getTexts('contactFormYourEmailEnter')}}">
-        </div>
-        <div class="form-group">
-          <label for="phone">{{language.getTexts('contactFormYourPhoneNumber')}}</label>
-          <input type="phone" class="form-control" id="phone" placeholder="{{language.getTexts('contactFormYourPhoneNumberEnter')}}">
-        </div>
-        <div class="form-group">
-          <label for="message">{{language.getTexts('contactFormYourMessage')}}</label>
-          <textarea class="form-control" id="message" rows="3" placeholder="{{language.getTexts('contactFormYourMessageEnter')}}"></textarea>
-        </div>
-        <button type="submit" class="btn btn-default">{{language.getTexts('contactFormSend')}}</button>
-      </form>
-    </div>
+    <custom-form [formOptions]="contactFormModel"></custom-form>
   </div>
   <div class="map-container col-md-6 col-xs-12">
     <div class="address-section">

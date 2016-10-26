@@ -16,6 +16,7 @@ import { EnglishDictionary } from './language/en.dictionary';
 import { BulgarianDictionary } from './language/bg.dictionary';
 
 // Basic Components
+import { FormComponent } from './basic_components/form/form.component';
 import { ImageComponent } from './basic_components/image/image.component';
 import { ButtonComponent } from './basic_components/button/button.component';
 import { HeaderComponent } from './basic_components/header/header.component';
@@ -57,6 +58,7 @@ import { ProductsService } from './services/products.service';
     // Components & Views
     declarations: [ 
         AppComponent,
+        FormComponent,
         ImageComponent,
         ButtonComponent,
         HeaderComponent,
