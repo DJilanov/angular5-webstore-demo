@@ -7,6 +7,7 @@ import { HttpModule } from '@angular/http';
 import { Ng2BootstrapModule } from 'ng2-bootstrap/ng2-bootstrap';
 import { AgmCoreModule } from 'angular2-google-maps/core';
 import { RecaptchaModule, RecaptchaLoaderService } from 'ng2-recaptcha';
+import { Ng2Webstorage } from 'ng2-webstorage';
 
 // Router
 import { routing, appRoutingProviders } from './app.routing';
@@ -56,6 +57,7 @@ import { ErrorHandlerService } from './services/error.handler.service';
         routing,
         Ng2BootstrapModule,
         RecaptchaModule,
+        Ng2Webstorage,
         AgmCoreModule.forRoot({
           apiKey: 'AIzaSyDBbPzFEwNVTHNoZ-bz7YYqO1eMRPqTyUA'
         })
