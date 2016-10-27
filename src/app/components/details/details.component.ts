@@ -2,6 +2,7 @@ import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
 import { Language } from '../../language/language.service';
 import { CategoriesService } from '../../services/categories.service';
 import { ProductsService } from '../../services/products.service';
+import { EventEmiterService } from '../../services/event.emiter.service';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -22,8 +23,8 @@ export class DetailsComponent {
         private language: Language,
         private routeParams: ActivatedRoute,
         private productsService: ProductsService,
+        private eventEmiterService: EventEmiterService
     ) {
-        var self = this;
         this.routeParams.params.subscribe(params => this.setParams(params));
     };
 
@@ -33,7 +34,7 @@ export class DetailsComponent {
             if(this.product == undefined) {
                 this.product = {};
                 this.productLink = params['productLink'];
-                this.productsService.productsUpdate.subscribe(products => this.onProductsUpdate(products));
+                this.eventEmiterService.dataFetched.subscribe(data => this.onProductsUpdate(data.products));
                 return;
             }
         }

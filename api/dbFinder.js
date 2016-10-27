@@ -9,6 +9,19 @@
     // database arrays
     var products = [];
     var categories = [];
+
+    /**
+     * @fetchAllProductsAndCategories it returns all the categories and products
+     * @req {Object} The query from the front-end
+     * @res {Object} The res to the front-end
+     */
+    function fetchAllProductsAndCategories(req, res) {
+        var response = {
+            products: products,
+            categories: categories
+        }
+        res.json(response);
+    }
     /**
      * @fetchAllProducts It fetch all the products from the back-end
      * @req {Object} The query from the front-end
@@ -148,6 +161,7 @@
         find: find,
         connectDb: connectDb,
         fetchAllProducts: fetchAllProducts,
-        fetchAllCategories: fetchAllCategories
+        fetchAllCategories: fetchAllCategories,
+        fetchAllProductsAndCategories: fetchAllProductsAndCategories
     };
 }());

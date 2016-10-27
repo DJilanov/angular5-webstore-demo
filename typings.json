@@ -1,8 +1,9 @@
 {
     "globalDependencies": {
         "core-js": "registry:dt/core-js#0.0.0+20160725163759",
+        "firebase": "https://gist.githubusercontent.com/cdcarson/28399c50b02bf6c507fbf5b7b30daa31/raw/fa089d231ca4253d4715f8161efc6af74c972dfa/firebase-sdk-3-typings.d.ts",
+        "grecaptcha": "registry:dt/grecaptcha#0.0.0+20160808210619",
         "jasmine": "registry:dt/jasmine#2.2.0+20160621224255",
-        "node": "registry:dt/node#6.0.0+20160831021119",
-        "firebase": "https://gist.githubusercontent.com/cdcarson/28399c50b02bf6c507fbf5b7b30daa31/raw/fa089d231ca4253d4715f8161efc6af74c972dfa/firebase-sdk-3-typings.d.ts" 
+        "node": "registry:dt/node#6.0.0+20160831021119"
     }
 }

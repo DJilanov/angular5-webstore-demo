@@ -17,29 +17,20 @@ export class HeaderComponent implements OnInit {
     @Output()
     logOutBtnClick = new EventEmitter();
 
-    private products =  Array<Object>();
-
     private categories = Array<Object>();
 
     constructor(
         private language: Language,
-        private productsService: ProductsService,
         private categoriesService: CategoriesService,
         private router: Router
     ) {
-      this.products = productsService.getProducts();
       this.categories = categoriesService.getCategories();
       // on categories update we update the local array
-      this.productsService.productsUpdate.subscribe(products => this.onProductsUpdate(products));
       this.categoriesService.categoriesUpdate.subscribe(categories => this.onCategoriesUpdate(categories));
     };
 
     private onCategoriesUpdate(categories) {
       this.categories = categories;
-    }
-
-    private onProductsUpdate(products) {
-      this.products = products;
     }
 
     /**

@@ -2,10 +2,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule }  from '@angular/platform-browser';
 import { AngularFireModule } from 'angularfire2';
-import { FormsModule }   from '@angular/forms';
+import { FormsModule, ReactiveFormsModule, Validators }   from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { Ng2BootstrapModule } from 'ng2-bootstrap/ng2-bootstrap';
 import { AgmCoreModule } from 'angular2-google-maps/core';
+import { RecaptchaModule, RecaptchaLoaderService } from 'ng2-recaptcha';
 
 // Router
 import { routing, appRoutingProviders } from './app.routing';
@@ -42,15 +43,19 @@ import { Config } from './config';
 import { FetcherService } from './services/fetcher.service';
 import { CategoriesService } from './services/categories.service';
 import { ProductsService } from './services/products.service';
+import { EventEmiterService } from './services/event.emiter.service';
+import { ErrorHandlerService } from './services/error.handler.service';
 
 @NgModule({
     // Modules & Libs
     imports: [
         BrowserModule,
         FormsModule,
+        ReactiveFormsModule,
         HttpModule,
         routing,
         Ng2BootstrapModule,
+        RecaptchaModule,
         AgmCoreModule.forRoot({
           apiKey: 'AIzaSyDBbPzFEwNVTHNoZ-bz7YYqO1eMRPqTyUA'
         })
@@ -85,6 +90,7 @@ import { ProductsService } from './services/products.service';
         Config,
         // router of the app
         appRoutingProviders,
+        RecaptchaLoaderService,
         // languages
         Language,
         EnglishDictionary,
@@ -92,7 +98,9 @@ import { ProductsService } from './services/products.service';
         // services of the app
         FetcherService,
         CategoriesService,
-        ProductsService
+        ProductsService,
+        EventEmiterService,
+        ErrorHandlerService
     ]
 })
 

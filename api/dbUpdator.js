@@ -10,6 +10,16 @@
     // USE SCHEMA!!!
 
     /**
+     * @connectDb Used to make the message and send it to the database
+     */
+    function recieveMessage(req, res) {
+        var data = req.body;
+        res.json({
+            recieved: true
+        });
+    }
+
+    /**
      * @connectDb Used to make the connection to the Database
      */
     function connectDb() {
@@ -45,6 +55,7 @@
     }
 
     module.exports = {
-        connectDb: connectDb
+        connectDb: connectDb,
+        recieveMessage: recieveMessage
     };
 }());

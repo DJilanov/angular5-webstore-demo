@@ -8,7 +8,7 @@ import { Config } from '../config';
  * @DriverService used on all connections to the back-end for the drivers
  */
 export class CategoriesService {
-
+    // will be used when we have live update of products and everything is dynamic
     public categoriesUpdate: EventEmitter<any>;
     /**
     * @info: Contains all of the categories

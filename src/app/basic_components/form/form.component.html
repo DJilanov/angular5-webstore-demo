@@ -1,11 +1,11 @@
 <div class="form-section">
   <h2>{{formOptions.title}}</h2>
-  <form (ngSubmit)="formOptions.onsubmit(ngForm)" #form="ngForm">
+  <form  #feedback="ngForm" (ngSubmit)="onSubmit(ngForm)" [formGroup]="ngForm">
     <div *ngFor="let field of formOptions.formFields" class="form-group">
       <label [attr.for]="field.targetName">{{field.label}}</label>
       <template [ngIf]="field.inputType == 'textarea'">
         <textarea 
-          [(ngModel)]="ngForm[field.targetName]"
+          [formControl]="ngForm.controls[field.targetName]" 
           [attr.required]="field.required" 
           class="form-control" 
           name={{field.targetName}} 
@@ -16,7 +16,7 @@
       </template>
       <template [ngIf]="field.inputType != 'textarea'">
         <input 
-          [(ngModel)]="ngForm[field.targetName]"
+          [formControl]="ngForm.controls[field.targetName]" 
           [attr.required]="field.required" 
           type={{field.inputType}} 
           class="form-control" 
@@ -25,10 +25,25 @@
           placeholder={{field.placeholder}}>
       </template>
     </div>
-    <button type="submit"
-      [disabled]="ngForm.valid"
-      class={{formOptions.submitBtn.class}}>
-      {{formOptions.submitBtn.text}}
-    </button>
+    <div class="alert alert-danger" *ngIf="wrongCaptcha">
+      <strong>Danger!</strong> Indicates a dangerous or potentially negative action.
+    </div>
+    <div class="form-group">
+     <div class="col-xs-12 col-md-8 no-padding">
+     <recaptcha
+        name="captcha"
+        required
+        (resolved)="resolvedCaptcha($event)"
+        siteKey="6Lf10xETAAAAAFoODW33iIglPTpRXndsVkUmUOQh"
+      ></recaptcha>
+     </div>
+     <div class="col-xs-12 col-md-4 no-padding">
+        <button 
+          [disabled]="!ngForm.valid"
+          class={{formOptions.submitBtn.class}}>
+          {{formOptions.submitBtn.text}}
+        </button>
+     </div>
+    </div>
   </form>
 </div>

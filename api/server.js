@@ -14,9 +14,6 @@ dbFinder.connectDb();
 dbUpdator.connectDb();
 // this will let us get nv.PORT || 8080;        // set our port
 
-// ROUTES FOR OUR API
-// =============================================================================
-
 var port = process.env.PORT || 8080; // set our port
 
 // ROUTES FOR OUR API
@@ -40,13 +37,21 @@ app.all('/*', function(req, res, next) {
     // we call the real root
     next();
 });
-// when we call from the fetcher service we return the result
+// when we call from the fetcher service we return the products
 app.get('/api/products', function(req, res) {
     dbFinder.fetchAllProducts(req, res);
 });
-// when we call from the fetcher service we return the result
+// when we call from the fetcher service we return the categories
 app.get('/api/categories', function(req, res) {
     dbFinder.fetchAllCategories(req, res);
+});
+// when we call from the fetcher service we return the products and categories
+app.get('/api/productsAndCategories', function(req, res) {
+    dbFinder.fetchAllProductsAndCategories(req, res);
+});
+// when we call from the fetcher service we recieve the message, save it to the db and send back status
+app.post('/api/message', function(req, res) {
+    dbUpdator.recieveMessage(req, res);
 });
 
 console.log('Server is UP at ' + port);

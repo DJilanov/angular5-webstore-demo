@@ -1,8 +1,10 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { FetcherService } from './services/fetcher.service';
 import { CategoriesService } from './services/categories.service';
 import { ProductsService } from './services/products.service';
+import { EventEmiterService } from './services/event.emiter.service';
+import { ErrorHandlerService } from './services/error.handler.service';
 
 @Component({
     selector: 'app',
@@ -19,30 +21,40 @@ export class AppComponent implements OnInit {
         private router: Router,
         private fetcher: FetcherService,
         private productsService: ProductsService,
-        private categoriesService: CategoriesService
+        private categoriesService: CategoriesService,
+        private eventEmiterService: EventEmiterService,
+        private errorHandlerService: ErrorHandlerService
     ) {
-        fetcher.getProducts().subscribe(
-            data => this.setProducts(data),
-            err => this.handleError(err)
-        );
-        fetcher.getCategories().subscribe(
-            data => this.setCategories(data),
-            err => this.handleError(err)
+        // fetcher.getProducts().subscribe(
+        //     data => this.setProducts(data),
+        //     err => this.handleError(err)
+        // );
+        // fetcher.getCategories().subscribe(
+        //     data => this.setCategories(data),
+        //     err => this.handleError(err)
+        // );
+        fetcher.getProductsAndCategories().subscribe(
+            data => this.setData(data),
+            err => this.errorHandlerService.handleError(err)
         );
     };
 
+    private setData(result) {
+        var response = result.json();
+        this.setProducts(response.products);
+        this.setCategories(response.categories);
+        this.eventEmiterService.emitFetchedData(response);
+    }
+
     private setProducts(result) {
-        this.products = result.json();
+        this.products = result;
         this.productsService.setProducts(this.products);
     }
 
     private setCategories(result) {
-        this.categories = result.json();
+        this.categories = result;
         this.categoriesService.setCategories(this.categories);
-    }
 
-    private handleError(err) {
-        console.log(err);
     }
 
     public ngOnInit() {}

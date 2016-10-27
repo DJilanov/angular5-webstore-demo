@@ -1,7 +1,8 @@
-import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
+import { Component, Input, Output, OnInit } from '@angular/core';
 import { Language } from '../../language/language.service';
 import { CategoriesService } from '../../services/categories.service';
 import { ProductsService } from '../../services/products.service';
+import { EventEmiterService } from '../../services/event.emiter.service';
 
 @Component({
     selector: 'home',
@@ -34,21 +35,18 @@ export class HomeComponent implements OnInit {
     constructor(
         private language: Language,
         private productsService: ProductsService,
-        private categoriesService: CategoriesService
+        private categoriesService: CategoriesService,
+        private eventEmiterService: EventEmiterService
     ) {
       this.products = productsService.getProducts();
       this.categories = categoriesService.getCategories();
       // on categories update we update the local array
-      this.productsService.productsUpdate.subscribe(products => this.onProductsUpdate(products));
-      this.categoriesService.categoriesUpdate.subscribe(categories => this.onCategoriesUpdate(categories));
+      this.eventEmiterService.dataFetched.subscribe(data => this.onFetchedData(data));
     };
 
-    private onCategoriesUpdate(categories) {
-      this.categories = categories;
-    }
-
-    private onProductsUpdate(products) {
-      this.products = products;
+    private onFetchedData(data) {
+      this.products = data.products;
+      this.categories = data.categories;
     }
 
     private productsByCategory(category) {

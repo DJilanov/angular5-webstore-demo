@@ -1,11 +1,16 @@
 <div class="container">
-  <h1>{{language.getTexts('contactHeader')}}</h1>
   <div class="col-md-6 col-xs-12">
     <div class="phone-section">
       <h2>{{language.getTexts('contactPhoneTitle')}}</h2>
       <h4>{{language.getTexts('contactPhone')}}</h4>
     </div>
-    <custom-form [formOptions]="contactFormModel"></custom-form>
+    <div class="alert alert-success" *ngIf="messageSuccess">
+      <strong>Success!</strong> Indicates a successful or positive action.
+    </div>
+    <div class="alert alert-danger" *ngIf="messageFail">
+      <strong>Danger!</strong> Indicates a dangerous or potentially negative action.
+    </div>
+    <custom-form [formOptions]="contactFormModel" [formSubmit]="onContactFormSubmit"></custom-form>
   </div>
   <div class="map-container col-md-6 col-xs-12">
     <div class="address-section">
