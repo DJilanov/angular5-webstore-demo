@@ -4,7 +4,8 @@ import { Injectable } from '@angular/core';
 // Will contain all of the urls and constants of the app
 export class Config {
     // language
-    public static get defaultLang():string { return "bg"; }
+    public static get defaultLang():string { return 'bg'; }
+    public static get languages():Array<string> { return ['bg', 'en']; }
     // urls
     // public static get productsAndCategoriesUrl():string { return "http://c57e77b7.ngrok.io/api/productsAndCategories"; }
     // public static get categoriesUrl():string { return "http://c57e77b7.ngrok.io/api/categories"; }

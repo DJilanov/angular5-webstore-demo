@@ -33,6 +33,10 @@ export class HeaderComponent implements OnInit {
       this.categories = categories;
     }
 
+    private changeLanguage() {
+      this.language.changeLanguage();
+    }
+
     /**
      * @ngOnInit on init
      */
