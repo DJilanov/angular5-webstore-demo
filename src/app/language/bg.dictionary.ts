@@ -39,6 +39,8 @@ export class BulgarianDictionary {
         "contactFormYourMessage": "Вашето съобщение",
         "contactFormYourMessageEnter": "Въведете вашето съобщение",
         "contactFormSend": "Изпрати",
+        "contactCaptchaTitle": "Грешно попълнена анти бот система!",
+        "contactCaptcha": "Моля попълнете правилно анти бот проверката.",
 
         "productNew": "Нов",
         "productOffer": "Оферта",

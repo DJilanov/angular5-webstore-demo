@@ -2,6 +2,7 @@ import { Component, Input, Output, ViewChild, OnInit, EventEmitter } from '@angu
 import { FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
 import { RecaptchaLoaderService } from 'ng2-recaptcha';
 import { FetcherService } from '../../services/fetcher.service';
+import { Language } from '../../language/language.service';
 
 // import { DateComponent } from '../date/date.component';
 
@@ -71,7 +72,8 @@ export class FormComponent implements OnInit {
     private wrongCaptcha: boolean = false;
     
     constructor(
-        private fetcherService: FetcherService
+        private fetcherService: FetcherService,
+        private language: Language
     ) {}
 
     ngOnInit() {
@@ -94,6 +96,7 @@ export class FormComponent implements OnInit {
             this.wrongCaptcha = true;
             return;
         }
+        this.captcha = false;
         event.preventDefault();
         this.formSubmit(formData, this.formOptions['owner']);
     }
