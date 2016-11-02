@@ -11,13 +11,19 @@
     background-color: #2065b9;
 }
 
+.custom-navi.navbar-right {
+    margin-top: 7px;
+}
+
 .custom-navi.navbar-right li :hover,
 .custom-navi.navbar-right li :focus {
     background-color: white;
 }
 
 .custom-navi.navbar-right li.flag :hover, 
-.custom-navi.navbar-right li.flag :focus {
+.custom-navi.navbar-right li.flag :focus,
+.custom-navi.navbar-right li.cart :hover, 
+.custom-navi.navbar-right li.cart :focus {
     background-color: transparent;
 }
 
@@ -25,9 +31,10 @@
     color: white!important
 }
 
-.cart {
+.cart a {
     margin-right: 20px;
     color: white;
+    bottom: 7px;
 }
 
 .flag {

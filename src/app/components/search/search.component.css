@@ -1,3 +1,8 @@
-custom-carousel {
-    height: 400px;
+input {
+    width: 200px;
+}
+
+.image-holder {
+    display: inline-block;
+    width: 50px;
 }

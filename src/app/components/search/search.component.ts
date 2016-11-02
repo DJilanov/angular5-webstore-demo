@@ -11,27 +11,43 @@ import { ProductsService } from '../../services/products.service';
 
 export class SearchComponent {
     
-    @Input()
-    products: Array<Object>;
+    private products: Array<Object>;
+
+    private searchQuery:string = '';
 
     constructor(
         private language: Language,
-        private routeParams: ActivatedRoute,
+        private router: Router,
         private productsService: ProductsService
     ) {
-      this.routeParams.params.subscribe(params => this.setParams(params));
       this.products = productsService.getProducts();
+      this.addTypeaheadField();
       // on categories update we update the local array
       this.productsService.productsUpdate.subscribe(products => this.onProductsUpdate(products));
     };
 
-    private setParams(params) {
-        if(params['query']) {
-            debugger;
-        }
-    }
-
     private onProductsUpdate(products) {
       this.products = products;
+      this.addTypeaheadField();
+    }
+
+    private addTypeaheadField() {
+      var params = '';
+      for(var productCounter = 0; productCounter < this.products.length; productCounter++) {
+        if(this.products[productCounter]['params']) {
+          params = this.products[productCounter]['params'][this.language['language']].toString();
+        } else {
+          params = '';
+        }
+        this.products[productCounter]['typeahed'] = this.products[productCounter]['title'][this.language['language']] + ' ' + 
+                                                    this.products[productCounter]['more_info'][this.language['language']] + ' ' +
+                                                    this.products[productCounter]['description'][this.language['language']] + ' ' +
+                                                    this.products[productCounter]['link'] + ' ' +
+                                                    this.products[productCounter]['make'] + ' ' + params;
+      }
+    }
+
+    private onProductSelect(selected) {
+      this.router.navigate(['/details/', selected.item.link]);
     }
 }

@@ -1,8 +1,8 @@
 import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { CategoriesService } from '../../services/categories.service';
-import { ProductsService } from '../../services/products.service';
 import { Language } from '../../language/language.service';
+import { EventEmiterService } from '../../services/event.emiter.service';
 
 // import { DateComponent } from '../date/date.component';
 
@@ -12,35 +12,26 @@ import { Language } from '../../language/language.service';
     templateUrl: './header.component.html'
 })
 
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
 
-    @Output()
-    logOutBtnClick = new EventEmitter();
-
-    private categories = Array<Object>();
+    private categories:Array<Object>;
 
     constructor(
+        private router: Router,
         private language: Language,
         private categoriesService: CategoriesService,
-        private router: Router
+        private eventEmiterService: EventEmiterService
     ) {
       this.categories = categoriesService.getCategories();
       // on categories update we update the local array
-      this.categoriesService.categoriesUpdate.subscribe(categories => this.onCategoriesUpdate(categories));
+      this.eventEmiterService.dataFetched.subscribe(data => this.onFetchedData(data));
     };
 
-    private onCategoriesUpdate(categories) {
-      this.categories = categories;
+    private onFetchedData(data) {
+      this.categories = data.categories;
     }
 
     private changeLanguage() {
       this.language.changeLanguage();
-    }
-
-    /**
-     * @ngOnInit on init
-     */
-    public ngOnInit() {
-        
     }
 }

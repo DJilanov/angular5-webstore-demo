@@ -1,9 +1,21 @@
-<custom-carousel 
-  [carouselOptions]=carouselOptions>
-</custom-carousel>
-<div *ngFor="let category of categories">
-  <product-list 
-    [category]=category 
-    [products]=productsByCategory(category)>
-  </product-list>
-</div>
+<input 
+  [(ngModel)]="searchQuery"
+  [typeahead]="products"
+  [typeaheadItemTemplate]="customItemTemplate"
+  [typeaheadOptionField]="'typeahed'"  
+  [typeaheadOptionsLimit]="7"
+  (typeaheadOnSelect)="onProductSelect($event)"
+  class="form-control"
+  placeholder="{{language.getTexts('headerSearchFor')}}">
+
+<template #customItemTemplate let-model="item" let-index="index">
+  <h5>
+    <div class="image-holder">
+      <image 
+          [src]="model.main_image"
+          [alt]="model.title">
+      </image>
+    </div>
+    <span>{{model.title[language.language]}}</span>
+  </h5>
+</template>
