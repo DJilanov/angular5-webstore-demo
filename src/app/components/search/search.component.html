@@ -9,5 +9,13 @@
   placeholder="{{language.getTexts('headerSearchFor')}}">
 
 <template #customItemTemplate let-model="item" let-index="index">
-  <h5>{{model.title[language.language]}}</h5>
+  <h5>
+    <div class="image-holder">
+      <image 
+          [src]="model.main_image"
+          [alt]="model.title">
+      </image>
+    </div>
+    <span>{{model.title[language.language]}}</span>
+  </h5>
 </template>
