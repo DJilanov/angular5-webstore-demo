@@ -4,8 +4,8 @@
         // official db
         dbAddress: 'mongodb://admin:toniadmin@ds029207.mlab.com:29207/toni-website-new',
         // user for the website
-        dbUser: 'toni-website',
-        dbPassword: 'toni1221',
+        adminUser: 'toni-website',
+        adminPassword: 'toni1221',
         // used for the back-end
         dbUser: 'admin',
         dbPassword: 'toniadmin'

@@ -13,26 +13,55 @@
      * @connectDb Used to make the message and send it to the database
      */
     function recieveMessage(req, res) {
-        var data = req.body;
+        var query = getMessageQuery(req.body, res);
+        saveMessage(query);
         res.json({
             recieved: true
         });
+    }
+    // creates the message query that we are going to send to the back-end
+    function getMessageQuery(body, res) {
+        var query = {
+            'name': body.name,
+            'email': body.email,
+            'phone': body.phone,
+            'message': body.message,
+            'date': new Date()
+        };
+    }
+    // we fetch the latest collection and we send the message
+    function saveMessage(query) {
+        mongoose.connection.db.collection('messages', function(err, collection) {
+            collection.insertOne(query, messageCallback);
+        }
+    }
+    // fired after we save the message and we save it to the cache in the back-end for easier fetches
+    function messageCallback(a,b,c,d) {
+        debugger;
+    }
+    /**
+     * @connectDb Used to delete the message from the database
+     */
+    function deleteMessage(req, res) {
+        var querry = {
+            "_id": ObjectId(form._id)
+        };
+        var secondaryQuerry = {
+            $set: {
+                'name': element.form.name,
+                'email': element.form.email,
+                'phone': element.form.phone,
+                'message': element.form.message,
+                'date': new Date(),
+                'type': "message"
+            }
+        };
     }
 
     /**
      * @connectDb Used to make the connection to the Database
      */
     function connectDb() {
-        // we cache the product list when we open the back-end for faster working speed
-        mongoose.connection.on('connected', function() {
-            console.log('[dbConnector]Mongoose default connection open');
-            mongoose.connection.db.collection('worklogs', function(err, collection) {
-                collection.find().toArray(function(err, docs) {
-                    worklogs = docs;
-                });
-            });
-        });
-
         // If the connection throws an error
         mongoose.connection.on('error', function(err) {
             console.log('[dbConnector]Mongoose default connection error: ' + err);

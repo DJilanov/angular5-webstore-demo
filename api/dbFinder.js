@@ -9,7 +9,16 @@
     // database arrays
     var products = [];
     var categories = [];
+    var messages = [];
+    var cache = {};
 
+    /**
+     * @setCache set the cache as local variable
+     * @cache {Object} The cache object
+     */
+    function setCache(cacheModule) {
+        cache = cacheModule;
+    }
     /**
      * @fetchAllProductsAndCategories it returns all the categories and products
      * @req {Object} The query from the front-end
@@ -17,8 +26,8 @@
      */
     function fetchAllProductsAndCategories(req, res) {
         var response = {
-            products: products,
-            categories: categories
+            products: cache.getProducts(),
+            categories: cache.getCategories()
         }
         res.json(response);
     }
@@ -28,7 +37,7 @@
      * @res {Object} The res to the front-end
      */
     function fetchAllProducts(req, res) {
-        res.json(products);
+        res.json(cache.getProducts());
     }
     /**
      * @fetchAllCategories It fetch all the categories from the back-end
@@ -36,7 +45,15 @@
      * @res {Object} The res to the front-end
      */
     function fetchAllCategories(req, res) {
-        res.json(categories);
+        res.json(cache.getCategories());
+    }
+    /**
+     * @fetchAllMessages It fetch all the messages from the back-end
+     * @req {Object} The query from the front-end
+     * @res {Object} The res to the front-end
+     */
+    function fetchAllMessages(req, res) {
+        res.json(cache.getMessages());
     }
     /**
      * @find It searches in the back-end by query
@@ -126,12 +143,17 @@
             console.log('[dbConnector]Mongoose default connection open');
             mongoose.connection.db.collection('products', function(err, collection) {
                 collection.find().toArray(function(err, docs) {
-                    products = docs;
+                    cache.setProducts(products);
                 });
             });
             mongoose.connection.db.collection('categories', function(err, collection) {
                 collection.find().toArray(function(err, docs) {
-                    categories = docs;
+                    cache.setCategories(categories);
+                });
+            });
+            mongoose.connection.db.collection('messages', function(err, collection) {
+                collection.find().toArray(function(err, docs) {
+                    cache.setMessages(messages);
                 });
             });
         });

@@ -3,14 +3,17 @@
  */
 
 // call the packages we need
-var express = require('express'); // call express
 var app = express(); // define our app using express
+var express = require('express'); // call express
 var bodyParser = require('body-parser');
 // here we declare all functions we use for the standart user interface
-var dbUpdator = require('./dbUpdator');
+var cache = require('./cache');
 var dbFinder = require('./dbFinder');
+var dbUpdator = require('./dbUpdator');
+var validator = require('./validator');
 // we connect to the db using the credentials and fetch the db localy
 dbFinder.connectDb();
+dbFinder.setCache(cache);
 dbUpdator.connectDb();
 // this will let us get nv.PORT || 8080;        // set our port
 
@@ -49,9 +52,21 @@ app.get('/api/categories', function(req, res) {
 app.get('/api/productsAndCategories', function(req, res) {
     dbFinder.fetchAllProductsAndCategories(req, res);
 });
+// when we call from the fetcher service we return all messages
+app.get('/api/message', function(req, res) {
+    if(validator.validate(req.loginData)) {
+        dbFinder.fetchAllMessages(req, res);
+    }
+});
 // when we call from the fetcher service we recieve the message, save it to the db and send back status
 app.post('/api/message', function(req, res) {
     dbUpdator.recieveMessage(req, res);
 });
+
+app.delete('/api/message', function(req, res) {
+    if(validator.validate(req.loginData)) {
+        dbUpdator.recieveMessage(req, res);
+    }
+}
 
 console.log('Server is UP at ' + port);
