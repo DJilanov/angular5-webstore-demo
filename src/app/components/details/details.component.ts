@@ -13,11 +13,15 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 export class DetailsComponent {
 
-    private products =  Array<Object>();
-
     private product: Object;
 
     private productLink: String;
+
+    private imagesArray: Array<Object>;
+
+    private productPrice: Object;
+
+    private productOldPrice: Object;
 
     constructor(
         private language: Language,
@@ -37,12 +41,31 @@ export class DetailsComponent {
                 this.eventEmiterService.dataFetched.subscribe(data => this.onProductsUpdate(data.products));
                 return;
             }
+            this.productPrice = {
+                class: '',
+                price: this.product['new_price'],
+                currency: this.language.getTexts('currency'),
+            };
+            this.productOldPrice = {
+                class: 'line-through',
+                price: this.product['old_price']
+            };
+            this.imagesArray = this.product['main_image'].concat(this.product['other_images']);
         }
     }
 
     private onProductsUpdate(products) {
         if(this.productLink !== undefined) {
             this.product = this.productsService.getProductByLink(this.productLink);
+            this.productPrice = {
+                class: '',
+                price: this.product['new_price'],
+                currency: this.language.getTexts('currency'),
+            };
+            this.productOldPrice = {
+                class: 'line-through',
+                price: this.product['old_price']
+            };
         }
     }
 }

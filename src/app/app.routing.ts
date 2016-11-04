@@ -37,12 +37,6 @@ const appRoutes: Routes = [
       title: 'Cart'
     }
   }, { 
-    path: 'search:query', 
-    component: SearchComponent,
-    data: {
-      title: 'Search'
-    }
-  }, { 
     path: 'contacts', 
     component: ContactsComponent,
     data: {

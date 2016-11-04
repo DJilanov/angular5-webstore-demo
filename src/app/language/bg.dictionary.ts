@@ -51,6 +51,7 @@ export class BulgarianDictionary {
         "productMinAmount": "Минималното количество за покупка на продукта е",
         "productAddToCart": "Добавяне към количката",
         "productMoreInfo": "Повече информация",
+
         "addToCartSuccess": "Успешно добавяне към количката с поръчки",
         "removeFromCartSuccess": "Успешно премахване на поръчката",
         "emptyCart": "Количката ви е празна",
@@ -58,6 +59,12 @@ export class BulgarianDictionary {
         "orderRecieved": "Поръчката е получена успешно!",
         "price": "Цена",
         "products": "Продукти",
+        "currency": "лева",
+
+        "detailsBy": "производител:",
+        "detailsStock": "налична",
+        "detailsNotStock": "Очакваме доставка",
+        "detailsStatus": "Статус:",
 
         "loginHeader": "Моля попълнете формата за да влезете в профила си",
         "loginEmail": "Вашият e-mail адрес",

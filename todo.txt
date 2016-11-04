@@ -1,0 +1,13 @@
+Integrate responsive layout for the header navigation. 
+Find a way to not split to 2 rows navigation
+Make the price be able to controll where to be the currency based on the language we selected and in the future currency type
+
+
+
+
+work:
+Епам понеделник 12:00 Здравко. Има шанс да не стане за D3
+Чакаме обаждане от проксиад. Офертата е с тест върху ангулар 1.. ползват руби
+Чакаме обаждане от вмуеар.. позицията е контракторска и несигурна
+Скоре, четвъртък 19:15. На компютър с камера.
+Чакаме обаждане от съни софт и доста други фирми. Добави ги тук резултатите
