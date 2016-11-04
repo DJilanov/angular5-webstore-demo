@@ -1,1 +1,16 @@
-zoomable-images
+<!-- <img 
+[imageZoom]="'http://placekitten.com.s3.amazonaws.com/homepage-samples/408/287.jpg'"
+[lensStyle]="'LENS'"
+[src]="'http://placekitten.com.s3.amazonaws.com/homepage-samples/408/287.jpg'"> -->
+<div class="main-image-container col-xs-12" *ngIf="imagesArray">
+  <image 
+      [src]="imagesArray[0].image"
+      [alt]="imagesArray[0].text"></image>
+</div>
+<div class="sub-images-container col-xs-12">
+  <div class="sub-image-container" *ngFor="let imageCounter of imagesArray">
+    <img 
+      [src]="imageCounter.image"
+      [alt]="imageCounter.text">
+  </div>
+</div>

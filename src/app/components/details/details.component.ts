@@ -66,6 +66,7 @@ export class DetailsComponent {
                 class: 'line-through',
                 price: this.product['old_price']
             };
+            this.imagesArray = this.product['main_image'].concat(this.product['other_images']);
         }
     }
 }

@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { Ng2Webstorage } from 'ng2-webstorage';
 import { AngularFireModule } from 'angularfire2';
+import { ImageZoomModule } from 'angular2-image-zoom';
 import { AgmCoreModule } from 'angular2-google-maps/core';
 import { BrowserModule }  from '@angular/platform-browser';
 import { Ng2BootstrapModule } from 'ng2-bootstrap/ng2-bootstrap';
@@ -52,14 +53,15 @@ import { ErrorHandlerService } from './services/error.handler.service';
 @NgModule({
     // Modules & Libs
     imports: [
-        BrowserModule,
-        FormsModule,
-        ReactiveFormsModule,
-        HttpModule,
         routing,
-        Ng2BootstrapModule,
-        RecaptchaModule,
+        HttpModule,
+        FormsModule,
+        BrowserModule,
         Ng2Webstorage,
+        RecaptchaModule,
+        ImageZoomModule,
+        Ng2BootstrapModule,
+        ReactiveFormsModule,
         AgmCoreModule.forRoot({
           apiKey: 'AIzaSyDBbPzFEwNVTHNoZ-bz7YYqO1eMRPqTyUA'
         })
