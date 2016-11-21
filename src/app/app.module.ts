@@ -2,7 +2,6 @@
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { Ng2Webstorage } from 'ng2-webstorage';
-import { AngularFireModule } from 'angularfire2';
 import { ImageZoomModule } from 'angular2-image-zoom';
 import { AgmCoreModule } from 'angular2-google-maps/core';
 import { BrowserModule }  from '@angular/platform-browser';
@@ -40,6 +39,9 @@ import { ProductListComponent } from './components/product_list/product_list.com
 import { PageNotFoundComponent } from './components/page_not_found/page_not_found.component';
 import { ZoomableImagesComponent } from './components/zoomable_images/zoomable_images.component';
 
+// Admin
+import { AdminComponent } from './admin/components/admin/admin.component';
+
 // Config
 import { Config } from './config';
 
@@ -71,6 +73,7 @@ import { ErrorHandlerService } from './services/error.handler.service';
         AppComponent,
         FormComponent,
         ImageComponent,
+        AdminComponent,
         PriceComponent,
         ButtonComponent,
         HeaderComponent,

@@ -1,5 +1,9 @@
 input {
-    width: 200px;
+    width: 260px;
+}
+
+.typeahead-container {
+    overflow: hidden;
 }
 
 .image-holder {

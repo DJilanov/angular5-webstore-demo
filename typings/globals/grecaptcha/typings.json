@@ -1,8 +1,0 @@
-{
-  "resolution": "main",
-  "tree": {
-    "src": "https://raw.githubusercontent.com/DefinitelyTyped/DefinitelyTyped/f27002e2901cbb643cac55e81b77c73fa9dbf14a/grecaptcha/grecaptcha.d.ts",
-    "raw": "registry:dt/grecaptcha#0.0.0+20160808210619",
-    "typings": "https://raw.githubusercontent.com/DefinitelyTyped/DefinitelyTyped/f27002e2901cbb643cac55e81b77c73fa9dbf14a/grecaptcha/grecaptcha.d.ts"
-  }
-}

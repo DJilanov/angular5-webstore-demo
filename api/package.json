@@ -1,17 +1,17 @@
 {
-  "name": "JIRA-plugin-backend",
+  "name": "westernacher-user-spa-backend",
   "version": "1.0.0",
-  "description": "We are using it to fetch data from jira and show it into the front-end",
+  "description": "We are using it to controll the things that are done to the backend",
   "main": "server.js",
   "dependencies": {
     "body-parser": "^1.15.2",
-    "express": "^4.9.8",
+    "express": "^4.14.0",
     "mongodb": "^2.1.18",
     "mongoose": "^4.5.1",
     "request": "^2.72.0"
   },
   "engines": {
-    "node": "5.10.0"
+    "node": "7.1.0"
   },
   "author": "Dimitar Jilanov",
   "license": "MIT"

@@ -1,0 +1,470 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for services/caching.service.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">all files</a> / <a href="index.html">services/</a> caching.service.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">48.08% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>25/52</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">50% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>8/16</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">26.67% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>4/15</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">49.02% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>25/51</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Injectable, EventEmitter } from '@angular/core';
+import { EventEmiterService } from './event.emiter.service';
+import { User } from '../interfaces/user.interface';
+import { LocalStorageService } from 'angular-2-local-storage';
+&nbsp;
+import { Config } from '../config';
+&nbsp;
+@Injectable()
+&nbsp;
+/**<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ></span></span>
+ * @CachingService used to cache the data to have offline mode
+ */
+export class CachingService {
+    // TODO: cache the users in the front-end localstorage
+    private usersList;
+&nbsp;
+    /**
+    * @removeUserByID: remove user from the array based on its ID
+    * @response:&lt;Object&gt; Contins the expected user that must be re<span class="fstat-no" title="function not covered" >moved from the list</span>
+    */<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ></span></span>
+    public r<span class="cstat-no" title="statement not covered" >emoveUserByID(response) {</span>
+        this.usersList = this.usersList.filter(function(user) {
+<span class="cstat-no" title="statement not covered" >            return user.id !== response.user.id;</span>
+        });
+        this.eventEmiterService.emitUserListUpdates(this.usersList);
+    }
+&nbsp;
+    /**
+    * @updateUserByID: update user from the array based on its ID<span class="fstat-no" title="function not covered" ></span>
+    * @p<span class="cstat-no" title="statement not covered" >arameters:&lt;Object&gt; Contins the expected user that mu<span class="fstat-no" title="function not covered" >st be updated on the list</span></span>
+    */<span class="cstat-no" title="statement not covered" ></span>
+    public updat<span class="cstat-no" title="statement not covered" >eUserByID(parameters) {</span>
+        this.usersList = this.usersList.map(function(user) {
+<span class="cstat-no" title="statement not covered" >            if(user.id ==</span>= parameters.user.id) {
+                return parameters.user;
+<span class="cstat-no" title="statement not covered" >            } </span>
+            return user;
+        });
+        this.eventEmiterService.emitUserListUpdates(this.usersList);
+    }
+&nbsp;
+    /**<span class="fstat-no" title="function not covered" ></span>
+    * @c<span class="cstat-no" title="statement not covered" >reateUser: add new user to the current</span> array
+    * @p<span class="cstat-no" title="statement not covered" >arameters:&lt;Object&gt; Contins the expected user that must be add</span>ed to the list
+    */
+    public createUser(parameters) {
+        this.usersList.push(parameters.user);
+        this.eventEmiterService.emitUserListUpdates(this.usersList);
+    }
+<span class="fstat-no" title="function not covered" ></span>
+    /**<span class="cstat-no" title="statement not covered" ></span>
+    * @f<span class="cstat-no" title="statement not covered" >indUserByID: finds user from the array based on its ID</span>
+    * @id:&lt;S<span class="cstat-no" title="statement not covered" >tring&gt; the id that we use to search in the array</span>
+    */<span class="cstat-no" title="statement not covered" ></span>
+    private findUserByID(id:string) {
+        let user = {};
+        for(let userCounter = 0; userCounter &lt; this.usersList.length; userCounter++) {
+            if(this.usersList[userCounter].id == id) {
+                return this.usersList[userCounter];
+            }
+        }
+    }<span class="fstat-no" title="function not covered" ></span>
+&nbsp;
+    /**<span class="cstat-no" title="statement not covered" ></span>
+    * @cacheUsers: saves the changes over the users array in the localstorage
+    * @users:&lt;Users[]&gt; Contins the expected array with the changed users
+    */
+    private cacheUsers(users) {
+        // save them to the local storage
+        this.localStorageService.set('users', users);<span class="fstat-no" title="function not covered" ></span>
+    }
+<span class="cstat-no" title="statement not covered" ></span>
+    /**<span class="cstat-no" title="statement not covered" ></span>
+    * @updateUsersList: updated the user list based on the recieved one
+    * @users:&lt;User[]&gt; Contins the users array
+    */
+    private updateUsersList(users) {
+        // todo validate them
+        this.usersList = users;
+        this.cacheUsers(users);
+    }
+&nbsp;
+    /**
+    * @getUsersList: returns the users array
+    */
+    public getUsersList() {
+        // use localstorage users if the back-end doesnt respond.<span class="fstat-no" title="function not covered" > The error handler has to call the cache service in case </span>
+        // of proble<span class="cstat-no" title="statement not covered" >m a</span>nd it must emit event to the main that we have the cachied copies and warn the user!
+        return this.usersList;
+    }<span class="cstat-no" title="statement not covered" ></span>
+&nbsp;
+    /**<span class="cstat-no" title="statement not covered" ></span>
+    * @addRe<span class="cstat-no" title="statement not covered" >questToQuery</span>: add more user changes to the query
+    * @data:&lt;Object&gt; Contins the expected user that must be changed when we get online
+    */<span class="cstat-no" title="statement not covered" ></span>
+    public addRequestToQuery(data) {
+<span class="cstat-no" title="statement not covered" >        let query = [];</span>
+        // Parse the serialized data back into an aray of objects
+        query = JSON.parse(localStorage.getItem('query'));
+        // Push the new data (whether it be an object or anything else) onto the array
+        if(query == null) {
+            query = [];<span class="fstat-no" title="function not covered" ></span>
+        }<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >        query.push(data);</span>
+<span class="cstat-no" title="statement not covered" >        // Re-serializ</span>e the array back into a string and store it in localStorage
+        localStorage.setItem('query', JSON.stringify(query));
+    }
+&nbsp;
+    /**
+    * @getQueryRequests: returns the users changes that are waiting
+    */
+    public getQueryRequests() {
+        let query = [];
+        query = JSON.parse(localStorage.getItem('query'));
+        return query;<span class="branch-2 cbranch-no" title="branch not covered" ><span class="branch-2 cbranch-no" title="branch not covered" ></span></span>
+    }
+&nbsp;
+    /**
+    * @clearQueryRequests: clears the query from the old requests
+    */
+    public clearQueryRequests() {
+        localStorage.setItem('query', '[]');
+    }
+&nbsp;
+    constructor(
+        private eventEmiterService: EventEmiterService,
+        private localStorageService: LocalStorageService
+    ) {
+        this.eventEmiterService.dataFetched.subscribe(options =&gt; this.updateUsersList(options));
+        this.usersList = this.localStorageService.get('users');
+        // we empty the old query
+        this.clearQueryRequests();
+    }
+}
+&nbsp;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Tue Nov 15 2016 21:07:17 GMT+0200 (EET)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

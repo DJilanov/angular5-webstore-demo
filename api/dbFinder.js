@@ -142,17 +142,17 @@
         mongoose.connection.on('connected', function() {
             console.log('[dbConnector]Mongoose default connection open');
             mongoose.connection.db.collection('products', function(err, collection) {
-                collection.find().toArray(function(err, docs) {
+                collection.find().toArray(function(err, products) {
                     cache.setProducts(products);
                 });
             });
             mongoose.connection.db.collection('categories', function(err, collection) {
-                collection.find().toArray(function(err, docs) {
+                collection.find().toArray(function(err, categories) {
                     cache.setCategories(categories);
                 });
             });
             mongoose.connection.db.collection('messages', function(err, collection) {
-                collection.find().toArray(function(err, docs) {
+                collection.find().toArray(function(err, messages) {
                     cache.setMessages(messages);
                 });
             });
@@ -181,6 +181,7 @@
 
     module.exports = {
         find: find,
+        setCache: setCache,
         connectDb: connectDb,
         fetchAllProducts: fetchAllProducts,
         fetchAllCategories: fetchAllCategories,

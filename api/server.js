@@ -3,7 +3,6 @@
  */
 
 // call the packages we need
-var app = express(); // define our app using express
 var express = require('express'); // call express
 var bodyParser = require('body-parser');
 // here we declare all functions we use for the standart user interface
@@ -15,8 +14,9 @@ var validator = require('./validator');
 dbFinder.connectDb();
 dbFinder.setCache(cache);
 dbUpdator.connectDb();
+// define our app using express
+var app = express();
 // this will let us get nv.PORT || 8080;        // set our port
-
 var port = process.env.PORT || 8080; // set our port
 
 // ROUTES FOR OUR API
@@ -67,6 +67,6 @@ app.delete('/api/message', function(req, res) {
     if(validator.validate(req.loginData)) {
         dbUpdator.recieveMessage(req, res);
     }
-}
+});
 
 console.log('Server is UP at ' + port);

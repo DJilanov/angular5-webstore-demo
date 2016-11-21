@@ -9,7 +9,7 @@ import { ErrorHandlerService } from './services/error.handler.service';
 @Component({
     selector: 'app',
     templateUrl: './app.component.html',
-    styleUrls: ['./app.component.css']
+    styles: [ require('./sass/style.scss') ]
 })
 
 export class AppComponent implements OnInit {

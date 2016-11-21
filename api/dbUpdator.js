@@ -33,7 +33,7 @@
     function saveMessage(query) {
         mongoose.connection.db.collection('messages', function(err, collection) {
             collection.insertOne(query, messageCallback);
-        }
+        });
     }
     // fired after we save the message and we save it to the cache in the back-end for easier fetches
     function messageCallback(a,b,c,d) {
