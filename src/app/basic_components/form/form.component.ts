@@ -98,11 +98,11 @@ export class FormComponent implements OnInit {
         }
         this.captcha = false;
         event.preventDefault();
-        this.formSubmit(formData, this.formOptions['owner']);
+        this.formSubmit.call(this.formOptions['owner'], formData);
     }
 
     private resolvedCaptcha(value) {
-        if(value > 0) {
+        if(value.length > 0) {
             this.captcha = true;
         }
     }

@@ -1,4 +1,8 @@
-<custom-form 
+<custom-form
+  [hidden]="loggedIn"
   [formOptions]="adminLoginFormModel" 
-  [formSubmit]="login"
+  [formSubmit]="tryLogin"
   ></custom-form>
+<admin-home
+  [hidden]="!loggedIn"
+  ></admin-home>

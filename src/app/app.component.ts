@@ -16,6 +16,7 @@ export class AppComponent implements OnInit {
 
     private products: Array<Object>;
     private categories: Array<Object>;
+    private location: string;
 
     constructor(
         private router: Router,
@@ -25,14 +26,6 @@ export class AppComponent implements OnInit {
         private eventEmiterService: EventEmiterService,
         private errorHandlerService: ErrorHandlerService
     ) {
-        // fetcher.getProducts().subscribe(
-        //     data => this.setProducts(data),
-        //     err => this.handleError(err)
-        // );
-        // fetcher.getCategories().subscribe(
-        //     data => this.setCategories(data),
-        //     err => this.handleError(err)
-        // );
         fetcher.getProductsAndCategories().subscribe(
             data => this.setData(data),
             err => this.errorHandlerService.handleError(err)

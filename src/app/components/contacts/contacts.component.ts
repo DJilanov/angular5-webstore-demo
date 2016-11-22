@@ -70,10 +70,10 @@ export class ContactsComponent {
         owner: this
     };
 
-    private onContactFormSubmit(formData, self) {debugger;
-        self.fetcherService.sendMessage(formData.value).subscribe(
-            response => self.onMessageSend(response, formData),
-            err => self.errorHandlerService.handleError(err)
+    private onContactFormSubmit(formData) {
+        this.fetcherService.sendMessage(formData.value).subscribe(
+            response => this.onMessageSend(response, formData),
+            err => this.errorHandlerService.handleError(err)
         );
     }
 

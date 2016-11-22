@@ -42,6 +42,12 @@ export class BulgarianDictionary {
         "contactCaptchaTitle": "Грешно попълнена анти бот система!",
         "contactCaptcha": "Моля попълнете правилно анти бот проверката.",
 
+        "loginFormTitle": "Моля въведете вашия акаунт и парола",
+        "loginFormUsername": "Вашия акаунт",
+        "loginFormUsernameEnter": "Въведете вашия акаунт",
+        "loginFormPassword": "Вашата парола",
+        "loginFormPasswordEnter": "Въведете вашата парола",
+
         "productNew": "Нов",
         "productOffer": "Оферта",
         "productView": "Бърз преглед",

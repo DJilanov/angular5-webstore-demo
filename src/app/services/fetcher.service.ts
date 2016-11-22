@@ -38,5 +38,14 @@ export class FetcherService {
         return this.http.post( Config.messageUrl, body );
     }
 
+    // ADMIN
+    /**
+    * @adminLogin send request with login data to the back-end
+    * @return {Object} response of the back-end
+    */
+    public adminLogin(body) {
+        return this.http.post( Config.adminLoginUrl, body );
+    }
+
     constructor( private http: Http ) {}
 }

@@ -11,6 +11,7 @@ export class Config {
     public static get categoriesUrl():string { return "http://4055c814.ngrok.io/api/categories"; }
     public static get productsUrl():string { return "http://4055c814.ngrok.io/api/products"; }
     public static get messageUrl():string { return "http://4055c814.ngrok.io/api/message"; }
+    public static get adminLoginUrl():string { return "http://4055c814.ngrok.io/api/admin/login"; }
 
     // staging
     // public static get productsAndCategoriesUrl():string { return "https://morning-oasis-39757.herokuapp.com/api/productsAndCategories"; }

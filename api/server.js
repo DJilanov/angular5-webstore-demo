@@ -62,10 +62,24 @@ app.get('/api/message', function(req, res) {
 app.post('/api/message', function(req, res) {
     dbUpdator.recieveMessage(req, res);
 });
-
+// when we want to delete message
 app.delete('/api/message', function(req, res) {
     if(validator.validate(req.loginData)) {
         dbUpdator.recieveMessage(req, res);
+    }
+});
+// used to log in as administrator
+app.post('/api/admin/login', function(req, res) {
+    if(validator.validate(req.loginData)) {
+        res.json(200, {
+            'success': true,
+            'reason': null
+        });
+    } else {
+        res.json(404, {
+            'success': false,
+            'reason': 'Wrong Data'
+        });
     }
 });
 

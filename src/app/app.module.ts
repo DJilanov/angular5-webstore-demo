@@ -41,6 +41,9 @@ import { ZoomableImagesComponent } from './components/zoomable_images/zoomable_i
 
 // Admin
 import { AdminComponent } from './admin/components/admin/admin.component';
+import { AdminHomeComponent } from './admin/components/admin-home/admin_home.component';
+
+import { AuthService } from './admin/services/auth.service';
 
 // Config
 import { Config } from './config';
@@ -70,26 +73,29 @@ import { ErrorHandlerService } from './services/error.handler.service';
     ],
     // Components & Views
     declarations: [ 
+        // standard components
         AppComponent,
         FormComponent,
         ImageComponent,
-        AdminComponent,
         PriceComponent,
         ButtonComponent,
         HeaderComponent,
         ProductComponent,
         CarouselComponent,
-        ProductListComponent,
         NotificationComponent,
         ZoomableImagesComponent,
-        // TableComponent,
-        SideMenuComponent,
+        // SideMenuComponent,
+        // views
         HomeComponent,
-        ContactsComponent,
-        PageNotFoundComponent,
         CartComponent,
         SearchComponent,
-        DetailsComponent
+        DetailsComponent,
+        ContactsComponent,
+        ProductListComponent,
+        PageNotFoundComponent,
+        // admin
+        AdminComponent,
+        AdminHomeComponent,
     ],
     // Bootstraping
     bootstrap: [ 
@@ -111,7 +117,10 @@ import { ErrorHandlerService } from './services/error.handler.service';
         CategoriesService,
         ProductsService,
         EventEmiterService,
-        ErrorHandlerService
+        ErrorHandlerService,
+
+        // admin
+        AuthService
     ]
 })
 
