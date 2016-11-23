@@ -1,5 +1,5 @@
 import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
-import { Language } from '../../language/language.service';
+import { Dictionary } from '../../dictionary/dictionary.service';
 
 // import { DateComponent } from '../date/date.component';
 
@@ -24,6 +24,6 @@ export class ProductComponent implements OnInit {
     }
 
     constructor(
-        private language: Language
+        private dictionary: Dictionary
     ){}
 }

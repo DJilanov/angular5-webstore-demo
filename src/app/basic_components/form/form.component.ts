@@ -2,7 +2,7 @@ import { Component, Input, Output, ViewChild, OnInit, EventEmitter } from '@angu
 import { FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
 import { RecaptchaLoaderService } from 'ng2-recaptcha';
 import { FetcherService } from '../../services/fetcher.service';
-import { Language } from '../../language/language.service';
+import { Dictionary } from '../../dictionary/dictionary.service';
 
 // import { DateComponent } from '../date/date.component';
 
@@ -13,52 +13,6 @@ import { Language } from '../../language/language.service';
 })
 
 export class FormComponent implements OnInit {
-    
-    /* Example form Options object:
-
-    title: this.language.getTexts('contactFormTitle'),
-        formFields: [
-            {
-                label: this.language.getTexts('contactFormYourName'),
-                targetName: "name",
-                inputType: "text",
-                required: true,
-                validation: [<any>Validators.required, <any>Validators.maxLength(40)],
-                placeholder: this.language.getTexts('contactFormYourNameEnter')
-            },
-            {
-                label: this.language.getTexts('contactFormYourEmail'),
-                targetName: "email",
-                inputType: "email",
-                required: true,
-                validation: [<any>Validators.required, <any>Validators.pattern(this.emailValidationRegex)],
-                placeholder: this.language.getTexts('contactFormYourEmailEnter')
-            },
-            {
-                label: this.language.getTexts('contactFormYourPhoneNumber'),
-                targetName: "phone",
-                inputType: "phone",
-                required: true,
-                validation: [<any>Validators.required, <any>Validators.pattern(this.phoneValidationRegex)],
-                placeholder: this.language.getTexts('contactFormYourPhoneNumberEnter')
-            },
-            {
-                label: this.language.getTexts('contactFormYourMessage'),
-                targetName: "message",
-                inputType: "textarea",
-                required: true,
-                validation: [<any>Validators.required, <any>Validators.minLength(10)],
-                placeholder: this.language.getTexts('contactFormYourMessageEnter')
-            }
-        ],
-        submitBtn: {
-            class: "btn btn-default",
-            text: this.language.getTexts('contactFormSend')
-        },
-        recaptcha: true,
-        owner: this
-
-    */
     @Input()
     formOptions: Object;
 
@@ -73,7 +27,7 @@ export class FormComponent implements OnInit {
     
     constructor(
         private fetcherService: FetcherService,
-        private language: Language
+        private dictionary: Dictionary
     ) {}
 
     ngOnInit() {
@@ -96,14 +50,15 @@ export class FormComponent implements OnInit {
             this.wrongCaptcha = true;
             return;
         }
-        this.captcha = false;
         event.preventDefault();
         this.formSubmit.call(this.formOptions['owner'], formData);
     }
 
     private resolvedCaptcha(value) {
-        if(value.length > 0) {
+        if((value !== null) && (value.length > 0)) {
             this.captcha = true;
+        } else {
+            this.captcha = false;
         }
     }
 }

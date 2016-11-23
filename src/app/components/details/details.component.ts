@@ -1,5 +1,5 @@
 import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
-import { Language } from '../../language/language.service';
+import { Dictionary } from '../../dictionary/dictionary.service';
 import { CategoriesService } from '../../services/categories.service';
 import { ProductsService } from '../../services/products.service';
 import { EventEmiterService } from '../../services/event.emiter.service';
@@ -24,7 +24,7 @@ export class DetailsComponent {
     private productOldPrice: Object;
 
     constructor(
-        private language: Language,
+        private dictionary: Dictionary,
         private routeParams: ActivatedRoute,
         private productsService: ProductsService,
         private eventEmiterService: EventEmiterService
@@ -44,7 +44,7 @@ export class DetailsComponent {
             this.productPrice = {
                 class: '',
                 price: this.product['new_price'],
-                currency: this.language.getTexts('currency'),
+                currency: this.dictionary.getTexts('currency'),
             };
             this.productOldPrice = {
                 class: 'line-through',
@@ -60,7 +60,7 @@ export class DetailsComponent {
             this.productPrice = {
                 class: '',
                 price: this.product['new_price'],
-                currency: this.language.getTexts('currency'),
+                currency: this.dictionary.getTexts('currency'),
             };
             this.productOldPrice = {
                 class: 'line-through',

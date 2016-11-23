@@ -1,0 +1,8 @@
+.modal .modal-body {
+    padding: 0;
+}
+
+.modal .modal-content {
+    overflow: auto;
+    padding: 20px;
+}

@@ -1,3 +1,14 @@
+ul {
+    margin: auto auto;
+}
+
+li {
+    list-style-type: none;
+    position: relative;
+    height: 190px;
+    margin: 10px;
+}
+
 .round {
     display: block;
     position: absolute;

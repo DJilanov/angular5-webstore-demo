@@ -1,5 +1,5 @@
 import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
-import { Language } from '../../language/language.service';
+import { Dictionary } from '../../dictionary/dictionary.service';
 import { CategoriesService } from '../../services/categories.service';
 import { ProductsService } from '../../services/products.service';
 import { LocalStorageService, SessionStorageService } from 'ng2-webstorage';

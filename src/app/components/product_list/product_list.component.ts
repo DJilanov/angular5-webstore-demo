@@ -1,5 +1,5 @@
 import { Component, Input, Output } from '@angular/core';
-import { Language } from '../../language/language.service';
+import { Dictionary } from '../../dictionary/dictionary.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ProductsService } from '../../services/products.service';
 import { CategoriesService } from '../../services/categories.service';
@@ -26,7 +26,7 @@ export class ProductListComponent {
      * @constructor on init
      */
     public constructor(
-        private language: Language,
+        private dictionary: Dictionary,
         private routeParams: ActivatedRoute,
         private productsService: ProductsService,
         private categoriesService: CategoriesService,

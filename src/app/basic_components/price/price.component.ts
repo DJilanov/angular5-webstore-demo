@@ -1,5 +1,5 @@
 import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
-import { Language } from '../../language/language.service';
+import { Dictionary } from '../../dictionary/dictionary.service';
 
 @Component({
     selector: 'price',
@@ -13,6 +13,6 @@ export class PriceComponent {
     priceOptions: Object;
     
     constructor(
-        private language: Language
+        private dictionary: Dictionary
     ) {}
 }

@@ -3,3 +3,7 @@ custom-form {
     display: block;
     margin: auto auto;
 }
+
+[hidden] {
+    display: none!important;
+}

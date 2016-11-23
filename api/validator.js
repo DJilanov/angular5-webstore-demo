@@ -8,6 +8,8 @@
      * @userData {Object} The user login information from the front-end
      */
     function validate(userData) {
+        // just for development time
+        return true;
         return ((userData.username == config.adminUser) && (userData.password == config.adminPassword));
     }
 

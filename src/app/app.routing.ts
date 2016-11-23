@@ -12,6 +12,7 @@ import { PageNotFoundComponent } from './components/page_not_found/page_not_foun
 
 // Admin Views
 import { AdminComponent } from './admin/components/admin/admin.component';
+import { AdminProductsComponent } from './admin/components/admin-products/admin_products.component';
 
 const appRoutes: Routes = [
   { 
@@ -58,7 +59,7 @@ const appRoutes: Routes = [
     }
   }, { 
     path: 'admin/products', 
-    component: AdminComponent,
+    component: AdminProductsComponent,
     data: {
       title: 'Products'
     }

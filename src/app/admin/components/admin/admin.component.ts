@@ -1,7 +1,7 @@
 import { Component, Input, Output } from '@angular/core';
 import { Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
-import { Language } from '../../../language/language.service';
+import { Dictionary } from '../../../dictionary/dictionary.service';
 import { FetcherService } from '../../../services/fetcher.service';
 import { ErrorHandlerService } from '../../../services/error.handler.service';
 
@@ -13,28 +13,28 @@ import { ErrorHandlerService } from '../../../services/error.handler.service';
 
 export class AdminComponent {
    private adminLoginFormModel: Object = {
-        title: this.language.getTexts('loginFormTitle'),
+        title: this.dictionary.getTexts('loginFormTitle'),
         formFields: [
             {
-                label: this.language.getTexts('loginFormUsername'),
+                label: this.dictionary.getTexts('loginFormUsername'),
                 targetName: "username",
                 inputType: "text",
                 required: true,
                 validation: [<any>Validators.required, <any>Validators.maxLength(40)],
-                placeholder: this.language.getTexts('loginFormUsernameEnter')
+                placeholder: this.dictionary.getTexts('loginFormUsernameEnter')
             },
             {
-                label: this.language.getTexts('loginFormPassword'),
+                label: this.dictionary.getTexts('loginFormPassword'),
                 targetName: "password",
                 inputType: "password",
                 required: true,
                 validation: [<any>Validators.required, <any>Validators.maxLength(40)],
-                placeholder: this.language.getTexts('loginFormPasswordEnter')
+                placeholder: this.dictionary.getTexts('loginFormPasswordEnter')
             }
         ],
         submitBtn: {
             class: "btn btn-default",
-            text: this.language.getTexts('contactFormSend')
+            text: this.dictionary.getTexts('contactFormSend')
         },
         captcha: true,
         owner: this
@@ -43,7 +43,7 @@ export class AdminComponent {
     private loggedIn: boolean = false;
 
     constructor(
-        private language: Language,
+        private dictionary: Dictionary,
         private authService: AuthService,
         private fetcherService: FetcherService,
         private errorHandlerService: ErrorHandlerService

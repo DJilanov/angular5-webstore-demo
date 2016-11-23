@@ -1,5 +1,5 @@
 <div class="container" *ngIf="category.title">
-  <h1>{{category.title[language.language]}}</h1>
+  <h1>{{category.title[dictionary.language]}}</h1>
   <template ngFor #productObject [ngForOf]="products" let-index="index">
     <div class="col-xs-12 col-sm-12 col-md-4">
       <product [productObject]=products[index]></product>

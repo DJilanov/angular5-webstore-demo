@@ -1,5 +1,5 @@
 import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
-import { Language } from '../../language/language.service';
+import { Dictionary } from '../../dictionary/dictionary.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ProductsService } from '../../services/products.service';
 
@@ -16,7 +16,7 @@ export class SearchComponent {
     private searchQuery:string = '';
 
     constructor(
-        private language: Language,
+        private dictionary: Dictionary,
         private router: Router,
         private productsService: ProductsService
     ) {
@@ -35,13 +35,13 @@ export class SearchComponent {
       var params = '';
       for(var productCounter = 0; productCounter < this.products.length; productCounter++) {
         if(this.products[productCounter]['params']) {
-          params = this.products[productCounter]['params'][this.language['language']].toString();
+          params = this.products[productCounter]['params'][this.dictionary['language']].toString();
         } else {
           params = '';
         }
-        this.products[productCounter]['typeahed'] = this.products[productCounter]['title'][this.language['language']] + ' ' + 
-                                                    this.products[productCounter]['more_info'][this.language['language']] + ' ' +
-                                                    this.products[productCounter]['description'][this.language['language']] + ' ' +
+        this.products[productCounter]['typeahed'] = this.products[productCounter]['title'][this.dictionary['language']] + ' ' + 
+                                                    this.products[productCounter]['more_info'][this.dictionary['language']] + ' ' +
+                                                    this.products[productCounter]['description'][this.dictionary['language']] + ' ' +
                                                     this.products[productCounter]['link'] + ' ' +
                                                     this.products[productCounter]['make'] + ' ' + params;
       }

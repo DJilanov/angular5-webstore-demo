@@ -1,6 +1,6 @@
 import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
 import { Validators } from '@angular/forms';
-import { Language } from '../../language/language.service';
+import { Dictionary } from '../../dictionary/dictionary.service';
 import { FetcherService } from '../../services/fetcher.service';
 import { ErrorHandlerService } from '../../services/error.handler.service';
 
@@ -88,7 +88,7 @@ export class ContactsComponent {
     }
 
     constructor(
-        private language: Language,
+        private dictionary: Dictionary,
         private fetcherService: FetcherService,
         private errorHandlerService: ErrorHandlerService
     ) {}

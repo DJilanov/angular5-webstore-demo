@@ -4,40 +4,40 @@
     <div>Choose what you want to view or edit</div>
   </div>
   <ul>
-    <li>
-      <a [routerLink]="['admin/navigation']" class="round green">
+    <li class="col-lg-2">
+      <a [routerLink]="['./navigation']" class="round green">
         Navigation
         <span class="round">
           Here you can view or edit the navigation.
         </span>
       </a>
     </li>
-  <li>
-    <a [routerLink]="['admin/products']" class="round yellow">
+  <li class="col-lg-2">
+    <a [routerLink]="['./products']" class="round yellow">
       Products
       <span class="round">
         Here you can view or edit the products that are sorted based on their list
       </span>
     </a>
   </li>
-  <li>
-    <a [routerLink]="['admin/categories']" class="round red">
+  <li class="col-lg-2">
+    <a [routerLink]="['./categories']" class="round red">
       Category
       <span class="round">
         Here you can view or edit the categories
       </span>
     </a>
   </li>
-  <li>
-    <a [routerLink]="['admin/messages']" class="round green">
+  <li class="col-lg-2">
+    <a [routerLink]="['./messages']" class="round green">
       Messages
         <span class="round">
           Here you can see all recieved messages and delete if you dont need some of them
         </span>
     </a>
   </li>
-  <li>
-    <a [routerLink]="['admin/orders']" class="round yellow">
+  <li class="col-lg-2">
+    <a [routerLink]="['./orders']" class="round yellow">
       Orders
       <span class="round">
           Here you can see all recived orders and delete if you dont need some of them

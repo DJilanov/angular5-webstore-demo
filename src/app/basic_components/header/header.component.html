@@ -7,10 +7,10 @@
   <ul class="nav navbar-nav navbar-left custom-navi" 
     *ngIf="categories.length > 0">
     <li *ngFor="let category of categories">
-      <a [routerLink]="['products', category.link]">{{category.title[language.language]}}</a>
+      <a [routerLink]="['products', category.link]">{{category.title[dictionary.language]}}</a>
     </li>
     <li>
-      <a [routerLink]="['contacts']">{{language.getTexts('headerContact')}}</a>
+      <a [routerLink]="['contacts']">{{dictionary.getTexts('headerContact')}}</a>
     </li>
   </ul>
   <ul class="nav navbar-nav navbar-right custom-navi" 
@@ -25,8 +25,8 @@
     </li>
     <li class="flag" (click)="changeLanguage()">
       <image 
-        [src]="'./src/img/' + language.nextLanguage() + '.png'"
-        [alt]="language.language"></image>
+        [src]="'./src/img/' + dictionary.nextLanguage() + '.png'"
+        [alt]="dictionary.language"></image>
     </li>
   </ul>
 </header>

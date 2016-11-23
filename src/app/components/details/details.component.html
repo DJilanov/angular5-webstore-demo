@@ -4,17 +4,17 @@
   </div>
   <div class="col-md-7 col-xs-12 info-section">
     <section class="center">
-      <h1>{{product.title[language.language]}}</h1>
-      <h4>{{language.getTexts('detailsBy')}} {{product.make}}</h4>
+      <h1>{{product.title[dictionary.language]}}</h1>
+      <h4>{{dictionary.getTexts('detailsBy')}} {{product.make}}</h4>
       <rating [(ngModel)]="product.rating" max="5" stateOn="glyphicon-star"
             stateOff="glyphicon-star-empty"></rating>
     </section>
     <section class="center">
-      <h5 >{{language.getTexts('detailsStatus')}} 
-        <strong *ngIf="product.count > 0">{{language.getTexts('detailsStock')}}</strong>
-        <strong *ngIf="product.count == 0">{{language.getTexts('detailsNotStock')}}</strong>
+      <h5 >{{dictionary.getTexts('detailsStatus')}} 
+        <strong *ngIf="product.count > 0">{{dictionary.getTexts('detailsStock')}}</strong>
+        <strong *ngIf="product.count == 0">{{dictionary.getTexts('detailsNotStock')}}</strong>
       </h5>
-      <h5 >{{language.getTexts('price')}} 
+      <h5 >{{dictionary.getTexts('price')}} 
         <strong *ngIf="product.old_price.length > 0">
           <price [priceOptions]="productOldPrice"></price>
         </strong>
@@ -24,15 +24,15 @@
       </h5>
     </section>
     <section class="description center">
-      <p>{{ product.description[language.language] }}</p>
+      <p>{{ product.description[dictionary.language] }}</p>
     </section>
     <div class="params" *ngIf="product.params">
-      <ul *ngFor="let params of product.params[language.language]">
+      <ul *ngFor="let params of product.params[dictionary.language]">
         <li>{{params}}</li>
       </ul>
     </div>
     <section class="more-info center">
-      <p>{{ product.more_info[language.language] }}</p>
+      <p>{{ product.more_info[dictionary.language] }}</p>
     </section>
   </div>
   <div class="col-md-2 col-xs-12 buy-section">
@@ -40,54 +40,7 @@
   </div>
   <div class="col-xs-12">
     <section class="more-details">
-      <p>{{ product.more_details[language.language] }}</p>
+      <p>{{ product.more_details[dictionary.language] }}</p>
     </section>
   </div>
 </div>
-<!-- {
-    "_id": {
-        "$oid": "5804f5114188d122ea5d507f"
-    },
-    "category": "videosecurity",
-    "main_image": "",
-    "other_images": [],
-    "title": {
-        "bg": "IP камера 4 МР  2560x1440 точки",
-        "en": "IP камера 4 МР  2560x1440 точки"
-    },
-    "description": {
-        "bg": "за външен монтаж Наблюдение на обекти до 100м.",
-        "en": "Съвместима с INTEL и AMD дънни платкиEN"
-    },
-    "more_info": {
-        "bg": "Видеопроцесор с възможност за персонална настройка на параметрите..",
-        "en": "Допълнителна информацияEN"
-    },
-    "more_details": {
-        "bg": "Комплектована с обектив 16 mm. Възможност за допълнително цифрово увеличение на картината. Вграден сървър за наблюдение през смартфон или компютър.",
-        "en": "Допълнителна информацияEN"
-    },
-    "new_price": "170.00",
-    "old_price": "",
-    "daily_offer": false,
-    "zIndex": 2,
-    "shown": true,
-    "count": 5,
-    "is_new": false,
-    "carousel": true,
-    "link": "ip_camera_4mp_aptina_ccd_2560X1440px",
-    "params": {
-        "bg": [
-            "Много бърза",
-            "Адски бърза",
-            "Твърде бърза"
-        ],
-        "en": [
-            "Много бърза",
-            "Адски бърза",
-            "Твърде бърза"
-        ]
-    },
-    "rating": 4.7,
-    "make": "APTINA"
-} -->

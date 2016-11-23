@@ -13,9 +13,9 @@ import { FormsModule, ReactiveFormsModule, Validators }   from '@angular/forms';
 import { routing, appRoutingProviders } from './app.routing';
 
 // Language 
-import { Language } from './language/language.service';
-import { EnglishDictionary } from './language/en.dictionary';
-import { BulgarianDictionary } from './language/bg.dictionary';
+import { Dictionary } from './dictionary/dictionary.service';
+import { EnglishDictionary } from './dictionary/en.dictionary';
+import { BulgarianDictionary } from './dictionary/bg.dictionary';
 
 // Basic Components
 import { FormComponent } from './basic_components/form/form.component';
@@ -42,6 +42,8 @@ import { ZoomableImagesComponent } from './components/zoomable_images/zoomable_i
 // Admin
 import { AdminComponent } from './admin/components/admin/admin.component';
 import { AdminHomeComponent } from './admin/components/admin-home/admin_home.component';
+import { AdminProductsComponent } from './admin/components/admin-products/admin_products.component';
+import { AdminProductModalComponent } from './admin/components/admin-product-modal/admin_product_modal.component';
 
 import { AuthService } from './admin/services/auth.service';
 
@@ -96,6 +98,8 @@ import { ErrorHandlerService } from './services/error.handler.service';
         // admin
         AdminComponent,
         AdminHomeComponent,
+        AdminProductsComponent,
+        AdminProductModalComponent,
     ],
     // Bootstraping
     bootstrap: [ 
@@ -109,7 +113,7 @@ import { ErrorHandlerService } from './services/error.handler.service';
         appRoutingProviders,
         RecaptchaLoaderService,
         // languages
-        Language,
+        Dictionary,
         EnglishDictionary,
         BulgarianDictionary,
         // services of the app

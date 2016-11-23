@@ -1,7 +1,7 @@
 import { Component, Input, Output, OnInit } from '@angular/core';
-import { Language } from '../../language/language.service';
-import { CategoriesService } from '../../services/categories.service';
+import { Dictionary } from '../../dictionary/dictionary.service';
 import { ProductsService } from '../../services/products.service';
+import { CategoriesService } from '../../services/categories.service';
 import { EventEmiterService } from '../../services/event.emiter.service';
 
 @Component({
@@ -33,7 +33,7 @@ export class HomeComponent implements OnInit {
     private categories = Array<Object>();
 
     constructor(
-        private language: Language,
+        private dictionary: Dictionary,
         private productsService: ProductsService,
         private categoriesService: CategoriesService,
         private eventEmiterService: EventEmiterService

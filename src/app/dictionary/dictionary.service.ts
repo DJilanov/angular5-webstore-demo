@@ -4,7 +4,7 @@ import { EnglishDictionary } from './en.dictionary.ts';
 import { BulgarianDictionary } from './bg.dictionary.ts';
 
 @Injectable()
-export class Language {
+export class Dictionary {
     // the variables containing the language jsons
     // will contain the default language
     private language: string = ''; 

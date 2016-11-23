@@ -106,6 +106,10 @@ export class BulgarianDictionary {
         "errorWrongPassword": "Въвели сте грешен е-мейл или парола. Опитайте отново.",
         "errorDifferentPasswords": "Паролите не съвпадат. Моля попълнете ги наново",
         "successSendMessage": "Съобщението е изпратено",
-        "resolveCaptcha": "Моля попълнете правилно анти бот система."
+        "resolveCaptcha": "Моля попълнете правилно анти бот система.",
+
+        "productEditTitle": "Заглавие",
+
+        "changeWasSccessful": "Вашата промяна беше успешна.",
     }
 }

@@ -9,22 +9,22 @@
       </div>
     </div>
     <div class="title">
-      {{productObject.title[language.language]}}
+      {{productObject.title[dictionary.language]}}
     </div>
     <div>
       <rating [(ngModel)]="productObject.rating" max="5" stateOn="glyphicon-star"
           stateOff="glyphicon-star-empty"></rating>
     </div>
     <div class="params" *ngIf="productObject.params">
-      <ul *ngFor="let params of productObject.params[language.language]">
+      <ul *ngFor="let params of productObject.params[dictionary.language]">
         <li>{{params}}</li>
       </ul>
     </div>
     <div class="description">
-      {{productObject.description[language.language]}}
+      {{productObject.description[dictionary.language]}}
     </div>
     <div class="price">
-      <span>{{language.getTexts('price')}}</span>
+      <span>{{dictionary.getTexts('price')}}</span>
       <span class="new-price">{{productObject.new_price}}</span>
       <span class="old-price">{{productObject.old_price}}</span>
     </div>

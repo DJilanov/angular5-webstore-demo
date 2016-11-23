@@ -1,7 +1,7 @@
 import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { CategoriesService } from '../../services/categories.service';
-import { Language } from '../../language/language.service';
+import { Dictionary } from '../../dictionary/dictionary.service';
 import { EventEmiterService } from '../../services/event.emiter.service';
 
 // import { DateComponent } from '../date/date.component';
@@ -18,7 +18,7 @@ export class HeaderComponent {
 
     constructor(
         private router: Router,
-        private language: Language,
+        private dictionary: Dictionary,
         private categoriesService: CategoriesService,
         private eventEmiterService: EventEmiterService
     ) {

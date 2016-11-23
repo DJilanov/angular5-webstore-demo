@@ -70,7 +70,7 @@ app.delete('/api/message', function(req, res) {
 });
 // used to log in as administrator
 app.post('/api/admin/login', function(req, res) {
-    if(validator.validate(req.loginData)) {
+    if(validator.validate(req.body)) {
         res.json(200, {
             'success': true,
             'reason': null
