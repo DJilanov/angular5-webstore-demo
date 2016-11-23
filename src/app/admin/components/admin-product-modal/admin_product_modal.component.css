@@ -6,3 +6,11 @@
     overflow: auto;
     padding: 20px;
 }
+
+.form-group h4 {
+    margin-left: 15px;
+}
+
+.buttons {
+    margin-top: 20px;
+}

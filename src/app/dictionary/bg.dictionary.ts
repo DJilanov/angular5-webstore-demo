@@ -109,6 +109,9 @@ export class BulgarianDictionary {
         "resolveCaptcha": "Моля попълнете правилно анти бот система.",
 
         "productEditTitle": "Заглавие",
+        "deleteBtn": "Изтриване",
+        "editProduct": "Промени продукта",
+        "createProduct": "Добави нов продукт",
 
         "changeWasSccessful": "Вашата промяна беше успешна.",
     }

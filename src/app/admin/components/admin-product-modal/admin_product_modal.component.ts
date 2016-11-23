@@ -45,10 +45,10 @@ export class AdminProductModalComponent {
     * @formData {Object} data with options of the form
     * @action {String} action of the form ( submit, delete , update )
     */
-    private onSubmit(formData):void {
-        event.preventDefault();
+    private onSubmit(action):void {
+        event.preventDefault();debugger;
         this.submited = true;
-        let formObject = Object.assign(formData.value, {'id':this.formOptions['user'].id});
+        // let formObject = Object.assign(formData.value, {'id':this.formOptions['user'].id});
         // this.eventEmiterService.emitUpdateUser({
         //     'form': formObject,
         //     'options': this.formOptions,
