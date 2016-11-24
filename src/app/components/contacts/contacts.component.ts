@@ -27,44 +27,44 @@ export class ContactsComponent {
     private messageFail: boolean = false;
 
     private contactFormModel: Object = {
-        title: this.language.getTexts('contactFormTitle'),
+        title: this.dictionary.getTexts('contactFormTitle'),
         formFields: [
             {
-                label: this.language.getTexts('contactFormYourName'),
+                label: this.dictionary.getTexts('contactFormYourName'),
                 targetName: "name",
                 inputType: "text",
                 required: true,
                 validation: [<any>Validators.required, <any>Validators.maxLength(40)],
-                placeholder: this.language.getTexts('contactFormYourNameEnter')
+                placeholder: this.dictionary.getTexts('contactFormYourNameEnter')
             },
             {
-                label: this.language.getTexts('contactFormYourEmail'),
+                label: this.dictionary.getTexts('contactFormYourEmail'),
                 targetName: "email",
                 inputType: "email",
                 required: true,
                 validation: [<any>Validators.required, <any>Validators.pattern(this.emailValidationRegex)],
-                placeholder: this.language.getTexts('contactFormYourEmailEnter')
+                placeholder: this.dictionary.getTexts('contactFormYourEmailEnter')
             },
             {
-                label: this.language.getTexts('contactFormYourPhoneNumber'),
+                label: this.dictionary.getTexts('contactFormYourPhoneNumber'),
                 targetName: "phone",
                 inputType: "phone",
                 required: true,
                 validation: [<any>Validators.required, <any>Validators.pattern(this.phoneValidationRegex)],
-                placeholder: this.language.getTexts('contactFormYourPhoneNumberEnter')
+                placeholder: this.dictionary.getTexts('contactFormYourPhoneNumberEnter')
             },
             {
-                label: this.language.getTexts('contactFormYourMessage'),
+                label: this.dictionary.getTexts('contactFormYourMessage'),
                 targetName: "message",
                 inputType: "textarea",
                 required: true,
                 validation: [<any>Validators.required, <any>Validators.minLength(10)],
-                placeholder: this.language.getTexts('contactFormYourMessageEnter')
+                placeholder: this.dictionary.getTexts('contactFormYourMessageEnter')
             }
         ],
         submitBtn: {
             class: "btn btn-default",
-            text: this.language.getTexts('contactFormSend')
+            text: this.dictionary.getTexts('contactFormSend')
         },
         captcha: true,
         owner: this

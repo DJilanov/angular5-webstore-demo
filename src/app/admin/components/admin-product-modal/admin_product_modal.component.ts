@@ -11,8 +11,12 @@ import { EventEmiterService } from '../../../services/event.emiter.service';
 
 export class AdminProductModalComponent {
     private title:string;
+    private images: Object = {
+        mainImage: '',
+        moreImages: []
+    };
     private submited: boolean = false;
-    private ngForm : FormGroup;
+    private categories: Array<Object>;
     // TODO: move that predefinitions to better place
     private formOptions: Object = {
         'product': {},
@@ -45,8 +49,8 @@ export class AdminProductModalComponent {
     * @formData {Object} data with options of the form
     * @action {String} action of the form ( submit, delete , update )
     */
-    private onSubmit(action):void {
-        event.preventDefault();debugger;
+    private onSubmit():void {
+        event.preventDefault();
         this.submited = true;
         // let formObject = Object.assign(formData.value, {'id':this.formOptions['user'].id});
         // this.eventEmiterService.emitUpdateUser({
@@ -64,10 +68,15 @@ export class AdminProductModalComponent {
         this.submited = false;
     }
 
+    private onFetchedData(data) {
+        this.categories = data.categories;
+    }
+
     constructor(
         private dictionary: Dictionary,
         private eventEmiterService: EventEmiterService
     ) {
+        this.eventEmiterService.dataFetched.subscribe(data => this.onFetchedData(data));
         this.eventEmiterService.hideProductModal.subscribe(options => this.hideProductModal());
         this.eventEmiterService.showProductModal.subscribe(options => this.showProductModal(options));
     }

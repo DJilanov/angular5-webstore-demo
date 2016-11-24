@@ -32,6 +32,6 @@ export class HeaderComponent {
     }
 
     private changeLanguage() {
-      this.language.changeLanguage();
+      this.dictionary.changeLanguage();
     }
 }
