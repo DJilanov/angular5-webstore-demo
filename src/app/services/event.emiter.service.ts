@@ -9,11 +9,13 @@ import { Config } from '../config';
  */
 export class EventEmiterService {
 
+    public loggedIn: EventEmitter<any>;
     public dataFetched: EventEmitter<any>;
     public showProductModal: EventEmitter<any>;
     public hideProductModal: EventEmitter<any>;
 
     constructor() {
+        this.loggedIn = new EventEmitter();
         this.dataFetched = new EventEmitter();
         this.showProductModal = new EventEmitter();
         this.hideProductModal = new EventEmitter();
@@ -21,6 +23,12 @@ export class EventEmiterService {
 
     public emitFetchedData(data) {
         this.dataFetched.emit(data);
+    }
+
+    // admin
+
+    public emitLoggedIn(data) {
+        this.loggedIn.emit(data);
     }
 
     public emitShowProductModal(data) {

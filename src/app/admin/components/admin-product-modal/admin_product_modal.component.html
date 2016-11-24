@@ -296,12 +296,12 @@
               *ngIf="formOptions"
               (click)="onSubmit(formOptions.acton)" 
               [disabled]="submited"
-              [class.col-md-6]="formOptions.action == 'update'"
+              [class.col-md-6]="formOptions.action == 'edit'"
               class="btn btn-primary col-xs-12">
               {{ dictionary.getTexts(formOptions.btnText) }}
             </button>
             <button 
-              *ngIf="formOptions.action == 'update'"
+              *ngIf="formOptions.action == 'edit'"
               (click)="onSubmit('delete')"
               [disabled]="submited"
               class="btn btn-danger col-md-6 col-xs-12">

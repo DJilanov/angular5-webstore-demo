@@ -1,0 +1,9 @@
+<a [routerLink]="['/admin']">
+  Back
+</a>
+<div class="container" *ngIf="messages.length > 0">
+  <h1>All company messages</h1>
+  <template ngFor #messagesObject [ngForOf]="messages" let-index="index">
+      test
+  </template>
+</div>

@@ -1,5 +1,5 @@
 import { Injectable, EventEmitter } from '@angular/core';
-import { Http, Headers, RequestOptions } from '@angular/http';
+import { Http, Headers, RequestOptions, URLSearchParams } from '@angular/http';
 
 import { Config } from '../config';
 
@@ -45,6 +45,16 @@ export class FetcherService {
     */
     public adminLogin(body) {
         return this.http.post( Config.adminLoginUrl, body );
+    }
+    /**
+    * @getMessages get all messages
+    * @return {Array} messages
+    */
+    public getMessages(body) {
+        let params = new URLSearchParams();
+        params.set('username', body.username || "");
+        params.set('password', body.username || "");
+        return this.http.get( Config.messageUrl, { search: params } );
     }
 
     constructor( private http: Http ) {}

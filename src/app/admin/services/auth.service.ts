@@ -9,7 +9,7 @@ import { Config } from '../../config';
  */
 export class AuthService {
 
-    public userData: Object;
+    private userData: Object = {};
 
     constructor() {
         
@@ -17,5 +17,9 @@ export class AuthService {
 
     public setLoginData(data) {
         this.userData = data;
+    }
+
+    public getLoginData() {
+        return this.userData;
     }
 }

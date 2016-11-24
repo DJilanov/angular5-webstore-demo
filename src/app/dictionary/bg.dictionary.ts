@@ -128,6 +128,8 @@ export class BulgarianDictionary {
         "productLink": "Линк на продукта",
         "productMake": "Производител",
 
+        "name": "Име",
+
         "deleteBtn": "Изтриване",
         "editProduct": "Промени продукта",
         "createProduct": "Добави нов продукт",

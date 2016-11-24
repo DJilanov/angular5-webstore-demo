@@ -18,6 +18,12 @@
         messages = newMessages;
     }
     /**
+     * @setMessages it add message to the cache
+     */
+    function addMessage(message) {
+        messages.push(message);
+    }
+    /**
      * @getProducts it returns all of the messages that are currently cached
      */
     function getProducts() {
@@ -45,6 +51,7 @@
     module.exports = {
         getProducts: getProducts,
         setProducts: setProducts,
+        addMessage: addMessage,
         getMessages: getMessages,
         setMessages: setMessages,
         getCategories: getCategories,

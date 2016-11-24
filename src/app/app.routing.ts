@@ -12,7 +12,9 @@ import { PageNotFoundComponent } from './components/page_not_found/page_not_foun
 
 // Admin Views
 import { AdminComponent } from './admin/components/admin/admin.component';
+import { AdminMessagesComponent } from './admin/components/admin-messages/admin_messages.component';
 import { AdminProductsComponent } from './admin/components/admin-products/admin_products.component';
+import { AdminCategoriesComponent } from './admin/components/admin-categories/admin_categories.component';
 
 const appRoutes: Routes = [
   { 
@@ -65,13 +67,13 @@ const appRoutes: Routes = [
     }
   }, { 
     path: 'admin/categories', 
-    component: AdminComponent,
+    component: AdminCategoriesComponent,
     data: {
       title: 'Categories'
     }
   }, { 
     path: 'admin/messages', 
-    component: AdminComponent,
+    component: AdminMessagesComponent,
     data: {
       title: 'Messages'
     }

@@ -3,6 +3,7 @@ import { Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { Dictionary } from '../../../dictionary/dictionary.service';
 import { FetcherService } from '../../../services/fetcher.service';
+import { EventEmiterService } from '../../../services/event.emiter.service';
 import { ErrorHandlerService } from '../../../services/error.handler.service';
 
 @Component({
@@ -46,6 +47,7 @@ export class AdminComponent {
         private dictionary: Dictionary,
         private authService: AuthService,
         private fetcherService: FetcherService,
+        private eventEmiterService: EventEmiterService,
         private errorHandlerService: ErrorHandlerService
     ) {};
 
@@ -58,6 +60,7 @@ export class AdminComponent {
 
     private login(data) {
         this.authService.setLoginData(data);
+        this.eventEmiterService.emitLoggedIn({});
         this.loggedIn = true;
     }
 }

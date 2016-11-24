@@ -183,6 +183,7 @@
         find: find,
         setCache: setCache,
         connectDb: connectDb,
+        fetchAllMessages: fetchAllMessages,
         fetchAllProducts: fetchAllProducts,
         fetchAllCategories: fetchAllCategories,
         fetchAllProductsAndCategories: fetchAllProductsAndCategories

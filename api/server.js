@@ -14,6 +14,7 @@ var validator = require('./validator');
 dbFinder.connectDb();
 dbFinder.setCache(cache);
 dbUpdator.connectDb();
+dbUpdator.setCache(cache);
 // define our app using express
 var app = express();
 // this will let us get nv.PORT || 8080;        // set our port
@@ -54,13 +55,17 @@ app.get('/api/productsAndCategories', function(req, res) {
 });
 // when we call from the fetcher service we return all messages
 app.get('/api/message', function(req, res) {
-    if(validator.validate(req.loginData)) {
+    var loginData = {
+        username: req.param('username'),
+        password: req.param('password')
+    };
+    if(validator.validate(loginData)) {
         dbFinder.fetchAllMessages(req, res);
     }
 });
 // when we call from the fetcher service we recieve the message, save it to the db and send back status
 app.post('/api/message', function(req, res) {
-    dbUpdator.recieveMessage(req, res);
+    dbUpdator.saveMessage(req, res);
 });
 // when we want to delete message
 app.delete('/api/message', function(req, res) {

@@ -43,6 +43,8 @@ import { ZoomableImagesComponent } from './components/zoomable_images/zoomable_i
 import { AdminComponent } from './admin/components/admin/admin.component';
 import { AdminHomeComponent } from './admin/components/admin-home/admin_home.component';
 import { AdminProductsComponent } from './admin/components/admin-products/admin_products.component';
+import { AdminMessagesComponent } from './admin/components/admin-messages/admin_messages.component';
+import { AdminCategoriesComponent } from './admin/components/admin-categories/admin_categories.component';
 import { AdminProductModalComponent } from './admin/components/admin-product-modal/admin_product_modal.component';
 
 import { AuthService } from './admin/services/auth.service';
@@ -98,7 +100,9 @@ import { ErrorHandlerService } from './services/error.handler.service';
         // admin
         AdminComponent,
         AdminHomeComponent,
+        AdminMessagesComponent,
         AdminProductsComponent,
+        AdminCategoriesComponent,
         AdminProductModalComponent,
     ],
     // Bootstraping
