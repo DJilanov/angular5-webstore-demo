@@ -1,0 +1,38 @@
+<a [routerLink]="['/admin']">
+  Back
+</a>
+<div *ngIf="categories.length > 0">
+  <h1>Website navigation</h1>
+  <div class="header">
+    <a [routerLink]="['/']" class="logo pull-left">
+        <image 
+          [src]="'./src/img/navigation-logo.png'"
+          [alt]="'logo'"></image>
+    </a>
+    <ul class="nav navbar-nav navbar-left custom-navi" 
+      *ngIf="categories.length > 0">
+      <li *ngFor="let category of categories">
+        <a [routerLink]="['products', category.link]">{{category.title[dictionary.language]}}</a>
+      </li>
+      <li>
+        <a [routerLink]="['contacts']">{{dictionary.getTexts('headerContact')}}</a>
+      </li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right custom-navi" 
+      *ngIf="categories.length > 0">
+      <li class="cart">
+        <a [routerLink]="['cart']">
+          <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+        </a>
+      </li>
+      <li>
+        <search></search>
+      </li>
+      <li class="flag" (click)="changeLanguage()">
+        <image 
+          [src]="'./src/img/' + dictionary.nextLanguage() + '.png'"
+          [alt]="dictionary.language"></image>
+      </li>
+    </ul>
+  </div>
+</div>

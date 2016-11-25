@@ -15,6 +15,7 @@ import { AdminComponent } from './admin/components/admin/admin.component';
 import { AdminMessagesComponent } from './admin/components/admin-messages/admin_messages.component';
 import { AdminProductsComponent } from './admin/components/admin-products/admin_products.component';
 import { AdminCategoriesComponent } from './admin/components/admin-categories/admin_categories.component';
+import { AdminNavigationComponent } from './admin/components/admin-navigation/admin_navigation.component';
 
 const appRoutes: Routes = [
   { 
@@ -55,7 +56,7 @@ const appRoutes: Routes = [
     }
   }, { 
     path: 'admin/navigation', 
-    component: AdminComponent,
+    component: AdminNavigationComponent,
     data: {
       title: 'Navigation'
     }
@@ -78,6 +79,7 @@ const appRoutes: Routes = [
       title: 'Messages'
     }
   }, { 
+    // TODO
     path: 'admin/orders', 
     component: AdminComponent,
     data: {
