@@ -47,6 +47,13 @@ export class FetcherService {
         return this.http.post( Config.adminLoginUrl, body );
     }
     /**
+    * @updateCategories send request with changed categories array
+    * @return {Object} response of the back-end
+    */
+    public updateCategories(body) {
+        return this.http.put( Config.categoriesUrl, body );
+    }
+    /**
     * @getMessages get all messages
     * @return {Array} messages
     */

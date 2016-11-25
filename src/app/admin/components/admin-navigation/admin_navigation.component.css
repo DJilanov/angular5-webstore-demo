@@ -5,9 +5,11 @@
     height: 100px;
 }
 
-.add-new {
-    font-size: 100px;
+.buttons {
+    margin-top: 20px;
 }
+
+/*  header */
 
 .logo {
     display: block;

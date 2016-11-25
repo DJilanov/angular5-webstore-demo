@@ -39,6 +39,9 @@ import { ProductListComponent } from './components/product_list/product_list.com
 import { PageNotFoundComponent } from './components/page_not_found/page_not_found.component';
 import { ZoomableImagesComponent } from './components/zoomable_images/zoomable_images.component';
 
+// Admin
+import { Ng2DragDropModule } from "ng2-drag-drop";
+
 import { AdminComponent } from './admin/components/admin/admin.component';
 import { AdminHomeComponent } from './admin/components/admin-home/admin_home.component';
 import { AdminMessagesComponent } from './admin/components/admin-messages/admin_messages.component';
@@ -73,7 +76,9 @@ import { ErrorHandlerService } from './services/error.handler.service';
         ReactiveFormsModule,
         AgmCoreModule.forRoot({
           apiKey: 'AIzaSyDBbPzFEwNVTHNoZ-bz7YYqO1eMRPqTyUA'
-        })
+        }),
+        // admin
+        Ng2DragDropModule
     ],
     // Components & Views
     declarations: [ 

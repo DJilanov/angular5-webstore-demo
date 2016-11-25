@@ -38,13 +38,14 @@
                     id: docs.insertedId.toHexString(),
                     'date': new Date()
                 }, req.body);
-                handleCallback(err, res, response);
+                if(!err) {
+                    cache.addMessage(response);
+                    returnSuccess(res);
+                } else {
+                    returnProblem(err, res);
+                }
             });
         });
-    }
-    // fired after we save the message and we save it to the cache in the back-end for easier fetches
-    function messageCallback(a,b,c,d) {
-        debugger;
     }
     /**
      * @connectDb Used to delete the message from the database
@@ -54,31 +55,45 @@
             "_id": ObjectId(form._id)
         };
         var secondaryQuerry = {
-            $set: {
-                'name': element.form.name,
-                'email': element.form.email,
-                'phone': element.form.phone,
-                'message': element.form.message,
-                'date': new Date(),
-                'type': "message"
-            }
+            'name': element.form.name,
+            'email': element.form.email,
+            'phone': element.form.phone,
+            'message': element.form.message,
+            'date': new Date(),
+            'type': "message"
         };
     }
 
-    /**
-     * @handleCallback creates new user and send it to the db
-     * @err {Object} Error object from the database
-     * @res {Object} The res to the front-end
-     * @response {Object} The response from the database
-     * @operation {Object} Operation we did to the database
-     */
-    function handleCallback(err, res, response) {
-        if(!err) {
-            cache.addMessage(response);
-            returnSuccess(res);
-        } else {
-            returnProblem(err, res);
-        }
+    function updateCategories(categoriesArray, res) {
+        mongoose.connection.db.collection('messages', function(err, collection) {
+            for(let counter = 0; counter < categoriesArray.length; counter++) {
+                let query = getQuery(categoriesArray[counter]);
+                let update = categoriesArray[counter];
+                if(!collection) {
+                    return;
+                }
+                console.log(query);
+                console.log(update);
+                collection.update(query, update, function(err, docs) {
+                    if(!err) {
+                        cache.updateCategories(update);
+                        // we return when all are sended and finished
+                        if(counter == categoriesArray.length - 1) {
+                            returnSuccess(res, categoriesArray);
+                        }
+                    } else {
+                        // todo: handle the case when 1 gets broken but the other are correctly set
+                        returnProblem(err, res);
+                    }
+                });
+            }
+        });
+    }
+
+    function getQuery(el) {
+        return {
+            "_id": ObjectId(el._id)
+        };
     }
 
     /**
@@ -136,6 +151,7 @@
     module.exports = {
         setCache: setCache,
         connectDb: connectDb,
-        saveMessage: saveMessage
+        saveMessage: saveMessage,
+        updateCategories: updateCategories
     };
 }());

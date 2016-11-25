@@ -73,6 +73,7 @@
     "karma-remap-coverage": "^0.1.1",
     "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "1.8.0",
+    "ng2-drag-drop": "^0.4.1",
     "node-sass": "^3.12.5",
     "parse5": "^2.2.2",
     "protractor": "^4.0.9",

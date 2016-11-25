@@ -42,10 +42,21 @@
         return categories;
     }
     /**
-     * @setCategories it sets messages to the cache
+     * @setCategories it sets categories to the cache
      */
     function setCategories(newCategories) {
         categories = newCategories
+    }
+    /**
+     * @setCategories it updates categories to the cache
+     */
+    function updateCategories(category) {
+        for(var categoriesCounter = 0; categoriesCounter < categories.length; categoriesCounter++) {
+            if(categories[categoriesCounter]._id.toString() == category._id) {
+                categories[categoriesCounter] = category;
+                break;
+            }
+        }
     }
 
     module.exports = {
@@ -55,6 +66,7 @@
         getMessages: getMessages,
         setMessages: setMessages,
         getCategories: getCategories,
-        setCategories: setCategories
+        setCategories: setCategories,
+        updateCategories: updateCategories
     };
 }());

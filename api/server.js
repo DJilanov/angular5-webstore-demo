@@ -49,6 +49,12 @@ app.get('/api/products', function(req, res) {
 app.get('/api/categories', function(req, res) {
     dbFinder.fetchAllCategories(req, res);
 });
+// when we call from the fetcher service we send array with categories and we update them all
+app.put('/api/categories', function(req, res) {
+    if(validator.validate(req.body.loginData)) {
+        dbUpdator.updateCategories(req.body.categories, res);
+    }
+});
 // when we call from the fetcher service we return the products and categories
 app.get('/api/productsAndCategories', function(req, res) {
     dbFinder.fetchAllProductsAndCategories(req, res);

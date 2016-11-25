@@ -3,23 +3,33 @@
 </a>
 <div *ngIf="categories.length > 0">
   <h1>Website navigation</h1>
-  <div class="header">
+  <h4>Drag and drop them to the navi in the order you want them to be</h4>
+  <ul class="list-group">
+      <li draggable *ngFor="let item of categoriesClone"
+          [dragOverClass]="'drag-over-border'"
+          [dragData]="item" class="list-group-item">
+          {{item.title[dictionary.language]}} 
+      </li>
+  </ul>
+  <div class="header" 
+      droppable 
+      (onDrop)="onCategoryDrop($event)"
+    >
     <a [routerLink]="['/']" class="logo pull-left">
         <image 
           [src]="'./src/img/navigation-logo.png'"
           [alt]="'logo'"></image>
     </a>
-    <ul class="nav navbar-nav navbar-left custom-navi" 
-      *ngIf="categories.length > 0">
-      <li *ngFor="let category of categories">
-        <a [routerLink]="['products', category.link]">{{category.title[dictionary.language]}}</a>
-      </li>
-      <li>
-        <a [routerLink]="['contacts']">{{dictionary.getTexts('headerContact')}}</a>
+    <ul class="nav navbar-nav navbar-left custom-navi">
+      <li *ngFor="let category of navItems">
+        <a>{{category.title[dictionary.language]}}</a>
       </li>
     </ul>
     <ul class="nav navbar-nav navbar-right custom-navi" 
       *ngIf="categories.length > 0">
+      <li>
+        <a [routerLink]="['contacts']">{{dictionary.getTexts('headerContact')}}</a>
+      </li>
       <li class="cart">
         <a [routerLink]="['cart']">
           <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
@@ -35,4 +45,16 @@
       </li>
     </ul>
   </div>
+</div>
+<div class="col-xs-12 buttons">
+  <button
+    (click)="saveNewPositioning()"
+    class="btn btn-primary col-xs-6">
+    update navigation
+  </button>
+  <button
+    (click)="refreshPositioning()"
+    class="btn btn-danger col-xs-6">
+    refresh
+  </button>
 </div>
