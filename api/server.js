@@ -51,6 +51,16 @@ app.put('/api/products', function(req, res) {
         dbUpdator.updateProduct(req.body.product, res);
     }
 });
+// when we call from the fetcher service we send id and we delete the product
+app.delete('/api/products', function(req, res) {
+    var loginData = {
+        username: req.param('username'),
+        password: req.param('password')
+    };
+    if(validator.validate(loginData)) {
+        dbUpdator.deleteProduct(req.param('product'), res);
+    }
+});
 // when we call from the fetcher service we return the categories
 app.get('/api/categories', function(req, res) {
     dbFinder.fetchAllCategories(req, res);

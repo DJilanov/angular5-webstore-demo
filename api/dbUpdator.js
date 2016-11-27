@@ -101,8 +101,6 @@
                 if(!collection) {
                     return;
                 }
-                console.log(query);
-                console.log(update);
                 collection.update(query, update, function(err, docs) {
                     if(!err) {
                         cache.updateCategories(update);
@@ -118,30 +116,49 @@
             }
         });
     }
-
-    function updateProduct(categoriesArray, res) {
-        mongoose.connection.db.collection('categories', function(err, collection) {
-            for(let counter = 0; counter < categoriesArray.length; counter++) {
-                let query = getQuery(categoriesArray[counter]);
-                let update = categoriesArray[counter];
-                if(!collection) {
-                    return;
-                }
-                console.log(query);
-                console.log(update);
-                collection.update(query, update, function(err, docs) {
-                    if(!err) {
-                        cache.updateCategories(update);
-                        // we return when all are sended and finished
-                        if(counter == categoriesArray.length - 1) {
-                            returnSuccess(res, categoriesArray);
-                        }
-                    } else {
-                        // todo: handle the case when 1 gets broken but the other are correctly set
-                        returnProblem(err, res);
-                    }
-                });
+    /**
+     * @updateProduct Used to update the product to the database
+     * @categoriesArray: category array that is going to be updated
+     */
+    function updateProduct(product, res) {
+        mongoose.connection.db.collection('products', function(err, collection) {
+            var query = getQuery(product);
+            let update = product;
+            if(!collection) {
+                return;
             }
+            collection.update(query, update, function(err, docs) {
+                if(!err) {
+                    cache.updateProduct(update);
+                    // we return when all are sended and finished
+                    if(counter == categoriesArray.length - 1) {
+                        returnSuccess(res, categoriesArray);
+                    }
+                } else {
+                    // todo: handle the case when 1 gets broken but the other are correctly set
+                    returnProblem(err, res);
+                }
+            });
+        });
+    }
+    /**
+     * @deleteProduct Used to delete the prodtuc from the database
+     * @category: category object that is going to be deleted
+     */
+    function deleteProduct(category, res) {
+        var query = getQuery(category);
+        mongoose.connection.db.collection('categories', function(err, collection) {
+            if(!collection) {
+                return;
+            }
+            collection.remove(query, function(err, docs) {
+                if(!err) {
+                    cache.removeProduct(category);
+                    returnSuccess(res, category);
+                } else {
+                    returnProblem(err, res);
+                }
+            });
         });
     }
 

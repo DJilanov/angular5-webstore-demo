@@ -47,6 +47,28 @@
         products = newProducts;
     }
     /**
+     * @updateProduct it updates product to the cache
+     */
+    function updateProduct(product) {
+        for(var productsCounter = 0; productsCounter < products.length; productsCounter++) {
+            if(products[productsCounter]._id.toString() == product._id) {
+                products[productsCounter] = product;
+                break;
+            }
+        }
+    }
+    /**
+     * @removeCategory it removes category from the cache
+     */
+    function removeProduct(category) {
+        for(var productsCounter = 0; productsCounter < products.length; productsCounter++) {
+            if(products[productsCounter]._id.toString() == product._id) {
+                delete products[productsCounter]
+                break;
+            }
+        }
+    }
+    /**
      * @getCategories it returns all of the messages that are currently cached
      */
     function getCategories() {
@@ -84,6 +106,8 @@
     module.exports = {
         getProducts: getProducts,
         setProducts: setProducts,
+        updateProduct: updateProduct,
+        removeProduct: removeProduct,
         addMessage: addMessage,
         getMessages: getMessages,
         setMessages: setMessages,
