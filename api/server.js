@@ -45,6 +45,12 @@ app.all('/*', function(req, res, next) {
 app.get('/api/products', function(req, res) {
     dbFinder.fetchAllProducts(req, res);
 });
+// when we call from the fetcher service we send product
+app.put('/api/products', function(req, res) {
+    if(validator.validate(req.body.loginData)) {
+        dbUpdator.updateProduct(req.body.product, res);
+    }
+});
 // when we call from the fetcher service we return the categories
 app.get('/api/categories', function(req, res) {
     dbFinder.fetchAllCategories(req, res);
@@ -53,6 +59,16 @@ app.get('/api/categories', function(req, res) {
 app.put('/api/categories', function(req, res) {
     if(validator.validate(req.body.loginData)) {
         dbUpdator.updateCategories(req.body.categories, res);
+    }
+});
+// when we call from the fetcher service we send id and we delete the category ( whitout ) deleting the products
+app.delete('/api/categories', function(req, res) {
+    var loginData = {
+        username: req.param('username'),
+        password: req.param('password')
+    };
+    if(validator.validate(loginData)) {
+        dbUpdator.deleteCategory(req.param('category'), res);
     }
 });
 // when we call from the fetcher service we return the products and categories
@@ -75,8 +91,12 @@ app.post('/api/message', function(req, res) {
 });
 // when we want to delete message
 app.delete('/api/message', function(req, res) {
-    if(validator.validate(req.loginData)) {
-        dbUpdator.recieveMessage(req, res);
+    var loginData = {
+        username: req.param('username'),
+        password: req.param('password')
+    };
+    if(validator.validate(loginData)) {
+        dbUpdator.deleteMessage(req.param('message'), res);
     }
 });
 // used to log in as administrator

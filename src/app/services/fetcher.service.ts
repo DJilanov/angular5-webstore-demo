@@ -54,14 +54,36 @@ export class FetcherService {
         return this.http.put( Config.categoriesUrl, body );
     }
     /**
+    * @deleteCategory send request with category for deletion
+    * @return {Object} response of the back-end
+    */
+    public deleteCategory(body) {
+        let params = new URLSearchParams();
+        params.set('username', body.username || "");
+        params.set('password', body.password || "");
+        params.set('category', body.category || "");
+        return this.http.delete( Config.categoriesUrl, { search: params } );
+    }
+    /**
     * @getMessages get all messages
     * @return {Array} messages
     */
     public getMessages(body) {
         let params = new URLSearchParams();
         params.set('username', body.username || "");
-        params.set('password', body.username || "");
+        params.set('password', body.password || "");
         return this.http.get( Config.messageUrl, { search: params } );
+    }
+    /**
+    * @deleteMessage send request with message for deletion
+    * @return {Object} response of the back-end
+    */
+    public deleteMessage(body) {
+        let params = new URLSearchParams();
+        params.set('username', body.username || "");
+        params.set('password', body.password || "");
+        params.set('message', body.message || "");
+        return this.http.delete( Config.categoriesUrl, { search: params } );
     }
 
     constructor( private http: Http ) {}

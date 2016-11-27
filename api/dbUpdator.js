@@ -26,7 +26,9 @@
             'date': new Date()
         };
     }
-    // we fetch the latest collection and we send the message
+    /**
+     * @saveMessage Used to save the message to the database
+     */
     function saveMessage(req, res) {
         var query = getMessageQuery(req.body, res);
         mongoose.connection.db.collection('messages', function(err, collection) {
@@ -48,24 +50,77 @@
         });
     }
     /**
-     * @connectDb Used to delete the message from the database
+     * @deleteMessage Used to delete the message from the database
+     * @message: message object that is going to be deleted
      */
-    function deleteMessage(req, res) {
-        var querry = {
-            "_id": ObjectId(form._id)
-        };
-        var secondaryQuerry = {
-            'name': element.form.name,
-            'email': element.form.email,
-            'phone': element.form.phone,
-            'message': element.form.message,
-            'date': new Date(),
-            'type': "message"
-        };
+    function deleteMessage(message, res) {
+       var query = getQuery(message);
+        mongoose.connection.db.collection('messages', function(err, collection) {
+            if(!collection) {
+                return;
+            }
+            collection.remove(query, function(err, docs) {
+                if(!err) {
+                    cache.removeMessage(message);
+                    returnSuccess(res, message);
+                } else {
+                    returnProblem(err, res);
+                }
+            });
+        });
+    }
+    /**
+     * @deleteCategory Used to delete the category from the database
+     * @category: category object that is going to be deleted
+     */
+    function deleteCategory(category, res) {
+        var query = getQuery(category);
+        mongoose.connection.db.collection('categories', function(err, collection) {
+            if(!collection) {
+                return;
+            }
+            collection.remove(query, function(err, docs) {
+                if(!err) {
+                    cache.removeCategory(category);
+                    returnSuccess(res, category);
+                } else {
+                    returnProblem(err, res);
+                }
+            });
+        });
+    }
+    /**
+     * @updateCategories Used to update the categories to the database
+     * @categoriesArray: category array that is going to be updated
+     */
+    function updateCategories(categoriesArray, res) {
+        mongoose.connection.db.collection('categories', function(err, collection) {
+            for(let counter = 0; counter < categoriesArray.length; counter++) {
+                let query = getQuery(categoriesArray[counter]);
+                let update = categoriesArray[counter];
+                if(!collection) {
+                    return;
+                }
+                console.log(query);
+                console.log(update);
+                collection.update(query, update, function(err, docs) {
+                    if(!err) {
+                        cache.updateCategories(update);
+                        // we return when all are sended and finished
+                        if(counter == categoriesArray.length - 1) {
+                            returnSuccess(res, categoriesArray);
+                        }
+                    } else {
+                        // todo: handle the case when 1 gets broken but the other are correctly set
+                        returnProblem(err, res);
+                    }
+                });
+            }
+        });
     }
 
-    function updateCategories(categoriesArray, res) {
-        mongoose.connection.db.collection('messages', function(err, collection) {
+    function updateProduct(categoriesArray, res) {
+        mongoose.connection.db.collection('categories', function(err, collection) {
             for(let counter = 0; counter < categoriesArray.length; counter++) {
                 let query = getQuery(categoriesArray[counter]);
                 let update = categoriesArray[counter];
@@ -151,7 +206,10 @@
     module.exports = {
         setCache: setCache,
         connectDb: connectDb,
+        updateProduct: updateProduct,
         saveMessage: saveMessage,
-        updateCategories: updateCategories
+        deleteMessage: deleteMessage,
+        deleteCategory: deleteCategory,
+        updateCategories: updateCategories,
     };
 }());

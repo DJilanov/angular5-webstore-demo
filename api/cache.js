@@ -24,6 +24,17 @@
         messages.push(message);
     }
     /**
+     * @removeMessage it removes message from the cache
+     */
+    function removeMessage(message) {
+        for(var messagesCounter = 0; messagesCounter < messages.length; messagesCounter++) {
+            if(messages[messagesCounter]._id.toString() == message._id) {
+                delete messages[messagesCounter];
+                break;
+            }
+        }
+    }
+    /**
      * @getProducts it returns all of the messages that are currently cached
      */
     function getProducts() {
@@ -58,6 +69,17 @@
             }
         }
     }
+    /**
+     * @removeCategory it removes category from the cache
+     */
+    function removeCategory(category) {
+        for(var categoriesCounter = 0; categoriesCounter < categories.length; categoriesCounter++) {
+            if(categories[categoriesCounter]._id.toString() == category._id) {
+                delete categories[categoriesCounter];
+                break;
+            }
+        }
+    }
 
     module.exports = {
         getProducts: getProducts,
@@ -65,8 +87,10 @@
         addMessage: addMessage,
         getMessages: getMessages,
         setMessages: setMessages,
+        removeMessage: removeMessage,
         getCategories: getCategories,
         setCategories: setCategories,
+        removeCategory: removeCategory,
         updateCategories: updateCategories
     };
 }());
