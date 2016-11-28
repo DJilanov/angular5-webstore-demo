@@ -1,7 +1,10 @@
 import { Component, ViewChild } from '@angular/core';
 import { FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
+import { AuthService } from '../../services/auth.service';
 import { Dictionary } from '../../../dictionary/dictionary.service';
+import { FetcherService } from '../../../services/fetcher.service';
 import { EventEmiterService } from '../../../services/event.emiter.service';
+import { ErrorHandlerService } from '../../../services/error.handler.service';
 
 @Component({
     selector: 'admin-product-modal',
@@ -19,11 +22,26 @@ export class AdminProductModalComponent {
     private categories: Array<Object>;
     // TODO: move that predefinitions to better place
     private formOptions: Object = {
-        'product': {},
+        'product': {
+            description: {
+
+            },
+            more_details: {
+
+            },
+            more_info: {
+
+            },
+            title: {
+
+            }
+        },
         'action': '',
         'title': '', 
         "btnText": ''
     };
+
+    private ngForm: FormGroup;
 
     @ViewChild('productModal') private productModal;
 
@@ -35,6 +53,7 @@ export class AdminProductModalComponent {
         this.productModal.show();
         this.title = options.title;
         this.formOptions = options;
+        this.buildReactiveForm(options);
     }
 
     /**
@@ -49,16 +68,33 @@ export class AdminProductModalComponent {
     * @formData {Object} data with options of the form
     * @action {String} action of the form ( submit, delete , update )
     */
-    private onSubmit():void {
+    private onSubmit(action):void {
         event.preventDefault();
+        debugger;
+        let loginData = this.authService.getLoginData();
+        let body = Object.assign(loginData, {'product': this.formOptions['product']});
+        if(action == 'create') {
+            this.fetcherService.createProduct(body).subscribe(
+                data => this.successUpdate(data),
+                err => this.errorHandlerService.handleError(err)
+            );
+        } else if(action == 'edit') {
+            this.fetcherService.updateProduct(body).subscribe(
+                data => this.successUpdate(data),
+                err => this.errorHandlerService.handleError(err)
+            );
+        } else if(action == 'delete') {
+            this.fetcherService.deleteProduct(body).subscribe(
+                data => this.successUpdate(data),
+                err => this.errorHandlerService.handleError(err)
+            );
+        } 
         this.submited = true;
-        // let formObject = Object.assign(formData.value, {'id':this.formOptions['user'].id});
-        // this.eventEmiterService.emitUpdateUser({
-        //     'form': formObject,
-        //     'options': this.formOptions,
-        //     'id': this.formOptions['product'].id,
-        //     'action': this.formOptions['action']
-        // });
+    }
+
+    private successUpdate(data) {
+        this.enableButtons();
+        this.hideProductModal();
     }
 
     /**
@@ -72,10 +108,43 @@ export class AdminProductModalComponent {
         this.categories = data.categories;
     }
 
+    private buildReactiveForm(options) {
+        this.ngForm = new FormGroup({
+            "carousel": new FormControl(options.product.carousel, [<any>Validators.required]),
+            "count": new FormControl(options.product.count, [<any>Validators.required]),
+            "daily_offer": new FormControl(options.product.daily_offer, [<any>Validators.required]),
+            "descriptionBG": new FormControl(options.product.description.bg, [<any>Validators.required]),
+            "descriptionEN": new FormControl(options.product.description.en, [<any>Validators.required]),
+            "is_new": new FormControl(options.product.is_new, [<any>Validators.required]),
+            "link": new FormControl(options.product.link, [<any>Validators.required]),
+            "category": new FormControl(options.product.category, [<any>Validators.required]),
+            "make": new FormControl(options.product.make, [<any>Validators.required]),
+            "more_detailsBG": new FormControl(options.product.more_details.bg, [<any>Validators.required]),
+            "more_detailsEN": new FormControl(options.product.more_details.en, [<any>Validators.required]),
+            "more_infoBG": new FormControl(options.product.more_info.bg, [<any>Validators.required]),
+            "more_infoEN": new FormControl(options.product.more_info.en, [<any>Validators.required]),
+            "new_price": new FormControl(options.product.new_price, [<any>Validators.required]),
+            "old_price": new FormControl(options.product.old_price, [<any>Validators.required]),
+            "params": new FormControl(options.product.params, [<any>Validators.required]),
+            "rating": new FormControl(options.product.rating, [<any>Validators.required]),
+            "shown": new FormControl(options.product.shown, [<any>Validators.required]),
+            "titleBG": new FormControl(options.product.title.bg, [<any>Validators.required]),
+            "titleEN": new FormControl(options.product.title.en, [<any>Validators.required]),
+            "typeahed": new FormControl(options.product.typeahed, [<any>Validators.required]),
+            "zIndex": new FormControl(options.product.zIndex, [<any>Validators.required]),
+            "main_image": new FormControl(options.product.main_image, [<any>Validators.required]),
+            "other_images": new FormControl(options.product.other_images, [<any>Validators.required]),
+        });
+    }
+
     constructor(
         private dictionary: Dictionary,
-        private eventEmiterService: EventEmiterService
+        private authService: AuthService,
+        private fetcherService: FetcherService,
+        private eventEmiterService: EventEmiterService,
+        private errorHandlerService: ErrorHandlerService
     ) {
+        this.buildReactiveForm(this.formOptions);
         this.eventEmiterService.dataFetched.subscribe(data => this.onFetchedData(data));
         this.eventEmiterService.hideProductModal.subscribe(options => this.hideProductModal());
         this.eventEmiterService.showProductModal.subscribe(options => this.showProductModal(options));

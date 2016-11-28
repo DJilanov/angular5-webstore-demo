@@ -51,7 +51,8 @@ export class AdminMessagesComponent {
     }
 
     private deleteMessage(message) {
-      let body = Object.assign(this.authService.getLoginData(), {'message': message});
+      let loginData = this.authService.getLoginData();
+      let body = Object.assign(loginData, {'message': message});
       this.fetcherService.deleteMessage(body).subscribe(
           data => this.removeMessage(data.json()),
           err => this.errorHandlerService.handleError(err)

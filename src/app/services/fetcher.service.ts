@@ -47,6 +47,38 @@ export class FetcherService {
         return this.http.post( Config.adminLoginUrl, body );
     }
     /**
+    * @createProduct send request with new product
+    * @return {Object} response of the back-end
+    */
+    public createProduct(body) {
+        return this.http.post( Config.productsUrl, body );
+    }
+    /**
+    * @updateProduct send request with changed product
+    * @return {Object} response of the back-end
+    */
+    public updateProduct(body) {
+        return this.http.put( Config.productsUrl, body );
+    }
+    /**
+    * @deleteProduct send request with product for deletion
+    * @return {Object} response of the back-end
+    */
+    public deleteProduct(body) {
+        let params = new URLSearchParams();
+        params.set('username', body.username || "");
+        params.set('password', body.password || "");
+        params.set('category', JSON.stringify(body.product || ""));
+        return this.http.delete( Config.productsUrl, { search: params } );
+    }
+    /**
+    * @createCategories send request with new category
+    * @return {Object} response of the back-end
+    */
+    public createCategories(body) {
+        return this.http.post( Config.categoriesUrl, body );
+    }
+    /**
     * @updateCategories send request with changed categories array
     * @return {Object} response of the back-end
     */

@@ -26,6 +26,31 @@
             'date': new Date()
         };
     }
+
+    function getProductQuery(product, res) {
+        return {
+            carousel: product.carousel,
+            category: product.category,
+            count: product.count,
+            daily_offer: product.daily_offer,
+            description: product.description,
+            is_new: product.is_new,
+            link: product.link,
+            main_image: product.main_image,
+            make: product.make,
+            more_details: product.more_details,
+            more_info: product.more_info,
+            new_price: product.new_price,
+            old_price: product.old_price,
+            other_images: product.other_images,
+            params: product.params,
+            rating: product.rating,
+            shown: product.shown,
+            title: product.title,
+            typeahed: product.typeahed,
+            zIndex: product.zIndex,
+        };
+    }
     /**
      * @saveMessage Used to save the message to the database
      */
@@ -120,24 +145,44 @@
     }
     /**
      * @updateProduct Used to update the product to the database
-     * @categoriesArray: category array that is going to be updated
+     * @product: product that is going to be updated
      */
     function updateProduct(product, res) {
+        var query = getQuery(product);
+        let update = getProductQuery(product, res);
         mongoose.connection.db.collection('products', function(err, collection) {
-            var query = getQuery(product);
-            let update = product;
             if(!collection) {
                 return;
             }
             collection.update(query, update, function(err, docs) {
                 if(!err) {
-                    cache.updateProduct(update);
-                    // we return when all are sended and finished
-                    if(counter == categoriesArray.length - 1) {
-                        returnSuccess(res, categoriesArray);
-                    }
+                    cache.updateProduct(product);
+                    returnSuccess(res, product);
                 } else {
                     // todo: handle the case when 1 gets broken but the other are correctly set
+                    returnProblem(err, res);
+                }
+            });
+        });
+    }
+    /**
+     * @createProduct Used to create product to the database
+     * @product: product that will be created
+     */
+    function createProduct(product, res) {
+        mongoose.connection.db.collection('messages', function(err, collection) {
+            if(!collection) {
+                return;
+            }
+            collection.insertOne(product, function(err, docs) {
+                var response = Object.assign({
+                    id: docs.insertedId.toHexString(),
+                    'date': new Date()
+                }, req.body);
+                if(!err) {
+                    cache.addMessage(response);
+                    returnSuccess(res);
+                } else {
                     returnProblem(err, res);
                 }
             });
@@ -226,6 +271,7 @@
         setCache: setCache,
         connectDb: connectDb,
         updateProduct: updateProduct,
+        createProduct: createProduct,
         saveMessage: saveMessage,
         deleteMessage: deleteMessage,
         deleteCategory: deleteCategory,

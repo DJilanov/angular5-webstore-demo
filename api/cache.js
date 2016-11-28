@@ -47,6 +47,12 @@
         products = newProducts;
     }
     /**
+     * @addProduct it add product to the cache
+     */
+    function addProduct(product) {
+        products.push(product);
+    }
+    /**
      * @updateProduct it updates product to the cache
      */
     function updateProduct(product) {
@@ -81,6 +87,12 @@
         categories = newCategories
     }
     /**
+     * @addCategory it add category to the cache
+     */
+    function addCategory(category) {
+        categories.push(category);
+    }
+    /**
      * @setCategories it updates categories to the cache
      */
     function updateCategories(category) {
@@ -104,14 +116,18 @@
     }
 
     module.exports = {
+        addProduct: addProduct,
         getProducts: getProducts,
         setProducts: setProducts,
         updateProduct: updateProduct,
         removeProduct: removeProduct,
+
         addMessage: addMessage,
         getMessages: getMessages,
         setMessages: setMessages,
         removeMessage: removeMessage,
+
+        addCategory: addCategory,
         getCategories: getCategories,
         setCategories: setCategories,
         removeCategory: removeCategory,

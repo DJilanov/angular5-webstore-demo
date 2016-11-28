@@ -42,16 +42,26 @@ app.all('/*', function(req, res, next) {
     next();
 });
 // when we call from the fetcher service we return the products
+// status: Working correctly
 app.get('/api/products', function(req, res) {
     dbFinder.fetchAllProducts(req, res);
 });
 // when we call from the fetcher service we send product
+// status: needs test
 app.put('/api/products', function(req, res) {
     if(validator.validate(req.body.loginData)) {
         dbUpdator.updateProduct(req.body.product, res);
     }
 });
+// when we call from the fetcher service we send product
+// status: needs test
+app.post('/api/products', function(req, res) {
+    if(validator.validate(req.body.loginData)) {
+        dbUpdator.createProduct(req.body.product, res);
+    }
+});
 // when we call from the fetcher service we send id and we delete the product
+// status: needs test
 app.delete('/api/products', function(req, res) {
     var loginData = {
         username: req.param('username'),
@@ -62,16 +72,19 @@ app.delete('/api/products', function(req, res) {
     }
 });
 // when we call from the fetcher service we return the categories
+// status: Working correctly
 app.get('/api/categories', function(req, res) {
     dbFinder.fetchAllCategories(req, res);
 });
 // when we call from the fetcher service we send array with categories and we update them all
+// status: needs test
 app.put('/api/categories', function(req, res) {
     if(validator.validate(req.body.loginData)) {
         dbUpdator.updateCategories(req.body.categories, res);
     }
 });
-// when we call from the fetcher service we send id and we delete the category ( whitout ) deleting the products
+// when we call from the fetcher service we send id and we delete the category WHITOUT deleting the products
+// status: needs test
 app.delete('/api/categories', function(req, res) {
     var loginData = {
         username: req.param('username'),
@@ -82,10 +95,12 @@ app.delete('/api/categories', function(req, res) {
     }
 });
 // when we call from the fetcher service we return the products and categories
+// status: Working correctly
 app.get('/api/productsAndCategories', function(req, res) {
     dbFinder.fetchAllProductsAndCategories(req, res);
 });
 // when we call from the fetcher service we return all messages
+// status: Working correctly
 app.get('/api/message', function(req, res) {
     var loginData = {
         username: req.param('username'),
@@ -96,6 +111,7 @@ app.get('/api/message', function(req, res) {
     }
 });
 // when we call from the fetcher service we recieve the message, save it to the db and send back status
+// status: Working correctly
 app.post('/api/message', function(req, res) {
     dbUpdator.saveMessage(req, res);
 });
@@ -111,6 +127,7 @@ app.delete('/api/message', function(req, res) {
     }
 });
 // used to log in as administrator
+// status: Working correctly
 app.post('/api/admin/login', function(req, res) {
     if(validator.validate(req.body)) {
         res.json(200, {
