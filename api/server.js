@@ -100,6 +100,7 @@ app.post('/api/message', function(req, res) {
     dbUpdator.saveMessage(req, res);
 });
 // when we want to delete message
+// status: Working correctly
 app.delete('/api/message', function(req, res) {
     var loginData = {
         username: req.param('username'),

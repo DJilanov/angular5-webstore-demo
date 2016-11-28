@@ -54,7 +54,8 @@
      * @message: message object that is going to be deleted
      */
     function deleteMessage(message, res) {
-       var query = getQuery(message);
+        message = JSON.parse(message);
+        var query = getQuery(message);
         mongoose.connection.db.collection('messages', function(err, collection) {
             if(!collection) {
                 return;
@@ -74,6 +75,7 @@
      * @category: category object that is going to be deleted
      */
     function deleteCategory(category, res) {
+        category = JSON.parse(category);
         var query = getQuery(category);
         mongoose.connection.db.collection('categories', function(err, collection) {
             if(!collection) {

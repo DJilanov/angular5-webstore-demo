@@ -29,7 +29,7 @@
     function removeMessage(message) {
         for(var messagesCounter = 0; messagesCounter < messages.length; messagesCounter++) {
             if(messages[messagesCounter]._id.toString() == message._id) {
-                delete messages[messagesCounter];
+                messages.splice(messagesCounter, 1);
                 break;
             }
         }
@@ -63,7 +63,7 @@
     function removeProduct(category) {
         for(var productsCounter = 0; productsCounter < products.length; productsCounter++) {
             if(products[productsCounter]._id.toString() == product._id) {
-                delete products[productsCounter]
+                products.splice(productsCounter, 1);
                 break;
             }
         }
@@ -97,7 +97,7 @@
     function removeCategory(category) {
         for(var categoriesCounter = 0; categoriesCounter < categories.length; categoriesCounter++) {
             if(categories[categoriesCounter]._id.toString() == category._id) {
-                delete categories[categoriesCounter];
+                categories.splice(categoriesCounter, 1);
                 break;
             }
         }

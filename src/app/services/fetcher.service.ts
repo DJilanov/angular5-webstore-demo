@@ -61,7 +61,7 @@ export class FetcherService {
         let params = new URLSearchParams();
         params.set('username', body.username || "");
         params.set('password', body.password || "");
-        params.set('category', body.category || "");
+        params.set('category', JSON.stringify(body.category || ""));
         return this.http.delete( Config.categoriesUrl, { search: params } );
     }
     /**
@@ -82,8 +82,8 @@ export class FetcherService {
         let params = new URLSearchParams();
         params.set('username', body.username || "");
         params.set('password', body.password || "");
-        params.set('message', body.message || "");
-        return this.http.delete( Config.categoriesUrl, { search: params } );
+        params.set('message', JSON.stringify(body.message || ""));
+        return this.http.delete( Config.messageUrl, { search: params } );
     }
 
     constructor( private http: Http ) {}

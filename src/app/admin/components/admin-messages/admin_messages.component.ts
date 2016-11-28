@@ -40,7 +40,21 @@ export class AdminMessagesComponent {
       this.messages = data.json();
     }
 
-    private deleteMessage(message) {
+    private removeMessage(response) {
+      var message = response.response;
+      for(var messageCounter = 0; messageCounter < this.messages.length; messageCounter++) {
+        if(this.messages[messageCounter]['_id'] == message._id) {
+          this.messages.splice(messageCounter, 1);
+          break;
+        }
+      }
+    }
 
+    private deleteMessage(message) {
+      let body = Object.assign(this.authService.getLoginData(), {'message': message});
+      this.fetcherService.deleteMessage(body).subscribe(
+          data => this.removeMessage(data.json()),
+          err => this.errorHandlerService.handleError(err)
+      );
     }
 }
