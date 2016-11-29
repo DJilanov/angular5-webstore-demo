@@ -11,18 +11,24 @@ export class EventEmiterService {
 
     public loggedIn: EventEmitter<any>;
     public dataFetched: EventEmitter<any>;
+    public changedProduct: EventEmitter<any>;
     public showProductModal: EventEmitter<any>;
     public hideProductModal: EventEmitter<any>;
 
     constructor() {
         this.loggedIn = new EventEmitter();
         this.dataFetched = new EventEmitter();
+        this.changedProduct = new EventEmitter();
         this.showProductModal = new EventEmitter();
         this.hideProductModal = new EventEmitter();
     }
 
     public emitFetchedData(data) {
         this.dataFetched.emit(data);
+    }
+
+    public emitChangedProduct(data) {
+        this.changedProduct.emit(data);
     }
 
     // admin

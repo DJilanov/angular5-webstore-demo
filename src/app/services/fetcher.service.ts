@@ -51,14 +51,16 @@ export class FetcherService {
     * @return {Object} response of the back-end
     */
     public createProduct(body) {
-        return this.http.post( Config.productsUrl, body );
+        let request = Object.assign(body, {'type': 'create'});
+        return this.http.post( Config.productsUrl, request );
     }
     /**
     * @updateProduct send request with changed product
     * @return {Object} response of the back-end
     */
     public updateProduct(body) {
-        return this.http.put( Config.productsUrl, body );
+        let request = Object.assign(body, {'type': 'update'});
+        return this.http.post( Config.productsUrl, request );
     }
     /**
     * @deleteProduct send request with product for deletion

@@ -13,8 +13,8 @@ import { EventEmiterService } from '../../../services/event.emiter.service';
 
 export class AdminProductsComponent {
 
-    private products: Array<Object>;
-    private categories: Array<Object>;
+    private products: Array<Object> = [];
+    private categories: Array<Object> = [];
 
     constructor(
         private router: Router,
@@ -27,7 +27,16 @@ export class AdminProductsComponent {
       this.categories = categoriesService.getCategories();
       // on categories update we update the local array
       this.eventEmiterService.dataFetched.subscribe(data => this.onFetchedData(data));
+      this.eventEmiterService.changedProduct.subscribe(data => this.onChangedProduct(data));
     };    
+
+    private onChangedProduct(product) {
+      for(var productsCounter = 0; productsCounter < this.products.length; productsCounter++) {
+        if(this.products[productsCounter]['_id'] == product.response._id) {
+          this.products[productsCounter] = product.response;
+        }
+      }
+    }
     
     private onFetchedData(data) {
       this.products = data.products;
