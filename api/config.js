@@ -13,7 +13,8 @@
         emailUser: 'noreplyjilanov',
         emailPassword: 'Toniwebsite',
         // email: 'jilanovltd@gmail.com'
-        email: 'djilanov@gmail.com'
+        email: 'djilanov@gmail.com',
+        productImagesPath: '/img/'
     };
     // exporting function of the config object
     function getConfig() {

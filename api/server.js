@@ -4,6 +4,18 @@
 
 // call the packages we need
 var express = require('express'); // call express
+// we set the multer
+var multer  = require('multer')
+var storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, '../img/')
+  },
+  filename: function (req, file, cb) {
+    let name = file.originalname.replace('.jpg', '.png');
+    cb(null, name) //Appending .jpg
+  }
+});
+var upload = multer({ storage: storage });
 var bodyParser = require('body-parser');
 // here we declare all functions we use for the standart user interface
 var cache = require('./cache');
@@ -55,9 +67,16 @@ app.put('/api/products', function(req, res) {
 });
 // when we call from the fetcher service we send product
 // status: needs test
-app.post('/api/products', function(req, res) {
-    if(validator.validate(req.body.loginData)) {
-        dbUpdator.createProduct(req.body.product, res);
+var cpUpload = upload.fields([{ name: 'main_image', maxCount: 1 }, { name: 'other_images', maxCount: 8 }]);
+app.post('/api/products', cpUpload, function(req, res) {
+    var data = JSON.parse(req.body.body);
+    if(validator.validate(data.loginData)) {
+        if(data.product._id !== undefined) {
+            dbUpdator.updateProduct(data.product, req.files, res);
+        } else {
+            dbUpdator.createProduct(data.product, req.files, res);
+        }
+
     }
 });
 // when we call from the fetcher service we send id and we delete the product

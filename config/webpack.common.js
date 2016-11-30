@@ -212,6 +212,9 @@ module.exports = function (options) {
       },{
         from: 'src/app/sass/fonts',
         to: 'fonts',
+      },{
+        from: 'img',
+        to: 'img',
       }]),
 
 

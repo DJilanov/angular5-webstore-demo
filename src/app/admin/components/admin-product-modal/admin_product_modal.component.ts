@@ -172,7 +172,7 @@ export class AdminProductModalComponent {
         let body = Object.assign(loginData, {'product': this.formOptions['product']});
         const formData = new FormData();
         for(var i = 0; i < otherImages.length; i++){
-            formData.append('other_images' + i, otherImages[i]);
+            formData.append('other_images', otherImages[i]);
         }
         formData.append('main_image', this.formOptions['product'].main_image);
         formData.append('body', JSON.stringify(body));

@@ -8,6 +8,7 @@
     var config = require('./config').getConfig();
     var nodemailer = require('nodemailer');
     var fs = require('fs');
+    var im = require('imagemagick');
     var emailTemplate = null;
 
     fs.readFile('./email-templates/message-builded.html', function (err, html) {
@@ -35,7 +36,21 @@
         };
     }
 
-    function getProductQuery(product, res) {
+    function getProductQuery(product, files, res) {
+        let otherImagesArray = [];
+        let main_image = '';
+        if(files.other_images !== undefined) {
+            files.other_images.forEach(function(element) {
+                otherImagesArray.push(config.productImagesPath + element.filename);
+            });
+        } else {
+            otherImagesArray = product.other_images;
+        }
+        if(files.main_image !== undefined) {
+            main_image = config.productImagesPath + files.main_image[0].filename;
+        } else {
+            main_image = product.main_image;
+        }
         return {
             carousel: product.carousel,
             category: product.category,
@@ -44,13 +59,13 @@
             description: product.description,
             is_new: product.is_new,
             link: product.link,
-            main_image: product.main_image,
+            main_image: main_image,
             make: product.make,
             more_details: product.more_details,
             more_info: product.more_info,
             new_price: product.new_price,
             old_price: product.old_price,
-            other_images: product.other_images,
+            other_images: otherImagesArray,
             params: product.params,
             rating: product.rating,
             shown: product.shown,
@@ -174,17 +189,17 @@
      * @updateProduct Used to update the product to the database
      * @product: product that is going to be updated
      */
-    function updateProduct(product, res) {
+    function updateProduct(product, files, res) {
         var query = getQuery(product);
-        let update = getProductQuery(product, res);
+        let update = getProductQuery(product, files, res);
         mongoose.connection.db.collection('products', function(err, collection) {
             if(!collection) {
                 return;
             }
             collection.update(query, update, function(err, docs) {
                 if(!err) {
-                    cache.updateProduct(product);
-                    returnSuccess(res, product);
+                    cache.updateProduct(update);
+                    returnSuccess(res, update);
                 } else {
                     // todo: handle the case when 1 gets broken but the other are correctly set
                     returnProblem(err, res);
@@ -196,17 +211,21 @@
      * @createProduct Used to create product to the database
      * @product: product that will be created
      */
-    function createProduct(product, res) {
+    function createProduct(product, files, res) {
+        let update = getProductQuery(product, files, res);
         mongoose.connection.db.collection('messages', function(err, collection) {
             if(!collection) {
                 return;
             }
-            collection.insertOne(product, function(err, docs) {
+            collection.insertOne(update, function(err, docs) {
                 var response = Object.assign({
                     id: docs.insertedId.toHexString(),
                     'date': new Date()
-                }, req.body);
+                }, update);
                 if(!err) {
+                    if(Object.keys(files).length > 0) {
+                        setProductImages(response, files);
+                    }
                     cache.addMessage(response);
                     returnSuccess(res);
                 } else {
