@@ -5,13 +5,16 @@
 // call the packages we need
 var express = require('express'); // call express
 // we set the multer
-var multer  = require('multer')
+var multer  = require('multer');
+var fs = require('fs');
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, '../img/')
   },
   filename: function (req, file, cb) {
     let name = file.originalname.replace('.jpg', '.png');
+    debugger;
+    fs.createReadStream('test.log').pipe(fs.createWriteStream('newLog.log'));
     cb(null, name) //Appending .jpg
   }
 });
