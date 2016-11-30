@@ -6,6 +6,14 @@
     var ObjectId = require('mongodb').ObjectID;
     var mongoose = require('mongoose');
     var config = require('./config').getConfig();
+    var nodemailer = require('nodemailer');
+    var fs = require('fs');
+    var emailTemplate = null;
+
+    fs.readFile('./email-templates/message-builded.html', function (err, html) {
+        emailTemplate = html.toString();
+    });
+
     var cache = null;
 
     /**
@@ -51,6 +59,24 @@
             zIndex: product.zIndex,
         };
     }
+
+    function sendEmail(response) {
+        var transporter = nodemailer.createTransport('smtps://' + config.emailUser + '%40gmail.com:' + config.emailPassword + '@smtp.gmail.com');
+        var template = emailTemplate.replace('{{email}}', response.email).replace('{{date}}', response.date).replace('{{name}}', response.name).replace('{{phone}}', response.phone).replace('{{message}}', response.message);
+        var mailOptions = {
+            from: '"Jilanov EOOD 👥" <noreplyjilanov@gmail.com>', // sender address
+            to: config.email, // list of receivers
+            subject: 'New message recieved ✔', // Subject line
+            text: template, // plaintext body
+            html: template // html body
+        };
+        transporter.sendMail(mailOptions, function(error, info){
+            if(error){
+                return console.log(error);
+            }
+            console.log('Message sent: ' + info.response);
+        });
+    }
     /**
      * @saveMessage Used to save the message to the database
      */
@@ -66,6 +92,7 @@
                     'date': new Date()
                 }, req.body);
                 if(!err) {
+                    sendEmail(response);
                     cache.addMessage(response);
                     returnSuccess(res);
                 } else {

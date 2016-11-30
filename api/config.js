@@ -8,7 +8,12 @@
         adminPassword: 'toni1221',
         // used for the back-end
         dbUser: 'admin',
-        dbPassword: 'toniadmin'
+        dbPassword: 'toniadmin',
+        // used for emails
+        emailUser: 'noreplyjilanov',
+        emailPassword: 'Toniwebsite',
+        // email: 'jilanovltd@gmail.com'
+        email: 'djilanov@gmail.com'
     };
     // exporting function of the config object
     function getConfig() {
