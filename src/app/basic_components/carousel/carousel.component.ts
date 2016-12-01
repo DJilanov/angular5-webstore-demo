@@ -1,4 +1,5 @@
-import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Dictionary } from '../../dictionary/dictionary.service';
 
 // import { DateComponent } from '../date/date.component';
 
@@ -8,14 +9,11 @@ import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
     templateUrl: './carousel.component.html'
 })
 
-export class CarouselComponent implements OnInit {
-    
+export class CarouselComponent {
     @Input()
     carouselOptions: Object;
-    /**
-     * @ngOnInit on init
-     */
-    public ngOnInit() {
 
-    }
+    constructor(
+        private dictionary: Dictionary
+    ){}
 }

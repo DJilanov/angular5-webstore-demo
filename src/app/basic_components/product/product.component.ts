@@ -1,4 +1,4 @@
-import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
+import { Component, Input, Output } from '@angular/core';
 import { Dictionary } from '../../dictionary/dictionary.service';
 
 // import { DateComponent } from '../date/date.component';
@@ -9,19 +9,12 @@ import { Dictionary } from '../../dictionary/dictionary.service';
     templateUrl: './product.component.html'
 })
 
-export class ProductComponent implements OnInit {
+export class ProductComponent {
     @Input()
     productObject: Object;
 
     @Output()
     productImage: Object = {};
-
-    /**
-     * @ngOnInit on init
-     */
-    public ngOnInit() {
-        
-    }
 
     constructor(
         private dictionary: Dictionary

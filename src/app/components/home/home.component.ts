@@ -1,4 +1,4 @@
-import { Component, Input, Output, OnInit } from '@angular/core';
+import { Component, Input, Output } from '@angular/core';
 import { Dictionary } from '../../dictionary/dictionary.service';
 import { ProductsService } from '../../services/products.service';
 import { CategoriesService } from '../../services/categories.service';
@@ -10,21 +10,16 @@ import { EventEmiterService } from '../../services/event.emiter.service';
     templateUrl: './home.component.html'
 })
 
-export class HomeComponent implements OnInit {
+export class HomeComponent {
     // options of the inner carousel
     // todo: Fill it with the real images and items
     public carouselOptions:Object = {
       myInterval: 3000,
       noWrapSlides: false,
       slides: [{
-        image: `//placekitten.com/1599/300`,
+        // static base image untill we fetch ( must be one of our website images)
+        main_image: `//placekitten.com/1599/300`,
         text: `test1`
-      },{
-        image: `//placekitten.com/1598/300`,
-        text: `test2`
-      },{
-        image: `//placekitten.com/1597/300`,
-        text: `test3`
       }]
     };
 
@@ -46,16 +41,23 @@ export class HomeComponent implements OnInit {
 
     private onFetchedData(data) {
       this.products = data.products;
+      this.setCarouselSlides();
       this.categories = data.categories;
+    }
+
+    private setCarouselSlides() {
+      // filter them correctly
+      let filteredProducts = this.products.filter(function(product){
+        debugger;
+        // we check is it carousel promoted product
+        if(true) {
+          return product;
+        }
+      });
+      this.carouselOptions['slides'] = filteredProducts;
     }
 
     private productsByCategory(category) {
       return this.productsService.getProductsByCategory(category.products);
-    }
-    /**
-     * @ngOnInit on init
-     */
-    public ngOnInit() {
-        
     }
 }
