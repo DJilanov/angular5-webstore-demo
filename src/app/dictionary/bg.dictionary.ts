@@ -41,6 +41,10 @@ export class BulgarianDictionary {
         "contactFormSend": "Изпрати",
         "contactCaptchaTitle": "Грешно попълнена анти бот система!",
         "contactCaptcha": "Моля попълнете правилно анти бот проверката.",
+        "contactMessageSuccess": "Съобщението е получено успешно!",
+        "contactMessageRecieved": "Ще се свържем с вас при първа възможност",
+        "contactMessageFail": "Възникна грешка при изпращането на съобщението!",
+        "contactMessageNotRecieved": "Моля обадете се на нашия телефонен номер: ",
 
         "loginFormTitle": "Моля въведете вашия акаунт и парола",
         "loginFormUsername": "Вашия акаунт",

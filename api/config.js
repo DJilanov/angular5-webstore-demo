@@ -14,7 +14,8 @@
         emailPassword: 'Toniwebsite',
         // email: 'jilanovltd@gmail.com'
         email: 'djilanov@gmail.com',
-        productImagesPath: '/img/'
+        productImagesPath: '/img/',
+        productProductionImagesPath: '/dist/img/',
     };
     // exporting function of the config object
     function getConfig() {

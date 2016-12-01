@@ -13,9 +13,8 @@ var storage = multer.diskStorage({
   },
   filename: function (req, file, cb) {
     let name = file.originalname.replace('.jpg', '.png');
-    debugger;
-    fs.createReadStream('test.log').pipe(fs.createWriteStream('newLog.log'));
-    cb(null, name) //Appending .jpg
+    fs.createReadStream(file.filename).pipe(fs.createWriteStream(config.productProductionImagesPath + name));
+    cb(null, name) //Appending .png
   }
 });
 var upload = multer({ storage: storage });

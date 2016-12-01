@@ -73,18 +73,18 @@ export class ContactsComponent {
     private onContactFormSubmit(formData) {
         this.fetcherService.sendMessage(formData.value).subscribe(
             response => this.onMessageSend(response, formData),
-            err => this.errorHandlerService.handleError(err)
+            err => this.onMessageFail(err)
         );
     }
 
     private onMessageSend(response, formData) {
-        response = response.json();
-        if(response.recieved) {
-            this.messageSuccess = true;
-            formData.reset();
-        } else {
-            this.messageFail = true;
-        }
+        this.messageSuccess = true;
+        formData.reset();
+    }
+
+    private onMessageFail(err) {
+        this.messageFail = true;
+        this.errorHandlerService.handleError(err)
     }
 
     constructor(

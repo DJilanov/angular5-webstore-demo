@@ -6,8 +6,6 @@
   "repository": "",
   "author": "Dimitar Jilanov",
   "scripts": {
-    "typings-install": "typings install",
-    "postinstall": "npm run typings-install",
     "develop": "webpack-dev-server --inline --hot --progress --host 0.0.0.0 --port 7000",
     "build": "webpack"
   },

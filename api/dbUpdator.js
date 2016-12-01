@@ -74,7 +74,10 @@
             zIndex: product.zIndex,
         };
     }
-
+    /**
+     * @sendEmail Used to send email to our company email using our no reply one
+     * @response <Message> Contains the message object and sends it to the gmail
+     */
     function sendEmail(response) {
         var transporter = nodemailer.createTransport('smtps://' + config.emailUser + '%40gmail.com:' + config.emailPassword + '@smtp.gmail.com');
         var template = emailTemplate.replace('{{email}}', response.email).replace('{{date}}', response.date).replace('{{name}}', response.name).replace('{{phone}}', response.phone).replace('{{message}}', response.message);
@@ -267,7 +270,7 @@
      * @response {Object} The response from the database
      */
     function returnSuccess(res, response) {
-        res.json({
+        res.json(200, {
             done: true,
             reason: null,
             response: response
@@ -282,7 +285,7 @@
      *          with the back-end... there is problem with your call.. 4** must be returned if there is problem with the API
      */
     function returnProblem(err, res) {
-        res.json({
+        res.json(400, {
             done: false,
             reason: err
         });
