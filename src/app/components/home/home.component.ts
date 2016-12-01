@@ -47,14 +47,12 @@ export class HomeComponent {
 
     private setCarouselSlides() {
       // filter them correctly
-      let filteredProducts = this.products.filter(function(product){
-        debugger;
+      this.carouselOptions['slides'] = this.products.filter(function(product){
         // we check is it carousel promoted product
-        if(true) {
+        if(product['carousel']) {
           return product;
         }
       });
-      this.carouselOptions['slides'] = filteredProducts;
     }
 
     private productsByCategory(category) {
