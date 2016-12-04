@@ -1,4 +1,17 @@
-<product-list 
-	[category]=cartCategory 
-	[products]=cartProducts>
-</product-list>
+<div class="container">
+	{{dictionary.getTexts('cartHeader')}}
+	<product-list 
+		[category]=cartCategory 
+		[products]=cartProducts>
+	</product-list>
+
+	<div class="alert alert-success" *ngIf="messageSuccess">
+		<strong>{{dictionary.getTexts('contactOrderSuccess')}}</strong> {{dictionary.getTexts('contactOrderRecieved')}}
+	</div>
+	<div class="alert alert-danger" *ngIf="messageFail">
+		<strong>{{dictionary.getTexts('contactMessageFail')}}</strong> {{dictionary.getTexts('contactMessageNotRecieved')}} {{dictionary.getTexts('contactPhone')}}
+	</div>
+
+	<custom-form [formOptions]="contactFormModel" [formSubmit]="onContactFormSubmit"></custom-form>
+</div>
+	

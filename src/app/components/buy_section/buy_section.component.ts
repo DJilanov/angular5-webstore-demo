@@ -13,7 +13,13 @@ export class BuySectionComponent {
     @Input()
     product: Object;
 
-    constructor(private eventEmiterService: EventEmiterService) {
+    constructor(
+        private eventEmiterService: EventEmiterService
+    ) {
+        
+    }
 
+    private onAddToCart() {
+        this.eventEmiterService.emitFetchedData(this.product);
     }
 }

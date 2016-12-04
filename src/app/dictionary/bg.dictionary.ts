@@ -21,6 +21,9 @@ export class BulgarianDictionary {
         "headerSearchFor": "Потърси...",
         "headerYourProfile": "Профилът ви",
 
+
+        "cartHeader": "Вашата количка с поръчки:",
+
         "contactHeader": "За връзка с нас:",
         "contactMarker": "Координати",
         "contactAddress": "Улица Могилите. София 1836",
@@ -30,6 +33,7 @@ export class BulgarianDictionary {
         "contactPhone": "0878613400",
         "contactRules": "Посещения на място след предварително договаряне!",
         "contactFormTitle": "Може да ни изпратите запитване през формата",
+        "contactOrderTitle": "Може да направите поръчка през формата",
         "contactFormYourName": "Вашето име",
         "contactFormYourNameEnter": "Въведете вашето име",
         "contactFormYourEmail": "Вашата електронна поща",
@@ -38,11 +42,15 @@ export class BulgarianDictionary {
         "contactFormYourPhoneNumberEnter": "Въведете вашия телефонен номер",
         "contactFormYourMessage": "Вашето съобщение",
         "contactFormYourMessageEnter": "Въведете вашето съобщение",
+        "contactYourAddress": "Адреса ви за доставка",
+        "contactYourAddressEnter": "Въведете адреса ви за доставка",
         "contactFormSend": "Изпрати",
         "contactCaptchaTitle": "Грешно попълнена анти бот система!",
         "contactCaptcha": "Моля попълнете правилно анти бот проверката.",
         "contactMessageSuccess": "Съобщението е получено успешно!",
         "contactMessageRecieved": "Ще се свържем с вас при първа възможност",
+        "contactOrderSuccess": "Поръчката е получена успешно!",
+        "contactOrderRecieved": "Ще се свържем с вас при първа възможност",
         "contactMessageFail": "Възникна грешка при изпращането на съобщението!",
         "contactMessageNotRecieved": "Моля обадете се на нашия телефонен номер: ",
 
@@ -61,6 +69,7 @@ export class BulgarianDictionary {
         "productMinAmount": "Минималното количество за покупка на продукта е",
         "productAddToCart": "Добавяне към количката",
 
+        "addToCart": "Добавяне в количката",
         "addToCartSuccess": "Успешно добавяне към количката с поръчки",
         "removeFromCartSuccess": "Успешно премахване на поръчката",
         "emptyCart": "Количката ви е празна",

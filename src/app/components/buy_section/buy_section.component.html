@@ -1,4 +1,8 @@
-<product-list 
-	[category]=cartCategory 
-	[products]=cartProducts>
-</product-list>
+<div class="col-xs-12" *ngIf="product.title">
+	<div class="button-container">
+		<button 
+          class="btn btn-success">
+          	{{dictionary.getTexts('addToCart')}}
+        </button>
+	</div>
+</div>

@@ -10,6 +10,7 @@ import { Config } from '../config';
 export class EventEmiterService {
 
     public loggedIn: EventEmitter<any>;
+    public addToCart: EventEmitter<any>;
     public dataFetched: EventEmitter<any>;
     public changedProduct: EventEmitter<any>;
     public showProductModal: EventEmitter<any>;
@@ -17,6 +18,7 @@ export class EventEmiterService {
 
     constructor() {
         this.loggedIn = new EventEmitter();
+        this.addToCart = new EventEmitter();
         this.dataFetched = new EventEmitter();
         this.changedProduct = new EventEmitter();
         this.showProductModal = new EventEmitter();
@@ -27,21 +29,25 @@ export class EventEmiterService {
         this.dataFetched.emit(data);
     }
 
-    public emitChangedProduct(data) {
-        this.changedProduct.emit(data);
+    public emitChangedProduct(product) {
+        this.changedProduct.emit(product);
+    }
+
+    public emitAddToCart(product) {
+        this.addToCart.emit(product);
     }
 
     // admin
 
-    public emitLoggedIn(data) {
-        this.loggedIn.emit(data);
+    public emitLoggedIn(loginData) {
+        this.loggedIn.emit(loginData);
     }
 
-    public emitShowProductModal(data) {
-        this.showProductModal.emit(data);
+    public emitShowProductModal(product) {
+        this.showProductModal.emit(product);
     }
 
-    public emitHideProductModal(data) {
-        this.hideProductModal.emit(data);
+    public emitHideProductModal(empty) {
+        this.hideProductModal.emit(empty);
     }
 }
