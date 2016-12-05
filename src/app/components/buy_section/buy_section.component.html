@@ -1,8 +1,12 @@
 <div class="col-xs-12" *ngIf="product.title">
+	<div class="text-container">
+		{{dictionary.getTexts('storedAmount')}} {{product.count}} {{dictionary.getTexts('amount')}}!
+	</div>
 	<div class="button-container">
 		<button 
-          class="btn btn-success">
-          	{{dictionary.getTexts('addToCart')}}
-        </button>
+			(click)="onAddToCart()"
+			class="btn btn-success">
+			{{dictionary.getTexts('addToCart')}}
+		</button>
 	</div>
 </div>

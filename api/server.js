@@ -7,13 +7,13 @@ var express = require('express'); // call express
 // we set the multer
 var multer  = require('multer');
 var fs = require('fs');
+var config = require('./config').getConfig();
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, '../img/')
   },
   filename: function (req, file, cb) {
     let name = file.originalname.replace('.jpg', '.png');
-    fs.createReadStream(file.filename).pipe(fs.createWriteStream(config.productProductionImagesPath + name));
     cb(null, name) //Appending .png
   }
 });
@@ -78,6 +78,7 @@ app.post('/api/products', cpUpload, function(req, res) {
         } else {
             dbUpdator.createProduct(data.product, req.files, res);
         }
+        dbUpdator.copyImages(req.files);
 
     }
 });

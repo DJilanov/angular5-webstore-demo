@@ -1,9 +1,15 @@
 <div class="container">
 	{{dictionary.getTexts('cartHeader')}}
-	<product-list 
-		[category]=cartCategory 
-		[products]=cartProducts>
-	</product-list>
+	<div 
+		*ngIf="cartProducts.length > 0"
+		class="col-xs-12">
+		<template ngFor #productObject [ngForOf]="cartProducts" let-index="index">
+			<div class="col-xs-12 col-sm-12 col-md-4">
+				<product [productObject]=cartProducts[index]></product>
+			</div>
+			<div *ngIf="index%3 == 2" class="clearfix visible-sm visible-md visible-lg"></div>
+		</template>
+	</div>
 
 	<div class="alert alert-success" *ngIf="messageSuccess">
 		<strong>{{dictionary.getTexts('contactOrderSuccess')}}</strong> {{dictionary.getTexts('contactOrderRecieved')}}

@@ -1,6 +1,8 @@
 import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
 import { Validators } from '@angular/forms';
 import { Dictionary } from '../../dictionary/dictionary.service';
+import { FetcherService } from '../../services/fetcher.service';
+import { ErrorHandlerService } from '../../services/error.handler.service';
 import { EventEmiterService } from '../../services/event.emiter.service';
 import { LocalStorageService, SessionStorageService } from 'ng2-webstorage';
 
@@ -87,7 +89,6 @@ export class CartComponent implements OnInit {
 
     private addProduct(product) {
         this.cartProducts.push(product);
-        //TODO: ADD IT TO THE LOCALSTORAGE TOO
     }
  
     public ngOnInit() {
@@ -96,13 +97,16 @@ export class CartComponent implements OnInit {
     }
     // USED WHEN WE FINISH THE ORDER AND IT IS SENDED TO THE BACK-END
     private orderSuccessfull(data) {
-        // EMPTY THE STORAGE
+        this.storage.store('cartProducts', []);
+        this.cartProducts.length = 0;
     }
 
     constructor(
         private dictionary: Dictionary,
         private storage: LocalStorageService,
-        private eventEmiterService: EventEmiterService
+        private fetcherService: FetcherService,
+        private eventEmiterService: EventEmiterService,
+        private errorHandlerService: ErrorHandlerService
     ) {
         this.eventEmiterService.addToCart.subscribe(product => this.addProduct(product));
     }

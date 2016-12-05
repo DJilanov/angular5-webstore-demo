@@ -15,7 +15,7 @@
         // email: 'jilanovltd@gmail.com'
         email: 'djilanov@gmail.com',
         productImagesPath: '/img/',
-        productProductionImagesPath: '/dist/img/',
+        productProductionImagesPath: '../dist/img/',
     };
     // exporting function of the config object
     function getConfig() {

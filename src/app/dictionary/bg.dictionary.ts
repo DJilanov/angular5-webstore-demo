@@ -23,6 +23,8 @@ export class BulgarianDictionary {
 
 
         "cartHeader": "Вашата количка с поръчки:",
+        "storedAmount": "Остават още само",
+        "amount": "бройки",
 
         "contactHeader": "За връзка с нас:",
         "contactMarker": "Координати",

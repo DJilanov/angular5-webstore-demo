@@ -7,11 +7,11 @@ export class Config {
     public static get defaultLang():string { return 'bg'; }
     public static get languages():Array<string> { return ['bg', 'en']; }
     // urls
-    public static get productsAndCategoriesUrl():string { return "localhost:8080/api/productsAndCategories"; }
-    public static get categoriesUrl():string { return "localhost:8080/api/categories"; }
-    public static get productsUrl():string { return "localhost:8080/api/products"; }
-    public static get messageUrl():string { return "localhost:8080/api/message"; }
-    public static get adminLoginUrl():string { return "localhost:8080/api/admin/login"; }
+    public static get productsAndCategoriesUrl():string { return "http://355d55cc.ngrok.io/api/productsAndCategories"; }
+    public static get categoriesUrl():string { return "http://355d55cc.ngrok.io/api/categories"; }
+    public static get productsUrl():string { return "http://355d55cc.ngrok.io/api/products"; }
+    public static get messageUrl():string { return "http://355d55cc.ngrok.io/api/message"; }
+    public static get adminLoginUrl():string { return "http://355d55cc.ngrok.io/api/admin/login"; }
 
     // staging
     // public static get productsAndCategoriesUrl():string { return "https://morning-oasis-39757.herokuapp.com/api/productsAndCategories"; }

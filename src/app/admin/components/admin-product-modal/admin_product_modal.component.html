@@ -8,7 +8,9 @@
         </button>
         <h4 class="modal-title" *ngIf="formOptions">
           <span>{{ dictionary.getTexts(formOptions.title) }}</span> 
-          <span *ngIf="formOptions.product.title">{{ formOptions.product.title[dictionary.language] }}</span>
+          <span 
+            *ngIf="formOptions.product.title">
+            {{ formOptions.product.title[dictionary.language] }}</span>
         </h4>
       </div>
       <div class="modal-body" 
@@ -115,7 +117,8 @@
             </div>
             <!-- params -->
             <h4>{{ dictionary.getTexts('productParams') }}</h4>
-            <div class="col-xs-6">
+            <div
+              class="col-xs-6" >
               <label for="enTitle">BG</label>
               <template ngFor #productObject [ngForOf]="formOptions.product.params.bg" let-index="index">
                 <input 
@@ -126,7 +129,8 @@
                   placeholder="{{ dictionary.getTexts('productParams') }}">
               </template>
             </div>
-            <div class="col-xs-6">
+            <div
+              class="col-xs-6">
               <label for="bgTitle">EN</label>
               <template ngFor #productObject [ngForOf]="formOptions.product.params.en" let-index="index">
                 <input 

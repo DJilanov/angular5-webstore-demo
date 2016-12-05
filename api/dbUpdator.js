@@ -291,6 +291,17 @@
         });
     }
 
+    function copyImages(files) {
+        if(files.main_image) {
+            fs.createReadStream(files.main_image[0].path).pipe(fs.createWriteStream(config.productProductionImagesPath + files.main_image[0].originalname));
+        }
+        if(files.other_images) {
+            for(let otherImagesCounter = 0; otherImagesCounter < files.other_images.length; otherImagesCounter++) {
+                fs.createReadStream(files.other_images[otherImagesCounter].path).pipe(fs.createWriteStream(config.productProductionImagesPath + files.other_images[otherImagesCounter].originalname));
+            }
+        }
+    }
+
     /**
      * @connectDb Used to make the connection to the Database
      */
@@ -319,6 +330,7 @@
     module.exports = {
         setCache: setCache,
         connectDb: connectDb,
+        copyImages: copyImages,
         updateProduct: updateProduct,
         createProduct: createProduct,
         saveMessage: saveMessage,

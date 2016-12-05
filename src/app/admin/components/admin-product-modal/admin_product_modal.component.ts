@@ -254,6 +254,14 @@ export class AdminProductModalComponent {
         for(var otherImagesCounter = 0; otherImagesCounter < size; otherImagesCounter++) {
             formGroup['other_images' + otherImagesCounter] = new FormControl(options.product.other_images[otherImagesCounter], [<any>Validators.required]);
         }
+        // when you have older item that doesnt have params
+        if(!options.product.params) {
+            options.product.params = {
+                bg: ['','',''],
+                en: ['','','']
+            }
+        }
+
         // set the params array
         let params = options.product.params.bg.length;
         if(params < 3) {
@@ -263,6 +271,7 @@ export class AdminProductModalComponent {
             formGroup['paramsBG' + paramsCounter] = new FormControl(options.product.params.bg[paramsCounter], [<any>Validators.required]);
             formGroup['paramsEN' + paramsCounter] = new FormControl(options.product.params.en[paramsCounter], [<any>Validators.required]);
         }
+        
         this.ngForm = new FormGroup(formGroup);
     }
     // refactor it when have time

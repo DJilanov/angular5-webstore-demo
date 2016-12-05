@@ -1,6 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Dictionary } from '../../dictionary/dictionary.service';
 import { EventEmiterService } from '../../services/event.emiter.service';
+import { LocalStorageService, SessionStorageService } from 'ng2-webstorage';
 
 @Component({
     selector: 'buy-section',
@@ -8,18 +9,30 @@ import { EventEmiterService } from '../../services/event.emiter.service';
     templateUrl: './buy_section.component.html'
 })
 
-export class BuySectionComponent {
+export class BuySectionComponent implements OnInit {
 
     @Input()
     product: Object;
 
+    private cartProducts: Array<Object> = [];
+
     constructor(
+        private dictionary: Dictionary,
+        private storage: LocalStorageService,
         private eventEmiterService: EventEmiterService
     ) {
         
     }
+ 
+    public ngOnInit() {debugger;
+        // we save the products in the cart via ID and amount. We later get the products by id
+        this.cartProducts = this.storage.retrieve('cartProducts') || [];
+    }
+    
 
     private onAddToCart() {
-        this.eventEmiterService.emitFetchedData(this.product);
+        this.cartProducts.push(this.product);
+        this.storage.store('cartProducts', this.cartProducts);
+        this.eventEmiterService.emitAddToCart(this.product);
     }
 }

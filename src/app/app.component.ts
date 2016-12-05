@@ -1,5 +1,5 @@
-import { Component, OnInit, Inject, EventEmitter } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 import { FetcherService } from './services/fetcher.service';
 import { CategoriesService } from './services/categories.service';
 import { ProductsService } from './services/products.service';
@@ -12,7 +12,7 @@ import { ErrorHandlerService } from './services/error.handler.service';
     styles: [ require('./sass/style.scss') ]
 })
 
-export class AppComponent implements OnInit {
+export class AppComponent {
 
     private products: Array<Object>;
     private categories: Array<Object>;
@@ -49,6 +49,4 @@ export class AppComponent implements OnInit {
         this.categoriesService.setCategories(this.categories);
 
     }
-
-    public ngOnInit() {}
 }
