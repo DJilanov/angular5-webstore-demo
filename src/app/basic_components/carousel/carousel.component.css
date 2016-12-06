@@ -1,3 +1,8 @@
 .carousel-item {
     text-align: center;
 }
+
+slide {
+    margin: auto;
+    height: 300px;
+}

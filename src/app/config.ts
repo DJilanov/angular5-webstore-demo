@@ -7,12 +7,12 @@ export class Config {
     public static get defaultLang():string { return 'bg'; }
     public static get languages():Array<string> { return ['bg', 'en']; }
     // urls
-    public static get productsAndCategoriesUrl():string { return "http://730ed970.ngrok.io/api/productsAndCategories"; }
-    public static get categoriesUrl():string { return "http://730ed970.ngrok.io/api/categories"; }
-    public static get productsUrl():string { return "http://730ed970.ngrok.io/api/products"; }
-    public static get messageUrl():string { return "http://730ed970.ngrok.io/api/message"; }
-    public static get orderUrl():string { return "http://730ed970.ngrok.io/api/order"; }
-    public static get adminLoginUrl():string { return "http://730ed970.ngrok.io/api/admin/login"; }
+    public static get productsAndCategoriesUrl():string { return "http://e3d582ed.ngrok.io/api/productsAndCategories"; }
+    public static get categoriesUrl():string { return "http://e3d582ed.ngrok.io/api/categories"; }
+    public static get productsUrl():string { return "http://e3d582ed.ngrok.io/api/products"; }
+    public static get messageUrl():string { return "http://e3d582ed.ngrok.io/api/message"; }
+    public static get orderUrl():string { return "http://e3d582ed.ngrok.io/api/order"; }
+    public static get adminLoginUrl():string { return "http://e3d582ed.ngrok.io/api/admin/login"; }
 
     // staging
     // public static get productsAndCategoriesUrl():string { return "https://morning-oasis-39757.herokuapp.com/api/productsAndCategories"; }

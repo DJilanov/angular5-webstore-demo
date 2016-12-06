@@ -12,8 +12,8 @@
         // used for emails
         emailUser: 'noreplyjilanov',
         emailPassword: 'Toniwebsite',
-        // email: 'jilanovltd@gmail.com'
-        email: 'djilanov@gmail.com',
+        email: 'jilanovltd@gmail.com',
+        // email: 'djilanov@gmail.com',
         productImagesPath: '/img/',
         productProductionImagesPath: '../dist/img/',
     };

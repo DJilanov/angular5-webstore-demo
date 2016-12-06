@@ -22,31 +22,44 @@ const appRoutes: Routes = [
     path: '', 
     component: HomeComponent,
     data: {
-      title: 'Home'
+      meta: {
+        title: 'Всичко за вашия компютър на най-конкурентни цени в Жиланов ЕООД!',
+        description: 'Изберете от десетките видове RAM памети, хард дискове и компютърни части на промоционалните ни цени!'
+      }
     }
   }, { 
     path: 'products/:category', 
     component: ProductListComponent,
     data: {
-      title: 'Product List'
+      meta: {
+        description: 'Изберете от десетките видове RAM памети, хард дискове и компютърни части на промоционалните ни цени!'
+      }
     }
   }, { 
     path: 'details/:productLink', 
     component: DetailsComponent,
     data: {
-      title: 'Details'
+      meta: {
+        description: 'Изберете от десетките видове RAM памети, хард дискове и компютърни части на промоционалните ни цени!'
+      }
     }
   }, { 
     path: 'cart', 
     component: CartComponent,
     data: {
-      title: 'Cart'
+      meta: {
+        title: 'Количка с поръчки от Жиланов ЕООД',
+        description: 'Не изпускайте момента да подобрите компютъра си на промоционалните ни цени!'
+      }
     }
   }, { 
     path: 'contacts', 
     component: ContactsComponent,
     data: {
-      title: 'Contacts'
+      meta: {
+        title: 'Връзка с Жиланов ЕООД',
+        description: 'Можете да се свържете с нас на телефон 0878466180 или чрез контактната форма'
+      }
     }
   }, { 
     path: 'admin', 

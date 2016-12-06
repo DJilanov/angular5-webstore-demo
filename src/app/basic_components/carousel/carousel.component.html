@@ -1,9 +1,8 @@
-<carousel [interval]="carouselOptions.interval" [noWrap]="carouselOptions.noWrapSlides">
+<carousel [interval]="'3000'" [noWrap]="carouselOptions.noWrapSlides">
   <slide *ngFor="let slidez of carouselOptions.slides; let index=index"
-         [active]="slidez.active">
-    <image 
-        [src]="slidez.main_image" 
-        style="margin:auto;"></image>
+         [active]="slidez.active"
+         style="margin:auto;">
+    <img src="{{slidez.main_image}}"/>
 
     <div class="carousel-caption" 
       *ngIf="slidez.title">

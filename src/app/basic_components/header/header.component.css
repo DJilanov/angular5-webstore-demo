@@ -2,6 +2,10 @@
     display: block;
 }
 
+.logo img {
+    height: 50px;
+}
+
 .custom-navi {
     margin-left: 20px;
 }

@@ -14,12 +14,20 @@ export class HomeComponent {
     // options of the inner carousel
     // todo: Fill it with the real images and items
     public carouselOptions:Object = {
-      myInterval: 3000,
+      myInterval: 1000,
       noWrapSlides: false,
       slides: [{
         // static base image untill we fetch ( must be one of our website images)
-        main_image: `//placekitten.com/1599/300`,
+        main_image: `//placekitten.com/1/1`,
         text: `test1`
+      },{
+        // static base image untill we fetch ( must be one of our website images)
+        main_image: `//placekitten.com/2/1`,
+        text: `test2`
+      },{
+        // static base image untill we fetch ( must be one of our website images)
+        main_image: `//placekitten.com/1/2`,
+        text: `test3`
       }]
     };
 

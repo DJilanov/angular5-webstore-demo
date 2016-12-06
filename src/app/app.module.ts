@@ -1,6 +1,7 @@
 // Angular 2 Modules
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
+import { MetaModule } from 'ng2-meta';
 import { Ng2Webstorage } from 'ng2-webstorage';
 import { ImageZoomModule } from 'angular2-image-zoom';
 import { AgmCoreModule } from 'angular2-google-maps/core';
@@ -75,6 +76,7 @@ import { ErrorHandlerService } from './services/error.handler.service';
         ImageZoomModule,
         Ng2BootstrapModule,
         ReactiveFormsModule,
+        MetaModule.forRoot(),
         AgmCoreModule.forRoot({
           apiKey: 'AIzaSyDBbPzFEwNVTHNoZ-bz7YYqO1eMRPqTyUA'
         }),

@@ -25,3 +25,7 @@ div {
     right: 0;  
     margin: auto;
 }
+
+img {
+    max-width: 400px;
+}
