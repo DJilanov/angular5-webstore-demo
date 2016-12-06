@@ -5,6 +5,36 @@
     var messages = [];
     var products = [];
     var categories = [];
+    var orders = [];
+    /**
+     * @getOrders it returns all of the orders that are currently cached
+     */
+    function getOrders() {
+        return orders;
+    }
+    /**
+     * @setOrders it sets Orders to the cache
+     */
+    function setOrders(newOrder) {
+        orders = newOrder;
+    }
+    /**
+     * @addOrders it add Orders to the cache
+     */
+    function addOrder(order) {
+        orders.push(order);
+    }
+    /**
+     * @removeOrders it removes Orders from the cache
+     */
+    function removeOrder(order) {
+        for(var orderCounter = 0; orderCounter < orders.length; orderCounter++) {
+            if(orders[orderCounter]._id.toString() == order._id) {
+                orders.splice(orderCounter, 1);
+                break;
+            }
+        }
+    }
     /**
      * @getMessages it returns all of the messages that are currently cached
      */
@@ -121,6 +151,11 @@
         setProducts: setProducts,
         updateProduct: updateProduct,
         removeProduct: removeProduct,
+
+        addOrder: addOrder,
+        getOrders: getOrders,
+        setOrders: setOrders,
+        removeOrder: removeOrder,
 
         addMessage: addMessage,
         getMessages: getMessages,

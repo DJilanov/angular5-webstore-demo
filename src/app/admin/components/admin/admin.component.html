@@ -1,8 +1,8 @@
 <custom-form
-  [hidden]="!loggedIn"
+  *ngIf="!loggedIn"
   [formOptions]="adminLoginFormModel" 
   [formSubmit]="tryLogin"
   ></custom-form>
 <admin-home
-  [hidden]="loggedIn"
+  *ngIf="loggedIn"
   ></admin-home>

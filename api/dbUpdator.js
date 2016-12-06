@@ -9,10 +9,15 @@
     var nodemailer = require('nodemailer');
     var fs = require('fs');
     var im = require('imagemagick');
-    var emailTemplate = null;
+    var contactTemplate = null;
+    var orderTemplate = null;
+
+    fs.readFile('./email-templates/order-builded.html', function (err, html) {
+        orderTemplate = html.toString();
+    });
 
     fs.readFile('./email-templates/message-builded.html', function (err, html) {
-        emailTemplate = html.toString();
+        contactTemplate = html.toString();
     });
 
     var cache = null;
@@ -28,6 +33,18 @@
     // creates the message query that we are going to send to the back-end
     function getMessageQuery(body, res) {
         return {
+            'name': body.name,
+            'email': body.email,
+            'phone': body.phone,
+            'message': body.message,
+            'date': new Date()
+        };
+    }
+    // USE SCHEMA!!!
+    // creates the orders query that we are going to send to the back-end
+    function getOrderQuery(body, res) {
+        return {
+            'products': body.products,
             'name': body.name,
             'email': body.email,
             'phone': body.phone,
@@ -71,16 +88,41 @@
             shown: product.shown,
             title: product.title,
             typeahed: product.typeahed,
-            zIndex: product.zIndex,
+            zIndex: product.zIndex
         };
     }
     /**
-     * @sendEmail Used to send email to our company email using our no reply one
+     * @sendOrderEmail Used to send email to our company email using our no reply one
+     * @response <order> Contains the order object and sends it to the gmail
+     */
+    function sendOrderEmail(response) {
+        var transporter = nodemailer.createTransport('smtps://' + config.emailUser + '%40gmail.com:' + config.emailPassword + '@smtp.gmail.com');
+        var orders = '';
+        for(let productCounter = 0; productCounter < response.products.length; productCounter++) {
+            orders += '<div><span>' + response.products[productCounter].title + '</span><span> с цена ' + response.products[productCounter].price + '</span></div>';
+        }
+        var template = orderTemplate.replace('{{email}}', response.email).replace('{{date}}', response.date).replace('{{name}}', response.name).replace('{{phone}}', response.phone).replace('{{message}}', response.message).replace('{{order}}', orders);
+        var mailOptions = {
+            from: '"Jilanov EOOD 👥" <noreplyjilanov@gmail.com>', // sender address
+            to: config.email, // list of receivers
+            subject: 'New order recieved ✔', // Subject line
+            text: template, // plaintext body
+            html: template // html body
+        };
+        transporter.sendMail(mailOptions, function(error, info){
+            if(error){
+                return console.log(error);
+            }
+            console.log('Message sent: ' + info.response);
+        });
+    }
+    /**
+     * @sendContactEmail Used to send email to our company email using our no reply one
      * @response <Message> Contains the message object and sends it to the gmail
      */
-    function sendEmail(response) {
+    function sendContactEmail(response) {
         var transporter = nodemailer.createTransport('smtps://' + config.emailUser + '%40gmail.com:' + config.emailPassword + '@smtp.gmail.com');
-        var template = emailTemplate.replace('{{email}}', response.email).replace('{{date}}', response.date).replace('{{name}}', response.name).replace('{{phone}}', response.phone).replace('{{message}}', response.message);
+        var template = contactTemplate.replace('{{email}}', response.email).replace('{{date}}', response.date).replace('{{name}}', response.name).replace('{{phone}}', response.phone).replace('{{message}}', response.message);
         var mailOptions = {
             from: '"Jilanov EOOD 👥" <noreplyjilanov@gmail.com>', // sender address
             to: config.email, // list of receivers
@@ -96,6 +138,52 @@
         });
     }
     /**
+     * @saveOrder Used to save the order to the database
+     */
+    function saveOrder(req, res) {
+        var query = getOrderQuery(req.body, res);
+        mongoose.connection.db.collection('orders', function(err, collection) {
+            if(!collection) {
+                return;
+            }
+            collection.insertOne(query, function(err, docs) {
+                var response = Object.assign({
+                    id: docs.insertedId.toHexString(),
+                    'date': new Date()
+                }, req.body);
+                if(!err) {
+                    sendOrderEmail(response);
+                    cache.addOrder(response);
+                    returnSuccess(res);
+                } else {
+                    returnProblem(err, res);
+                }
+            });
+        });
+    }
+    /**
+     * @deleteOrder Used to delete the order from the database
+     * @order: order object that is going to be deleted
+     */
+    function deleteOrder(order, res) {
+        order = JSON.parse(order);
+        var query = getQuery(order);
+        mongoose.connection.db.collection('orders', function(err, collection) {
+            if(!collection) {
+                return;
+            }
+            collection.remove(query, function(err, docs) {
+                if(!err) {
+                    cache.removeOrder(order);
+                    returnSuccess(res, message);
+                } else {
+                    returnProblem(err, res);
+                }
+            });
+        });
+    }
+    
+    /**
      * @saveMessage Used to save the message to the database
      */
     function saveMessage(req, res) {
@@ -110,7 +198,7 @@
                     'date': new Date()
                 }, req.body);
                 if(!err) {
-                    sendEmail(response);
+                    sendContactEmail(response);
                     cache.addMessage(response);
                     returnSuccess(res);
                 } else {
@@ -201,6 +289,7 @@
             }
             collection.update(query, update, function(err, docs) {
                 if(!err) {
+                    update._id = product._id;
                     cache.updateProduct(update);
                     returnSuccess(res, update);
                 } else {
@@ -333,6 +422,8 @@
         copyImages: copyImages,
         updateProduct: updateProduct,
         createProduct: createProduct,
+        saveOrder: saveOrder,
+        deleteOrder: deleteOrder,
         saveMessage: saveMessage,
         deleteMessage: deleteMessage,
         deleteCategory: deleteCategory,

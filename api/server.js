@@ -71,8 +71,12 @@ app.put('/api/products', function(req, res) {
 // status: needs test
 var cpUpload = upload.fields([{ name: 'main_image', maxCount: 1 }, { name: 'other_images', maxCount: 8 }]);
 app.post('/api/products', cpUpload, function(req, res) {
-    var data = JSON.parse(req.body.body);
-    if(validator.validate(data.loginData)) {
+    let data = JSON.parse(req.body.body);
+    let loginData = {
+        username: data.username,
+        password: data.password
+    };
+    if(validator.validate(loginData)) {
         if(data.product._id !== undefined) {
             dbUpdator.updateProduct(data.product, req.files, res);
         } else {
@@ -85,7 +89,7 @@ app.post('/api/products', cpUpload, function(req, res) {
 // when we call from the fetcher service we send id and we delete the product
 // status: needs test
 app.delete('/api/products', function(req, res) {
-    var loginData = {
+    let loginData = {
         username: req.param('username'),
         password: req.param('password')
     };
@@ -140,6 +144,22 @@ app.post('/api/message', function(req, res) {
 // when we want to delete message
 // status: Working correctly
 app.delete('/api/message', function(req, res) {
+    var loginData = {
+        username: req.param('username'),
+        password: req.param('password')
+    };
+    if(validator.validate(loginData)) {
+        dbUpdator.deleteMessage(req.param('message'), res);
+    }
+});
+// when we call from the fetcher service we recieve the order, save it to the db and send back status
+// status: Working correctly
+app.post('/api/order', function(req, res) {
+    dbUpdator.saveOrder(req, res);
+});
+// when we want to delete order
+// status: Needs testing
+app.delete('/api/order', function(req, res) {
     var loginData = {
         username: req.param('username'),
         password: req.param('password')

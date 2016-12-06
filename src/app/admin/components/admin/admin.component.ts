@@ -43,15 +43,18 @@ export class AdminComponent {
 
     private loggedIn: boolean = false;
 
+    private loginFormData: Object = {};
+
     constructor(
         private dictionary: Dictionary,
         private authService: AuthService,
         private fetcherService: FetcherService,
         private eventEmiterService: EventEmiterService,
         private errorHandlerService: ErrorHandlerService
-    ) {};
+    ) {}
 
     private tryLogin(loginFormData) {
+        this.loginFormData = loginFormData.value;
         this.fetcherService.adminLogin(loginFormData.value).subscribe(
             data => this.login(data),
             err => this.errorHandlerService.handleError(err)
@@ -59,7 +62,7 @@ export class AdminComponent {
     }
 
     private login(data) {
-        this.authService.setLoginData(data);
+        this.authService.setLoginData(this.loginFormData);
         this.eventEmiterService.emitLoggedIn({});
         this.loggedIn = true;
     }

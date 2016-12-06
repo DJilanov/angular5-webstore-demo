@@ -37,6 +37,14 @@ export class FetcherService {
     public sendMessage(body) {
         return this.http.post( Config.messageUrl, body );
     }
+    /**
+    * @sendOrder send order to the back-end service
+    * @return {Object} response of the back-end
+    */
+    public sendOrder(body) {
+        return this.http.post( Config.orderUrl, body );
+    }
+
 
     // ADMIN
     /**

@@ -25,6 +25,9 @@ export class BulgarianDictionary {
         "cartHeader": "Вашата количка с поръчки:",
         "storedAmount": "Остават още само",
         "amount": "бройки",
+        "emptyCart": "Вашата количка с поръчки е все още празна. ",
+        "cartSum": "Обща сума:",
+        "undefinedPrice": "По договаряне",
 
         "contactHeader": "За връзка с нас:",
         "contactMarker": "Координати",
@@ -74,7 +77,6 @@ export class BulgarianDictionary {
         "addToCart": "Добавяне в количката",
         "addToCartSuccess": "Успешно добавяне към количката с поръчки",
         "removeFromCartSuccess": "Успешно премахване на поръчката",
-        "emptyCart": "Количката ви е празна",
         "continueToPay": "Продължаване към поръчване",
         "orderRecieved": "Поръчката е получена успешно!",
         "price": "Цена",

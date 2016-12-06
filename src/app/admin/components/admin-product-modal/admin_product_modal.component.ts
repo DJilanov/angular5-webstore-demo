@@ -152,8 +152,8 @@ export class AdminProductModalComponent {
         this.formOptions['product'].more_info.bg = formValues.more_infoBG;
         this.formOptions['product'].more_info.en = formValues.more_infoEN;
         // we set the title
-        this.formOptions['product'].title.bg = formValues.descriptionBG;
-        this.formOptions['product'].title.en = formValues.more_detailsEN;
+        this.formOptions['product'].title.bg = formValues.titleBG;
+        this.formOptions['product'].title.en = formValues.titleEN;
 
         // we set the more params
         for(let key in formValues){

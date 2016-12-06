@@ -1,3 +1,12 @@
-custom-carousel {
-    height: 400px;
+.product {
+    margin-top: 20px;
+}
+
+a {
+    text-decoration-style: none;
+    color: black;
+}
+
+.alert {
+    margin-top: 100px;
 }

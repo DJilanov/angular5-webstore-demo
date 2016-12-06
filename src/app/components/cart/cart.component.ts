@@ -25,6 +25,8 @@ export class CartComponent implements OnInit {
     private messageSuccess: boolean = false;
 
     private messageFail: boolean = false;
+
+    private totalPrice: any = 0;
     
     private contactFormModel: Object = {
         title: this.dictionary.getTexts('contactOrderTitle'),
@@ -70,15 +72,27 @@ export class CartComponent implements OnInit {
         owner: this
     };
 
-    private onContactFormSubmit(formData) {
-        this.fetcherService.sendMessage(formData.value).subscribe(
-            response => this.onMessageSend(response, formData),
+    private onOrderFormSubmit(formData) {
+        let data = formData.value;
+        data.products = [];
+        for(let productCounter = 0; productCounter < this.cartProducts.length; productCounter++) {
+            data.products.push({
+                title: this.cartProducts[productCounter]['title'].bg,
+                id: this.cartProducts[productCounter]['_id'],
+                price: this.cartProducts[productCounter]['new_price'],
+            });
+        }
+        data.totalPrice = this.totalPrice;
+        this.fetcherService.sendOrder(data).subscribe(
+            response => this.onOrderSend(response, formData),
             err => this.onMessageFail(err)
         );
     }
 
-    private onMessageSend(response, formData) {
+    private onOrderSend(response, formData) {
         this.messageSuccess = true;
+        this.storage.store('cartProducts', []);
+        this.cartProducts.length = 0;
         formData.reset();
     }
 
@@ -88,17 +102,22 @@ export class CartComponent implements OnInit {
     }
 
     private addProduct(product) {
-        this.cartProducts.push(product);
+        // this.cartProducts.push(product);
+        this.totalPrice += parseFloat(product['new_price']);
+        if(isNaN(this.totalPrice)) {
+            this.totalPrice = this.dictionary.getTexts('undefinedPrice');
+        }
     }
  
     public ngOnInit() {
         // we save the products in the cart via ID and amount. We later get the products by id
-        this.cartProducts = this.storage.retrieve('cartProducts');
-    }
-    // USED WHEN WE FINISH THE ORDER AND IT IS SENDED TO THE BACK-END
-    private orderSuccessfull(data) {
-        this.storage.store('cartProducts', []);
-        this.cartProducts.length = 0;
+        this.cartProducts = this.storage.retrieve('cartProducts') || [];
+        for(let productCounter = 0; productCounter < this.cartProducts.length; productCounter++) {
+            this.totalPrice += parseFloat(this.cartProducts[productCounter]['new_price']);
+        }
+        if(isNaN(this.totalPrice)) {
+            this.totalPrice = this.dictionary.getTexts('undefinedPrice');
+        }
     }
 
     constructor(
