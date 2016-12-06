@@ -1,43 +1,17 @@
 Integrate responsive layout for the header navigation. 
 Find a way to not split to 2 rows navigation
 Make the price be able to controll where to be the currency based on the language we selected and in the future currency type
-
-
-
-
-work:
-rdy Епам понеделник 12:00 Здравко - Офертата е старата , бонус на 6тия месец. Задачите ще са за d3 и ако се докажа след 6тия ме правят d3.
-rdy Вторник, 7.11.2016, в 12:30 часа. Ние се намираме на бул. Черни връх 1, ет. 3, точно срещу хотел Хилтън, сградата на A-specto. Senior JavaScript/TypeScript Developer в Coherent Labs - game дев, малко странни въпроси и нз какво ще ми предложат като пари, дадена е задача за която нямам време да я свърша
-Сряда, 9 ноември 2016, 12:00. Адресът ни е Полиграфия Офис Център, 5ти етаж, Цариградско шосе 47A, София 1124. Входът е откъм ул. "Николай Ракитин" домашна, бесеница. Позицията е гейм дев, предложуха 2ро интервю и имам да свърша задача. Поканиха ме на 2ро интервю без да я завърша. Да се постарая да я свърша
-Сряда 14:30 115N Tsarigradsko Shosse Blvd., 5th floor, 1784 Sofia, Bulgaria tel. Точно до входа на Новотел. Интересна позиция. Пишат интересен и сложен софтуер за банкомати. само 4к предлагат но звучи найс като цели и идея
-
-Скоре, четвъртък 19:15. На компютър с камера. Мина добре, 2ро интервю
-
-На 14.11.2016г., понеделник, в 14:00 ч ще Ви очакваме за провеждане на интервю за позицията Front-end Developer.
-Офисът ни се намира на бул. „Цариградско шосе“ № 135, ет. 3 – в сградата на Офис Експрес. -- oтложих го поради болест
-понеделник 16:30 - -адресът е ул. Никола Тесла №3, Бизнес център Sofia One, етаж 3 – до Скай Сити мола. Matrix -- изглеждат с интерес но и малко стиснати откъм пари... Фирмата е еврейска
-
-15.11 вторник 8:00 sqore Адресът е София, бул. Сливница 188, вх. А, ет.4, ап. А4 Мина добре, малка фирма, изглежда найс, май ме харесаха
-На 15ти 15.11, вторник, в 14:00ч. VMware финално, в офиса им на бул. Г.М.Димитров 16А - мина дорбе 1ва част 2ра не толкова май ме харесаха
-
-16.11 сряда 11:30. 7 Poduevo str/ 0885504133 / Verint - до офиса са оферта 4.5 начална 4.8 6ти месец
-16th сряда в 13:00. Scale focus Our office is located at Capital Fort, 2nd Floor, Tsarigradsko Shosse 90 A, Sofia, Bulgaria. -отлагат се
-16.11 сряда 17:30 Xoomworks ок -отлагат се
-
-17 ноември 2016, 16:00 Мелон Адресът ни е Полиграфия Офис Център, 5ти етаж, Цариградско шосе 47A, София 1124. Входът е откъм ул. "Николай Ракитин", финално интервю
-17.11 четвъртък 18:30 MentorMate ok
-
-18.11 петък 12:00 Fourth ok
-18.11 13:00 VMWare
-
-понеделник - 21.11 от 08:00 матрикс задача с леко омазване... локалстораге драйвър
-17:00 – 18:30 (EET) Westernacher oтложени
-
-вторник -22.11 от 15:00 часа, в техния офис: 115N Tsarigradsko Shosse Blvd., 5th floor, 1784 Sofia, Bulgaria telм финално интервю среща с ЦТО и оферта
-22.11 в 12.30 часа. xoomworks - отлага се
-
-сряда -23 дата арт 17-18 часа
-
-отговори на ани евтимова булпрос
-отговори на бг меню
-отговори на strypes
+When switch back to home there is a problem with the carousel. It empty itself.
+When you open the dog image you will see in details that the image is too big for the size
+When you click on the sub images you must change the main one with them in the details
+Allow the user to delete other images of product in admin
+Integrate labels in the place of the hearth in the products
+Set margin between the products in the products list
+Set headers over the images ( new offer and etc )
+Integrate box shadow for better look over the products in the products list
+Think about better design over the cart
+Integrate dialog that shows the cart items each time you add new item
+Add old price with proper style
+Add orders screen to the admin
+Add robots.txt that forbid admin
+Add sitemap for better crawling
