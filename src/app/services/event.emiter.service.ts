@@ -10,7 +10,6 @@ import { Config } from '../config';
 export class EventEmiterService {
 
     public loggedIn: EventEmitter<any>;
-    public addToCart: EventEmitter<any>;
     public dataFetched: EventEmitter<any>;
     public changedProduct: EventEmitter<any>;
     public showProductModal: EventEmitter<any>;
@@ -18,7 +17,6 @@ export class EventEmiterService {
 
     constructor() {
         this.loggedIn = new EventEmitter();
-        this.addToCart = new EventEmitter();
         this.dataFetched = new EventEmitter();
         this.changedProduct = new EventEmitter();
         this.showProductModal = new EventEmitter();
@@ -31,10 +29,6 @@ export class EventEmiterService {
 
     public emitChangedProduct(product) {
         this.changedProduct.emit(product);
-    }
-
-    public emitAddToCart(product) {
-        this.addToCart.emit(product);
     }
 
     // admin

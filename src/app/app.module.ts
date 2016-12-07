@@ -58,6 +58,7 @@ import { AuthService } from './admin/services/auth.service';
 import { Config } from './config';
 
 // Services
+import { CartService } from './services/cart.service';
 import { FetcherService } from './services/fetcher.service';
 import { ProductsService } from './services/products.service';
 import { CategoriesService } from './services/categories.service';
@@ -131,6 +132,7 @@ import { ErrorHandlerService } from './services/error.handler.service';
         EnglishDictionary,
         BulgarianDictionary,
         // services of the app
+        CartService,
         FetcherService,
         CategoriesService,
         ProductsService,

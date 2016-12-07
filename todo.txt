@@ -1,17 +1,13 @@
 Integrate responsive layout for the header navigation. 
 Find a way to not split to 2 rows navigation
 Make the price be able to controll where to be the currency based on the language we selected and in the future currency type
-When switch back to home there is a problem with the carousel. It empty itself.
-When you open the dog image you will see in details that the image is too big for the size
-When you click on the sub images you must change the main one with them in the details
 Allow the user to delete other images of product in admin
-Integrate labels in the place of the hearth in the products
-Set margin between the products in the products list
-Set headers over the images ( new offer and etc )
-Integrate box shadow for better look over the products in the products list
 Think about better design over the cart
 Integrate dialog that shows the cart items each time you add new item
 Add old price with proper style
 Add orders screen to the admin
 Add robots.txt that forbid admin
 Add sitemap for better crawling
+Think about better global design of the most used pages
+Think about heroku sleep ( when ready we must use non sleep paid )
+Wont work correctly with current dist img hosting... node must be in jilanov server

@@ -1,8 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { Dictionary } from '../../dictionary/dictionary.service';
-import { EventEmiterService } from '../../services/event.emiter.service';
-import { LocalStorageService, SessionStorageService } from 'ng2-webstorage';
+import { CartService } from '../../services/cart.service';
 
 @Component({
     selector: 'buy-section',
@@ -10,7 +9,7 @@ import { LocalStorageService, SessionStorageService } from 'ng2-webstorage';
     templateUrl: './buy_section.component.html'
 })
 
-export class BuySectionComponent implements OnInit {
+export class BuySectionComponent {
 
     @Input()
     product: Object;
@@ -20,25 +19,13 @@ export class BuySectionComponent implements OnInit {
     constructor(
         private router: Router,
         private dictionary: Dictionary,
-        private storage: LocalStorageService,
-        private eventEmiterService: EventEmiterService
-    ) {
-        
-    }
- 
-    public ngOnInit() {
-        // we save the products in the cart via ID and amount. We later get the products by id
-        this.cartProducts = this.storage.retrieve('cartProducts') || [];
-    }
+        private cartService: CartService
+    ) {}
     
 
     private onAddToCart() {
-        if(this.cartProducts == null) {
-            this.cartProducts = [];
-        }
-        this.cartProducts.push(this.product);
-        this.storage.store('cartProducts', this.cartProducts);
-        this.eventEmiterService.emitAddToCart(this.product);
+        this.cartService.addToCart(this.product);
+        // remove it when we have proper popup
         this.router.navigate(['cart']);
     }
 }

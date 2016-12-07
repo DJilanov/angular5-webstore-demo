@@ -43,6 +43,8 @@ export class HomeComponent {
     ) {
       this.products = productsService.getProducts();
       this.categories = categoriesService.getCategories();
+      // we set the carousel slides becouse constructor is fired on router change to this page...
+      this.setCarouselSlides();
       // on categories update we update the local array
       this.eventEmiterService.dataFetched.subscribe(data => this.onFetchedData(data));
     };

@@ -4,12 +4,15 @@
 [src]="'http://placekitten.com.s3.amazonaws.com/homepage-samples/408/287.jpg'"> -->
 <div class="main-image-container col-xs-12" *ngIf="zoomableImages">
   <img 
-      [src]="zoomableImages[0]"
-      [alt]="zoomableImages[0]">
+      [src]="selectedImage || zoomableImages[0]"
+      [alt]="selectedImage || zoomableImages[0]">
 </div>
 <div class="sub-images-container col-xs-12">
-  <div class="sub-image-container" *ngFor="let imageCounter of zoomableImages">
+  <div 
+    class="sub-image-container" 
+    *ngFor="let imageCounter of zoomableImages">
     <img 
+      (click)="selectImage(imageCounter)"
       [src]="imageCounter"
       [alt]="imageCounter">
   </div>

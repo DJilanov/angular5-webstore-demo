@@ -1,9 +1,9 @@
-import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
+import { Component } from '@angular/core';
 import { Validators } from '@angular/forms';
 import { Dictionary } from '../../dictionary/dictionary.service';
+import { CartService } from '../../services/cart.service';
 import { FetcherService } from '../../services/fetcher.service';
 import { ErrorHandlerService } from '../../services/error.handler.service';
-import { EventEmiterService } from '../../services/event.emiter.service';
 import { LocalStorageService, SessionStorageService } from 'ng2-webstorage';
 
 @Component({
@@ -12,7 +12,7 @@ import { LocalStorageService, SessionStorageService } from 'ng2-webstorage';
     templateUrl: './cart.component.html'
 })
 
-export class CartComponent implements OnInit {
+export class CartComponent {
 
     public cartCategory: Object = {};
 
@@ -90,9 +90,7 @@ export class CartComponent implements OnInit {
     }
 
     private onOrderSend(response, formData) {
-        this.messageSuccess = true;
-        this.storage.store('cartProducts', []);
-        this.cartProducts.length = 0;
+        this.cartService.emptyCart();
         formData.reset();
     }
 
@@ -101,19 +99,10 @@ export class CartComponent implements OnInit {
         this.errorHandlerService.handleError(err)
     }
 
-    private addProduct(product) {
-        // this.cartProducts.push(product);
-        this.totalPrice += parseFloat(product['new_price']);
-        if(isNaN(this.totalPrice)) {
-            this.totalPrice = this.dictionary.getTexts('undefinedPrice');
-        }
-    }
- 
-    public ngOnInit() {
-        // we save the products in the cart via ID and amount. We later get the products by id
-        this.cartProducts = this.storage.retrieve('cartProducts') || [];
-        for(let productCounter = 0; productCounter < this.cartProducts.length; productCounter++) {
-            this.totalPrice += parseFloat(this.cartProducts[productCounter]['new_price']);
+    private updateCart(products) {
+        this.cartProducts = products;
+        for(let productCounter = 0; productCounter < products.length; productCounter++) {
+            this.totalPrice += parseFloat(products[productCounter]['new_price']);
         }
         if(isNaN(this.totalPrice)) {
             this.totalPrice = this.dictionary.getTexts('undefinedPrice');
@@ -124,9 +113,12 @@ export class CartComponent implements OnInit {
         private dictionary: Dictionary,
         private storage: LocalStorageService,
         private fetcherService: FetcherService,
-        private eventEmiterService: EventEmiterService,
+        private cartService: CartService,
         private errorHandlerService: ErrorHandlerService
     ) {
-        this.eventEmiterService.addToCart.subscribe(product => this.addProduct(product));
+        // we save the products in the cart via ID and amount. We later get the products by id
+        this.cartProducts = this.storage.retrieve('cartProducts') || [];
+        this.updateCart(this.cartProducts);
+        this.cartService.cartUpdate.subscribe(products => this.updateCart(products));
     }
 }
