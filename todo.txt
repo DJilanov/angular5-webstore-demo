@@ -11,3 +11,10 @@ Add sitemap for better crawling
 Think about better global design of the most used pages
 Think about heroku sleep ( when ready we must use non sleep paid )
 Wont work correctly with current dist img hosting... node must be in jilanov server
+
+
+Higher page autority ( use moz seo toobar )
+Higher domain autority
+Implement schema.org
+Implement Twitter cards
+Implement Microformat

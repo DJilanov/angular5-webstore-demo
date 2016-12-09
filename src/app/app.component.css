@@ -2,6 +2,7 @@ custom-header {
     background-color: #5857c9;
     background-image: linear-gradient(to right, #2065b9 0%, #55afe8 100%);
     padding: 20px;
+    display: block;
 }
 
 side-menu {
@@ -30,10 +31,9 @@ side-menu {
     z-index: 100;
 }
 
-.loading h1 {
-    color: #EEE;
+.loading .loader-text {
     position: absolute;
-    top: 50%;
+    top: 65%;
     width: 100%;
     text-align: center;
     transform: translate(0, -50%);
@@ -43,7 +43,7 @@ side-menu {
     width: 150px;
     height: 120px;
     position: absolute;
-    top: 45%;
+    top: 40%;
     margin-left: auto;
     margin-right: auto;
     left: 0;
@@ -60,7 +60,7 @@ side-menu {
     height: 120px;
     animation: spin 2s linear infinite;
     position: absolute;
-    top: 45%;
+    top: 40%;
     margin-left: auto;
     margin-right: auto;
     left: 0;
@@ -73,5 +73,18 @@ side-menu {
     }
     100% {
         transform: rotate(360deg);
+    }
+}
+
+
+/* media queries */
+@media only screen and (max-width: 1000px) {
+    custom-header {
+        height: 200px;
+    }
+}
+@media only screen and (max-width: 700px) {
+    custom-header {
+        height: 550px;
     }
 }

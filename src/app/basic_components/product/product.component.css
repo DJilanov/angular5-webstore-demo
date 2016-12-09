@@ -3,12 +3,17 @@
     border: 1px solid #F8F8F8;
     border-radius: 10px;
     padding: 20px;
+    text-align: center;
 }
 
 .product:hover {
     -webkit-box-shadow: 0px 0px 26px 6px rgba(207,207,207,1);
     -moz-box-shadow: 0px 0px 26px 6px rgba(207,207,207,1);
     box-shadow: 0px 0px 26px 6px rgba(207,207,207,1);
+}
+
+.params {
+    text-align: left;
 }
 
 .image-holder {

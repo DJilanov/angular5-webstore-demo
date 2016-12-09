@@ -209,12 +209,21 @@ module.exports = function (options) {
       new CopyWebpackPlugin([{
         from: 'src/img',
         to: 'src/img',
-      },{
+      }, {
         from: 'src/app/sass/fonts',
         to: 'fonts',
-      },{
+      }, {
         from: 'img',
         to: 'img',
+      }, {
+        from: 'favicon.ico',
+        to: 'favicon.ico',
+      }, {
+        from: 'robots.txt',
+        to: 'robots.txt',
+      }, {
+        from: 'sitemap.xml',
+        to: 'sitemap.xml',
       }]),
 
 

@@ -21,7 +21,6 @@ export class BulgarianDictionary {
         "headerSearchFor": "Потърси...",
         "headerYourProfile": "Профилът ви",
 
-
         "cartHeader": "Вашата количка с поръчки:",
         "storedAmount": "Остават още само",
         "amount": "бройки",
@@ -35,7 +34,7 @@ export class BulgarianDictionary {
         "contactOurAddress": "Адрес",
         "contactCoordinateAdress": "жк.Левски Г,ул. Могилите бл.4, София 1836",
         "contactPhoneTitle": "Телефон за връзка",
-        "contactPhone": "0878613400",
+        "contactPhone": "0878613400 , 0878422063",
         "contactRules": "Посещения на място след предварително договаряне!",
         "contactFormTitle": "Може да ни изпратите запитване през формата",
         "contactOrderTitle": "Може да направите поръчка през формата",
@@ -146,6 +145,7 @@ export class BulgarianDictionary {
         "productMake": "Производител",
 
         "name": "Име",
+        "loading": "Зареждане",
 
         "deleteBtn": "Изтриване",
         "editProduct": "Промени продукта",

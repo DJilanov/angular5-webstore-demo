@@ -48,6 +48,7 @@ export class SearchComponent {
     }
 
     private onProductSelect(selected) {
+      this.searchQuery = '';
       this.router.navigate(['/details/', selected.item.link]);
     }
 }

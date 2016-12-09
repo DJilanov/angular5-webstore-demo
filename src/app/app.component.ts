@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MetaService } from 'ng2-meta';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Dictionary } from './dictionary/dictionary.service';
 import { FetcherService } from './services/fetcher.service';
 import { CategoriesService } from './services/categories.service';
 import { ProductsService } from './services/products.service';
@@ -22,6 +23,7 @@ export class AppComponent {
     constructor(
         private router: Router,
         private fetcher: FetcherService,
+        private dictionary: Dictionary,
         private metaService: MetaService,
         private productsService: ProductsService,
         private categoriesService: CategoriesService,
