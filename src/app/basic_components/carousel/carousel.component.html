@@ -1,7 +1,9 @@
 <carousel [interval]="'3000'" [noWrap]="carouselOptions.noWrapSlides">
-  <slide *ngFor="let slidez of carouselOptions.slides; let index=index"
-         [active]="slidez.active"
-         style="margin:auto;">
+  <slide 
+        *ngFor="let slidez of carouselOptions.slides; let index=index"
+        [active]="slidez.active"
+        (click)="openProduct(slidez)" 
+        style="margin:auto;">
     <img src="{{slidez.main_image}}"/>
 
     <div class="carousel-caption" 

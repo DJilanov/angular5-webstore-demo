@@ -16,10 +16,10 @@
   <ul class="nav navbar-nav navbar-right custom-navi" 
     *ngIf="categories.length > 0">
     <li class="cart">
-      <template #toolTipTemplate let-model="model">
+      <!--<template #toolTipTemplate let-model="model">
         <h4>Tool tip custom content defined inside a template</h4>
         <h5>With context binding: {{model.text}}</h5>
-      </template>
+      </template>-->
       <a 
         [routerLink]="['cart']">
         <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>

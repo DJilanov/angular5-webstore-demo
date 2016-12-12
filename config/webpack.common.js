@@ -216,14 +216,8 @@ module.exports = function (options) {
         from: 'img',
         to: 'img',
       }, {
-        from: 'favicon.ico',
-        to: 'favicon.ico',
-      }, {
-        from: 'robots.txt',
-        to: 'robots.txt',
-      }, {
-        from: 'sitemap.xml',
-        to: 'sitemap.xml',
+        from: '*.*',
+        to: '[name].[ext]',
       }]),
 
 

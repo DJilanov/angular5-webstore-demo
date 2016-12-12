@@ -18,3 +18,4 @@ Higher domain autority
 Implement schema.org
 Implement Twitter cards
 Implement Microformat
+All links of products must be splited by - not _
