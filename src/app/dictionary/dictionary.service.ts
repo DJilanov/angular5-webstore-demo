@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Config } from '../config';
-import { EnglishDictionary } from './en.dictionary.ts';
-import { BulgarianDictionary } from './bg.dictionary.ts';
+import { EnglishDictionary } from './en.dictionary';
+import { BulgarianDictionary } from './bg.dictionary';
 
 @Injectable()
 export class Dictionary {

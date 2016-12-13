@@ -1,4 +1,8 @@
-<div class="container" *ngIf="category.title">
+<div 
+  *ngIf="category.title"
+  class="container" 
+  itemscope itemtype="http://schema.org/ItemList">
+  <link itemprop="url" [href]="categoryUrl" />
   <h1>{{category.title[dictionary.language]}}</h1>
   <template ngFor #productObject [ngForOf]="products" let-index="index">
     <div 

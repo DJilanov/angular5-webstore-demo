@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { MetaService } from 'ng2-meta';
 import { Dictionary } from '../../dictionary/dictionary.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { DomSanitizer } from "@angular/platform-browser";
 import { ProductsService } from '../../services/products.service';
 import { CategoriesService } from '../../services/categories.service';
 import { EventEmiterService } from '../../services/event.emiter.service';
@@ -21,6 +22,8 @@ export class ProductListComponent implements OnInit {
     @Input()
     category: Object = {};
 
+    private categoryUrl: any;
+
     private categoryLink: String;
 
     /**
@@ -30,6 +33,7 @@ export class ProductListComponent implements OnInit {
         private router: Router,
         private dictionary: Dictionary,
         private metaService: MetaService,
+        private sanitizer: DomSanitizer,
         private routeParams: ActivatedRoute,
         private productsService: ProductsService,
         private categoriesService: CategoriesService,
@@ -50,13 +54,15 @@ export class ProductListComponent implements OnInit {
                 this.eventEmiterService.dataFetched.subscribe(data => this.onFetchedData(data));
                 return;
             }
+            this.categoryUrl = this.transform('products/' + this.category['link']);
             this.products = this.productsService.getProductsByCategory(this.category['products']);
         }
     }
 
     private onFetchedData(data) {
-      this.category = this.categoriesService.getCategoryByLink(this.categoryLink);
-      this.products = this.productsService.getProductsByCategory(this.category['products']);
+        this.category = this.categoriesService.getCategoryByLink(this.categoryLink);
+        this.products = this.productsService.getProductsByCategory(this.category['products']);
+        this.categoryUrl = this.transform('products/' + this.category['link']);
     }
 
     private changeTitle(data) {
@@ -71,8 +77,16 @@ export class ProductListComponent implements OnInit {
         }
     }
 
+    transform(url) {
+        return this.sanitizer.bypassSecurityTrustResourceUrl(url);
+    }
+
     ngOnInit() {
         this.metaService.setTitle('Всичко за вашия компютър на най-конкурентни цени в Жиланов ЕООД!');
         this.metaService.setTag('og:image','./src/img/navigation-logo.png');
+    }
+
+    ngOnChanges(changes: any) {
+        this.categoryUrl = this.transform('products/' + this.category['link']);
     }
 }

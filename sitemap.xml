@@ -5,10 +5,45 @@
     <url>
         <loc>http://jilanov.com/</loc>
         <image:image>
-            <image:loc>http://jilanov.eu/img/logo2.png</image:loc>
+            <image:loc>http://www.jilanov.com/src/img/navigation-logo.png</image:loc>
             <image:caption>Webpage image</image:caption>
         </image:image>
   		<lastmod>2016-12-09T08:22:33+00:00</lastmod>
         <changefreq>always</changefreq>
+    </url>
+    <url>
+        <loc>http://www.jilanov.com/products/diskove</loc>
+        <lastmod>2016-12-09T08:22:33+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+    </url>
+    <url>
+        <loc>http://www.jilanov.com/products/videokarti</loc>
+        <lastmod>2016-12-09T08:22:33+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+    </url>
+    <url>
+        <loc>http://www.jilanov.com/products/uslugi</loc>
+        <lastmod>2016-12-09T08:22:33+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+    </url>
+    <url>
+        <loc>http://www.jilanov.com/products/videonabludenie</loc>
+        <lastmod>2016-12-09T08:22:33+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+    </url>
+    <url>
+        <loc>http://www.jilanov.com/products/procesori</loc>
+        <lastmod>2016-12-09T08:22:33+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+    </url>
+    <url>
+        <loc>http://www.jilanov.com/products/pameti</loc>
+        <lastmod>2016-12-09T08:22:33+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+    </url>
+    <url>
+        <loc>http://www.jilanov.com/contacts</loc>
+        <lastmod>2016-12-09T08:22:33+00:00</lastmod>
+        <changefreq>weekly</changefreq>
     </url>
 </urlset>
