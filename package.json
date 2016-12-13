@@ -55,6 +55,7 @@
     "awesome-typescript-loader": "^2.2.1",
     "bootstrap-sass": "^3.3.7",
     "codelyzer": "~1.0.0-beta.2",
+    "compression-webpack-plugin": "^0.3.2",
     "copy-webpack-plugin": "^4.0.0",
     "css-loader": "^0.25.0",
     "exports-loader": "^0.6.3",
