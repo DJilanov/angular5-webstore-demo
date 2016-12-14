@@ -78,7 +78,7 @@ export class FetcherService {
         let params = new URLSearchParams();
         params.set('username', body.username || "");
         params.set('password', body.password || "");
-        params.set('category', JSON.stringify(body.product || ""));
+        params.set('product', JSON.stringify(body.product || ""));
         return this.http.delete( Config.productsUrl, { search: params } );
     }
     /**

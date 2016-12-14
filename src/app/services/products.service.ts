@@ -51,6 +51,18 @@ export class ProductsService {
         }
     }
 
+    public addProduct(product) {
+        this.products.push(product);
+    }
+
+    public removeProduct(id) {
+        for(var productsCounter = 0; productsCounter < this.products.length; productsCounter++) {
+            if(this.products[productsCounter]['_id'] == id) {
+                this.products.splice(productsCounter, 1);
+            }
+        }
+    }
+
     constructor() {
         this.productsUpdate = new EventEmitter();
     }

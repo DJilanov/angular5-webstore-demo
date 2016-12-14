@@ -1,6 +1,4 @@
-Integrate responsive layout for the header navigation. 
-Find a way to not split to 2 rows navigation
-Make the price be able to controll where to be the currency based on the language we selected and in the future currency type
+=Make the price be able to controll where to be the currency based on the language we selected and in the future currency type
 Allow the user to delete other images of product in admin
 Think about better design over the cart
 Integrate dialog that shows the cart items each time you add new item
@@ -15,7 +13,6 @@ Wont work correctly with current dist img hosting... node must be in jilanov ser
 
 Higher page autority ( use moz seo toobar )
 Higher domain autority
-Implement schema.org
-Implement Twitter cards
-Implement Microformat
 All links of products must be splited by - not _
+Enable GZIP
+Enable HTTP2

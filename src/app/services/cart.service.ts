@@ -14,7 +14,7 @@ export class CartService {
     /**
     * @info: Contains all of the cart items
     */
-    private cartArray = Array<Object>();
+    private cartArray: Array<Object> = [];
 
     /**
     * @getCart get all cart items

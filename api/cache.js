@@ -94,9 +94,9 @@
         }
     }
     /**
-     * @removeCategory it removes category from the cache
+     * @removeCategory it removes product from the cache
      */
-    function removeProduct(category) {
+    function removeProduct(product) {
         for(var productsCounter = 0; productsCounter < products.length; productsCounter++) {
             if(products[productsCounter]._id.toString() == product._id) {
                 products.splice(productsCounter, 1);

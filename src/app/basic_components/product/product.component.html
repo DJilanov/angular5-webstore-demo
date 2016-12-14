@@ -1,4 +1,4 @@
-<a (click)="changeRoute(['/details', productObject.link])">
+<a [routerLink] = "['/details', productObject.link]">
   <a 
     *ngIf="productObject.daily_offer"
     class="offer-box box">

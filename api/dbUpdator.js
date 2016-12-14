@@ -250,6 +250,28 @@
         });
     }
     /**
+     * @createCategory Used to create the category to the database
+     * @category: category object that is going to be created
+     */
+    function createCategory(category, res) {
+        var query = getQuery(category);
+        mongoose.connection.db.collection('categories', function(err, collection) {
+            if(!collection) {
+                return;
+            }
+            collection.insertOne(category, function(err, docs) {
+                if(!err) {
+                    category._id = docs.insertedId.toHexString();
+                    cache.addCategory(category);
+                    returnSuccess(res, update);
+                } else {
+                    // todo: handle the case when 1 gets broken but the other are correctly set
+                    returnProblem(err, res);
+                }
+            });
+        });
+    }
+    /**
      * @updateCategories Used to update the categories to the database
      * @categoriesArray: category array that is going to be updated
      */
@@ -310,17 +332,12 @@
                 return;
             }
             collection.insertOne(update, function(err, docs) {
-                var response = Object.assign({
-                    id: docs.insertedId.toHexString(),
-                    'date': new Date()
-                }, update);
                 if(!err) {
-                    if(Object.keys(files).length > 0) {
-                        setProductImages(response, files);
-                    }
-                    cache.addMessage(response);
-                    returnSuccess(res);
+                    update._id = docs.insertedId.toHexString();
+                    cache.addProduct(update);
+                    returnSuccess(res, update);
                 } else {
+                    // todo: handle the case when 1 gets broken but the other are correctly set
                     returnProblem(err, res);
                 }
             });
@@ -330,16 +347,17 @@
      * @deleteProduct Used to delete the prodtuc from the database
      * @category: category object that is going to be deleted
      */
-    function deleteProduct(category, res) {
-        var query = getQuery(category);
+    function deleteProduct(product, res) {
+        product = JSON.parse(product);
+        var query = getQuery(product);
         mongoose.connection.db.collection('categories', function(err, collection) {
             if(!collection) {
                 return;
             }
             collection.remove(query, function(err, docs) {
                 if(!err) {
-                    cache.removeProduct(category);
-                    returnSuccess(res, category);
+                    cache.removeProduct(product);
+                    returnSuccess(res, product);
                 } else {
                     returnProblem(err, res);
                 }
@@ -422,10 +440,12 @@
         copyImages: copyImages,
         updateProduct: updateProduct,
         createProduct: createProduct,
+        deleteProduct: deleteProduct,
         saveOrder: saveOrder,
         deleteOrder: deleteOrder,
         saveMessage: saveMessage,
         deleteMessage: deleteMessage,
+        createCategory: createCategory,
         deleteCategory: deleteCategory,
         updateCategories: updateCategories,
     };

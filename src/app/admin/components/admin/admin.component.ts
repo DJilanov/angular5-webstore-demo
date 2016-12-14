@@ -51,7 +51,12 @@ export class AdminComponent {
         private fetcherService: FetcherService,
         private eventEmiterService: EventEmiterService,
         private errorHandlerService: ErrorHandlerService
-    ) {}
+    ) {
+        let data = this.authService.getLoginData();
+        if(data['username']) {
+            this.loggedIn = true;
+        }
+    }
 
     private tryLogin(loginFormData) {
         this.loginFormData = loginFormData.value;

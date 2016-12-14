@@ -3,6 +3,8 @@ import { FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angula
 import { AuthService } from '../../services/auth.service';
 import { Dictionary } from '../../../dictionary/dictionary.service';
 import { FetcherService } from '../../../services/fetcher.service';
+import { ProductsService } from '../../../services/products.service';
+import { CategoriesService } from '../../../services/categories.service';
 import { EventEmiterService } from '../../../services/event.emiter.service';
 import { ErrorHandlerService } from '../../../services/error.handler.service';
 
@@ -60,10 +62,13 @@ export class AdminProductModalComponent {
         private dictionary: Dictionary,
         private authService: AuthService,
         private fetcherService: FetcherService,
+        private productsService: ProductsService,
+        private categoriesService: CategoriesService,
         private eventEmiterService: EventEmiterService,
         private errorHandlerService: ErrorHandlerService
     ) {
         this.buildReactiveForm(this.formOptions);
+        this.categories = this.categoriesService.getCategories();
         this.eventEmiterService.dataFetched.subscribe(data => this.onFetchedData(data));
         this.eventEmiterService.hideProductModal.subscribe(options => this.hideProductModal());
         this.eventEmiterService.showProductModal.subscribe(options => this.showProductModal(options));
@@ -85,6 +90,10 @@ export class AdminProductModalComponent {
     */
     private hideProductModal():void {
         this.productModal.hide();
+        // there is issue with the ng2 modal...
+        if(document.getElementsByTagName('bs-modal-backdrop')[0]) {
+            document.getElementsByTagName('bs-modal-backdrop')[0].remove();
+        }
     }
 
     /**
@@ -179,17 +188,17 @@ export class AdminProductModalComponent {
 
         if(action == 'create') {
             this.fetcherService.createProduct(formData).subscribe(
-                data => this.successUpdate(data.json()),
+                data => this.successUpdate(data.json(), action),
                 err => this.errorHandlerService.handleError(err)
             );
         } else if(action == 'edit') {
             this.fetcherService.updateProduct(formData).subscribe(
-                data => this.successUpdate(data.json()),
+                data => this.successUpdate(data.json(), ''),
                 err => this.errorHandlerService.handleError(err)
             );
         } else if(action == 'delete') {
-            this.fetcherService.deleteProduct(formData).subscribe(
-                data => this.successUpdate(data.json()),
+            this.fetcherService.deleteProduct(body).subscribe(
+                data => this.successUpdate(data.json(), action),
                 err => this.errorHandlerService.handleError(err)
             );
         } 
@@ -204,7 +213,12 @@ export class AdminProductModalComponent {
         }
     }
 
-    private successUpdate(data) {
+    private successUpdate(data, action) {
+        if(action == 'create') {
+            this.productsService.addProduct(data.response);
+        } else if(action == 'delete') {
+            this.productsService.removeProduct(data.response['_id']);
+        }
         this.eventEmiterService.emitChangedProduct(data);
         this.enableButtons();
         this.hideProductModal();

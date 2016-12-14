@@ -24,12 +24,7 @@ export class ProductComponent {
         this.cartService.addToCart(product);
         // remove it when we have proper popup
         this.router.navigate(['cart']);
-    }
-
-    private changeRoute(route) {
-        if(event.target['className'].indexOf('btn') == -1) {
-            this.router.navigate(route);
-        }
+        return false;
     }
 
     constructor(

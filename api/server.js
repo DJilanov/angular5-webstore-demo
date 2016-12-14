@@ -56,19 +56,16 @@ app.all('/*', function(req, res, next) {
     next();
 });
 // when we call from the fetcher service we return the products
-// status: Working correctly
 app.get('/api/products', function(req, res) {
     dbFinder.fetchAllProducts(req, res);
 });
 // when we call from the fetcher service we send product
-// status: needs test
 app.put('/api/products', function(req, res) {
     if(validator.validate(req.body.loginData)) {
         dbUpdator.updateProduct(req.body.product, res);
     }
 });
 // when we call from the fetcher service we send product
-// status: needs test
 var cpUpload = upload.fields([{ name: 'main_image', maxCount: 1 }, { name: 'other_images', maxCount: 8 }]);
 app.post('/api/products', cpUpload, function(req, res) {
     let data = JSON.parse(req.body.body);
@@ -87,7 +84,6 @@ app.post('/api/products', cpUpload, function(req, res) {
     }
 });
 // when we call from the fetcher service we send id and we delete the product
-// status: needs test
 app.delete('/api/products', function(req, res) {
     let loginData = {
         username: req.param('username'),
@@ -101,6 +97,13 @@ app.delete('/api/products', function(req, res) {
 // status: Working correctly
 app.get('/api/categories', function(req, res) {
     dbFinder.fetchAllCategories(req, res);
+});
+// when we call from the fetcher service we send categorъ and we create it
+// status: needs test
+app.post('/api/categories', function(req, res) {
+    if(validator.validate(req.body.loginData)) {
+        dbUpdator.updateCategories(req.body.categories, res);
+    }
 });
 // when we call from the fetcher service we send array with categories and we update them all
 // status: needs test

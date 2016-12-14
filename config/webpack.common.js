@@ -219,6 +219,9 @@ module.exports = function (options) {
       }, {
         from: '*.*',
         to: '[name].[ext]',
+      }, {
+        from: '.htaccess',
+        to: '../dist',
       }]),
 
 
