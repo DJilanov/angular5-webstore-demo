@@ -23,15 +23,25 @@ export class HeaderComponent {
         private eventEmiterService: EventEmiterService
     ) {
       this.categories = categoriesService.getCategories();
+      this.updateCategoriesIndex();
       // on categories update we update the local array
       this.eventEmiterService.dataFetched.subscribe(data => this.onFetchedData(data));
     };
 
     private onFetchedData(data) {
       this.categories = data.categories;
+      this.updateCategoriesIndex();
     }
 
     private changeLanguage() {
       this.dictionary.changeLanguage();
+    }
+
+    private updateCategoriesIndex(){
+      let array = [];
+      for(let categoriesCounter = 0; categoriesCounter < this.categories.length; categoriesCounter++) {
+        array[this.categories[categoriesCounter]['zIndex']] = this.categories[categoriesCounter];
+      }
+      this.categories = array;
     }
 }

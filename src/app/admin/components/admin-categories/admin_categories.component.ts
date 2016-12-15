@@ -89,8 +89,7 @@ export class AdminCategoriesComponent {
         if(action == 'create') {
             for(let categoriesCounter = 0; categoriesCounter < this.categories.length; categoriesCounter++) {
                 if(this.categories[categoriesCounter]['products'] == data.response.products) {
-                    this.categories[categoriesCounter]['.new'] = false;
-                    this.categoriesService.addCategory(data.response);
+                    this.categories[categoriesCounter]['new'] = false;
                 }
             }
         } else if(action == 'delete') {
@@ -100,8 +99,6 @@ export class AdminCategoriesComponent {
                     this.categoriesService.removeCategory(data.response['_id']);
                 }
             }
-        } else if(action == 'update') {
-             this.categoriesService.updateCategory(data.response['_id']);
         }
     }
 }

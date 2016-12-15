@@ -39,15 +39,6 @@ export class CategoriesService {
         }
     }
 
-    public addCategory(category) {
-        this.categoryArray.push(category);
-        // fire event and upadte everywhere in the admin
-    }
-
-    public updateCategory(id) {
-        
-    }
-
     public removeCategory(id) {
         for(var categoryCounter = 0; categoryCounter < this.categoryArray.length; categoryCounter++) {
             if(this.categoryArray[categoryCounter]['_id'] == id) {
