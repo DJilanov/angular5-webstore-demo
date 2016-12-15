@@ -33,7 +33,7 @@ export class PageNotFoundComponent implements OnInit {
     public checkForSimilarRouter() {
         var path = '';
         var navigateTo = '';
-        var currentUrl = this.router.url.split('/')[1];
+        var currentUrl = this.router.url.toLowerCase().split('/')[1];
         // we split it into many 2 chars strings
         var partsOfUrl = currentUrl.match(/.{1,2}/g);
         var partsEquals = new Array(partsOfUrl.length);
