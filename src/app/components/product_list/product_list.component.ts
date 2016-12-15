@@ -46,11 +46,12 @@ export class ProductListComponent implements OnInit {
 
     private setParams(params) {
         if(params['category']) {
-            this.category = this.categoriesService.getCategoryByLink(params['category']);
+            let category = params.category.toLowerCase();
+            this.category = this.categoriesService.getCategoryByLink(category);
             if(this.category == undefined) {
                 this.category = {};
                 this.products = [];
-                this.categoryLink = params['category'];
+                this.categoryLink = category;
                 this.eventEmiterService.dataFetched.subscribe(data => this.onFetchedData(data));
                 return;
             }

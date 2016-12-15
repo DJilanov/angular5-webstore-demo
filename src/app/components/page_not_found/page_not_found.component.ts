@@ -51,7 +51,16 @@ export class PageNotFoundComponent implements OnInit {
             // check did we find the path that we must go to
             partsEquals.sort();
             if((partsEquals.indexOf(undefined) > partsEquals.length * 1 / 2) || (partsEquals.indexOf(undefined) == -1)) {
-                this._router.navigate(['/' + path]);
+                let url = '/';
+                if(this.router.url.split('/')[2] !== undefined) {
+                    if(path.split(':')[1] !== undefined) {
+                        url += path.split(':')[0];
+                        url += this.router.url.split('/')[2];
+                    }
+                } else {
+                    url += path;
+                }
+                this._router.navigate([url]);
                 break;
             }
         }

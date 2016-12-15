@@ -1,5 +1,5 @@
 <div 
-  *ngIf="category.title"
+  *ngIf="category && category.title"
   class="container" 
   itemscope itemtype="http://schema.org/ItemList">
   <link itemprop="url" [href]="categoryUrl" />
