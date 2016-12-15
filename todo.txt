@@ -11,7 +11,7 @@ Think about heroku sleep ( when ready we must use non sleep paid )
 Wont work correctly with current dist img hosting... node must be in jilanov server
 
 
-Higher page autority ( use moz seo toobar )
+Higher page autority by creatimg on the details page link to the original webpage of the item or review
 Higher domain autority
 All links of products must be splited by - not _
 Enable GZIP

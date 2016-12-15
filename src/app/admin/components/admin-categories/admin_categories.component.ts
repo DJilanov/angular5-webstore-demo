@@ -54,9 +54,8 @@ export class AdminCategoriesComponent {
     }
 
     private create(category) {
-        debugger;
         this.fetcherService.createCategories({
-            categories: [category],
+            category: category,
             loginData: this.authService.getLoginData()
         }).subscribe(
             data => this.successUpdate(data.json(), 'create'),
@@ -64,8 +63,7 @@ export class AdminCategoriesComponent {
         );
     }
 
-    private edit(category) {
-        debugger;
+    private update(category) {
         this.fetcherService.updateCategories({
             categories: [category],
             loginData: this.authService.getLoginData()
@@ -76,7 +74,6 @@ export class AdminCategoriesComponent {
     }
 
     private delete(category) {
-        debugger;
         let loginData = this.authService.getLoginData();
         this.fetcherService.deleteCategory({
             category: category,
@@ -89,11 +86,22 @@ export class AdminCategoriesComponent {
     }
 
     private successUpdate(data, action) {
-        debugger;
         if(action == 'create') {
-            // this.productsService.addProduct(data.response);
+            for(let categoriesCounter = 0; categoriesCounter < this.categories.length; categoriesCounter++) {
+                if(this.categories[categoriesCounter]['products'] == data.response.products) {
+                    this.categories[categoriesCounter]['.new'] = false;
+                    this.categoriesService.addCategory(data.response);
+                }
+            }
         } else if(action == 'delete') {
-            // this.productsService.removeProduct(data.response['_id']);
+             for(let categoriesCounter = 0; categoriesCounter < this.categories.length; categoriesCounter++) {
+                if(this.categories[categoriesCounter]['products'] == data.response.products) {
+                    this.categories.splice(categoriesCounter, 1);
+                    this.categoriesService.removeCategory(data.response['_id']);
+                }
+            }
+        } else if(action == 'update') {
+             this.categoriesService.updateCategory(data.response['_id']);
         }
     }
 }

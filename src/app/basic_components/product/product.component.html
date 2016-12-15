@@ -1,19 +1,19 @@
 <a [routerLink] = "['/details', productObject.link]">
-  <a 
+  <span 
     *ngIf="productObject.daily_offer"
     class="offer-box box">
       <span>{{dictionary.getTexts('productOffer')}}</span>
-  </a>
-  <a 
+  </span>
+  <span 
     *ngIf="productObject.is_new"
     class="new-box box">
       <span>{{dictionary.getTexts('productNew')}}</span>
-  </a>
-  <a 
+  </span>
+  <span 
     *ngIf="productObject.count == 0"
     class="over-box box">
       <span>{{dictionary.getTexts('productOver')}}</span>
-  </a>
+  </span>
   <div class="col-xs-12 product"  itemscope itemtype="http://schema.org/Product">
     <div class="image-holder" itemprop="image">
       <img 

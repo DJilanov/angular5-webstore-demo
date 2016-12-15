@@ -102,7 +102,7 @@ app.get('/api/categories', function(req, res) {
 // status: needs test
 app.post('/api/categories', function(req, res) {
     if(validator.validate(req.body.loginData)) {
-        dbUpdator.updateCategories(req.body.categories, res);
+        dbUpdator.createCategory(req.body.category, res);
     }
 });
 // when we call from the fetcher service we send array with categories and we update them all

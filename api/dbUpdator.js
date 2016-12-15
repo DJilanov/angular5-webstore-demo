@@ -53,6 +53,17 @@
         };
     }
 
+    function getCategoryQuery(body) {
+        return {
+            'link': body.link,
+            'name': body.name,
+            'products': body.products,
+            'shownOnNav': body.shownOnNav,
+            'title': body.title,
+            'zIndex': body.zIndex
+        };
+    }
+
     function getProductQuery(product, files, res) {
         let otherImagesArray = [];
         let main_image = '';
@@ -255,6 +266,7 @@
      */
     function createCategory(category, res) {
         var query = getQuery(category);
+        delete category.new;
         mongoose.connection.db.collection('categories', function(err, collection) {
             if(!collection) {
                 return;
@@ -263,7 +275,7 @@
                 if(!err) {
                     category._id = docs.insertedId.toHexString();
                     cache.addCategory(category);
-                    returnSuccess(res, update);
+                    returnSuccess(res, category);
                 } else {
                     // todo: handle the case when 1 gets broken but the other are correctly set
                     returnProblem(err, res);
@@ -279,13 +291,13 @@
         mongoose.connection.db.collection('categories', function(err, collection) {
             for(let counter = 0; counter < categoriesArray.length; counter++) {
                 let query = getQuery(categoriesArray[counter]);
-                let update = categoriesArray[counter];
+                let update = getCategoryQuery(categoriesArray[counter]);
                 if(!collection) {
                     return;
                 }
                 collection.update(query, update, function(err, docs) {
                     if(!err) {
-                        cache.updateCategories(update);
+                        cache.updateCategories(categoriesArray[counter]);
                         // we return when all are sended and finished
                         if(counter == categoriesArray.length - 1) {
                             returnSuccess(res, categoriesArray);
