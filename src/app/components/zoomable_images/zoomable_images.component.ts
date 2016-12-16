@@ -11,6 +11,9 @@ export class ZoomableImagesComponent {
     @Input()
     zoomableImages: Array<Object>;
 
+    @Input()
+    alt: String;
+
     private selectedImage: Object;
 
     private selectImage(image) {

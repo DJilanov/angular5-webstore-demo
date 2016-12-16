@@ -5,7 +5,7 @@
 <div class="main-image-container col-xs-12" *ngIf="zoomableImages">
   <img 
       [src]="selectedImage || zoomableImages[0]"
-      [alt]="selectedImage || zoomableImages[0]">
+      [alt]="alt">
 </div>
 <div class="sub-images-container col-xs-12">
   <div 
@@ -14,6 +14,6 @@
     <img 
       (click)="selectImage(imageCounter)"
       [src]="imageCounter"
-      [alt]="imageCounter">
+      [alt]="alt">
   </div>
 </div>

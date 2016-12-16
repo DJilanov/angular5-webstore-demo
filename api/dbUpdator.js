@@ -8,7 +8,7 @@
     var config = require('./config').getConfig();
     var nodemailer = require('nodemailer');
     var fs = require('fs');
-    var im = require('imagemagick');
+    var imagemagick = require('imagemagick');
     var contactTemplate = null;
     var orderTemplate = null;
 
@@ -412,11 +412,35 @@
 
     function copyImages(files) {
         if(files.main_image) {
-            fs.createReadStream(files.main_image[0].path).pipe(fs.createWriteStream(config.productProductionImagesPath + files.main_image[0].originalname));
+            imagemagick.resize(
+                {
+                    srcPath: files.main_image[0].path,
+                    width: 1280,
+                    height: 720,
+                    resizeStyle: 'aspectfill',
+                    gravity: 'Center',
+                    quality: 40
+                }, 
+                function(a,b,c) {
+                    debugger;
+                    fs.createReadStream(files.main_image[0].path).pipe(fs.createWriteStream(config.productProductionImagesPath + files.main_image[0].originalname))
+                }
+               
+            );
         }
         if(files.other_images) {
             for(let otherImagesCounter = 0; otherImagesCounter < files.other_images.length; otherImagesCounter++) {
-                fs.createReadStream(files.other_images[otherImagesCounter].path).pipe(fs.createWriteStream(config.productProductionImagesPath + files.other_images[otherImagesCounter].originalname));
+                imagemagick.resize(
+                    {
+                        srcData: fs.readFileSync(files.other_images[otherImagesCounter].path),
+                        width: 1280,
+                        height: 720,
+                        resizeStyle: 'aspectfill',
+                        gravity: 'Center',
+                        quality: 40
+                    }, 
+                    fs.createReadStream(files.other_images[otherImagesCounter].path).pipe(fs.createWriteStream(config.productProductionImagesPath + files.other_images[otherImagesCounter].originalname))
+                );
             }
         }
     }

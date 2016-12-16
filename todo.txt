@@ -1,18 +1,16 @@
-=Make the price be able to controll where to be the currency based on the language we selected and in the future currency type
+Make the price be able to controll where to be the currency based on the language we selected and in the future currency type
 Allow the user to delete other images of product in admin
-Think about better design over the cart
-Integrate dialog that shows the cart items each time you add new item
 Add old price with proper style
 Add orders screen to the admin
-Add robots.txt that forbid admin
-Add sitemap for better crawling
-Think about better global design of the most used pages
-Think about heroku sleep ( when ready we must use non sleep paid )
-Wont work correctly with current dist img hosting... node must be in jilanov server
 
-
-Higher page autority by creatimg on the details page link to the original webpage of the item or review
-Higher domain autority
+Move the back-end to the jilanov server
+install image magic on the server! it wont work whitout it
+Higher domain autority by creatimg on the details page link to the original webpage of the item or review
 All links of products must be splited by - not _
 Enable GZIP
 Enable HTTP2
+Controll browser caching with headers
+Optimize images with image magics
+
+Integrate dialog that shows the cart items each time you add new item
+Think about better design over the app
