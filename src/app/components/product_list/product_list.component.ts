@@ -68,7 +68,7 @@ export class ProductListComponent implements OnInit {
 
     private changeTitle(data) {
         if(this.router.url.indexOf('/products') !== -1) {
-            if(this.category['title']) {
+            if((this.category['title']) && (this.products[0])) {
                 this.metaService.setTitle(this.category['title'].bg);
                 this.metaService.setTag('og:image',this.products[0]['main_image']);
             } else {

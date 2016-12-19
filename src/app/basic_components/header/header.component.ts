@@ -40,8 +40,8 @@ export class HeaderComponent {
     private updateCategoriesIndex(){
       let array = [];
       for(let categoriesCounter = 0; categoriesCounter < this.categories.length; categoriesCounter++) {
-        array[this.categories[categoriesCounter]['zIndex']] = this.categories[categoriesCounter];
+        array[+this.categories[categoriesCounter]['zIndex']] = this.categories[categoriesCounter];
       }
-      this.categories = array;
+      this.categories = array.filter(function(n){ return n != undefined });
     }
 }

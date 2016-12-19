@@ -415,16 +415,15 @@
             imagemagick.resize(
                 {
                     srcPath: files.main_image[0].path,
+                    dstPath: files.main_image[0].path,
                     width: 1280,
                     height: 720,
                     resizeStyle: 'aspectfill',
                     gravity: 'Center',
                     quality: 40
                 }, 
-                function(a,b,c) {
-                    debugger;
-                    fs.createReadStream(files.main_image[0].path).pipe(fs.createWriteStream(config.productProductionImagesPath + files.main_image[0].originalname))
-                }
+                // todo: It saves the original image not the one we just resized....
+                fs.createReadStream(files.main_image[0].path).pipe(fs.createWriteStream(config.productProductionImagesPath + files.main_image[0].originalname))
                
             );
         }
@@ -433,12 +432,14 @@
                 imagemagick.resize(
                     {
                         srcData: fs.readFileSync(files.other_images[otherImagesCounter].path),
+                        dstPath: fs.readFileSync(files.other_images[otherImagesCounter].path),
                         width: 1280,
                         height: 720,
                         resizeStyle: 'aspectfill',
                         gravity: 'Center',
                         quality: 40
                     }, 
+                    // todo: It saves the original image not the one we just resized....
                     fs.createReadStream(files.other_images[otherImagesCounter].path).pipe(fs.createWriteStream(config.productProductionImagesPath + files.other_images[otherImagesCounter].originalname))
                 );
             }

@@ -10,41 +10,49 @@
         </image:image>
   		<lastmod>2016-12-09T08:22:33+00:00</lastmod>
         <changefreq>always</changefreq>
+        <priority>1.0</priority>
     </url>
     <url>
         <loc>http://www.jilanov.com/products/diskove</loc>
         <lastmod>2016-12-09T08:22:33+00:00</lastmod>
         <changefreq>always</changefreq>
+        <priority>0.8</priority>
     </url>
     <url>
         <loc>http://www.jilanov.com/products/videokarti</loc>
         <lastmod>2016-12-09T08:22:33+00:00</lastmod>
         <changefreq>always</changefreq>
+        <priority>0.8</priority>
     </url>
     <url>
         <loc>http://www.jilanov.com/products/uslugi</loc>
         <lastmod>2016-12-09T08:22:33+00:00</lastmod>
         <changefreq>always</changefreq>
+        <priority>0.8</priority>
     </url>
     <url>
         <loc>http://www.jilanov.com/products/videonabludenie</loc>
         <lastmod>2016-12-09T08:22:33+00:00</lastmod>
         <changefreq>always</changefreq>
+        <priority>0.8</priority>
     </url>
     <url>
         <loc>http://www.jilanov.com/products/procesori</loc>
         <lastmod>2016-12-09T08:22:33+00:00</lastmod>
         <changefreq>always</changefreq>
+        <priority>0.8</priority>
     </url>
     <url>
         <loc>http://www.jilanov.com/products/pameti</loc>
         <lastmod>2016-12-09T08:22:33+00:00</lastmod>
         <changefreq>always</changefreq>
+        <priority>0.8</priority>
     </url>
     <url>
         <loc>http://www.jilanov.com/contacts</loc>
         <lastmod>2016-12-09T08:22:33+00:00</lastmod>
         <changefreq>always</changefreq>
+        <priority>0.8</priority>
     </url>
 
     <url>

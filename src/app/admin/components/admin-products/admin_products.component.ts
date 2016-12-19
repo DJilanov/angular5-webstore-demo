@@ -37,6 +37,10 @@ export class AdminProductsComponent {
         }
       }
     }
+
+    private productsByCategory(category) {
+        return this.productsService.getProductsByCategory(category.products);
+    }
     
     private onFetchedData(data) {
       this.products = data.products;

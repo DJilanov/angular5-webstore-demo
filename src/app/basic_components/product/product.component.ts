@@ -18,7 +18,7 @@ export class ProductComponent {
     @Output()
     productImage: Object = {};
 
-    private blankImage: string = '//s-media-cache-ak0.pinimg.com/236x/dd/57/f6/dd57f6c1ef849ffe61bd073c6d23784e.jpg';
+    private blankImage: string = 'http://1.bp.blogspot.com/--Gn3G0ImmUo/VTvLaHI0ScI/AAAAAAAAAOI/LIqMbamy8jM/s1600/COMputer%2Bparts.jpg';
 
     private onAddToCart(product) {
         this.cartService.addToCart(product);
