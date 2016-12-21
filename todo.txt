@@ -2,6 +2,11 @@ Make the price be able to controll where to be the currency based on the languag
 Allow the user to delete other images of product in admin
 Add old price with proper style
 Add orders screen to the admin
+Integrate more inbound links. The details page has to have field that is category and points to the category page and on the bottom we must have wide carousel with other suggestions
+Fix the images in the product modal
+Integrate delete image in the node and in the product modal ( x over the image )
+Integrate 'creator' value with outbound link from our description page to the Sony or other product page
+Finish the suggestion list that looks like http://www.sectron.com/bg/product/20/evo192-kontrolen-panel-za-alarmeni-sistemi-digiplex-evo-s-192-zoni
 
 Move the back-end to the jilanov server
 install image magic on the server! it wont work whitout it
@@ -10,7 +15,7 @@ All links of products must be splited by - not _
 Enable GZIP
 Enable HTTP2
 Controll browser caching with headers
-Optimize images with image magics
 
 Integrate dialog that shows the cart items each time you add new item
 Think about better design over the app
+Every product list must have description. It will raise our position in google by its 'Uniquenes'

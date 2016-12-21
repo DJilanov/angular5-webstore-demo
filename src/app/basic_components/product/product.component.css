@@ -4,6 +4,8 @@
     border-radius: 10px;
     padding: 20px;
     text-align: center;
+    min-height: 560px;
+    position: relative;
 }
 
 .product:hover {
@@ -35,6 +37,9 @@ img {
 .button-container {
     text-align: center;
     margin-top: 10px;
+    position: absolute;
+    bottom: 10px;
+    width: 90%;
 }
 
 .box {

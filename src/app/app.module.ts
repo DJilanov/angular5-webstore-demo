@@ -39,6 +39,7 @@ import { SideMenuComponent } from './components/side_menu/side_menu.component';
 import { BuySectionComponent } from './components/buy_section/buy_section.component';
 import { ProductListComponent } from './components/product_list/product_list.component';
 import { PageNotFoundComponent } from './components/page_not_found/page_not_found.component';
+import { SuggestionListComponent } from './components/suggestion_list/suggestion_list.component';
 import { ZoomableImagesComponent } from './components/zoomable_images/zoomable_images.component';
 
 // Admin
@@ -107,6 +108,7 @@ import { ErrorHandlerService } from './services/error.handler.service';
         ContactsComponent,
         ProductListComponent,
         PageNotFoundComponent,
+        SuggestionListComponent,
         // admin
         AdminComponent,
         AdminHomeComponent,

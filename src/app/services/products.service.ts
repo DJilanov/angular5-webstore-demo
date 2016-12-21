@@ -43,6 +43,16 @@ export class ProductsService {
         return productsByCategory;
     }
 
+    public getProductsByNotCategory(category_id) {
+        var productsByCategory = [];
+        for(var productsCounter = 0; productsCounter < this.products.length; productsCounter++) {
+            if(this.products[productsCounter]['category'] != category_id) {
+                productsByCategory.push(this.products[productsCounter]);
+            }
+        }
+        return productsByCategory;
+    }
+
     public getProductByLink(link) {
         for(var productsCounter = 0; productsCounter < this.products.length; productsCounter++) {
             if(this.products[productsCounter]['link'] == link) {

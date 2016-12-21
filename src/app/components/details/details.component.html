@@ -31,7 +31,9 @@
     </section>
     <div class="params" *ngIf="product.params" itemprop="description">
       <ul *ngFor="let params of product.params[dictionary.language]">
-        <li>{{params}}</li>
+        <li 
+          *ngIf="params.length > 0"
+          >{{params}}</li>
       </ul>
     </div>
     <section class="more-info center" itemprop="description">
@@ -48,4 +50,5 @@
       <p>{{ product.more_details[dictionary.language] }}</p>
     </section>
   </div>
+  <suggestion-list [product]="product"></suggestion-list>
 </div>

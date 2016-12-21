@@ -32,7 +32,9 @@
     </div>
     <div class="params" *ngIf="productObject.params" itemprop="description">
       <ul *ngFor="let params of productObject.params[dictionary.language]">
-        <li>{{params}}</li>
+        <li 
+          *ngIf="params.length > 0"
+          >{{params}}</li>
       </ul>
     </div>
     <div class="description" itemprop="description">
