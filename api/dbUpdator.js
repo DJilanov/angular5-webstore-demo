@@ -12,11 +12,11 @@
     var contactTemplate = null;
     var orderTemplate = null;
 
-    fs.readFile('/email-templates/order-builded.html', function (err, html) {
+    fs.readFile(__dirname + '/email-templates/order-builded.html', function (err, html) {
         orderTemplate = html.toString();
     });
 
-    fs.readFile('/email-templates/message-builded.html', function (err, html) {
+    fs.readFile(__dirname + '/email-templates/message-builded.html', function (err, html) {
         contactTemplate = html.toString();
     });
 
