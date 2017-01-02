@@ -423,7 +423,7 @@
                     quality: 40
                 }, 
                 // todo: It saves the original image not the one we just resized....
-                fs.createReadStream(files.main_image[0].path).pipe(fs.createWriteStream(config.productProductionImagesPath + files.main_image[0].originalname))
+                fs.createReadStream(files.main_image[0].path).pipe(fs.createWriteStream(__dirname + config.productProductionImagesPath + files.main_image[0].originalname))
                
             );
         }
@@ -440,7 +440,7 @@
                         quality: 40
                     }, 
                     // todo: It saves the original image not the one we just resized....
-                    fs.createReadStream(files.other_images[otherImagesCounter].path).pipe(fs.createWriteStream(config.productProductionImagesPath + files.other_images[otherImagesCounter].originalname))
+                    fs.createReadStream(files.other_images[otherImagesCounter].path).pipe(fs.createWriteStream(__dirname + config.productProductionImagesPath + files.other_images[otherImagesCounter].originalname))
                 );
             }
         }
