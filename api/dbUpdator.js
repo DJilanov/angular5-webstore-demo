@@ -49,6 +49,7 @@
             'email': body.email,
             'phone': body.phone,
             'message': body.message,
+            'moreinfo': body.moreinfo,
             'date': new Date()
         };
     }

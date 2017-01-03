@@ -44,6 +44,8 @@ export class BulgarianDictionary {
         "contactFormYourEmailEnter": "Въведете вашата електронна поща",
         "contactFormYourPhoneNumber": "Вашия телефонен номер",
         "contactFormYourPhoneNumberEnter": "Въведете вашия телефонен номер",
+        "contactFormYourMoreInfo": "Забележки и допълнителна информация",
+        "contactFormYourMoreInfoEnter": "Въведете забележки и допълнителна информация",
         "contactFormYourMessage": "Вашето съобщение",
         "contactFormYourMessageEnter": "Въведете вашето съобщение",
         "contactYourAddress": "Адреса ви за доставка",

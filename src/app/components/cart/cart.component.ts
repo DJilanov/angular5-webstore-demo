@@ -62,7 +62,15 @@ export class CartComponent {
                 required: true,
                 validation: [<any>Validators.required, <any>Validators.minLength(10)],
                 placeholder: this.dictionary.getTexts('contactYourAddressEnter')
-            }
+            },
+            {
+                label: this.dictionary.getTexts('contactFormYourMoreInfo'),
+                targetName: "moreinfo",
+                inputType: "textarea",
+                required: true,
+                validation: [<any>Validators.required],
+                placeholder: this.dictionary.getTexts('contactFormYourMoreInfoEnter')
+            },
         ],
         submitBtn: {
             class: "btn btn-default",
@@ -107,6 +115,14 @@ export class CartComponent {
         if(isNaN(this.totalPrice)) {
             this.totalPrice = this.dictionary.getTexts('undefinedPrice');
         }
+    }
+
+    private removeProductFromCart(product) {
+        this.cartProducts.filter(function(el) {
+            if(el['_id'] !== product._id) {
+                return el;
+            }
+        });
     }
 
     constructor(

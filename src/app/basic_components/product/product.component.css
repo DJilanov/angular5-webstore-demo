@@ -24,6 +24,11 @@
     text-align: center;
 }
 
+.old-price {
+    color: lightgray;
+    text-decoration-line: line-through;
+}
+
 .like {
     position: absolute;
     top: 0;
@@ -37,9 +42,6 @@ img {
 .button-container {
     text-align: center;
     margin-top: 10px;
-    position: absolute;
-    bottom: 10px;
-    width: 90%;
 }
 
 .box {
