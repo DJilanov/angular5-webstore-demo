@@ -44,7 +44,8 @@
       <span>{{dictionary.getTexts('price')}}</span>
       <span class="new-price" itemprop="lowPrice">{{productObject.new_price}}</span>
       <span class="old-price" itemprop="highPrice">{{productObject.old_price}}</span>
-      <span class="currency" itemprop="priceCurrency"> лева</span>
+      <span class="currency" itemprop="priceCurrency" 
+        *ngIf="isNaN(productObject.new_price)"> {{dictionary.getTexts('currency')}}</span>
     </div>
     <div class="button-container">
       <button

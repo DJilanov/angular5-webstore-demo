@@ -27,6 +27,10 @@ export class ProductComponent {
         return false;
     }
 
+    private isNaN(number) {
+        return !isNaN(number);
+    }
+
     constructor(
         private router: Router,
         private dictionary: Dictionary,

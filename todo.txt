@@ -8,11 +8,8 @@ Integrate delete image in the node and in the product modal ( x over the image )
 Integrate 'creator' value with outbound link from our description page to the Sony or other product page
 Finish the suggestion list that looks like http://www.sectron.com/bg/product/20/evo192-kontrolen-panel-za-alarmeni-sistemi-digiplex-evo-s-192-zoni
 
-Move the back-end to the jilanov server
-install image magic on the server! it wont work whitout it
 Higher domain autority by creatimg on the details page link to the original webpage of the item or review
 All links of products must be splited by - not _
-Enable GZIP
 Enable HTTP2
 Controll browser caching with headers
 

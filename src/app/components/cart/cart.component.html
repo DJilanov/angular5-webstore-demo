@@ -6,6 +6,10 @@
 		<div class="row">
 			<template ngFor #productObject [ngForOf]="cartProducts" let-index="index">
 				<div class="col-xs-12 col-sm-12 col-md-4 product">
+					<!-- TODO: Test it and add bootstrap icon not symbol -->
+					<div class="remove" (click)="removeProductFromCart(cartProducts[index])">
+						<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+					</div>
 					<a [routerLink]="['/details', cartProducts[index].link]">
 						<div class="col-xs-12 product">
 							<div class="title">

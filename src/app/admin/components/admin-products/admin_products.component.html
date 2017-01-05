@@ -6,23 +6,24 @@
     <h1>{{category.title[dictionary.language]}}</h1>
     <template ngFor #productObject [ngForOf]="productsByCategory(category)" let-index="index">
       <div class="col-xs-12 col-sm-12 col-md-4 product">
-        <div class="col-xs-12 product" (click)="showEditModal(products[index])">
+        <!-- TODO: Fix the way we implement products when se have time-->
+        <div class="col-xs-12 product" (click)="showEditModal(productsByCategory(category)[index])">
           <div class="image-holder">
             <image 
-              [src]="products[index].main_image"
-              [alt]="products[index].title"
+              [src]="productsByCategory(category)[index].main_image"
+              [alt]="productsByCategory(category)[index].title"
             ></image>
           </div>
           <div class="title">
-            {{products[index].title[dictionary.language]}}
+            {{productsByCategory(category)[index].title[dictionary.language]}}
           </div>
           <div class="description">
-            {{products[index].description[dictionary.language]}}
+            {{productsByCategory(category)[index].description[dictionary.language]}}
           </div>
           <div class="price">
             <span>{{dictionary.getTexts('price')}}</span>
-            <span class="new-price">{{products[index].new_price}}</span>
-            <span class="old-price">{{products[index].old_price}}</span>
+            <span class="new-price">{{productsByCategory(category)[index].new_price}}</span>
+            <span class="old-price">{{productsByCategory(category)[index].old_price}}</span>
           </div>
         </div>
       </div>
