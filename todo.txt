@@ -1,18 +1,17 @@
-Make the price be able to controll where to be the currency based on the language we selected and in the future currency type
-Allow the user to delete other images of product in admin
-Add old price with proper style
 Add orders screen to the admin
-Integrate more inbound links. The details page has to have field that is category and points to the category page and on the bottom we must have wide carousel with other suggestions
 Fix the images in the product modal
-Integrate delete image in the node and in the product modal ( x over the image )
-Integrate 'creator' value with outbound link from our description page to the Sony or other product page
+Fix the images size in the carousel ( they become different sizes with awfull positioning after the image magic)
 Finish the suggestion list that looks like http://www.sectron.com/bg/product/20/evo192-kontrolen-panel-za-alarmeni-sistemi-digiplex-evo-s-192-zoni
 
 Higher domain autority by creatimg on the details page link to the original webpage of the item or review
-All links of products must be splited by - not _
-Enable HTTP2
+Enable HTTP2 and set certificate
 Controll browser caching with headers
 
 Integrate dialog that shows the cart items each time you add new item
 Think about better design over the app
 Every product list must have description. It will raise our position in google by its 'Uniquenes'
+When we upload main image we must delete the unused main image file if it is not used anywhere else
+
+When somone delete image from the admin delete the image from the fs ( delete Product image TODO )
+IF THE PRODUCT IS CURRENTLY GENERATED AND WE CLICK X FOR IMAGE JUST DELETE IT DONT SEND REQUEST!!!!
+There is issue on IE-11. The contact folder blows up. Fix it!!!!!

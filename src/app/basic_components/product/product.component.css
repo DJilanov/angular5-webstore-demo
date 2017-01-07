@@ -4,8 +4,9 @@
     border-radius: 10px;
     padding: 20px;
     text-align: center;
-    min-height: 560px;
     position: relative;
+    max-height: 560px;
+    overflow: hidden;
 }
 
 .product:hover {
@@ -18,6 +19,10 @@
     text-align: left;
 }
 
+.new-price {
+    font-weight: 900;
+}
+
 .image-holder {
     background-color: white;
     position: relative;
@@ -26,7 +31,7 @@
 
 .old-price {
     color: lightgray;
-    text-decoration-line: line-through;
+    text-decoration: line-through;
 }
 
 .like {
@@ -42,6 +47,9 @@ img {
 .button-container {
     text-align: center;
     margin-top: 10px;
+    position: absolute;
+    bottom: 10px;
+    width: 90%;
 }
 
 .box {

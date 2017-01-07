@@ -93,6 +93,16 @@ app.delete('/api/products', function(req, res) {
         dbUpdator.deleteProduct(req.param('product'), res);
     }
 });
+// when we call from the fetcher service we send id and we delete the product
+app.delete('/api/productImage', function(req, res) {
+    let loginData = {
+        username: req.param('username'),
+        password: req.param('password')
+    };
+    if(validator.validate(loginData)) {
+        dbUpdator.deleteProductImage(req.param('product'), req.param('image'), res);
+    }
+});
 // when we call from the fetcher service we return the categories
 // status: Working correctly
 app.get('/api/categories', function(req, res) {

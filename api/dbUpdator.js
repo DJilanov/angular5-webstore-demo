@@ -358,7 +358,7 @@
     }
     /**
      * @deleteProduct Used to delete the prodtuc from the database
-     * @category: category object that is going to be deleted
+     * @product: product object that is going to be deleted
      */
     function deleteProduct(product, res) {
         product = JSON.parse(product);
@@ -367,7 +367,7 @@
             if(!collection) {
                 return;
             }
-            collection.remove(query, function(err, docs) {
+            collection.find(query, function(err, docs) {
                 if(!err) {
                     cache.removeProduct(product);
                     returnSuccess(res, product);
@@ -376,6 +376,51 @@
                 }
             });
         });
+    }
+    /**
+     * @deleteProductImage Used to delete the product from the database
+     * @product: product object witch image is going to be deleted
+     * @image: image that is going to be deleted from the product and if no one else is using it from the server
+     */
+    function deleteProductImage(product, image, res) {
+        image = image;
+        product = JSON.parse(product);
+        let query = getQuery(product);
+        mongoose.connection.db.collection('categories', function(err, collection) {
+            if(!collection) {
+                return;
+            }
+            let products = cache.getProductsByImage(image);
+            if(products.length > 1) {
+                // we just delete the image from the product
+                removeImage(product, image);
+                updateProduct(product, {}, res);
+            } else if(products.length == 1) {
+                // we delete the image from the product and we delete the image
+                removeImage(product, image);
+                // TODO: delete the image from the FS
+                updateProduct(product, {}, res);
+            } else {
+                // TODO: Move that message to error message enum. Its place is not here!!!
+                returnProblem('The image is not in the back-end', res);
+            }
+            
+        });
+    }
+
+    function removeImage(product, image) {
+        if(product.main_image == image) {
+            product.main_image = '';
+        }
+        if(product.other_images.indexOf(image) !== -1) {
+            var x = [];
+            x.filter
+            product.other_images.filter(function(other_image) {
+                if(other_image !== image) {
+                    return other_image;
+                }
+            });
+        }
     }
 
     function getQuery(el) {
@@ -479,6 +524,7 @@
         updateProduct: updateProduct,
         createProduct: createProduct,
         deleteProduct: deleteProduct,
+        deleteProductImage: deleteProductImage,
         saveOrder: saveOrder,
         deleteOrder: deleteOrder,
         saveMessage: saveMessage,

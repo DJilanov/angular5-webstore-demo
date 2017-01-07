@@ -1,5 +1,6 @@
 .product {
     margin-top: 20px;
+    position: relative;
 }
 
 a {
@@ -9,4 +10,10 @@ a {
 
 .alert {
     margin-top: 100px;
+}
+
+.remove {
+    position: absolute;
+    right: 0;
+    top: 0;
 }

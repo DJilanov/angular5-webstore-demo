@@ -74,6 +74,11 @@ export class AdminNavigationComponent {
         );
     }
 
+    private removeLastChange() {
+        this.categoriesClone.push(this.navItems[this.navItems.length - 1]);
+        this.navItems.pop();
+    }
+
     private success(data) {
 
     }

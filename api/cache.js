@@ -71,6 +71,18 @@
         return products;
     }
     /**
+     * @getProductsByImage it returns all of the products that has that image
+     */
+    function getProductsByImage(image) {
+        let array = [];
+        for(let productsCounter = 0; productsCounter < products.length; productsCounter++) {
+            if((products[productsCounter].main_image == image) || (products[productsCounter].other_images.indexOf(image) !== -1)) {
+                array.push(products[productsCounter]);
+            }
+        }
+        return array;
+    }
+    /**
      * @setProducts it sets messages to the cache
      */
     function setProducts(newProducts) {
@@ -151,6 +163,7 @@
         setProducts: setProducts,
         updateProduct: updateProduct,
         removeProduct: removeProduct,
+        getProductsByImage: getProductsByImage,
 
         addOrder: addOrder,
         getOrders: getOrders,
