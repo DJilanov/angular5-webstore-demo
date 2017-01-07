@@ -3,14 +3,15 @@
  */
 (function() {
     // we use it for creation of new object ids
-    var ObjectId = require('mongodb').ObjectID;
-    var mongoose = require('mongoose');
-    var config = require('./config').getConfig();
-    var nodemailer = require('nodemailer');
-    var fs = require('fs');
-    var imagemagick = require('imagemagick');
-    var contactTemplate = null;
-    var orderTemplate = null;
+    const ObjectId = require('mongodb').ObjectID;
+    const mongoose = require('mongoose');
+    const config = require('./config').getConfig();
+    const imageUpdator = require('./imageUpdator');
+    const nodemailer = require('nodemailer');
+    const fs = require('fs');
+    let contactTemplate = null;
+    let orderTemplate = null;
+    let cache = null;
 
     fs.readFile(__dirname + '/email-templates/order-builded.html', function (err, html) {
         orderTemplate = html.toString();
@@ -19,8 +20,6 @@
     fs.readFile(__dirname + '/email-templates/message-builded.html', function (err, html) {
         contactTemplate = html.toString();
     });
-
-    var cache = null;
 
     /**
      * @setCache set the cache as local variable
@@ -458,36 +457,10 @@
 
     function copyImages(files) {
         if(files.main_image) {
-            imagemagick.resize(
-                {
-                    srcPath: files.main_image[0].path,
-                    dstPath: files.main_image[0].path,
-                    width: 1280,
-                    height: 720,
-                    resizeStyle: 'aspectfill',
-                    gravity: 'Center',
-                    quality: 40
-                }, 
-                // todo: It saves the original image not the one we just resized....
-                fs.createReadStream(files.main_image[0].path).pipe(fs.createWriteStream(__dirname + config.productProductionImagesPath + files.main_image[0].originalname.replace('.jpg', '.png')))
-               
-            );
-        }
+            imageUpdator.resizeImage(files.main_image[0]);
         if(files.other_images) {
-            for(let otherImagesCounter = 0; otherImagesCounter < files.other_images.length; otherImagesCounter++) {
-                imagemagick.resize(
-                    {
-                        srcData: fs.readFileSync(files.other_images[otherImagesCounter].path),
-                        dstPath: fs.readFileSync(files.other_images[otherImagesCounter].path),
-                        width: 1280,
-                        height: 720,
-                        resizeStyle: 'aspectfill',
-                        gravity: 'Center',
-                        quality: 40
-                    }, 
-                    // todo: It saves the original image not the one we just resized....
-                    fs.createReadStream(files.other_images[otherImagesCounter].path).pipe(fs.createWriteStream(__dirname + config.productProductionImagesPath + files.other_images[otherImagesCounter].originalname.replace('.jpg', '.png')))
-                );
+            for(let otherImagesCounter = 0; otherImagesCounter < files.other_images.length; otherImagesCounter++) { 
+                imageUpdator.resizeImage(files.other_images[otherImagesCounter]);
             }
         }
     }
