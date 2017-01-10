@@ -65,6 +65,14 @@ export class HomeComponent {
       });
     }
 
+    private sortCategories(categories) {
+      let sortedCategories = [];
+      for(let categoryCounter = 0; categoryCounter < categories.length; categoryCounter++) {
+        sortedCategories[+this.categories[categoryCounter]['zIndex']] = this.categories[categoryCounter];
+      }
+      return sortedCategories.filter(function(n){ return n != undefined });
+    }
+
     private productsByCategory(category) {
       return this.productsService.getProductsByCategory(category.products);
     }

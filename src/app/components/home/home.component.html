@@ -1,7 +1,7 @@
 <custom-carousel 
   [carouselOptions]=carouselOptions>
 </custom-carousel>
-<div *ngFor="let category of categories">
+<div *ngFor="let category of sortCategories(categories)">
   <product-list 
     [category]=category 
     [products]=productsByCategory(category)>

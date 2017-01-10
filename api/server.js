@@ -3,12 +3,12 @@
  */
 
 // call the packages we need
-var express = require('express'); // call express
+const express = require('express'); // call express
 // we set the multer
-var multer  = require('multer');
-var fs = require('fs');
-var config = require('./config').getConfig();
-var storage = multer.diskStorage({
+const multer  = require('multer');
+const fs = require('fs');
+const config = require('./config').getConfig();
+const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, __dirname + '/../img/')
   },
@@ -17,26 +17,28 @@ var storage = multer.diskStorage({
     cb(null, name) //Appending .png
   }
 });
-var upload = multer({ storage: storage });
-var bodyParser = require('body-parser');
+const upload = multer({ storage: storage });
+const bodyParser = require('body-parser');
 // here we declare all functions we use for the standart user interface
-var cache = require('./cache');
-var dbFinder = require('./dbFinder');
-var dbUpdator = require('./dbUpdator');
-var validator = require('./validator');
+const cache = require('./cache');
+const dbFinder = require('./dbFinder');
+const dbUpdator = require('./dbUpdator');
+const imageUpdator = require('./imageUpdator');
+const dbMigrationHelper = require('./dbMigrationHelper');
+const validator = require('./validator');
 // we connect to the db using the credentials and fetch the db localy
 dbFinder.connectDb();
 dbFinder.setCache(cache);
 dbUpdator.connectDb();
 dbUpdator.setCache(cache);
 // define our app using express
-var app = express();
+const app = express();
 // this will let us get nv.PORT || 8080;        // set our port
-var port = process.env.PORT || 8080; // set our port
+const port = process.env.PORT || 8080; // set our port
 
 // ROUTES FOR OUR API
 // =============================================================================
-var router = express.Router(); // get an instance of the express Router
+const router = express.Router(); // get an instance of the express Router
 // START THE SERVER
 // =============================================================================
 app.listen(port);
@@ -54,6 +56,12 @@ app.all('/*', function(req, res, next) {
     res.header("Access-Control-Allow-Headers", "X-Requested-With, Content-Type");
     // we call the real root
     next();
+});
+// USED ONLY FOR TESTING PURPOSES. REMOVE IT WHEN RDY
+
+app.get('/api/test', function(req, res) {
+    // imageUpdator.optimiseImages(req, res);
+    dbMigrationHelper.changeMainImageField();
 });
 // when we call from the fetcher service we return the products
 app.get('/api/products', function(req, res) {

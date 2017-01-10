@@ -4,7 +4,7 @@
         [active]="slidez.active"
         (click)="openProduct(slidez)" 
         style="margin:auto;">
-    <img src="{{slidez.main_image}}"/>
+    <img src="'/img' + {{slidez.main_image}}"/>
 
     <div class="carousel-caption" 
       *ngIf="slidez.title">

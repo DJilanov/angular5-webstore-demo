@@ -65,17 +65,18 @@
     }
 
     function getProductQuery(product, files, res) {
+        // change the main_image location of all of the currect docs!!!!
         let otherImagesArray = [];
         let main_image = '';
         if(files.other_images !== undefined) {
             files.other_images.forEach(function(element) {
-                otherImagesArray.push(config.productImagesPath + element.filename);
+                otherImagesArray.push(element.filename);
             });
         } else {
             otherImagesArray = product.other_images;
         }
         if(files.main_image !== undefined) {
-            main_image = config.productImagesPath + files.main_image[0].filename;
+            main_image = files.main_image[0].filename;
         } else {
             main_image = product.main_image;
         }
@@ -458,6 +459,7 @@
     function copyImages(files) {
         if(files.main_image) {
             imageUpdator.resizeImage(files.main_image[0]);
+        }
         if(files.other_images) {
             for(let otherImagesCounter = 0; otherImagesCounter < files.other_images.length; otherImagesCounter++) { 
                 imageUpdator.resizeImage(files.other_images[otherImagesCounter]);
