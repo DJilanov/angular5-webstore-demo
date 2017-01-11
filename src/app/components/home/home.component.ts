@@ -20,14 +20,6 @@ export class HomeComponent {
         // static base image untill we fetch ( must be one of our website images)
         main_image: `//placekitten.com/1/1`,
         text: `test1`
-      },{
-        // static base image untill we fetch ( must be one of our website images)
-        main_image: `//placekitten.com/2/1`,
-        text: `test2`
-      },{
-        // static base image untill we fetch ( must be one of our website images)
-        main_image: `//placekitten.com/1/2`,
-        text: `test3`
       }]
     };
 
@@ -51,18 +43,37 @@ export class HomeComponent {
 
     private onFetchedData(data) {
       this.products = data.products;
-      this.setCarouselSlides();
       this.categories = data.categories;
+      this.setCarouselSlides();
     }
 
     private setCarouselSlides() {
+      // we sort the categories based on the array
+      let categoriesArray = this.categories;
+      let array = [];
+      for(let categoriesCounter = 0; categoriesCounter < this.categories.length; categoriesCounter++) {
+        array[+this.categories[categoriesCounter]['zIndex']] = this.categories[categoriesCounter];
+      }
+      categoriesArray = array.filter(function(n){ return n != undefined });
       // filter them correctly
-      this.carouselOptions['slides'] = this.products.filter(function(product){
+      let carouselItems = this.products.filter(function(product){
         // we check is it carousel promoted product
         if(product['carousel']) {
           return product;
         }
       });
+      let tmpArray = [];
+      // we sort them based on category
+      for(let categoryCounter = 0; categoryCounter < this.categories.length; categoryCounter++) {
+        tmpArray = tmpArray.concat(
+          carouselItems.filter(function(product){
+            if(product['category'] == categoriesArray[categoryCounter]['products']) {
+              return product;
+            }
+          })
+        )
+      }
+      this.carouselOptions['slides'] = tmpArray;
     }
 
     private sortCategories(categories) {

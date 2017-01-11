@@ -1,7 +1,7 @@
 {
-  "name": "westernacher-user-spa-backend",
-  "version": "1.0.0",
-  "description": "We are using it to controll the things that are done to the backend",
+  "name": "angular-spa",
+  "version": "0.0.1",
+  "description": "Angular 2 single page application for webstore API",
   "main": "server.js",
   "dependencies": {
     "body-parser": "1.15.2",

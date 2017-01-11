@@ -13,7 +13,10 @@ When we upload main image we must delete the unused main image file if it is not
 Enable HTTP2 and set certificate
 Controll browser caching with headers
 
-4. To be done ( move to category when list is empty )
+4. Optimisation 
+The carousel msut not contain so many products
+
+5. To be done ( move to category when list is empty )
 Integrate dialog that shows the cart items each time you add new item
 Think about better design over the app
 Every product list must have description. It will raise our position in google by its 'Uniquenes'
