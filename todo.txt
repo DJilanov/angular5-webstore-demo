@@ -18,3 +18,4 @@ Integrate dialog that shows the cart items each time you add new item
 Think about better design over the app
 Every product list must have description. It will raise our position in google by its 'Uniquenes'
 Add orders screen to the admin
+There must be no carousel on mobile

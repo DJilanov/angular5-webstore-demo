@@ -4,17 +4,18 @@
   "description": "We are using it to controll the things that are done to the backend",
   "main": "server.js",
   "dependencies": {
-    "body-parser": "^1.15.2",
-    "express": "^4.14.0",
-    "imagemagick-native": "^1.9.3",
-    "imagemin": "^5.2.2",
-    "imagemin-mozjpeg": "^6.0.0",
-    "imagemin-pngquant": "^5.0.0",
-    "mongodb": "^2.1.18",
-    "mongoose": "^4.5.1",
-    "multer": "^1.2.0",
-    "nodemailer": "^2.6.4",
-    "request": "^2.72.0"
+    "body-parser": "1.15.2",
+    "express": "4.14.0",
+    "imagemagick": "0.1.3",
+    "imagemagick-native": "1.9.3",
+    "imagemin": "5.2.2",
+    "imagemin-mozjpeg": "6.0.0",
+    "imagemin-pngquant": "5.0.0",
+    "mongodb": "2.1.18",
+    "mongoose": "4.5.1",
+    "multer": "1.2.0",
+    "nodemailer": "2.6.4",
+    "request": "2.72.0"
   },
   "engines": {
     "node": "7.1.0"
