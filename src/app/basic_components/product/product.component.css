@@ -5,8 +5,7 @@
     padding: 20px;
     text-align: center;
     position: relative;
-    max-height: 560px;
-    overflow: hidden;
+    height: 560px;
 }
 
 .product:hover {
@@ -17,6 +16,8 @@
 
 .params {
     text-align: left;
+    max-height: 130px;
+    overflow: hidden;
 }
 
 .new-price {

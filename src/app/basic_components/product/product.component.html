@@ -40,14 +40,14 @@
     <div class="description" itemprop="description">
       {{productObject.description[dictionary.language]}}
     </div>
-    <div class="price" itemprop="offers" itemscope itemtype="http://schema.org/AggregateOffer">
-      <span>{{dictionary.getTexts('price')}}</span>
-      <span class="new-price" itemprop="lowPrice">{{productObject.new_price}}</span>
-      <span class="old-price" itemprop="highPrice">{{productObject.old_price}}</span>
-      <span class="currency" itemprop="priceCurrency" 
-        *ngIf="isNaN(productObject.new_price)"> {{dictionary.getTexts('currency')}}</span>
-    </div>
     <div class="button-container">
+      <div class="price" itemprop="offers" itemscope itemtype="http://schema.org/AggregateOffer">
+        <span>{{dictionary.getTexts('price')}}</span>
+        <span class="new-price" itemprop="lowPrice">{{productObject.new_price}}</span>
+        <span class="old-price" itemprop="highPrice">{{productObject.old_price}}</span>
+        <span class="currency" itemprop="priceCurrency" 
+          *ngIf="isNaN(productObject.new_price)"> {{dictionary.getTexts('currency')}}</span>
+      </div>
       <button
         (click)="onAddToCart(productObject)"
         class="btn btn-success">

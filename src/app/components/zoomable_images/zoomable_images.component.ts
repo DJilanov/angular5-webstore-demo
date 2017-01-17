@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, HostListener } from '@angular/core';
 
 @Component({
     selector: 'zoomable-images',
@@ -16,22 +16,9 @@ export class ZoomableImagesComponent {
 
     private selectedImage: Object;
 
+    // used to change the selected image
     private selectImage(image) {
         this.selectedImage = image;
-    }
-
-    private zoomIn(event) {
-        var element = document.getElementById("overlay");
-        element.style.display = "inline-block";
-        var img = document.getElementById("imgZoom");
-        var posX = event.offsetX ? (event.offsetX) : event.pageX - img.offsetLeft;
-        var posY = event.offsetY ? (event.offsetY) : event.pageY - img.offsetTop;
-        element.style.backgroundPosition = (-posX * 4) + "px " + (-posY * 4) + "px";
-    }
-
-    private zoomOut(event) {
-        var element = document.getElementById("overlay");
-        element.style.display = "none";
     }
 
     constructor() {

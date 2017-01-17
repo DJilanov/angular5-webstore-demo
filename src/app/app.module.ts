@@ -17,6 +17,9 @@ import { Dictionary } from './dictionary/dictionary.service';
 import { EnglishDictionary } from './dictionary/en.dictionary';
 import { BulgarianDictionary } from './dictionary/bg.dictionary';
 
+// Directives
+import { ImageZoomDirective } from './directives/image_zoom.directive';
+
 // Basic Components
 import { FormComponent } from './basic_components/form/form.component';
 import { PriceComponent } from './basic_components/price/price.component';
@@ -85,6 +88,8 @@ import { ErrorHandlerService } from './services/error.handler.service';
     ],
     // Components & Views
     declarations: [ 
+        // directives
+        ImageZoomDirective,
         // standard components
         AppComponent,
         FormComponent,

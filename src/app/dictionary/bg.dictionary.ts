@@ -34,7 +34,7 @@ export class BulgarianDictionary {
         "contactOurAddress": "Адрес",
         "contactCoordinateAdress": "жк.Левски Г,ул. Могилите бл.4, София 1836",
         "contactPhoneTitle": "Телефон за връзка",
-        "contactPhone": "0878613400 , 0878422063",
+        "contactPhone": "0878422063 , 0878613400",
         "contactRules": "Посещения на място след предварително договаряне!",
         "contactFormTitle": "Може да ни изпратите запитване през формата",
         "contactOrderTitle": "Може да направите поръчка през формата",
@@ -45,6 +45,9 @@ export class BulgarianDictionary {
         "contactFormYourPhoneNumber": "Вашия телефонен номер",
         "contactFormYourPhoneNumberEnter": "Въведете вашия телефонен номер",
         "contactFormYourMoreInfo": "Забележки и допълнителна информация",
+        // Implement it when you have time
+        "contactFormYourMoreInfoEmpty": "Допълнителна информация за търсения от вас продукт",
+
         "contactFormYourMoreInfoEnter": "Въведете забележки и допълнителна информация",
         "contactFormYourMessage": "Вашето съобщение",
         "contactFormYourMessageEnter": "Въведете вашето съобщение",
