@@ -10,7 +10,7 @@
         <div class="col-xs-12 product" (click)="showEditModal(productsByCategory(category)[index])">
           <div class="image-holder">
             <image 
-              [src]="productsByCategory(category)[index].main_image"
+              [src]="'/img/' + productsByCategory(category)[index].main_image"
               [alt]="productsByCategory(category)[index].title"
             ></image>
           </div>

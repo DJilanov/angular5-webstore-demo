@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { MetaModule } from 'ng2-meta';
 import { Ng2Webstorage } from 'ng2-webstorage';
-import { ImageZoomModule } from 'angular2-image-zoom';
 import { AgmCoreModule } from 'angular2-google-maps/core';
 import { BrowserModule }  from '@angular/platform-browser';
 import { Ng2BootstrapModule } from 'ng2-bootstrap/ng2-bootstrap';
@@ -75,7 +74,6 @@ import { ErrorHandlerService } from './services/error.handler.service';
         BrowserModule,
         Ng2Webstorage,
         RecaptchaModule,
-        ImageZoomModule,
         Ng2BootstrapModule,
         ReactiveFormsModule,
         MetaModule.forRoot(),

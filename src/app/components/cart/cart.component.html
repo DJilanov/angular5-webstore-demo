@@ -7,10 +7,10 @@
 			<template ngFor #productObject [ngForOf]="cartProducts" let-index="index">
 				<div class="col-xs-12 col-sm-12 col-md-4 product">
 					<div class="remove" (click)="removeProductFromCart(cartProducts[index])">
-						<span class="glyphicon glyphicon-shopping-remove" aria-hidden="true"></span>
+						<span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
 					</div>
 					<a [routerLink]="['/details', cartProducts[index].link]">
-						<div class="col-xs-12 product">
+						<div class="col-xs-12">
 							<div class="title">
 								{{cartProducts[index].title[dictionary.language]}}
 							</div>

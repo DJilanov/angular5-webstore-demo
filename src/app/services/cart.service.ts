@@ -43,6 +43,15 @@ export class CartService {
     }
 
     /**
+    * @removeItemFromCart remove item from the cart
+    */
+    public removeItemFromCart(cartArray) {
+        this.cartArray = cartArray;
+        this.cartUpdate.emit(cartArray);
+        this.storage.store('cartProducts', cartArray);
+    }
+
+    /**
     * @addToCart add item to the cart
     */
     public emptyCart() {

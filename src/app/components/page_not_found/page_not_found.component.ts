@@ -12,18 +12,10 @@ import { Router } from '@angular/router';
 export class PageNotFoundComponent implements OnInit {
     @Input()
     postOptions: Object;
-
-    @Output()
-    cPayChanged = new EventEmitter();
-
-    private showOverlay = false;
-    private router;
     /**
      * @constructor We init the view with the router
      */
-    constructor(private _router: Router) {
-        this.router = _router;
-    }
+    constructor(private router: Router) {}
     /**
      * @ngOnInit on init
      */
@@ -60,7 +52,7 @@ export class PageNotFoundComponent implements OnInit {
                 } else {
                     url += path;
                 }
-                this._router.navigate([url]);
+                this.router.navigate([url]);
                 break;
             }
         }

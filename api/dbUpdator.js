@@ -340,7 +340,7 @@
      */
     function createProduct(product, files, res) {
         let update = getProductQuery(product, files, res);
-        mongoose.connection.db.collection('messages', function(err, collection) {
+        mongoose.connection.db.collection('products', function(err, collection) {
             if(!collection) {
                 return;
             }

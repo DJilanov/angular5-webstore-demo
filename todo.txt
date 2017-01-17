@@ -1,5 +1,4 @@
 1. Front-end
-Fix the images in the product modal
 Finish the suggestion list that looks like http://www.sectron.com/bg/product/20/evo192-kontrolen-panel-za-alarmeni-sistemi-digiplex-evo-s-192-zoni
 Higher domain autority by creatimg on the details page link to the original webpage of the item or review
 IF THE PRODUCT IS CURRENTLY GENERATED AND WE CLICK X FOR IMAGE JUST DELETE IT DONT SEND REQUEST!!!!
@@ -14,7 +13,7 @@ Enable HTTP2 and set certificate
 Controll browser caching with headers
 
 4. Optimisation 
-The carousel msut not contain so many products
+The carousel must not contain so many products
 
 5. To be done ( move to category when list is empty )
 Integrate dialog that shows the cart items each time you add new item
@@ -22,3 +21,4 @@ Think about better design over the app
 Every product list must have description. It will raise our position in google by its 'Uniquenes'
 Add orders screen to the admin
 There must be no carousel on mobile
+Everyone can upload images to our server.. its not ok !!!

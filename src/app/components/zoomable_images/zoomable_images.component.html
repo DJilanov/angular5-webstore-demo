@@ -1,7 +1,3 @@
-<!-- <img 
-[imageZoom]="'http://placekitten.com.s3.amazonaws.com/homepage-samples/408/287.jpg'"
-[lensStyle]="'LENS'"
-[src]="'http://placekitten.com.s3.amazonaws.com/homepage-samples/408/287.jpg'"> -->
 <div class="main-image-container col-xs-12" *ngIf="zoomableImages">
   <img 
       [src]="'/img/' + (selectedImage || zoomableImages[0])"

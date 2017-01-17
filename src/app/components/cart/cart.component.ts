@@ -118,11 +118,12 @@ export class CartComponent {
     }
 
     private removeProductFromCart(product) {
-        this.cartProducts.filter(function(el) {
+        this.cartProducts = this.cartProducts.filter(function(el) {
             if(el['_id'] !== product._id) {
                 return el;
             }
         });
+        this.cartService.removeItemFromCart(this.cartProducts);
     }
 
     constructor(
