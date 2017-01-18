@@ -79,8 +79,6 @@ export class AdminProductModalComponent {
     * @options {Object} user data
     */
     private showProductModal(options):void {
-        // ng2 issue
-        this.productModal.config.backdrop = false;
         this.productModal.show();
         this.title = options.title;
         this.formOptions = options;
