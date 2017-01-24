@@ -15,6 +15,7 @@
                 imageminPngquant({quality: '65-80'})
             ]
         }).then(files => {
+            console.log('Images for optimisation: ' + files.length);
             for(let fileCounter = 0; fileCounter < files.length; fileCounter++) {
                 imagemagick.resize(
                     {
@@ -68,7 +69,7 @@
                 if(err) {
                     console.log('[imageUpdator -> resizeImageSmall] Error on image upload: ' + err);
                 } else {
-                    console.log('Image: ' + image + ' is small now too. Needs optimisation');
+                    console.log('Image: ' + __dirname + config.productProductionImagesSmallPath + name + ' is small now too. Needs optimisation');
                 }
             }
         );

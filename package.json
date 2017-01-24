@@ -7,7 +7,7 @@
   "author": "Dimitar Jilanov",
   "scripts": {
     "develop": "webpack-dev-server --inline --hot --progress --host 0.0.0.0 --port 7000",
-    "build:prod": "NODE_ENV=production webpack -p --config config/webpack.prod.js --optimize-minimize",
+    "build:prod": "NODE_ENV=production webpack -p --config config/webpack.prod.js --optimize-minimize && node -e \"require('./api/imageUpdator.js').optimiseImages();\"",
     "build": "webpack"
   },
   "dependencies": {
