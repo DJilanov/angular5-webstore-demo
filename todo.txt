@@ -5,8 +5,10 @@ IF THE PRODUCT IS CURRENTLY GENERATED AND WE CLICK X FOR IMAGE JUST DELETE IT DO
 There is issue on IE-11. The contact folder blows up. Fix it!!!!!
 There must be zoom over the zoomable details images
 
+
 2. Back-end
 When we upload main image we must delete the unused main image file if it is not used anywhere else
+When we delete product it is deleted from the cache but not from the db
 
 3. DevOps
 Enable HTTP2 and set certificate
@@ -22,3 +24,6 @@ Every product list must have description. It will raise our position in google b
 Add orders screen to the admin
 There must be no carousel on mobile
 Everyone can upload images to our server.. its not ok !!!
+
+6. Reported bugs
+When you add image to already created file the image is not uploaded
