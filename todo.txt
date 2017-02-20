@@ -16,6 +16,9 @@ Controll browser caching with headers
 
 4. Optimisation 
 The carousel must not contain so many products
+Cache the response of the back-end for faster loading
+Try to use AOT compilation ( currently angular use JIT )
+Split the admin and the standart app to achieve faster page load ( it increase the size )
 
 5. To be done ( move to category when list is empty )
 Integrate dialog that shows the cart items each time you add new item

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MetaService } from 'ng2-meta';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Cache } from './cache/cache';
 import { Dictionary } from './dictionary/dictionary.service';
 import { FetcherService } from './services/fetcher.service';
 import { CategoriesService } from './services/categories.service';
@@ -21,6 +22,7 @@ export class AppComponent {
     private location: string;
 
     constructor(
+        private cache: Cache,
         private router: Router,
         private fetcher: FetcherService,
         private dictionary: Dictionary,
@@ -30,6 +32,7 @@ export class AppComponent {
         private eventEmiterService: EventEmiterService,
         private errorHandlerService: ErrorHandlerService
     ) {
+        this.setData(cache.getProductAndCategories());
         fetcher.getProductsAndCategories().subscribe(
             data => this.setData(data),
             err => this.errorHandlerService.handleError(err)
@@ -37,7 +40,17 @@ export class AppComponent {
     };
 
     private setData(result) {
-        var response = result.json();
+        var response = {
+            products: [],
+            categories: []
+        };
+        // if it comes from the back-end translate it, else it is cached version
+        if(result.json) {
+            response = result.json();
+        } else {
+            response = result;
+        }
+        
         this.setProducts(response.products);
         this.setCategories(response.categories);
         this.eventEmiterService.emitFetchedData(response);

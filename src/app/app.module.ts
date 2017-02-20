@@ -60,6 +60,10 @@ import { AuthService } from './admin/services/auth.service';
 // Config
 import { Config } from './config';
 
+// Cache
+import { Cache } from './cache/cache';
+import { ProductAndCategories } from './cache/productAndCategories';
+
 // Services
 import { CartService } from './services/cart.service';
 import { FetcherService } from './services/fetcher.service';
@@ -136,6 +140,9 @@ import { ErrorHandlerService } from './services/error.handler.service';
         Dictionary,
         EnglishDictionary,
         BulgarianDictionary,
+        // cache
+        Cache,
+        ProductAndCategories,
         // services of the app
         CartService,
         FetcherService,
