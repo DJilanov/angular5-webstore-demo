@@ -44,19 +44,6 @@ import { PageNotFoundComponent } from './components/page_not_found/page_not_foun
 import { SuggestionListComponent } from './components/suggestion_list/suggestion_list.component';
 import { ZoomableImagesComponent } from './components/zoomable_images/zoomable_images.component';
 
-// Admin
-import { Ng2DragDropModule } from "ng2-drag-drop";
-
-import { AdminComponent } from './admin/components/admin/admin.component';
-import { AdminHomeComponent } from './admin/components/admin-home/admin_home.component';
-import { AdminMessagesComponent } from './admin/components/admin-messages/admin_messages.component';
-import { AdminProductsComponent } from './admin/components/admin-products/admin_products.component';
-import { AdminCategoriesComponent } from './admin/components/admin-categories/admin_categories.component';
-import { AdminNavigationComponent } from './admin/components/admin-navigation/admin_navigation.component';
-import { AdminProductModalComponent } from './admin/components/admin-product-modal/admin_product_modal.component';
-
-import { AuthService } from './admin/services/auth.service';
-
 // Config
 import { Config } from './config';
 
@@ -86,9 +73,7 @@ import { ErrorHandlerService } from './services/error.handler.service';
         MetaModule.forRoot(),
         AgmCoreModule.forRoot({
           apiKey: 'AIzaSyDBbPzFEwNVTHNoZ-bz7YYqO1eMRPqTyUA'
-        }),
-        // admin
-        Ng2DragDropModule
+        })
     ],
     // Components & Views
     declarations: [ 
@@ -115,15 +100,7 @@ import { ErrorHandlerService } from './services/error.handler.service';
         ContactsComponent,
         ProductListComponent,
         PageNotFoundComponent,
-        SuggestionListComponent,
-        // admin
-        AdminComponent,
-        AdminHomeComponent,
-        AdminMessagesComponent,
-        AdminProductsComponent,
-        AdminCategoriesComponent,
-        AdminNavigationComponent,
-        AdminProductModalComponent,
+        SuggestionListComponent
     ],
     // Bootstraping
     bootstrap: [ 
@@ -149,10 +126,7 @@ import { ErrorHandlerService } from './services/error.handler.service';
         CategoriesService,
         ProductsService,
         EventEmiterService,
-        ErrorHandlerService,
-
-        // admin
-        AuthService
+        ErrorHandlerService
     ]
 })
 
