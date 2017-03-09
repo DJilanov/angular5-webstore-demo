@@ -220,6 +220,15 @@ module.exports = function (options) {
         from: '*.*',
         to: '[name].[ext]',
       }, {
+        from: '../training_seo_admin/dist/*.js.gz',
+        to: '[name].[ext]',
+      }, {
+        from: '../training_seo_admin/dist/*.js',
+        to: '[name].[ext]',
+      }, {
+        from: '../training_seo_admin/dist/*.map',
+        to: '[name].[ext]',
+      }, {
         from: '.htaccess',
         to: '../dist',
       }]),
