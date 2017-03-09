@@ -12,7 +12,8 @@ import { ErrorHandlerService } from './services/error.handler.service';
 @Component({
     selector: 'app',
     templateUrl: './app.component.html',
-    styles: [ require('./sass/style.scss') ]
+    styleUrls: ['./app.component.css']
+    
 })
 
 export class AppComponent {

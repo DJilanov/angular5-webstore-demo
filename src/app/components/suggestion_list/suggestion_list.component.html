@@ -1,9 +1,10 @@
-<!--<div
+<div
+  class="hidden" 
   itemscope itemtype="http://schema.org/ItemList">
   <template ngFor #productObject [ngForOf]="products" let-index="index">
     <div class="col-md-2">
       <a 
-        [routerLink] = "['/details', productObject.link]"
+        [routerLink] = "['/details', products[index].link]"
         class="col-xs-12 product">
         <div class="image-holder">
           <image 
@@ -22,4 +23,4 @@
       </a>
     </div>
   </template>
-</div>-->
+</div>

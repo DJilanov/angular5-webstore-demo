@@ -1,0 +1,34 @@
+1. Front-end
+Finish the suggestion list that looks like http://www.sectron.com/bg/product/20/evo192-kontrolen-panel-za-alarmeni-sistemi-digiplex-evo-s-192-zoni
+Higher domain autority by creatimg on the details page link to the original webpage of the item or review
+IF THE PRODUCT IS CURRENTLY GENERATED AND WE CLICK X FOR IMAGE JUST DELETE IT DONT SEND REQUEST!!!!
+There is issue on IE-11. The contact folder blows up. Fix it!!!!!
+There must be zoom over the zoomable details images
+
+1.5 admin
+Do the correct routing ( there will be probably errors )
+
+2. Back-end
+When we upload main image we must delete the unused main image file if it is not used anywhere else
+When we delete product it is deleted from the cache but not from the db
+
+3. DevOps
+Enable HTTP2 and set certificate
+Controll browser caching with headers
+
+4. Optimisation 
+The carousel must not contain so many products
+Cache the response of the back-end for faster loading
+Try to use AOT compilation ( currently angular use JIT )
+Split the admin and the standart app to achieve faster page load ( it increase the size )
+
+5. To be done ( move to category when list is empty )
+Integrate dialog that shows the cart items each time you add new item
+Think about better design over the app
+Every product list must have description. It will raise our position in google by its 'Uniquenes'
+Add orders screen to the admin
+There must be no carousel on mobile
+Everyone can upload images to our server.. its not ok !!!
+
+6. Reported bugs
+When you add image to already created file the image is not uploaded

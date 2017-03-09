@@ -7,6 +7,4 @@ if ( process.env.ENV === 'production' ) {
     enableProdMode();
 }
 
-export class startWidget {} 
-
 platformBrowserDynamic().bootstrapModule(AppModule);
