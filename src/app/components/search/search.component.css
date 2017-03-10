@@ -1,9 +1,15 @@
-input {
-    width: 260px;
+md-input-container {
+    margin: 0 20px 0 20px;
 }
 
-.typeahead-container {
+md-option {
     overflow: hidden;
+    height: 64px;
+}
+
+md-grid-tile div {
+    overflow: hidden;
+    height: 64px;
 }
 
 .image-holder {

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { MetaService } from 'ng2-meta';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Cache } from './cache/cache';
@@ -12,8 +12,8 @@ import { ErrorHandlerService } from './services/error.handler.service';
 @Component({
     selector: 'app',
     templateUrl: './app.component.html',
-    styleUrls: ['./app.component.css']
-    
+    styleUrls: ['./app.component.css', './theme.css'],
+    encapsulation: ViewEncapsulation.None 
 })
 
 export class AppComponent {
