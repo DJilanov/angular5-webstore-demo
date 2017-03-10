@@ -1,0 +1,10 @@
+<div class="carousel">
+    <ul class="slides">
+        <template ngFor #image [ngForOf]="images" let-index="index">
+            <li>
+                <h2>{{image.title}}</h2>
+                <img src="{{image.url}}" alt="">
+            </li>
+        </template>
+    </ul>
+</div>

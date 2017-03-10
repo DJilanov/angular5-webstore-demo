@@ -27,8 +27,8 @@
       {{productObject.title[dictionary.language]}}
     </h2>
     <div itemprop="aggregateRating">
-      <rating [(ngModel)]="productObject.rating" max="5" stateOn="glyphicon-star"
-          stateOff="glyphicon-star-empty"></rating>
+      <!--<rating [(ngModel)]="productObject.rating" max="5" stateOn="glyphicon-star"
+          stateOff="glyphicon-star-empty"></rating>-->
     </div>
     <div class="params" *ngIf="productObject.params" itemprop="description">
       <ul *ngFor="let params of productObject.params[dictionary.language]">
