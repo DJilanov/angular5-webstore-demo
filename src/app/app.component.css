@@ -1,5 +1,3 @@
-@import '~@angular/material/core/theming/prebuilt/pink-bluegrey.css';
-
 /* carousel styles */
 .carousel-indicators li {
     border: 1px solid lightgray!important;
@@ -14,6 +12,6 @@ slide img {
 
 /* Component styles */
 
-.no-paddings {
-    padding: 0;
+.no-paddings, custom-header {
+    padding: 0!important;
 }

@@ -8,7 +8,7 @@
   <div class="col-md-7 col-xs-12 info-section">
     <section class="center" itemprop="name">
       <h1>{{product.title[dictionary.language]}}</h1>
-      <h4>{{dictionary.getTexts('detailsBy')}} {{product.make}}</h4>
+      <h4>{{dictionary.getTexts('detailsBy')}} </h4></section><!--{{product.make}}</h4>
       <rating [(ngModel)]="product.rating" max="5" stateOn="glyphicon-star"
             stateOff="glyphicon-star-empty"></rating>
     </section>
@@ -50,5 +50,5 @@
       <p>{{ product.more_details[dictionary.language] }}</p>
     </section>
   </div>
-  <suggestion-list [product]="product"></suggestion-list>
+  <suggestion-list [product]="product"></suggestion-list>-->
 </div>
