@@ -27,6 +27,7 @@ export class BulgarianDictionary {
         "emptyCart": "Вашата количка с поръчки е все още празна. ",
         "cartSum": "Обща сума:",
         "undefinedPrice": "По договаряне",
+        "cart": "Количка",
 
         "contactHeader": "За връзка с нас:",
         "contactMarker": "Координати",

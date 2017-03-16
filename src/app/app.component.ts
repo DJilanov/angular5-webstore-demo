@@ -12,7 +12,7 @@ import { ErrorHandlerService } from './services/error.handler.service';
 @Component({
     selector: 'app',
     templateUrl: './app.component.html',
-    styleUrls: ['./app.component.css', './theme.css'],
+    styleUrls: ['./app.component.css', './theme.css', './grid.css'],
     encapsulation: ViewEncapsulation.None 
 })
 

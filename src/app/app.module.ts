@@ -2,6 +2,7 @@
 import 'hammerjs';
 import { NgModule } from '@angular/core';
 import { MaterialModule } from '@angular/material';
+import { FlexLayoutModule } from "@angular/flex-layout";
 import { HttpModule } from '@angular/http';
 import { MetaModule } from 'ng2-meta';
 import { Ng2Webstorage } from 'ng2-webstorage';
@@ -70,6 +71,7 @@ import { ErrorHandlerService } from './services/error.handler.service';
         BrowserModule,
         Ng2Webstorage,
         MaterialModule,
+        FlexLayoutModule.forRoot(),
         RecaptchaModule,
         ReactiveFormsModule,
         MetaModule.forRoot(),

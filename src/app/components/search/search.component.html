@@ -3,7 +3,7 @@
 </md-input-container>
 
 <md-autocomplete #auto="mdAutocomplete">
-  <md-option *ngFor="let value of filteredValues | async; let i = index" [value]="value">
+  <md-option (onSelect)="onProductSelect(i)" *ngFor="let value of filteredValues | async; let i = index" [value]="value">
     <md-grid-list cols="4" rowHeight="100px">
       <md-grid-tile
         [colspan]="1"
