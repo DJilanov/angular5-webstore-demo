@@ -1,6 +1,6 @@
-<div class="container">
-  <div class="col-md-6 col-xs-12">
-    <div class="phone-section">
+<div class="contacts no-paddings">
+  <div class="phone-section col-xs-12 col-md-6">
+    <div>
       <h2>{{dictionary.getTexts('contactPhoneTitle')}}</h2>
       <h4>{{dictionary.getTexts('contactPhone')}}</h4>
     </div>
@@ -12,14 +12,15 @@
     </div>
     <custom-form [formOptions]="contactFormModel" [formSubmit]="onContactFormSubmit"></custom-form>
   </div>
-  <div class="map-container col-md-6 col-xs-12">
+  <div class="map-container col-xs-12 col-md-6">
     <div class="address-section">
       <h2>{{dictionary.getTexts('contactOurAddress')}}</h2>
       <h4>{{dictionary.getTexts('contactOurAddress')}}: {{dictionary.getTexts('contactCoordinateAdress')}}</h4>
       <h4 class="red">{{dictionary.getTexts('contactRules')}}</h4>
       <h4>{{dictionary.getTexts('contactMarker')}}</h4>
     </div>
-    <div class="map-section">
+  </div>
+  <div class="col-xs-12 map-section no-paddings">
       <sebm-google-map 
         [zoom]="mapCoordinates.zoom"
         [latitude]="mapCoordinates.lat" 
@@ -27,8 +28,20 @@
         <sebm-google-map-marker 
           [latitude]="mapCoordinates.lat" 
           [longitude]="mapCoordinates.lng">
+          <sebm-google-map-info-window [isOpen]="true">
+            <div class="info-window-container">
+              <div class="col-xs-2">
+                <img 
+                  src="./src/img/navigation-logo.png"
+                  alt="logo"/>
+              </div>
+              <div class="col-xs-10 company">
+                <div>{{dictionary.getTexts('headerCompany')}}</div>
+                <div> рейтинг 5 звезди <span>(193)</span></div>
+              </div>
+            </div>
+          </sebm-google-map-info-window>
         </sebm-google-map-marker>
       </sebm-google-map>
     </div>
-  </div>
 </div>

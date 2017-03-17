@@ -61,7 +61,7 @@ export class SearchComponent {
     }
 
     private onProductSelect(selected) {
-      // this.valueCtrl.reset();
+      this.valueCtrl.reset();
       this.router.navigate(['/details/', this.products[selected]['link']]);
     }
 }

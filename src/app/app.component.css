@@ -15,3 +15,8 @@ slide img {
 .no-paddings, custom-header {
     padding: 0!important;
 }
+
+/* Body style */
+body {
+    background: rgb(245,245,245);
+}

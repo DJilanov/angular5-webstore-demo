@@ -1,7 +1,19 @@
 .sebm-google-map-container {
-  height: 300px;
+  height: 500px;
+}
+
+.info-window-container img {
+  height: 30px;
+}
+
+.company {
+  text-align: center;
 }
 
 .red {
     color: red;
+}
+
+.yellow {
+  color: yellow;
 }

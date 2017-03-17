@@ -13,3 +13,7 @@
 .fill-remaining-space {
   flex: 1 1 auto;
 }
+
+[role=img] {
+  cursor: pointer
+}
