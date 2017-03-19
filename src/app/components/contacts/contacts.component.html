@@ -1,26 +1,23 @@
 <div class="contacts no-paddings">
-  <div class="phone-section col-xs-12 col-md-6">
-    <div>
-      <h2>{{dictionary.getTexts('contactPhoneTitle')}}</h2>
-      <h4>{{dictionary.getTexts('contactPhone')}}</h4>
-    </div>
+  <div class="form-section col-xs-12">
     <div class="alert alert-success" *ngIf="messageSuccess">
       <strong>{{dictionary.getTexts('contactMessageSuccess')}}</strong> {{dictionary.getTexts('contactMessageRecieved')}}
     </div>
     <div class="alert alert-danger" *ngIf="messageFail">
       <strong>{{dictionary.getTexts('contactMessageFail')}}</strong> {{dictionary.getTexts('contactMessageNotRecieved')}} {{dictionary.getTexts('contactPhone')}}
     </div>
-    <custom-form [formOptions]="contactFormModel" [formSubmit]="onContactFormSubmit"></custom-form>
+    <contact-form></contact-form>
   </div>
-  <div class="map-container col-xs-12 col-md-6">
-    <div class="address-section">
-      <h2>{{dictionary.getTexts('contactOurAddress')}}</h2>
-      <h4>{{dictionary.getTexts('contactOurAddress')}}: {{dictionary.getTexts('contactCoordinateAdress')}}</h4>
-      <h4 class="red">{{dictionary.getTexts('contactRules')}}</h4>
-      <h4>{{dictionary.getTexts('contactMarker')}}</h4>
+  <div class="phone-section col-xs-12 center">
+    <div>
+      <h2>{{dictionary.getTexts('contactPhoneTitle')}}</h2>
+      <h4>{{dictionary.getTexts('contactPhone')}}</h4>
     </div>
   </div>
-  <div class="col-xs-12 map-section no-paddings">
+  <div class="col-xs-12 map-section no-paddings center">
+      <h2>{{dictionary.getTexts('contactOurAddress')}}</h2>
+      <h4>{{dictionary.getTexts('contactCoordinateAdress')}}</h4>
+      <h4 class="red">{{dictionary.getTexts('contactRules')}}</h4>
       <sebm-google-map 
         [zoom]="mapCoordinates.zoom"
         [latitude]="mapCoordinates.lat" 
@@ -37,7 +34,7 @@
               </div>
               <div class="col-xs-10 company">
                 <div>{{dictionary.getTexts('headerCompany')}}</div>
-                <div> рейтинг 5 звезди <span>(193)</span></div>
+                <div> рейтинг 4.7 звезди <span>(193)</span></div>
               </div>
             </div>
           </sebm-google-map-info-window>

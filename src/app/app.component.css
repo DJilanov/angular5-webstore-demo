@@ -16,6 +16,10 @@ slide img {
     padding: 0!important;
 }
 
+.center {
+    text-align: center;
+}
+
 /* Body style */
 body {
     background: rgb(245,245,245);

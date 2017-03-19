@@ -24,7 +24,7 @@ import { CarouselComponent } from './components/carousel/carousel.component';
 import { ImageZoomDirective } from './directives/image_zoom/image_zoom.directive';
 
 // Basic Components
-import { FormComponent } from './basic_components/form/form.component';
+import { ContactFormComponent } from './basic_components/contact-form/contact-form.component';
 import { PriceComponent } from './basic_components/price/price.component';
 import { ImageComponent } from './basic_components/image/image.component';
 import { RatingComponent } from './basic_components/rating/rating.component';
@@ -86,7 +86,7 @@ import { ErrorHandlerService } from './services/error.handler.service';
         CarouselComponent,
         // standard components
         AppComponent,
-        FormComponent,
+        ContactFormComponent,
         ImageComponent,
         PriceComponent,
         RatingComponent,
