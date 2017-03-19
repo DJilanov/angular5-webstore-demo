@@ -1,0 +1,78 @@
+<div class="form-section container center">
+  <h2>{{this.dictionary.getTexts('contactFormTitle')}}</h2>
+  <form  #feedback="ngForm" (ngSubmit)="formSubmit(ngForm)" [formGroup]="ngForm">
+    <div class="form-group">
+        <div class="col-xs-12 col-md-6">
+            <md-input-container class="col-xs-12">
+                <input 
+                  mdInput 
+                  [formControl]="ngForm.controls['name']"
+                  required="required" 
+                  type="text"
+                  class="form-control" 
+                  name="name" 
+                  id="name" 
+                  placeholder="{{this.dictionary.getTexts('contactFormYourNameEnter')}}">
+            </md-input-container>
+            <md-input-container class="col-xs-12">
+                <input 
+                  mdInput 
+                  [formControl]="ngForm.controls['email']"
+                  required="required" 
+                  type="email"
+                  class="form-control" 
+                  name="email" 
+                  id="email" 
+                  placeholder="{{this.dictionary.getTexts('contactFormYourEmailEnter')}}">
+            </md-input-container>
+            <md-input-container class="col-xs-12">
+                <input 
+                  mdInput 
+                  [formControl]="ngForm.controls['phone']"
+                  required="required" 
+                  type="phone"
+                  class="form-control" 
+                  name="phone" 
+                  id="phone" 
+                  placeholder="{{this.dictionary.getTexts('contactFormYourPhoneNumberEnter')}}">
+            </md-input-container>
+        </div>
+        <div class="col-xs-12 col-md-6">
+            <md-input-container class="col-xs-12">
+                <textarea 
+                    mdInput
+                    [formControl]="ngForm.controls['message']" 
+                    required="required" 
+                    class="form-control" 
+                    name="message"
+                    id="message" 
+                    rows="3" 
+                    placeholder="{{this.dictionary.getTexts('contactFormYourMessageEnter')}}">
+                </textarea>
+            </md-input-container>
+        </div>
+    </div>
+    <div class="alert alert-danger" *ngIf="wrongCaptcha">
+      <strong>{{dictionary.getTexts('contactCaptchaTitle')}}</strong>
+      <br/ 
+      <span>{{dictionary.getTexts('contactCaptcha')}}</span>
+    </div>
+    <div class="form-group">
+     <div class="col-xs-12 col-md-8 recaptcha">
+      <recaptcha
+          name="captcha"
+          required
+          (resolved)="resolvedCaptcha($event)"
+          siteKey="6Lf10xETAAAAAFoODW33iIglPTpRXndsVkUmUOQh"
+        ></recaptcha>
+     </div>
+     <div class="col-xs-12 col-md-4 no-padding">
+        <button 
+          [disabled]="!ngForm.valid"
+          class="btn btn-default">
+          {{this.dictionary.getTexts('contactFormSend')}}
+        </button>
+     </div>
+    </div>
+  </form>
+</div>
