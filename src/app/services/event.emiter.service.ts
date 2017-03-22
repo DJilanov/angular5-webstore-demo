@@ -10,14 +10,18 @@ import { Config } from '../config';
 export class EventEmiterService {
 
     public loggedIn: EventEmitter<any>;
+    public formSubmit: EventEmitter<any>;
     public dataFetched: EventEmitter<any>;
+    public formComplete: EventEmitter<any>;
     public changedProduct: EventEmitter<any>;
     public showProductModal: EventEmitter<any>;
     public hideProductModal: EventEmitter<any>;
 
     constructor() {
         this.loggedIn = new EventEmitter();
+        this.formSubmit = new EventEmitter();
         this.dataFetched = new EventEmitter();
+        this.formComplete = new EventEmitter();
         this.changedProduct = new EventEmitter();
         this.showProductModal = new EventEmitter();
         this.hideProductModal = new EventEmitter();
@@ -31,17 +35,17 @@ export class EventEmiterService {
         this.changedProduct.emit(product);
     }
 
-    // admin
-
-    public emitLoggedIn(loginData) {
-        this.loggedIn.emit(loginData);
+    public emitFormSubmit(formData, type) {
+        this.formSubmit.emit({
+            type: type,
+            formData: formData
+        });
     }
 
-    public emitShowProductModal(product) {
-        this.showProductModal.emit(product);
-    }
-
-    public emitHideProductModal(empty) {
-        this.hideProductModal.emit(empty);
+    public emitFormComplete(response, success) {
+        this.formComplete.emit({
+            success: success,
+            response: response
+        });
     }
 }

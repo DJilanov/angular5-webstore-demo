@@ -17,20 +17,25 @@ onclick
 custom transition ( by class )
 ImageObjects
 Object interface = {title, url}
+max-height
+
+*/
+
+/*
+
+1. Нареждаме всички картинки като елементи в 1 див
+2. Подреждат се 1 до друга като безкрайна дължина
+3. Със джаваскрипт ако се налага се прави тяхния размер да заема холдъра им
+4. Прави се при цъкването прехвърлянето на следващата ( нямаме нужда от автоматизация все още)
+5. Правим точките като главен елемент в дива чрез които се управлява и са точния брой на елементите в карусела
+6. Прави се автоматизацията
+7. Прави се красива анимация която да управлява карусела
 
 */
 export class CarouselComponent {
 
     @Input()
-    slides: Array<Object> = [
-        { "title": "We are covered", "url": "https://raw.githubusercontent.com/christiannwamba/angular2-carousel-component/master/images/covered.jpg" },
-        { "title": "Generation Gap", "url": "https://raw.githubusercontent.com/christiannwamba/angular2-carousel-component/master/images/generation.jpg" },
-        { "title": "Potter Me", "url": "https://raw.githubusercontent.com/christiannwamba/angular2-carousel-component/master/images/potter.jpg" },
-        { "title": "Pre-School Kids", "url": "https://raw.githubusercontent.com/christiannwamba/angular2-carousel-component/master/images/preschool.jpg" },
-        { "title": "Young Peter Cech", "url": "https://raw.githubusercontent.com/christiannwamba/angular2-carousel-component/master/images/soccer.jpg" }	
-    ];
-
-    private cartProducts: Array<Object> = [];
+    slides: Array<Object>;
 
     constructor(
         private router: Router

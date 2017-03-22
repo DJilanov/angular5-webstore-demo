@@ -1,3 +1,7 @@
+.phone-section, .map-section {
+  padding-left: 100px;
+}
+
 .sebm-google-map-container {
   height: 500px;
 }
@@ -16,4 +20,24 @@
 
 .yellow {
   color: yellow;
+}
+
+h2 {
+  text-align: left;
+}
+
+.phone-section img {
+  max-width: 50px;
+}
+
+.phone-section bold {
+  font-weight: 900;
+}
+
+.phone-section .contact {
+  margin-top: 14px;
+}
+
+.phone-section .contact.duo {
+  margin-top: 8px;
 }
