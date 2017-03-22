@@ -1,5 +1,6 @@
-<div class="form-section container center">
-  <h2>{{this.dictionary.getTexts('contactFormTitle')}}</h2>
+<div class="form-section container">
+  <h2 *ngIf="type == 'contact'">{{this.dictionary.getTexts('contactFormTitle')}}</h2>
+  <h2 *ngIf="type == 'cart'">{{this.dictionary.getTexts('contactOrderTitle')}}</h2>
   <form  #feedback="ngForm" (ngSubmit)="formSubmit(ngForm)" [formGroup]="ngForm">
     <div class="form-group">
         <div class="col-xs-12 col-md-6">
@@ -41,6 +42,7 @@
             <md-input-container class="col-xs-12">
                 <textarea 
                     mdInput
+                    *ngIf="type == 'contact'"
                     [formControl]="ngForm.controls['message']" 
                     required="required" 
                     class="form-control" 
@@ -48,6 +50,17 @@
                     id="message" 
                     rows="3" 
                     placeholder="{{this.dictionary.getTexts('contactFormYourMessageEnter')}}">
+                </textarea>
+                <textarea 
+                    mdInput
+                    *ngIf="type == 'cart'"
+                    [formControl]="ngForm.controls['message']" 
+                    required="required" 
+                    class="form-control" 
+                    name="message"
+                    id="message" 
+                    rows="3" 
+                    placeholder="{{this.dictionary.getTexts('contactFormYourMoreInfo')}}">
                 </textarea>
             </md-input-container>
         </div>

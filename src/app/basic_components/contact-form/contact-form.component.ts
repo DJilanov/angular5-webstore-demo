@@ -4,6 +4,7 @@ import { RecaptchaLoaderService } from 'ng2-recaptcha';
 import { FetcherService } from '../../services/fetcher.service';
 import { Dictionary } from '../../dictionary/dictionary.service';
 import { ErrorHandlerService } from '../../services/error.handler.service';
+import { EventEmiterService } from '../../services/event.emiter.service';
 
 // import { DateComponent } from '../date/date.component';
 
@@ -14,6 +15,9 @@ import { ErrorHandlerService } from '../../services/error.handler.service';
 })
 
 export class ContactFormComponent implements OnInit {
+
+    @Input()
+    type: String;
 
     private ngForm: FormGroup;
 
@@ -50,9 +54,12 @@ export class ContactFormComponent implements OnInit {
     
     constructor(
         private fetcherService: FetcherService,
+        private eventEmiterService: EventEmiterService,
         private errorHandlerService: ErrorHandlerService,
         private dictionary: Dictionary
-    ) {}
+    ) {
+        this.eventEmiterService.formComplete.subscribe(response => this.onFormComplete(response));
+    }
 
     ngOnInit() {
         let formGroupObject;
@@ -74,14 +81,22 @@ export class ContactFormComponent implements OnInit {
         }
     }
 
-    private onMessageSend(response, formData) {
+    private onMessageSend(response) {
         this.messageSuccess = true;
-        formData.reset();
+        this.ngForm.reset();
     }
 
     private onMessageFail(err) {
         this.messageFail = true;
         this.errorHandlerService.handleError(err)
+    }
+
+    private onFormComplete(response) {
+        if(response.success) {
+            this.onMessageSend(response.response);
+        } else {
+            this.onMessageFail(response.response);
+        }
     }
 
     private formSubmit(formData) {
@@ -91,10 +106,6 @@ export class ContactFormComponent implements OnInit {
             return;
         }
         event.preventDefault();
-        // we send the request
-        this.fetcherService.sendMessage(formData.value).subscribe(
-            response => this.onMessageSend(response, formData),
-            err => this.onMessageFail(err)
-        );
+        this.eventEmiterService.emitFormSubmit(formData.value, this.type);
     }
 }
