@@ -37,11 +37,44 @@ export class CarouselComponent {
     @Input()
     slides: Array<Object>;
 
+    @Input()
+    height: string = '300px';
+    
+    private width: string = window.innerWidth + 'px';
+
+    private selectedSlide: number = 0;
+
+    private carouselWholeWidth: number = window.innerWidth;
+
     constructor(
         private router: Router
-    ) {}
+    ) {
+        this.calculateWidth();
+    }
     
-    private openLink(slide) {
-        this.router.navigate(['/details/' + slide.link]);
+    private openLink(product) {
+        this.router.navigate(['/details/' + product.link]);
+    }
+
+    private selectSlide(index) {
+
+    }
+
+    private moveToSlide() {
+
+    }
+
+    private next() {
+        this.selectedSlide++;
+        this.moveToSlide();
+    }
+
+    private previous() {
+        this.selectedSlide--;
+        this.moveToSlide();
+    }
+
+    private calculateWidth() {
+        this.carouselWholeWidth = parseInt(this.width) * this.slides.length;
     }
 }

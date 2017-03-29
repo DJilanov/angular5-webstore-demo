@@ -1,57 +1,60 @@
-.carousel{
-    overflow:hidden;
-    width:100%;
-    max-height: 300px;
+.carousel {
+  height: 100%;
+  overflow: hidden;
+  position: relative; 
 }
-.slides{
-    list-style:none;
-    position:relative;
-    white-space: nowrap;
-    width: 5000%;
-    overflow-x: auto;
-    -moz-animation:carousel 30s infinite;
-    -webkit-animation:carousel 30s infinite;
-    animation:carousel 30s infinite;
+.carousel .radio-buttons-container {
+    text-align: center;
 }
-.slides > li{
-    position:relative;
-    float:left;
+.carousel .slides-container {
+    height: 100%;
+    position: relative; 
+    transition: margin 0.5s ease-in-out
 }
-.carousel img{
-    height: 300px;
-    display:block;
-    max-width:100%;
+.carousel .slides-container .slide {
+    display: inline-block
 }
-.carousel h2{
-    margin-bottom: 0;
-    font-size:1em;
-    padding:1.5em 0.5em 1.5em 0.5em;
-    position:absolute;
-    right:0px;
-    bottom:0px;
-    left:0px;
-    text-align:center;
-    color:#fff;
-    background-color:rgba(0,0,0,0.75);
-    text-transform: uppercase;
+.carousel .slides-container .slide div {
+    text-align: center;
 }
-
-@keyframes carousel{
-    0%    { left:-5%; }
-    11%   { left:-5%; }
-    12.5% { left:-105%; }
-    23.5% { left:-105%; }
-    25%   { left:-205%; }
-    36%   { left:-205%; }
-    37.5% { left:-305%; }
-    48.5% { left:-305%; }
-    50%   { left:-405%; }
-    61%   { left:-405%; }
-    62.5% { left:-305%; }
-    73.5% { left:-305%; }
-    75%   { left:-205%; }
-    86%   { left:-205%; }
-    87.5% { left:-105%; }
-    98.5% { left:-105%; }
-    100%  { left:-5%; }
+.carousel .slides-container .slide img:first-child {
+    max-width: 100%;
+    max-height: 100%; 
+}
+.carousel .left-arrow-button,
+.carousel .right-arrow-button {
+    position: absolute;
+    margin: auto !important;
+    top: 0;
+    bottom: 0; 
+}
+.carousel .right-arrow-button {
+    right: 0;
+}
+.carousel .md-icon-button {
+    width: 48px;
+    height: 48px;
+    margin: 0;
+    padding: 0; 
+}
+.carousel .md-icon-button md-icon {
+    color: #ffffff;
+    width: 48px;
+    height: 48px;
+    font-size: 48px;
+    cursor: pointer;
+    outline: none !important; 
+}
+.carousel .radio-buttons-container {
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 20px;
+    width: 100%; 
+}
+.carousel .radio-buttons-container md-radio-button {
+    margin-right: 5px;
+    outline: none; 
+}
+.carousel .radio-buttons-container md-radio-button .md-off {
+    border-color: #ffffff; 
 }

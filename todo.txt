@@ -38,3 +38,6 @@ Implement flex for the mobile version ( currently no support )
 Problems with rating on product component
 Removed bootstrap. Needs to find a way to use only material ( its bad idea to hold so much code for 2 different things )
 Make custom theme that looks and feels good
+
+8. NPM modules
+Generate carousel and image zoom directives as npm modules
