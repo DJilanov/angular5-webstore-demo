@@ -1,10 +1,35 @@
 <div class="carousel">
-    <ul class="slides" *ngIf="slides">
-        <template ngFor #image [ngForOf]="slides" let-index="index">
-            <li>
-                <h2>{{slides[index].title['bg']}}</h2>
-                <img src="{{'/img/small/' + slides[index].main_image || blankImage}}" alt="">
-            </li>
-        </template>
-    </ul>
+    <!--Integrate the style="width: 4120px; transition: margin 0.5s ease-in-out; margin-left: -412px;" -->
+    <div 
+        *ngIf="slides" 
+        [style.width]="carouselWholeWidth + 'px'"
+        class="slides-container layout-row" 
+        layout="row">
+        <!--Integrate the style="width: 412px; height: 258px;" -->
+        <div 
+            *ngFor="let slide of slides; let i = index;" 
+            [style.height]="height"
+            [style.width]="width"
+            class="slide">
+            <div (click)="openLink(slides[i])" >
+                <h2>{{slides[i].title['bg']}}</h2>
+                <img src="{{'/img/small/' + slides[i].main_image || blankImage}}" alt="">
+            </div>
+        </div>
+    </div>
+    <button class="md-icon-button left-arrow-button md-button md-ink-ripple" type="button" aria-label="chevron_left">
+        <md-icon ng-click="next()" class="material-icons" role="button" tabindex="0">chevron_left</md-icon>
+    </button>
+    <button class="md-icon-button right-arrow-button md-button md-ink-ripple" type="button" aria-label="chevron_right">
+        <md-icon ng-click="previous()" class="material-icons" role="button" tabindex="0">chevron_right</md-icon>
+    </button>
+    <md-radio-group 
+        [(ngModel)]="selectedSlide"
+        (change)="selectSlide()" 
+        name="radio_options" 
+        class="radio-buttons-container">
+        <md-radio-button *ngFor="let radioItem of slides;let i = index" name="radio_options" [value]="i">
+
+        </md-radio-button>
+    </md-radio-group>
 </div>
