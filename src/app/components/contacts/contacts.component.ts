@@ -17,6 +17,7 @@ import { Config } from '../../config';
 export class ContactsComponent {
 
     private mapCoordinates = Config.mapCoordinates;
+    private starsCount: number = 4.6;
 
     constructor(
         private dictionary: Dictionary,

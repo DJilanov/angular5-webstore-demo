@@ -8,10 +8,11 @@
 
 .info-window-container img {
   height: 30px;
+  margin-left: -20px;
 }
 
 .company {
-  text-align: center;
+  text-align: left;
 }
 
 .red {
@@ -40,4 +41,8 @@ h2 {
 
 .phone-section .contact.duo {
   margin-top: 8px;
+}
+
+.rating {
+  color: rgb(242, 118, 28)
 }

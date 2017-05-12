@@ -23,8 +23,14 @@
   </button>
 </md-toolbar>
 <!-- just small -->
-<md-toolbar *ngIf="categories.length > 0"  color="primary" class="hidden-lg">
-  <button md-icon-button [mdMenuTriggerFor]="menu">
+<md-toolbar *ngIf="categories.length > 0"  color="primary" class="hidden-lg hidden-xs">
+  <a [routerLink]="['/']" class="logo pull-left">
+    <img 
+      src="./src/img/navigation-logo.png"
+      alt="logo"/>
+  </a>
+  <button class="categories-button" md-icon-button [mdMenuTriggerFor]="menu">
+    {{dictionary.getTexts('headerCategories') | uppercase}}
     <md-icon>more_vert</md-icon>
   </button>
   <md-menu #menu="mdMenu">
@@ -33,29 +39,28 @@
         {{categories[index].title[dictionary.language]}}
       </button>
     </template>
-    <button md-menu-item [routerLink]="['contacts']">
-      {{dictionary.getTexts('headerContact')}}
-    </button>
-    <button md-menu-item (click)="changeLanguage()">
-    <image 
-        [src]="'./src/img/' + dictionary.nextLanguage() + '.png'"
-        [alt]="dictionary.language"></image>
-    </button>
-    <span class="fill-remaining-space"></span>
-    <button md-menu-item [routerLink]="['cart']">
-      <md-icon>add_shopping_cart</md-icon>
-    </button>
-    <search></search>
-    <button md-icon-button (click)="changeLanguage()">
-      <image 
-        [src]="'./src/img/' + dictionary.nextLanguage() + '.png'"
-        [alt]="dictionary.language"></image>
-    </button>
   </md-menu>
+  <span class="fill-remaining-space"></span>
+  <button md-button [routerLink]="['contacts']">
+    {{dictionary.getTexts('headerContact')}}
+  </button>
+  <md-icon [routerLink]="['cart']">add_shopping_cart</md-icon>
+  <search></search>
+  <button md-icon-button (click)="changeLanguage()">
+    <image 
+      [src]="'./src/img/' + dictionary.nextLanguage() + '.png'"
+      [alt]="dictionary.language"></image>
+  </button>
 </md-toolbar>
-<!-- suepr small -->
-<md-toolbar *ngIf="categories.length > 0"  color="primary" class="hidden-lg">
-  <button md-icon-button [mdMenuTriggerFor]="menu">
+<!-- just tiny -->
+<md-toolbar *ngIf="categories.length > 0"  color="primary" class="hidden-lg hidden-md hidden-sm">
+  <a [routerLink]="['/']" class="logo pull-left">
+    <img 
+      src="./src/img/navigation-logo.png"
+      alt="logo"/>
+  </a>
+  <button class="categories-button" md-icon-button [mdMenuTriggerFor]="menu">
+    {{dictionary.getTexts('headerCategories') | uppercase}}
     <md-icon>more_vert</md-icon>
   </button>
   <md-menu #menu="mdMenu">
@@ -67,14 +72,13 @@
     <button md-menu-item [routerLink]="['contacts']">
       {{dictionary.getTexts('headerContact')}}
     </button>
-     <button md-menu-item [routerLink]="['cart']">
-      <md-icon>add_shopping_cart</md-icon>
-      <span>{{dictionary.getTexts('cart')}}</span>
-    </button>
-    <button md-menu-item (click)="changeLanguage()">
-    <image 
-        [src]="'./src/img/' + dictionary.nextLanguage() + '.png'"
-        [alt]="dictionary.language"></image>
-    </button>
   </md-menu>
+  <span class="fill-remaining-space"></span>
+  <md-icon [routerLink]="['cart']">add_shopping_cart</md-icon>
+  <search></search>
+  <button md-icon-button (click)="changeLanguage()">
+    <image 
+      [src]="'./src/img/' + dictionary.nextLanguage() + '.png'"
+      [alt]="dictionary.language"></image>
+  </button>
 </md-toolbar>

@@ -5,6 +5,7 @@ import { MaterialModule } from '@angular/material';
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { HttpModule } from '@angular/http';
 import { MetaModule } from 'ng2-meta';
+import { RatingModule } from "ngx-rating";
 import { Ng2Webstorage } from 'ng2-webstorage';
 import { AgmCoreModule } from 'angular2-google-maps/core';
 import { BrowserModule }  from '@angular/platform-browser';
@@ -27,7 +28,6 @@ import { ImageZoomDirective } from './directives/image_zoom/image_zoom.directive
 import { ContactFormComponent } from './basic_components/contact-form/contact-form.component';
 import { PriceComponent } from './basic_components/price/price.component';
 import { ImageComponent } from './basic_components/image/image.component';
-import { RatingComponent } from './basic_components/rating/rating.component';
 import { ButtonComponent } from './basic_components/button/button.component';
 import { HeaderComponent } from './basic_components/header/header.component';
 import { ProductComponent } from './basic_components/product/product.component';
@@ -68,6 +68,7 @@ import { ErrorHandlerService } from './services/error.handler.service';
         routing,
         HttpModule,
         FormsModule,
+        RatingModule,
         BrowserModule,
         Ng2Webstorage,
         MaterialModule,
@@ -89,7 +90,6 @@ import { ErrorHandlerService } from './services/error.handler.service';
         ContactFormComponent,
         ImageComponent,
         PriceComponent,
-        RatingComponent,
         ButtonComponent,
         HeaderComponent,
         ProductComponent,

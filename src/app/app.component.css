@@ -24,3 +24,11 @@ slide img {
 body {
     background: rgb(245,245,245);
 }
+
+/* Rating style */
+.star-icon:before {
+    color: rgb(242, 118, 28)!important;
+}
+.star-icon {
+    font-size: 12px!important;
+}
