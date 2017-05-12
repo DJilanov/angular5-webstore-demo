@@ -84,7 +84,6 @@ import { ErrorHandlerService } from './services/error.handler.service';
     declarations: [ 
         // directives
         ImageZoomDirective,
-        CarouselComponent,
         // standard components
         AppComponent,
         ContactFormComponent,

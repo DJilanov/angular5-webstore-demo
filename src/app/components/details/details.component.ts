@@ -24,6 +24,9 @@ export class DetailsComponent implements OnInit {
 
     private productOldPrice: Object;
 
+    private starsCount: number = Math.random() * (5 - 3.8) + 3.8;
+    private voters: number = Math.floor(Math.random() * (50 - 10) + 10);
+
     constructor(
         private router: Router,
         private dictionary: Dictionary,

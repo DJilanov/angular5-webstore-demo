@@ -48,8 +48,12 @@ export class CarouselComponent {
 
     constructor(
         private router: Router
-    ) {
-        this.calculateWidth();
+    ) {}
+
+    ngOnChanges(changes: any) {
+        if(changes.slides !== undefined) {
+            this.calculateWidth();
+        }
     }
     
     private openLink(product) {
