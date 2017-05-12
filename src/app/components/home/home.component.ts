@@ -13,7 +13,7 @@ import { EventEmiterService } from '../../services/event.emiter.service';
 export class HomeComponent {
     // options of the inner carousel
     // todo: Fill it with the real images and items
-    public slides: Array<Object>;
+    public slides: Array<Object> = [];
 
     private products =  Array<Object>();
 

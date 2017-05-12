@@ -82,7 +82,15 @@
             </div>
             <div class="col-xs-10 company">
               <div>{{dictionary.getTexts('headerCompany')}}</div>
-              <div> рейтинг 4.7 звезди <span>(193)</span></div>
+              <div>
+                <span class="rating"> 
+                  <span>{{starsCount}} </span>
+                  <rating [(ngModel)]="starsCount"
+                    [readonly]="true"> 
+                  </rating>
+                  <span>(493)</span>
+                </span>
+              </div>
             </div>
           </div>
         </sebm-google-map-info-window>

@@ -17,3 +17,7 @@
 [role=img] {
   cursor: pointer
 }
+
+.categories-button {
+  width: 200px;
+}

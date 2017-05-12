@@ -20,6 +20,7 @@ export class BulgarianDictionary {
         "headerSearch": "Търси",
         "headerSearchFor": "Потърси...",
         "headerYourProfile": "Профилът ви",
+        "headerCategories": "Видове продукти",
 
         "cartHeader": "Вашата количка с поръчки:",
         "storedAmount": "Остават още само",
@@ -49,6 +50,7 @@ export class BulgarianDictionary {
         "contactFormYourPhoneNumber": "Вашия телефонен номер",
         "contactFormYourPhoneNumberEnter": "Въведете вашия телефонен номер",
         "contactFormYourMoreInfo": "Забележки и допълнителна информация",
+        "contactRating": "рейтинг",
         // Implement it when you have time
         "contactFormYourMoreInfoEmpty": "Допълнителна информация за търсения от вас продукт",
 
