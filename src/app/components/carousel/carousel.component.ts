@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ViewChild} from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,28 +8,35 @@ import { Router } from '@angular/router';
 })
 /*
 
-options:
-Interval
-Pause on hover
-Bottom dots
-Arrows
-onclick
-custom transition ( by class )
-ImageObjects
-Object interface = {title, url}
-max-height
+# Needed Properties:
+ * slides: null(default) | Array[{title: title, image: image}]
 
-*/
-
-/*
-
-1. Нареждаме всички картинки като елементи в 1 див
-2. Подреждат се 1 до друга като безкрайна дължина
-3. Със джаваскрипт ако се налага се прави тяхния размер да заема холдъра им
-4. Прави се при цъкването прехвърлянето на следващата ( нямаме нужда от автоматизация все още)
-5. Правим точките като главен елемент в дива чрез които се управлява и са точния брой на елементите в карусела
-6. Прави се автоматизацията
-7. Прави се красива анимация която да управлява карусела
+ # OptionalProperties:
+ 
+* interval: null(default) | Number
+>set auto play interval time
+* pauseOnHover: false(default) | true
+>should it stop moving on hover
+* dots: true(default) | false
+>should it show controlling dots
+* arrows: true(default) | false
+>should it show arrows
+* onClick: null(default) | func(index)
+>should it has on click on slides
+* transition: null(default) | string
+>the transition that is used on slide change
+* imageStructure: Array[{title: title, image: image}](default) | Array[{slideTitle: title, imageUrl: url }]
+>the structure of the slide object
+* height: 300px(default) | String
+>the height of the carousel
+* background: white(default) | String
+>background color of the carousel
+* htmlTitle: false(default) | true
+>used to enable the html based title: "<h1>Hey there</h1><div>what's up?</div>"
+* titlePosition: 'top'(default) | 'bottom'
+>used to set the position of the header text
+* dotsPosition: 'bottom'(default) | 'top'
+>used to set the position of the controlling dots
 
 */
 export class CarouselComponent {
@@ -39,6 +46,11 @@ export class CarouselComponent {
 
     @Input()
     height: string = '300px';
+
+    @Input()
+    background: string = 'white';
+
+    @ViewChild('carousel') carousel;
     
     private width: string = window.innerWidth + 'px';
 
@@ -61,20 +73,27 @@ export class CarouselComponent {
     }
 
     private selectSlide(index) {
-
+        this.selectedSlide = index;
+        this.moveToSlide();
     }
 
     private moveToSlide() {
-
+        this.carousel.nativeElement.style.marginLeft = '-' + (this.selectedSlide * window.innerWidth )+ 'px';
     }
 
     private next() {
         this.selectedSlide++;
+        if(this.selectedSlide >= this.slides.length) {
+            this.selectedSlide = 0;
+        }
         this.moveToSlide();
     }
 
     private previous() {
         this.selectedSlide--;
+        if(this.selectedSlide < 0) {
+            this.selectedSlide = this.slides.length - 1;
+        }
         this.moveToSlide();
     }
 
