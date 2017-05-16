@@ -37,6 +37,6 @@
 		*ngIf="!cartProducts || cartProducts.length == 0">
 		{{dictionary.getTexts('emptyCart')}}
 	</h4>
-	<custom-form [formOptions]="contactFormModel" [formSubmit]="onOrderFormSubmit"></custom-form>
+	<contact-form type="cart"></contact-form>
 </div>
 	

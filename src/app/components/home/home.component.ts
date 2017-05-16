@@ -13,15 +13,7 @@ import { EventEmiterService } from '../../services/event.emiter.service';
 export class HomeComponent {
     // options of the inner carousel
     // todo: Fill it with the real images and items
-    public carouselOptions:Object = {
-      myInterval: 1000,
-      noWrapSlides: false,
-      slides: [{
-        // static base image untill we fetch ( must be one of our website images)
-        main_image: `//placekitten.com/1/1`,
-        text: `test1`
-      }]
-    };
+    public slides: Array<Object> = [];
 
     private products =  Array<Object>();
 
@@ -73,7 +65,7 @@ export class HomeComponent {
           })
         )
       }
-      this.carouselOptions['slides'] = tmpArray;
+      this.slides = tmpArray;
     }
 
     private sortCategories(categories) {

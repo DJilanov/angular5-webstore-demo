@@ -1,11 +1,14 @@
 // Angular 2 Modules
+import 'hammerjs';
 import { NgModule } from '@angular/core';
+import { MaterialModule } from '@angular/material';
+import { FlexLayoutModule } from "@angular/flex-layout";
 import { HttpModule } from '@angular/http';
 import { MetaModule } from 'ng2-meta';
+import { RatingModule } from "ngx-rating";
 import { Ng2Webstorage } from 'ng2-webstorage';
 import { AgmCoreModule } from 'angular2-google-maps/core';
 import { BrowserModule }  from '@angular/platform-browser';
-import { Ng2BootstrapModule } from 'ng2-bootstrap/ng2-bootstrap';
 import { RecaptchaModule, RecaptchaLoaderService } from 'ng2-recaptcha';
 import { FormsModule, ReactiveFormsModule, Validators }   from '@angular/forms';
 
@@ -17,17 +20,17 @@ import { Dictionary } from './dictionary/dictionary.service';
 import { EnglishDictionary } from './dictionary/en.dictionary';
 import { BulgarianDictionary } from './dictionary/bg.dictionary';
 
-// Directives
-import { ImageZoomDirective } from './directives/image_zoom.directive';
+// Custom made goodies ( will be pushed to npm soon )
+import { CarouselComponent } from './components/carousel/carousel.component';
+import { ImageZoomDirective } from './directives/image_zoom/image_zoom.directive';
 
 // Basic Components
-import { FormComponent } from './basic_components/form/form.component';
+import { ContactFormComponent } from './basic_components/contact-form/contact-form.component';
 import { PriceComponent } from './basic_components/price/price.component';
 import { ImageComponent } from './basic_components/image/image.component';
 import { ButtonComponent } from './basic_components/button/button.component';
 import { HeaderComponent } from './basic_components/header/header.component';
 import { ProductComponent } from './basic_components/product/product.component';
-import { CarouselComponent } from './basic_components/carousel/carousel.component';
 import { NotificationComponent } from './basic_components/notification/notification.component';
 
 // Components
@@ -65,10 +68,12 @@ import { ErrorHandlerService } from './services/error.handler.service';
         routing,
         HttpModule,
         FormsModule,
+        RatingModule,
         BrowserModule,
         Ng2Webstorage,
+        MaterialModule,
+        FlexLayoutModule.forRoot(),
         RecaptchaModule,
-        Ng2BootstrapModule,
         ReactiveFormsModule,
         MetaModule.forRoot(),
         AgmCoreModule.forRoot({
@@ -81,7 +86,7 @@ import { ErrorHandlerService } from './services/error.handler.service';
         ImageZoomDirective,
         // standard components
         AppComponent,
-        FormComponent,
+        ContactFormComponent,
         ImageComponent,
         PriceComponent,
         ButtonComponent,

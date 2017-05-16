@@ -9,8 +9,14 @@
     <section class="center" itemprop="name">
       <h1>{{product.title[dictionary.language]}}</h1>
       <h4>{{dictionary.getTexts('detailsBy')}} {{product.make}}</h4>
-      <rating [(ngModel)]="product.rating" max="5" stateOn="glyphicon-star"
-            stateOff="glyphicon-star-empty"></rating>
+      <!-- Todo: set real stars from the back-end-->
+      <div class="stars rating">
+        <span>{{starsCount | number : '1.2-2'}}</span>
+        <rating [(ngModel)]="starsCount"
+          [readonly]="true"> 
+        </rating>
+        <span>({{voters}})</span>
+      </div>
     </section>
     <section class="center">
       <h5 >{{dictionary.getTexts('detailsStatus')}} 
@@ -50,5 +56,5 @@
       <p>{{ product.more_details[dictionary.language] }}</p>
     </section>
   </div>
-  <suggestion-list [product]="product"></suggestion-list>
+  <!--<suggestion-list [product]="product"></suggestion-list>-->
 </div>
