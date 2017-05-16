@@ -1,4 +1,4 @@
-import { Component, Input, Output, ViewChild, OnInit, EventEmitter } from '@angular/core';
+import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
 import { RecaptchaLoaderService } from 'ng2-recaptcha';
 import { FetcherService } from '../../services/fetcher.service';
