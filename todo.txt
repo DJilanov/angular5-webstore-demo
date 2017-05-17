@@ -34,10 +34,8 @@ Everyone can upload images to our server.. its not ok !!!
 When you add image to already created file the image is not uploaded
 
 7. Migration errors ( high priority )
-Implement flex for the mobile version ( currently no support )
-Problems with rating on product component
-Removed bootstrap. Needs to find a way to use only material ( its bad idea to hold so much code for 2 different things )
-Make custom theme that looks and feels good
+Problem with the search. It shows wrong file
+Carousel will break when you change orientation
 
 8. NPM modules
 Generate carousel and image zoom directives as npm modules
