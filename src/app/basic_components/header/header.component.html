@@ -59,8 +59,7 @@
       src="./src/img/navigation-logo.png"
       alt="logo"/>
   </a>
-  <button class="categories-button" md-icon-button [mdMenuTriggerFor]="menu">
-    {{dictionary.getTexts('headerCategories') | uppercase}}
+  <button md-icon-button [mdMenuTriggerFor]="menu">
     <md-icon>more_vert</md-icon>
   </button>
   <md-menu #menu="mdMenu">
