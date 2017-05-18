@@ -23,36 +23,38 @@
         <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
       </div>-->
     </div>
-    <h2 class="title" itemprop="name">
-      {{productObject.title[dictionary.language]}}
-    </h2>
-    <div itemprop="aggregateRating">
-      <!--<rating [(ngModel)]="productObject.rating" max="5" stateOn="glyphicon-star"
-          stateOff="glyphicon-star-empty"></rating>-->
-    </div>
-    <div class="params" *ngIf="productObject.params" itemprop="description">
-      <ul *ngFor="let params of productObject.params[dictionary.language]">
-        <li 
-          *ngIf="params && params.length > 0"
-          >{{params}}</li>
-      </ul>
-    </div>
-    <div class="description" itemprop="description">
-      {{productObject.description[dictionary.language]}}
-    </div>
-    <div class="button-container">
-      <div class="price" itemprop="offers" itemscope itemtype="http://schema.org/AggregateOffer">
-        <span>{{dictionary.getTexts('price')}}</span>
-        <span class="new-price" itemprop="lowPrice">{{productObject.new_price}}</span>
-        <span class="old-price" itemprop="highPrice">{{productObject.old_price}}</span>
-        <span class="currency" itemprop="priceCurrency" 
-          *ngIf="isNaN(productObject.new_price)"> {{dictionary.getTexts('currency')}}</span>
+    <div class="info-container">
+      <h2 class="title" itemprop="name">
+        {{productObject.title[dictionary.language]}}
+      </h2>
+      <div itemprop="aggregateRating">
+        <!--<rating [(ngModel)]="productObject.rating" max="5" stateOn="glyphicon-star"
+            stateOff="glyphicon-star-empty"></rating>-->
       </div>
-      <button
-        (click)="onAddToCart(productObject)"
-        class="btn btn-success">
-        {{dictionary.getTexts('addToCart')}}
-      </button>
+      <div class="params" *ngIf="productObject.params" itemprop="description">
+        <ul *ngFor="let params of productObject.params[dictionary.language]">
+          <li 
+            *ngIf="params && params.length > 0"
+            >{{params}}</li>
+        </ul>
+      </div>
+      <div class="description" itemprop="description">
+        {{productObject.description[dictionary.language]}}
+      </div>
+      <div class="button-container">
+        <div class="price" itemprop="offers" itemscope itemtype="http://schema.org/AggregateOffer">
+          <span>{{dictionary.getTexts('price')}}</span>
+          <span class="new-price" itemprop="lowPrice">{{productObject.new_price}}</span>
+          <span class="old-price" itemprop="highPrice">{{productObject.old_price}}</span>
+          <span class="currency" itemprop="priceCurrency" 
+            *ngIf="isNaN(productObject.new_price)"> {{dictionary.getTexts('currency')}}</span>
+        </div>
+        <button
+          (click)="onAddToCart(productObject)"
+          class="btn btn-success">
+          {{dictionary.getTexts('addToCart')}}
+        </button>
+      </div>
     </div>
   </div>
 </a>
