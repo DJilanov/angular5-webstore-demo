@@ -1,0 +1,4 @@
+Sitemap: http://jilanov.eu/sitemap.xml
+User-agent: *
+Allow: /
+Disallow: /admin/

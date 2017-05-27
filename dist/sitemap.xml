@@ -1,0 +1,687 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+    <url>
+        <loc>http://jilanov.com/</loc>
+        <image:image>
+            <image:loc>http://www.jilanov.com/src/img/navigation-logo.png</image:loc>
+            <image:caption>Webpage image</image:caption>
+        </image:image>
+  		<lastmod>2016-12-09T08:22:33+00:00</lastmod>
+        <changefreq>always</changefreq>
+        <priority>1.0</priority>
+    </url>
+    <url>
+        <loc>http://www.jilanov.com/products/diskove</loc>
+        <lastmod>2016-12-09T08:22:33+00:00</lastmod>
+        <changefreq>always</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>http://www.jilanov.com/products/videokarti</loc>
+        <lastmod>2016-12-09T08:22:33+00:00</lastmod>
+        <changefreq>always</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>http://www.jilanov.com/products/uslugi</loc>
+        <lastmod>2016-12-09T08:22:33+00:00</lastmod>
+        <changefreq>always</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>http://www.jilanov.com/products/videonabludenie</loc>
+        <lastmod>2016-12-09T08:22:33+00:00</lastmod>
+        <changefreq>always</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>http://www.jilanov.com/products/procesori</loc>
+        <lastmod>2016-12-09T08:22:33+00:00</lastmod>
+        <changefreq>always</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>http://www.jilanov.com/products/pameti</loc>
+        <lastmod>2016-12-09T08:22:33+00:00</lastmod>
+        <changefreq>always</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>http://www.jilanov.com/contacts</loc>
+        <lastmod>2016-12-09T08:22:33+00:00</lastmod>
+        <changefreq>always</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+   <loc>http://www.jilanov.com/details/ip_camera_4mp_aptina_ccd_2560X1440px</loc>
+   <image:image>
+      <image:loc>http://www.jilanov.com/img/maxresdefault.png</image:loc>
+      <image:caption>за външен монтаж Наблюдение на обекти до 100м.</image:caption>
+   </image:image>
+   <lastmod>2016-12-09T08:22:33+00:00</lastmod>
+   <changefreq>always</changefreq>
+</url>
+<url>
+   <loc>http://www.jilanov.com/details/disk_toshiba_1tb_sata3_32mb_cache_garanciq</loc>
+   <image:image>
+      <image:loc>http://www.jilanov.com/img/maxresdefault.png</image:loc>
+      <image:caption>3.5" 32MB cashe...</image:caption>
+   </image:image>
+   <lastmod>2016-12-09T08:22:33+00:00</lastmod>
+   <changefreq>always</changefreq>
+</url>
+<url>
+   <loc>http://www.jilanov.com/details/video_karta_nvidia_quadro_2000</loc>
+   <image:image>
+      <image:loc>http://www.jilanov.comhttps://www.royalcanin.com/~/media/Royal-Canin/Product-Categories/cat-adult-landing-hero.ashx</image:loc>
+      <image:caption>Видеокарта NVIDIA QUADRO 2000 1GB GDDR5</image:caption>
+   </image:image>
+   <lastmod>2016-12-09T08:22:33+00:00</lastmod>
+   <changefreq>always</changefreq>
+</url>
+<url>
+   <loc>http://www.jilanov.com/details/vunshen_disk_1tb_usb_3_garanciq</loc>
+   <image:image>
+      <image:loc>http://www.jilanov.com/img/photo.png</image:loc>
+      <image:caption>гаранция 24м.</image:caption>
+   </image:image>
+   <lastmod>2016-12-09T08:22:33+00:00</lastmod>
+   <changefreq>always</changefreq>
+</url>
+<url>
+   <loc>http://www.jilanov.com/details/distancionno_reshavane_na_komputaren_problem</loc>
+   <image:image>
+      <image:loc>http://www.jilanov.com/img/3bf7019.png</image:loc>
+      <image:caption>За отстраняване на вируси, реклами и спам.</image:caption>
+   </image:image>
+   <lastmod>2016-12-09T08:22:33+00:00</lastmod>
+   <changefreq>always</changefreq>
+</url>
+<url>
+   <loc>http://www.jilanov.com/details/pamet_ddr2_4gb_hynix_pc5300</loc>
+   <image:image>
+      <image:loc>http://www.jilanov.com</image:loc>
+      <image:caption>ПАМЕТ DDR2 FDIMM 2 GB PC2-5300F</image:caption>
+   </image:image>
+   <lastmod>2016-12-09T08:22:33+00:00</lastmod>
+   <changefreq>always</changefreq>
+</url>
+<url>
+   <loc>http://www.jilanov.com/details/intel_celeron_dual_core_1155</loc>
+   <image:image>
+      <image:loc>http://www.jilanov.com</image:loc>
+      <image:caption>Intel dual core celeron G1610 2.6 GHz</image:caption>
+   </image:image>
+   <lastmod>2016-12-09T08:22:33+00:00</lastmod>
+   <changefreq>always</changefreq>
+</url>
+<url>
+   <loc>http://www.jilanov.com/details/pamet_ddr3_4gb_1066_kingston</loc>
+   <image:image>
+      <image:loc>http://www.jilanov.com</image:loc>
+      <image:caption>ПАМЕТ DDR3 4GB 1066 MHz</image:caption>
+   </image:image>
+   <lastmod>2016-12-09T08:22:33+00:00</lastmod>
+   <changefreq>always</changefreq>
+</url>
+<url>
+   <loc>http://www.jilanov.com/details/disk_western_digital_160gb_pata_garanciq</loc>
+   <image:image>
+      <image:loc>http://www.jilanov.com</image:loc>
+      <image:caption>Харддиск 160 GB PATA</image:caption>
+   </image:image>
+   <lastmod>2016-12-09T08:22:33+00:00</lastmod>
+   <changefreq>always</changefreq>
+</url>
+<url>
+   <loc>http://www.jilanov.com/details/pamet_ddr2_2gb_800_kingston_samsung_pc6400</loc>
+   <image:image>
+      <image:loc>http://www.jilanov.com</image:loc>
+      <image:caption>Памет DDR2 2GB 800MHz</image:caption>
+   </image:image>
+   <lastmod>2016-12-09T08:22:33+00:00</lastmod>
+   <changefreq>always</changefreq>
+</url>
+<url>
+   <loc>http://www.jilanov.com/details/procesor_intel_i5_750_3.2ghz_4mb_soc_1156</loc>
+   <image:image>
+      <image:loc>http://www.jilanov.com</image:loc>
+      <image:caption>Процесор INTEL i5 750 3.2 GHz</image:caption>
+   </image:image>
+   <lastmod>2016-12-09T08:22:33+00:00</lastmod>
+   <changefreq>always</changefreq>
+</url>
+<url>
+   <loc>http://www.jilanov.com/details/procesor_intel_i3_2120_3.3ghz_3mb_soc_1155</loc>
+   <image:image>
+      <image:loc>http://www.jilanov.com</image:loc>
+      <image:caption>Kingston, Integral, DELL  PC3200</image:caption>
+   </image:image>
+   <lastmod>2016-12-09T08:22:33+00:00</lastmod>
+   <changefreq>always</changefreq>
+</url>
+<url>
+   <loc>http://www.jilanov.com/details/pamet_ddr400_1gb_patriot_pc3200</loc>
+   <image:image>
+      <image:loc>http://www.jilanov.com</image:loc>
+      <image:caption>Kingston, Integral, DELL  PC3200</image:caption>
+   </image:image>
+   <lastmod>2016-12-09T08:22:33+00:00</lastmod>
+   <changefreq>always</changefreq>
+</url>
+<url>
+   <loc>http://www.jilanov.com/details/p_camera_2mp_sony_ccd_1920X1080px</loc>
+   <image:image>
+      <image:loc>http://www.jilanov.com</image:loc>
+      <image:caption>IP камера 2 МР SONY  1920х1080 точки.</image:caption>
+   </image:image>
+   <lastmod>2016-12-09T08:22:33+00:00</lastmod>
+   <changefreq>always</changefreq>
+</url>
+<url>
+   <loc>http://www.jilanov.com/details/ip_camera_2mp_sony_ccd_poe_1920X1080px</loc>
+   <image:image>
+      <image:loc>http://www.jilanov.com</image:loc>
+      <image:caption>IP камера 2 МР SONY 1920х1080 точки. POE 48V</image:caption>
+   </image:image>
+   <lastmod>2016-12-09T08:22:33+00:00</lastmod>
+   <changefreq>always</changefreq>
+</url>
+<url>
+   <loc>http://www.jilanov.com/details/ip_camera_1mp_ccd_1080X720px</loc>
+   <image:image>
+      <image:loc>http://www.jilanov.com</image:loc>
+      <image:caption>IP куполна камера 1МР 1280х720 точки</image:caption>
+   </image:image>
+   <lastmod>2016-12-09T08:22:33+00:00</lastmod>
+   <changefreq>always</changefreq>
+</url>
+<url>
+   <loc>http://www.jilanov.com/details/NVR_24p_32p_2MP_1080p_960H</loc>
+   <image:image>
+      <image:loc>http://www.jilanov.com</image:loc>
+      <image:caption>Мрежови видео рекордер NVR за 24 IP 2MP камери</image:caption>
+   </image:image>
+   <lastmod>2016-12-09T08:22:33+00:00</lastmod>
+   <changefreq>always</changefreq>
+</url>
+<url>
+   <loc>http://www.jilanov.com/details/ip_camera_2mp_sony_ccd_1920X1080px</loc>
+   <image:image>
+      <image:loc>http://www.jilanov.com</image:loc>
+      <image:caption>IP камера 2MP SONY 1920x1080 точки</image:caption>
+   </image:image>
+   <lastmod>2016-12-09T08:22:33+00:00</lastmod>
+   <changefreq>always</changefreq>
+</url>
+<url>
+   <loc>http://www.jilanov.com/details/NVR_4p_8p_2MP</loc>
+   <image:image>
+      <image:loc>http://www.jilanov.com</image:loc>
+      <image:caption>Мрежови видео рекордер NVR за 4 / 8 IP 2MP камери</image:caption>
+   </image:image>
+   <lastmod>2016-12-09T08:22:33+00:00</lastmod>
+   <changefreq>always</changefreq>
+</url>
+<url>
+   <loc>http://www.jilanov.com/details/sistemi_za_videonabludenie</loc>
+   <image:image>
+      <image:loc>http://www.jilanov.com</image:loc>
+      <image:caption>Системи за видеонаблюдение</image:caption>
+   </image:image>
+   <lastmod>2016-12-09T08:22:33+00:00</lastmod>
+   <changefreq>always</changefreq>
+</url>
+<url>
+   <loc>http://www.jilanov.com/details/montaj_i_demontaj_na_harduer_premahvane_na_virusi</loc>
+   <image:image>
+      <image:loc>http://www.jilanov.com</image:loc>
+      <image:caption>Посещение  на място при клиент в рамките на гр.София</image:caption>
+   </image:image>
+   <lastmod>2016-12-09T08:22:33+00:00</lastmod>
+   <changefreq>always</changefreq>
+</url>
+<url>
+   <loc>http://www.jilanov.com/details/pamet_ddr2_2gb_1066_corsair_pc8500</loc>
+   <image:image>
+      <image:loc>http://www.jilanov.com/img/maxresdefault.png</image:loc>
+      <image:caption>Corsair</image:caption>
+   </image:image>
+   <lastmod>2016-12-09T08:22:33+00:00</lastmod>
+   <changefreq>always</changefreq>
+</url>
+<url>
+   <loc>http://www.jilanov.com/details/pamet_ddr2_1gb_kingston_pc6400_low_profile</loc>
+   <image:image>
+      <image:loc>http://www.jilanov.com</image:loc>
+      <image:caption>CKINGSTON PC6400</image:caption>
+   </image:image>
+   <lastmod>2016-12-09T08:22:33+00:00</lastmod>
+   <changefreq>always</changefreq>
+</url>
+<url>
+   <loc>http://www.jilanov.com/details/procesor_intel_i7_860_2.8ghz_8mb_soc_1156</loc>
+   <image:image>
+      <image:loc>http://www.jilanov.com</image:loc>
+      <image:caption>Процесор INTEL i7 860 2.8 GHz</image:caption>
+   </image:image>
+   <lastmod>2016-12-09T08:22:33+00:00</lastmod>
+   <changefreq>always</changefreq>
+</url>
+<url>
+   <loc>http://www.jilanov.com/details/disk_toshiba_1tb_sata3_8mb_cache_garanciq</loc>
+   <image:image>
+      <image:loc>http://www.jilanov.com</image:loc>
+      <image:caption>Харддиск Toshiba 1TB 2.5"</image:caption>
+   </image:image>
+   <lastmod>2016-12-09T08:22:33+00:00</lastmod>
+   <changefreq>always</changefreq>
+</url>
+<url>
+   <loc>http://www.jilanov.com/details/false</loc>
+   <lastmod>2016-12-09T08:22:33+00:00</lastmod>
+   <changefreq>always</changefreq>
+</url>
+<url>
+   <loc>http://www.jilanov.com/details/pamet_ddr333_1gb_micron_pc2700</loc>
+   <lastmod>2016-12-09T08:22:33+00:00</lastmod>
+   <changefreq>always</changefreq>
+</url>
+<url>
+   <loc>http://www.jilanov.com/details/ip_camera_1mp_aptina_ccd_1200X720px</loc>
+   <lastmod>2016-12-09T08:22:33+00:00</lastmod>
+   <changefreq>always</changefreq>
+</url>
+<url>
+   <loc>http://www.jilanov.com/details/pamet_ddr2_2gb_800_hynix_pc6400</loc>
+   <lastmod>2016-12-09T08:22:33+00:00</lastmod>
+   <changefreq>always</changefreq>
+</url>
+<url>
+   <loc>http://www.jilanov.com/details/pamet_ddr2_4gb_kingston_pc5300</loc>
+   <lastmod>2016-12-09T08:22:33+00:00</lastmod>
+   <changefreq>always</changefreq>
+</url>
+<url>
+   <loc>http://www.jilanov.com/details/procesor_intel_pentium_g840_2.8ghz_1mb_soc_1155</loc>
+   <image:image>
+      <image:loc>http://www.jilanov.com/img/13016725_1418638018162216_1024188263_o.jpg.png</image:loc>
+      <image:caption>soc.1155</image:caption>
+   </image:image>
+   <lastmod>2016-12-09T08:22:33+00:00</lastmod>
+   <changefreq>always</changefreq>
+</url>
+<url>
+   <loc>http://www.jilanov.com/details/pamet_ddr2_4gb_800_kingston_pc6400</loc>
+   <image:image>
+      <image:loc>http://www.jilanov.com/img/13054499_1418637848162233_960035150_o.jpg.png</image:loc>
+      <image:caption>KINGSTON PC6400</image:caption>
+   </image:image>
+   <lastmod>2016-12-09T08:22:33+00:00</lastmod>
+   <changefreq>always</changefreq>
+</url>
+<url>
+   <loc>http://www.jilanov.com/details/pamet_ddr3_4gb_kingston_1600</loc>
+   <image:image>
+      <image:loc>http://www.jilanov.com/img/13054499_1418637848162233_960035150_o.jpg.png</image:loc>
+      <image:caption>Kingston, Samsung,  Hynix</image:caption>
+   </image:image>
+   <lastmod>2016-12-09T08:22:33+00:00</lastmod>
+   <changefreq>always</changefreq>
+</url>
+<url>
+   <loc>http://www.jilanov.com/details/pamet_ddr3_8gb_1333_ecc</loc>
+   <image:image>
+      <image:loc>http://www.jilanov.com/img/13016725_1418638018162216_1024188263_o.jpg.png</image:loc>
+      <image:caption>Работи на сървъри и работни станции НР</image:caption>
+   </image:image>
+   <lastmod>2016-12-09T08:22:33+00:00</lastmod>
+   <changefreq>always</changefreq>
+</url>
+<url>
+   <loc>http://www.jilanov.com/details/pamet_ddr2_4gb_800_ocz_pc6400</loc>
+   <image:image>
+      <image:loc>http://www.jilanov.com/img/13054499_1418637848162233_960035150_o.jpg</image:loc>
+      <image:caption>OCZ PC6400</image:caption>
+   </image:image>
+   <lastmod>2016-12-09T08:22:33+00:00</lastmod>
+   <changefreq>always</changefreq>
+</url>
+<url>
+   <loc>http://www.jilanov.com/details/pamet_ddr2_8gb_hynix_1600</loc>
+   <image:image>
+      <image:loc>http://www.jilanov.com/img/13016636_1418638068162211_2004156197_o.png</image:loc>
+      <image:caption>HYNIX</image:caption>
+   </image:image>
+   <lastmod>2016-12-09T08:22:33+00:00</lastmod>
+   <changefreq>always</changefreq>
+</url>
+<url>
+   <loc>http://www.jilanov.com/details/pamet_ddr2_4gb_800_samsung_pc6400</loc>
+   <image:image>
+      <image:loc>http://www.jilanov.com/img/maxresdefault.png</image:loc>
+      <image:caption>SAMSUNG PC6400</image:caption>
+   </image:image>
+   <lastmod>2016-12-09T08:22:33+00:00</lastmod>
+   <changefreq>always</changefreq>
+</url>
+"
+container
+"<url>
+   <loc>http://www.jilanov.com/details/ip_camera_4mp_aptina_ccd_2560X1440px</loc>
+   <image:image>
+      <image:loc>http://www.jilanov.com/img/maxresdefault.png</image:loc>
+      <image:caption>за външен монтаж Наблюдение на обекти до 100м.</image:caption>
+   </image:image>
+   <lastmod>2016-12-09T08:22:33+00:00</lastmod>
+   <changefreq>always</changefreq>
+</url>
+<url>
+   <loc>http://www.jilanov.com/details/disk_toshiba_1tb_sata3_32mb_cache_garanciq</loc>
+   <image:image>
+      <image:loc>http://www.jilanov.com/img/maxresdefault.png</image:loc>
+      <image:caption>3.5" 32MB cashe...</image:caption>
+   </image:image>
+   <lastmod>2016-12-09T08:22:33+00:00</lastmod>
+   <changefreq>always</changefreq>
+</url>
+<url>
+   <loc>http://www.jilanov.com/details/video_karta_nvidia_quadro_2000</loc>
+   <image:image>
+      <image:loc>http://www.jilanov.comhttps://www.royalcanin.com/~/media/Royal-Canin/Product-Categories/cat-adult-landing-hero.ashx</image:loc>
+      <image:caption>Видеокарта NVIDIA QUADRO 2000 1GB GDDR5</image:caption>
+   </image:image>
+   <lastmod>2016-12-09T08:22:33+00:00</lastmod>
+   <changefreq>always</changefreq>
+</url>
+<url>
+   <loc>http://www.jilanov.com/details/vunshen_disk_1tb_usb_3_garanciq</loc>
+   <image:image>
+      <image:loc>http://www.jilanov.com/img/photo.png</image:loc>
+      <image:caption>гаранция 24м.</image:caption>
+   </image:image>
+   <lastmod>2016-12-09T08:22:33+00:00</lastmod>
+   <changefreq>always</changefreq>
+</url>
+<url>
+   <loc>http://www.jilanov.com/details/distancionno_reshavane_na_komputaren_problem</loc>
+   <image:image>
+      <image:loc>http://www.jilanov.com/img/3bf7019.png</image:loc>
+      <image:caption>За отстраняване на вируси, реклами и спам.</image:caption>
+   </image:image>
+   <lastmod>2016-12-09T08:22:33+00:00</lastmod>
+   <changefreq>always</changefreq>
+</url>
+<url>
+   <loc>http://www.jilanov.com/details/pamet_ddr2_4gb_hynix_pc5300</loc>
+   <image:image>
+      <image:loc>http://www.jilanov.com</image:loc>
+      <image:caption>ПАМЕТ DDR2 FDIMM 2 GB PC2-5300F</image:caption>
+   </image:image>
+   <lastmod>2016-12-09T08:22:33+00:00</lastmod>
+   <changefreq>always</changefreq>
+</url>
+<url>
+   <loc>http://www.jilanov.com/details/intel_celeron_dual_core_1155</loc>
+   <image:image>
+      <image:loc>http://www.jilanov.com</image:loc>
+      <image:caption>Intel dual core celeron G1610 2.6 GHz</image:caption>
+   </image:image>
+   <lastmod>2016-12-09T08:22:33+00:00</lastmod>
+   <changefreq>always</changefreq>
+</url>
+<url>
+   <loc>http://www.jilanov.com/details/pamet_ddr3_4gb_1066_kingston</loc>
+   <image:image>
+      <image:loc>http://www.jilanov.com</image:loc>
+      <image:caption>ПАМЕТ DDR3 4GB 1066 MHz</image:caption>
+   </image:image>
+   <lastmod>2016-12-09T08:22:33+00:00</lastmod>
+   <changefreq>always</changefreq>
+</url>
+<url>
+   <loc>http://www.jilanov.com/details/disk_western_digital_160gb_pata_garanciq</loc>
+   <image:image>
+      <image:loc>http://www.jilanov.com</image:loc>
+      <image:caption>Харддиск 160 GB PATA</image:caption>
+   </image:image>
+   <lastmod>2016-12-09T08:22:33+00:00</lastmod>
+   <changefreq>always</changefreq>
+</url>
+<url>
+   <loc>http://www.jilanov.com/details/pamet_ddr2_2gb_800_kingston_samsung_pc6400</loc>
+   <image:image>
+      <image:loc>http://www.jilanov.com</image:loc>
+      <image:caption>Памет DDR2 2GB 800MHz</image:caption>
+   </image:image>
+   <lastmod>2016-12-09T08:22:33+00:00</lastmod>
+   <changefreq>always</changefreq>
+</url>
+<url>
+   <loc>http://www.jilanov.com/details/procesor_intel_i5_750_3.2ghz_4mb_soc_1156</loc>
+   <image:image>
+      <image:loc>http://www.jilanov.com</image:loc>
+      <image:caption>Процесор INTEL i5 750 3.2 GHz</image:caption>
+   </image:image>
+   <lastmod>2016-12-09T08:22:33+00:00</lastmod>
+   <changefreq>always</changefreq>
+</url>
+<url>
+   <loc>http://www.jilanov.com/details/procesor_intel_i3_2120_3.3ghz_3mb_soc_1155</loc>
+   <image:image>
+      <image:loc>http://www.jilanov.com</image:loc>
+      <image:caption>Kingston, Integral, DELL  PC3200</image:caption>
+   </image:image>
+   <lastmod>2016-12-09T08:22:33+00:00</lastmod>
+   <changefreq>always</changefreq>
+</url>
+<url>
+   <loc>http://www.jilanov.com/details/pamet_ddr400_1gb_patriot_pc3200</loc>
+   <image:image>
+      <image:loc>http://www.jilanov.com</image:loc>
+      <image:caption>Kingston, Integral, DELL  PC3200</image:caption>
+   </image:image>
+   <lastmod>2016-12-09T08:22:33+00:00</lastmod>
+   <changefreq>always</changefreq>
+</url>
+<url>
+   <loc>http://www.jilanov.com/details/p_camera_2mp_sony_ccd_1920X1080px</loc>
+   <image:image>
+      <image:loc>http://www.jilanov.com</image:loc>
+      <image:caption>IP камера 2 МР SONY  1920х1080 точки.</image:caption>
+   </image:image>
+   <lastmod>2016-12-09T08:22:33+00:00</lastmod>
+   <changefreq>always</changefreq>
+</url>
+<url>
+   <loc>http://www.jilanov.com/details/ip_camera_2mp_sony_ccd_poe_1920X1080px</loc>
+   <image:image>
+      <image:loc>http://www.jilanov.com</image:loc>
+      <image:caption>IP камера 2 МР SONY 1920х1080 точки. POE 48V</image:caption>
+   </image:image>
+   <lastmod>2016-12-09T08:22:33+00:00</lastmod>
+   <changefreq>always</changefreq>
+</url>
+<url>
+   <loc>http://www.jilanov.com/details/ip_camera_1mp_ccd_1080X720px</loc>
+   <image:image>
+      <image:loc>http://www.jilanov.com</image:loc>
+      <image:caption>IP куполна камера 1МР 1280х720 точки</image:caption>
+   </image:image>
+   <lastmod>2016-12-09T08:22:33+00:00</lastmod>
+   <changefreq>always</changefreq>
+</url>
+<url>
+   <loc>http://www.jilanov.com/details/NVR_24p_32p_2MP_1080p_960H</loc>
+   <image:image>
+      <image:loc>http://www.jilanov.com</image:loc>
+      <image:caption>Мрежови видео рекордер NVR за 24 IP 2MP камери</image:caption>
+   </image:image>
+   <lastmod>2016-12-09T08:22:33+00:00</lastmod>
+   <changefreq>always</changefreq>
+</url>
+<url>
+   <loc>http://www.jilanov.com/details/ip_camera_2mp_sony_ccd_1920X1080px</loc>
+   <image:image>
+      <image:loc>http://www.jilanov.com</image:loc>
+      <image:caption>IP камера 2MP SONY 1920x1080 точки</image:caption>
+   </image:image>
+   <lastmod>2016-12-09T08:22:33+00:00</lastmod>
+   <changefreq>always</changefreq>
+</url>
+<url>
+   <loc>http://www.jilanov.com/details/NVR_4p_8p_2MP</loc>
+   <image:image>
+      <image:loc>http://www.jilanov.com</image:loc>
+      <image:caption>Мрежови видео рекордер NVR за 4 / 8 IP 2MP камери</image:caption>
+   </image:image>
+   <lastmod>2016-12-09T08:22:33+00:00</lastmod>
+   <changefreq>always</changefreq>
+</url>
+<url>
+   <loc>http://www.jilanov.com/details/sistemi_za_videonabludenie</loc>
+   <image:image>
+      <image:loc>http://www.jilanov.com</image:loc>
+      <image:caption>Системи за видеонаблюдение</image:caption>
+   </image:image>
+   <lastmod>2016-12-09T08:22:33+00:00</lastmod>
+   <changefreq>always</changefreq>
+</url>
+<url>
+   <loc>http://www.jilanov.com/details/montaj_i_demontaj_na_harduer_premahvane_na_virusi</loc>
+   <image:image>
+      <image:loc>http://www.jilanov.com</image:loc>
+      <image:caption>Посещение  на място при клиент в рамките на гр.София</image:caption>
+   </image:image>
+   <lastmod>2016-12-09T08:22:33+00:00</lastmod>
+   <changefreq>always</changefreq>
+</url>
+<url>
+   <loc>http://www.jilanov.com/details/pamet_ddr2_2gb_1066_corsair_pc8500</loc>
+   <image:image>
+      <image:loc>http://www.jilanov.com/img/maxresdefault.png</image:loc>
+      <image:caption>Corsair</image:caption>
+   </image:image>
+   <lastmod>2016-12-09T08:22:33+00:00</lastmod>
+   <changefreq>always</changefreq>
+</url>
+<url>
+   <loc>http://www.jilanov.com/details/pamet_ddr2_1gb_kingston_pc6400_low_profile</loc>
+   <image:image>
+      <image:loc>http://www.jilanov.com</image:loc>
+      <image:caption>CKINGSTON PC6400</image:caption>
+   </image:image>
+   <lastmod>2016-12-09T08:22:33+00:00</lastmod>
+   <changefreq>always</changefreq>
+</url>
+<url>
+   <loc>http://www.jilanov.com/details/procesor_intel_i7_860_2.8ghz_8mb_soc_1156</loc>
+   <image:image>
+      <image:loc>http://www.jilanov.com</image:loc>
+      <image:caption>Процесор INTEL i7 860 2.8 GHz</image:caption>
+   </image:image>
+   <lastmod>2016-12-09T08:22:33+00:00</lastmod>
+   <changefreq>always</changefreq>
+</url>
+<url>
+   <loc>http://www.jilanov.com/details/disk_toshiba_1tb_sata3_8mb_cache_garanciq</loc>
+   <image:image>
+      <image:loc>http://www.jilanov.com</image:loc>
+      <image:caption>Харддиск Toshiba 1TB 2.5"</image:caption>
+   </image:image>
+   <lastmod>2016-12-09T08:22:33+00:00</lastmod>
+   <changefreq>always</changefreq>
+</url>
+<url>
+   <loc>http://www.jilanov.com/details/false</loc>
+   <lastmod>2016-12-09T08:22:33+00:00</lastmod>
+   <changefreq>always</changefreq>
+</url>
+<url>
+   <loc>http://www.jilanov.com/details/pamet_ddr333_1gb_micron_pc2700</loc>
+   <lastmod>2016-12-09T08:22:33+00:00</lastmod>
+   <changefreq>always</changefreq>
+</url>
+<url>
+   <loc>http://www.jilanov.com/details/ip_camera_1mp_aptina_ccd_1200X720px</loc>
+   <lastmod>2016-12-09T08:22:33+00:00</lastmod>
+   <changefreq>always</changefreq>
+</url>
+<url>
+   <loc>http://www.jilanov.com/details/pamet_ddr2_2gb_800_hynix_pc6400</loc>
+   <lastmod>2016-12-09T08:22:33+00:00</lastmod>
+   <changefreq>always</changefreq>
+</url>
+<url>
+   <loc>http://www.jilanov.com/details/pamet_ddr2_4gb_kingston_pc5300</loc>
+   <lastmod>2016-12-09T08:22:33+00:00</lastmod>
+   <changefreq>always</changefreq>
+</url>
+<url>
+   <loc>http://www.jilanov.com/details/procesor_intel_pentium_g840_2.8ghz_1mb_soc_1155</loc>
+   <image:image>
+      <image:loc>http://www.jilanov.com/img/13016725_1418638018162216_1024188263_o.jpg.png</image:loc>
+      <image:caption>soc.1155</image:caption>
+   </image:image>
+   <lastmod>2016-12-09T08:22:33+00:00</lastmod>
+   <changefreq>always</changefreq>
+</url>
+<url>
+   <loc>http://www.jilanov.com/details/pamet_ddr2_4gb_800_kingston_pc6400</loc>
+   <image:image>
+      <image:loc>http://www.jilanov.com/img/13054499_1418637848162233_960035150_o.jpg.png</image:loc>
+      <image:caption>KINGSTON PC6400</image:caption>
+   </image:image>
+   <lastmod>2016-12-09T08:22:33+00:00</lastmod>
+   <changefreq>always</changefreq>
+</url>
+<url>
+   <loc>http://www.jilanov.com/details/pamet_ddr3_4gb_kingston_1600</loc>
+   <image:image>
+      <image:loc>http://www.jilanov.com/img/13054499_1418637848162233_960035150_o.jpg.png</image:loc>
+      <image:caption>Kingston, Samsung,  Hynix</image:caption>
+   </image:image>
+   <lastmod>2016-12-09T08:22:33+00:00</lastmod>
+   <changefreq>always</changefreq>
+</url>
+<url>
+   <loc>http://www.jilanov.com/details/pamet_ddr3_8gb_1333_ecc</loc>
+   <image:image>
+      <image:loc>http://www.jilanov.com/img/13016725_1418638018162216_1024188263_o.jpg.png</image:loc>
+      <image:caption>Работи на сървъри и работни станции НР</image:caption>
+   </image:image>
+   <lastmod>2016-12-09T08:22:33+00:00</lastmod>
+   <changefreq>always</changefreq>
+</url>
+<url>
+   <loc>http://www.jilanov.com/details/pamet_ddr2_4gb_800_ocz_pc6400</loc>
+   <image:image>
+      <image:loc>http://www.jilanov.com/img/13054499_1418637848162233_960035150_o.jpg</image:loc>
+      <image:caption>OCZ PC6400</image:caption>
+   </image:image>
+   <lastmod>2016-12-09T08:22:33+00:00</lastmod>
+   <changefreq>always</changefreq>
+</url>
+<url>
+   <loc>http://www.jilanov.com/details/pamet_ddr2_8gb_hynix_1600</loc>
+   <image:image>
+      <image:loc>http://www.jilanov.com/img/13016636_1418638068162211_2004156197_o.png</image:loc>
+      <image:caption>HYNIX</image:caption>
+   </image:image>
+   <lastmod>2016-12-09T08:22:33+00:00</lastmod>
+   <changefreq>always</changefreq>
+</url>
+<url>
+   <loc>http://www.jilanov.com/details/pamet_ddr2_4gb_800_samsung_pc6400</loc>
+   <image:image>
+      <image:loc>http://www.jilanov.com/img/maxresdefault.png</image:loc>
+      <image:caption>SAMSUNG PC6400</image:caption>
+   </image:image>
+   <lastmod>2016-12-09T08:22:33+00:00</lastmod>
+   <changefreq>always</changefreq>
+</url>
+
+</urlset>
