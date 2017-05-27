@@ -4,7 +4,7 @@
 		class="col-xs-12">
 		<h3>{{dictionary.getTexts('cartHeader')}}</h3>
 		<div class="row">
-			<template ngFor #productObject [ngForOf]="cartProducts" let-index="index">
+			<ng-template ngFor #productObject [ngForOf]="cartProducts" let-index="index">
 				<div class="col-xs-12 col-sm-12 col-md-4 product">
 					<div class="remove" (click)="removeProductFromCart(cartProducts[index])">
 						<span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
@@ -23,7 +23,7 @@
 					</a>
 				</div>
 				<div *ngIf="index%3 == 2" class="clearfix visible-sm visible-md visible-lg"></div>
-			</template>
+			</ng-template>
 		</div>
 		<h3>{{dictionary.getTexts('cartSum')}} {{totalPrice}} </h3>
 	</div>

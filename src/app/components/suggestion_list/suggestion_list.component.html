@@ -1,7 +1,7 @@
 <div
   class="hidden" 
   itemscope itemtype="http://schema.org/ItemList">
-  <template ngFor #productObject [ngForOf]="products" let-index="index">
+  <ng-template ngFor #productObject [ngForOf]="products" let-index="index">
     <div class="col-md-2">
       <a 
         [routerLink] = "['/details', products[index].link]"
@@ -22,5 +22,5 @@
         </div>
       </a>
     </div>
-  </template>
+  </ng-template>
 </div>

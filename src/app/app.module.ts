@@ -2,15 +2,15 @@
 import 'hammerjs';
 import { NgModule } from '@angular/core';
 import { MaterialModule } from '@angular/material';
-import { FlexLayoutModule } from "@angular/flex-layout";
 import { HttpModule } from '@angular/http';
-import { MetaModule } from 'ng2-meta';
 import { RatingModule } from "ngx-rating";
 import { Ng2Webstorage } from 'ng2-webstorage';
 import { AgmCoreModule } from 'angular2-google-maps/core';
 import { BrowserModule }  from '@angular/platform-browser';
-import { RecaptchaModule, RecaptchaLoaderService } from 'ng2-recaptcha';
+import { RecaptchaModule } from 'ng-recaptcha';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule, Validators }   from '@angular/forms';
+// import { FormsModule, ReactiveFormsModule, Validators }   from '@angular/forms';
 
 // Router
 import { routing, appRoutingProviders } from './app.routing';
@@ -72,13 +72,12 @@ import { ErrorHandlerService } from './services/error.handler.service';
         BrowserModule,
         Ng2Webstorage,
         MaterialModule,
-        FlexLayoutModule.forRoot(),
-        RecaptchaModule,
+        RecaptchaModule.forRoot(),
         ReactiveFormsModule,
-        MetaModule.forRoot(),
         AgmCoreModule.forRoot({
           apiKey: 'AIzaSyDBbPzFEwNVTHNoZ-bz7YYqO1eMRPqTyUA'
-        })
+        }),
+        BrowserAnimationsModule
     ],
     // Components & Views
     declarations: [ 
@@ -96,7 +95,6 @@ import { ErrorHandlerService } from './services/error.handler.service';
         BuySectionComponent,
         NotificationComponent,
         ZoomableImagesComponent,
-        // SideMenuComponent,
         // views
         HomeComponent,
         CartComponent,
@@ -117,7 +115,6 @@ import { ErrorHandlerService } from './services/error.handler.service';
         Config,
         // router of the app
         appRoutingProviders,
-        RecaptchaLoaderService,
         // languages
         Dictionary,
         EnglishDictionary,

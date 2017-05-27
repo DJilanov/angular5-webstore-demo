@@ -12,6 +12,3 @@ import '@angularclass/hmr';
 // RxJS
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/mergeMap';
-
-// Bootstrap
-import { Ng2BootstrapModule } from 'ng2-bootstrap/ng2-bootstrap';

@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { MetaService } from 'ng2-meta';
+import { Meta } from '@angular/platform-browser';
 import { Dictionary } from '../../dictionary/dictionary.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { DomSanitizer } from "@angular/platform-browser";
@@ -32,7 +32,7 @@ export class ProductListComponent implements OnInit {
     public constructor(
         private router: Router,
         private dictionary: Dictionary,
-        private metaService: MetaService,
+        private metaService: Meta,
         private sanitizer: DomSanitizer,
         private routeParams: ActivatedRoute,
         private productsService: ProductsService,
@@ -69,11 +69,27 @@ export class ProductListComponent implements OnInit {
     private changeTitle(data) {
         if(this.router.url.indexOf('/products') !== -1) {
             if((this.category['title']) && (this.products[0])) {
-                this.metaService.setTitle(this.category['title'].bg);
-                this.metaService.setTag('og:image',this.products[0]['main_image']);
+                this.metaService.updateTag({
+                    "content": this.category['title'].bg
+                },
+                    "property= 'title'"
+                );
+                this.metaService.updateTag({
+                    "content": this.products[0]['main_image']
+                },
+                    "property= 'og:image'"
+                );
             } else {
-                this.metaService.setTitle('Всичко за вашия компютър на най-конкурентни цени в Жиланов ЕООД!');
-                this.metaService.setTag('og:image','./src/img/navigation-logo.png');
+                this.metaService.updateTag({
+                    "content": 'Всичко за вашия компютър на най-конкурентни цени в Жиланов ЕООД!'
+                },
+                    "property= 'title'"
+                );
+                this.metaService.updateTag({
+                    "content": './src/img/navigation-logo.png'
+                },
+                    "property= 'og:image'"
+                );
             }
         }
     }
@@ -83,8 +99,16 @@ export class ProductListComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.metaService.setTitle('Всичко за вашия компютър на най-конкурентни цени в Жиланов ЕООД!');
-        this.metaService.setTag('og:image','./src/img/navigation-logo.png');
+        this.metaService.updateTag({
+            "content": 'Всичко за вашия компютър на най-конкурентни цени в Жиланов ЕООД!'
+        },
+            "property= 'title'"
+        );
+        this.metaService.updateTag({
+            "content": './src/img/navigation-logo.png'
+        },
+            "property= 'og:image'"
+        );
     }
 
     ngOnChanges(changes: any) {

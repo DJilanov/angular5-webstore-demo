@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { MetaService } from 'ng2-meta';
 import { Dictionary } from '../../dictionary/dictionary.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { DomSanitizer } from "@angular/platform-browser";

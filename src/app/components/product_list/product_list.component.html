@@ -4,12 +4,12 @@
   itemscope itemtype="http://schema.org/ItemList">
   <link itemprop="url" [href]="categoryUrl" />
   <h1>{{category.title[dictionary.language]}}</h1>
-  <template ngFor #productObject [ngForOf]="products" let-index="index">
+  <ng-template ngFor #productObject [ngForOf]="products" let-index="index">
     <div 
       *ngIf="products[index].shown"
       class="col-xs-12 col-sm-12 col-md-4">
       <product [productObject]=products[index]></product>
     </div>
     <div *ngIf="index%3 == 2" class="clearfix visible-sm visible-md visible-lg"></div>
-  </template>
+  </ng-template>
 </div>

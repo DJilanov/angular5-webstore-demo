@@ -5,11 +5,11 @@
       src="./src/img/navigation-logo.png"
       alt="logo"/>
   </a>
-  <template ngFor #categoryObject [ngForOf]="categories" let-index="index">
+  <ng-template ngFor #categoryObject [ngForOf]="categories" let-index="index">
     <button md-button [routerLink]="['products', categories[index].link]">
       {{categories[index].title[dictionary.language]}}
     </button>
-  </template>
+  </ng-template>
   <button md-button [routerLink]="['contacts']">
     {{dictionary.getTexts('headerContact')}}
   </button>
@@ -34,11 +34,11 @@
     <md-icon>more_vert</md-icon>
   </button>
   <md-menu #menu="mdMenu">
-    <template ngFor #categoryObject [ngForOf]="categories" let-index="index">
+    <ng-template ngFor #categoryObject [ngForOf]="categories" let-index="index">
       <button md-menu-item [routerLink]="['products', categories[index].link]">
         {{categories[index].title[dictionary.language]}}
       </button>
-    </template>
+    </ng-template>
   </md-menu>
   <span class="fill-remaining-space"></span>
   <button md-button [routerLink]="['contacts']">
@@ -63,11 +63,11 @@
     <md-icon>more_vert</md-icon>
   </button>
   <md-menu #menu="mdMenu">
-    <template ngFor #categoryObject [ngForOf]="categories" let-index="index">
+    <ng-template ngFor #categoryObject [ngForOf]="categories" let-index="index">
       <button md-menu-item [routerLink]="['products', categories[index].link]">
         {{categories[index].title[dictionary.language]}}
       </button>
-    </template>
+    </ng-template>
     <button md-menu-item [routerLink]="['contacts']">
       {{dictionary.getTexts('headerContact')}}
     </button>
