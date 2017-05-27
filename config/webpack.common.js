@@ -209,7 +209,7 @@ module.exports = function (options) {
        */
       new CopyWebpackPlugin([{
         from: 'src/img',
-        to: 'src/img',
+        to: 'dist/img',
       }, {
         from: 'src/app/sass/fonts',
         to: 'fonts',
