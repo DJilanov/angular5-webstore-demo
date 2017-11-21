@@ -51,9 +51,7 @@ export class SearchComponent {
       });
       // this.valueCtrl.valueChanges.subscribe(data => this.filterValues(data));
 
-      this.filteredValues = this.valueCtrl.valueChanges
-        .startWith(null)
-        .map(name => this.filterValues(name));
+      this.filteredValues = this.valueCtrl.valueChanges.map(name => this.filterValues(name));
     }
 
     filterValues(val) {

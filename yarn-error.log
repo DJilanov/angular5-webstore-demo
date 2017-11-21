@@ -1,0 +1,95 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Users\dimitar.jilanov\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js
+
+PATH: 
+  C:\Users\dimitar.jilanov\Downloads\cmder\bin;C:\Users\dimitar.jilanov\Downloads\cmder\vendor\conemu-maximus5\ConEmu\Scripts;C:\Users\dimitar.jilanov\Downloads\cmder\vendor\conemu-maximus5;C:\Users\dimitar.jilanov\Downloads\cmder\vendor\conemu-maximus5\ConEmu;C:\Program Files\Microsoft MPI\Bin\;C:\Python27\;C:\Python27\Scripts;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Git\cmd;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Program Files\PuTTY\;C:\Users\dimitar.jilanov\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Program Files (x86)\Microsoft SQL Server\Client SDK\ODBC\130\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\130\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\130\Tools\Binn\ManagementStudio\;C:\Program Files\OpenVPN\bin;C:\Program Files\Microsoft\Web Platform Installer\;C:\Program Files\Microsoft Service Fabric\bin\Fabric\Fabric.Code;C:\Program Files\Microsoft SDKs\Service Fabric\Tools\ServiceFabricLocalClusterManager;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\dotnet\;C:\Program Files (x86)\Skype\Phone\;C:\ProgramData\chocolatey\bin;C:\Program Files\Java\jdk1.8.0_131\bin;C:\Android\android-sdk\tools;C:\Android\android-sdk\platform-tools;C:\Program Files\Microsoft SQL Server\130\DTS\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\130\Tools\Binn\;C:\Program Files\nodejs\;C:\Ruby24-x64\bin;C:\Program Files (x86)\Microsoft VS Code\bin;C:\Users\dimitar.jilanov\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Users\dimitar.jilanov\AppData\Local\Microsoft\WindowsApps;C:\Users\dimitar.jilanov\AppData\Local\Android\Sdk;C:\Users\dimitar.jilanov\AppData\Local\Android\sdk\platform-tools;C:\Users\dimitar.jilanov\AppData\Local\GitHubDesktop\bin;C:\Users\dimitar.jilanov\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Users\dimitar.jilanov\AppData\Roaming\npm;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\share\vim\vim74;C:\Users\dimitar.jilanov\Downloads\cmder\
+
+Yarn version: 
+  1.3.2
+
+Node version: 
+  6.10.3
+
+Platform: 
+  win32 x64
+
+npm manifest: 
+  {
+    "name": "angular-spa",
+    "version": "0.0.1",
+    "description": "Angular 2 single page application for webstore",
+    "main": "dist/bundle.js",
+    "repository": "",
+    "author": "Dimitar Jilanov",
+    "scripts": {
+      "start": "ng serve",
+      "start-aot": "ng serve --aot",
+      "build-prod": "ng build --prod --locale de --i18n-format xlf --i18n-file src/locale/messages.de.xlf && cp src/Web.config dist/Web.config"
+    },
+    "dependencies": {
+      "@angular/animations": "^4.1.2",
+      "@angular/common": "^4.1.2",
+      "@angular/compiler": "^4.1.2",
+      "@angular/compiler-cli": "^4.1.2",
+      "@angular/core": "^4.1.2",
+      "@angular/forms": "^4.1.2",
+      "@angular/http": "^4.1.2",
+      "@angular/platform-browser": "^4.1.2",
+      "@angular/platform-browser-dynamic": "^4.1.2",
+      "@angular/router": "^4.1.2",
+      "@angular/material": "^2.0.0-beta.6",
+      "angular2-google-maps": "0.17.0",
+      "@types/google-maps": "^3.2.0",
+      "@types/lodash": "^4.14.64",
+      "bootstrap-validator": "^0.11.9",
+      "core-js": "^2.4.1",
+      "iban": "0.0.8",
+      "lodash": "^4.17.4",
+      "moment": "^2.18.1",
+      "moment-timezone": "^0.5.13",
+      "ng2-charts": "^1.6.0",
+      "rxjs": "^5.4.0",
+      "zone.js": "^0.8.10",
+      "ng-recaptcha": "2.1.1",
+      "ng2-webstorage": "1.5.0",
+      "ngx-rating": "0.0.9"
+    },
+    "devDependencies": {
+      "@types/grecaptcha": "2.0.31",
+      "@types/hammerjs": "2.0.34",
+      "@types/jasmine": "2.5.40",
+      "@types/node": "7.0.0",
+      "@types/protractor": "4.0.0",
+      "@types/selenium-webdriver": "2.53.39",
+      "@types/source-map": "0.5.0",
+      "@types/uglify-js": "2.6.28",
+      "@angular/cli": "1.4.4",
+      "@angular/compiler-cli": "^4.0.0",
+      "codelyzer": "~2.0.0",
+      "jasmine-core": "~2.5.2",
+      "jasmine-spec-reporter": "~3.2.0",
+      "karma": "~1.4.1",
+      "karma-chrome-launcher": "~2.0.0",
+      "karma-cli": "~1.0.1",
+      "karma-coverage-istanbul-reporter": "^0.2.0",
+      "karma-jasmine": "~1.1.0",
+      "karma-jasmine-html-reporter": "^0.2.2",
+      "node-sass": "^4.5.2",
+      "protractor": "~5.1.0",
+      "ts-node": "~2.0.0",
+      "tslint": "~4.5.0",
+      "typescript": "~2.3.0"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
+
+Trace: 
+  Error: connect ETIMEDOUT 192.168.129.150:443
+      at Object.exports._errnoException (util.js:1018:11)
+      at exports._exceptionWithHostPort (util.js:1041:20)
+      at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1086:14)

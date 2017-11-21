@@ -1,13 +1,10 @@
 // Angular 2 Modules
-import 'hammerjs';
 import { NgModule } from '@angular/core';
-import { MaterialModule } from '@angular/material';
 import { HttpModule } from '@angular/http';
 import { RatingModule } from "ngx-rating";
-import { Ng2Webstorage } from 'ng2-webstorage';
-import { AgmCoreModule } from 'angular2-google-maps/core';
+import { Ng2Webstorage } from 'ngx-webstorage';
+import { AgmCoreModule } from '@agm/core';
 import { BrowserModule }  from '@angular/platform-browser';
-import { RecaptchaModule } from 'ng-recaptcha';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule, Validators }   from '@angular/forms';
 // import { FormsModule, ReactiveFormsModule, Validators }   from '@angular/forms';
@@ -62,6 +59,9 @@ import { CategoriesService } from './services/categories.service';
 import { EventEmiterService } from './services/event.emiter.service';
 import { ErrorHandlerService } from './services/error.handler.service';
 
+// Modules
+import { MaterialModule } from './material.module';
+
 @NgModule({
     // Modules & Libs
     imports: [
@@ -72,7 +72,6 @@ import { ErrorHandlerService } from './services/error.handler.service';
         BrowserModule,
         Ng2Webstorage,
         MaterialModule,
-        RecaptchaModule.forRoot(),
         ReactiveFormsModule,
         AgmCoreModule.forRoot({
           apiKey: 'AIzaSyDBbPzFEwNVTHNoZ-bz7YYqO1eMRPqTyUA'

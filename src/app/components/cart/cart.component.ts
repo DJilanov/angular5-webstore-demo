@@ -4,7 +4,7 @@ import { Dictionary } from '../../dictionary/dictionary.service';
 import { CartService } from '../../services/cart.service';
 import { FetcherService } from '../../services/fetcher.service';
 import { ErrorHandlerService } from '../../services/error.handler.service';
-import { LocalStorageService, SessionStorageService } from 'ng2-webstorage';
+import { LocalStorageService, SessionStorageService } from 'ngx-webstorage';
 import { EventEmiterService } from '../../services/event.emiter.service';
 
 @Component({
