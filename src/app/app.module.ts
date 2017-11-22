@@ -78,7 +78,6 @@ import {
         RatingModule,
         BrowserModule,
         Ng2Webstorage,
-        MaterialModule,
 		MatFormFieldModule,
         ReactiveFormsModule,
         AgmCoreModule.forRoot({
