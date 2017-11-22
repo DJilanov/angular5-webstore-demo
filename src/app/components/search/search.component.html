@@ -1,11 +1,11 @@
-<md-input-container>
-  <input type="text" mdInput [formControl]="valueCtrl" [mdAutocomplete]="auto" placeholder="{{dictionary.getTexts('headerSearchFor')}}">
-</md-input-container>
-
-<md-autocomplete #auto="mdAutocomplete">
-  <md-option (onSelect)="onProductSelect(i)" *ngFor="let value of filteredValues | async; let i = index" [value]="value">
-    <md-grid-list cols="4" rowHeight="100px">
-      <md-grid-tile
+<mat-form-field>
+  <input type="text" mdInput [formControl]="valueCtrl" [matAutocomplete]="auto" placeholder="{{dictionary.getTexts('headerSearchFor')}}">
+</mat-form-field>
+autocomplete
+<!-- <mat-autocomplete #auto="matAutocomplete">
+  <mat-option (onSelect)="onProductSelect(i)" *ngFor="let value of filteredValues | async; let i = index" [value]="value">
+    <mat-grid-list cols="4" rowHeight="100px">
+      <mat-grid-tile
         [colspan]="1"
         [rowspan]="1">
         <div class="image-holder">
@@ -14,12 +14,12 @@
               [alt]="option">
           </image>
         </div>  
-      </md-grid-tile>
-      <md-grid-tile
+      </mat-grid-tile>
+      <mat-grid-tile
         [colspan]="3"
         [rowspan]="1">
         <div>{{ value }}</div>
-      </md-grid-tile>
-    </md-grid-list>
-  </md-option>
-</md-autocomplete>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </mat-option>
+</mat-autocomplete> -->

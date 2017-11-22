@@ -58,9 +58,16 @@ import { ProductsService } from './services/products.service';
 import { CategoriesService } from './services/categories.service';
 import { EventEmiterService } from './services/event.emiter.service';
 import { ErrorHandlerService } from './services/error.handler.service';
-
-// Modules
-import { MaterialModule } from './material.module';
+// Material
+// TODO: Remove unused components
+import {
+    MatAutocompleteModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatToolbarModule,
+    MatMenuModule,
+    MatRadioModule
+  } from '@angular/material';
 
 @NgModule({
     // Modules & Libs
@@ -72,11 +79,20 @@ import { MaterialModule } from './material.module';
         BrowserModule,
         Ng2Webstorage,
         MaterialModule,
+		MatFormFieldModule,
         ReactiveFormsModule,
         AgmCoreModule.forRoot({
           apiKey: 'AIzaSyDBbPzFEwNVTHNoZ-bz7YYqO1eMRPqTyUA'
         }),
-        BrowserAnimationsModule
+        BrowserAnimationsModule,
+
+        // Material
+        MatAutocompleteModule,
+		MatFormFieldModule,
+        MatIconModule,
+        MatToolbarModule,
+        MatMenuModule,
+        MatRadioModule
     ],
     // Components & Views
     declarations: [ 

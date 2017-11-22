@@ -66,14 +66,14 @@
       <h4 class="red">{{dictionary.getTexts('contactRules')}}</h4>
   </div>
   <div class="map-container col-xs-12 no-paddings">
-    <sebm-google-map 
+    <agm-map 
       [zoom]="mapCoordinates.zoom"
       [latitude]="mapCoordinates.lat" 
       [longitude]="mapCoordinates.lng">
-      <sebm-google-map-marker 
+      <agm-marker 
         [latitude]="mapCoordinates.lat" 
         [longitude]="mapCoordinates.lng">
-        <sebm-google-map-info-window [isOpen]="true">
+        <agm-info-window [isOpen]="true">
           <div class="info-window-container">
             <div class="col-xs-2">
               <img 
@@ -93,8 +93,8 @@
               </div>
             </div>
           </div>
-        </sebm-google-map-info-window>
-      </sebm-google-map-marker>
-    </sebm-google-map>
+        </agm-info-window>
+      </agm-marker>
+    </agm-map>
   </div>
 </div>

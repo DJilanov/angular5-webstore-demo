@@ -4,7 +4,7 @@
   <form  #feedback="ngForm" (ngSubmit)="formSubmit(ngForm)" [formGroup]="ngForm">
     <div class="form-group">
         <div class="col-xs-12 col-md-6">
-            <md-input-container class="col-xs-12">
+            <mat-form-field class="col-xs-12">
                 <input 
                   mdInput 
                   [formControl]="ngForm.controls['name']"
@@ -14,8 +14,8 @@
                   name="name" 
                   id="name" 
                   placeholder="{{this.dictionary.getTexts('contactFormYourNameEnter')}}">
-            </md-input-container>
-            <md-input-container class="col-xs-12">
+            </mat-form-field>
+            <mat-form-field class="col-xs-12">
                 <input 
                   mdInput 
                   [formControl]="ngForm.controls['email']"
@@ -25,8 +25,8 @@
                   name="email" 
                   id="email" 
                   placeholder="{{this.dictionary.getTexts('contactFormYourEmailEnter')}}">
-            </md-input-container>
-            <md-input-container class="col-xs-12">
+            </mat-form-field>
+            <mat-form-field class="col-xs-12">
                 <input 
                   mdInput 
                   [formControl]="ngForm.controls['phone']"
@@ -36,10 +36,10 @@
                   name="phone" 
                   id="phone" 
                   placeholder="{{this.dictionary.getTexts('contactFormYourPhoneNumberEnter')}}">
-            </md-input-container>
+            </mat-form-field>
         </div>
         <div class="col-xs-12 col-md-6">
-            <md-input-container class="col-xs-12">
+            <mat-form-field class="col-xs-12">
                 <textarea 
                     mdInput
                     *ngIf="type == 'contact'"
@@ -62,22 +62,22 @@
                     rows="3" 
                     placeholder="{{this.dictionary.getTexts('contactFormYourMoreInfo')}}">
                 </textarea>
-            </md-input-container>
+            </mat-form-field>
         </div>
     </div>
     <div class="alert alert-danger" *ngIf="wrongCaptcha">
       <strong>{{dictionary.getTexts('contactCaptchaTitle')}}</strong>
-      <br/ 
+      <br/>
       <span>{{dictionary.getTexts('contactCaptcha')}}</span>
     </div>
     <div class="form-group">
      <div class="col-xs-12 col-md-8 recaptcha">
-      <re-captcha
+      <!-- <re-captcha
           name="captcha"
           required
           (resolved)="resolvedCaptcha($event)"
           siteKey="6Lf10xETAAAAAFoODW33iIglPTpRXndsVkUmUOQh"
-        ></re-captcha>
+        ></re-captcha> -->
      </div>
      <div class="col-xs-12 col-md-4 no-padding">
         <button 

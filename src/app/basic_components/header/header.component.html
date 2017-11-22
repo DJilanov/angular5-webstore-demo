@@ -1,5 +1,5 @@
 <!-- big-->
-<md-toolbar *ngIf="categories.length > 0"  color="primary" class="hidden-md hidden-sm hidden-xs">
+<mat-toolbar *ngIf="categories.length > 0"  color="primary" class="hidden-md hidden-sm hidden-xs">
   <a [routerLink]="['/']" class="logo pull-left">
     <img 
       src="./src/img/navigation-logo.png"
@@ -14,70 +14,70 @@
     {{dictionary.getTexts('headerContact')}}
   </button>
   <span class="fill-remaining-space"></span>
-  <md-icon [routerLink]="['cart']">add_shopping_cart</md-icon>
+  <mat-icon [routerLink]="['cart']">add_shopping_cart</mat-icon>
   <search></search>
-  <button md-icon-button (click)="changeLanguage()">
+  <button mat-icon-button (click)="changeLanguage()">
     <image 
       [src]="'./src/img/' + dictionary.nextLanguage() + '.png'"
       [alt]="dictionary.language"></image>
   </button>
-</md-toolbar>
+</mat-toolbar>
 <!-- just small -->
-<md-toolbar *ngIf="categories.length > 0"  color="primary" class="hidden-lg hidden-xs">
+<mat-toolbar *ngIf="categories.length > 0"  color="primary" class="hidden-lg hidden-xs">
   <a [routerLink]="['/']" class="logo pull-left">
     <img 
       src="./src/img/navigation-logo.png"
       alt="logo"/>
   </a>
-  <button class="categories-button" md-icon-button [mdMenuTriggerFor]="menu">
+  <button class="categories-button" mat-icon-button [matMenuTriggerFor]="menu">
     {{dictionary.getTexts('headerCategories') | uppercase}}
-    <md-icon>more_vert</md-icon>
+    <mat-icon>more_vert</mat-icon>
   </button>
-  <md-menu #menu="mdMenu">
+  <mat-menu #menu="matMenu">
     <ng-template ngFor #categoryObject [ngForOf]="categories" let-index="index">
       <button md-menu-item [routerLink]="['products', categories[index].link]">
         {{categories[index].title[dictionary.language]}}
       </button>
     </ng-template>
-  </md-menu>
+  </mat-menu>
   <span class="fill-remaining-space"></span>
   <button md-button [routerLink]="['contacts']">
     {{dictionary.getTexts('headerContact')}}
   </button>
-  <md-icon [routerLink]="['cart']">add_shopping_cart</md-icon>
+  <mat-icon [routerLink]="['cart']">add_shopping_cart</mat-icon>
   <search></search>
-  <button md-icon-button (click)="changeLanguage()">
+  <button mat-icon-button (click)="changeLanguage()">
     <image 
       [src]="'./src/img/' + dictionary.nextLanguage() + '.png'"
       [alt]="dictionary.language"></image>
   </button>
-</md-toolbar>
+</mat-toolbar>
 <!-- just tiny -->
-<md-toolbar *ngIf="categories.length > 0"  color="primary" class="hidden-lg hidden-md hidden-sm">
+<mat-toolbar *ngIf="categories.length > 0"  color="primary" class="hidden-lg hidden-md hidden-sm">
   <a [routerLink]="['/']" class="logo pull-left">
     <img 
       src="./src/img/navigation-logo.png"
       alt="logo"/>
   </a>
-  <button md-icon-button [mdMenuTriggerFor]="menu">
-    <md-icon>more_vert</md-icon>
+  <button mat-icon-button [matMenuTriggerFor]="menu">
+    <mat-icon>more_vert</mat-icon>
   </button>
-  <md-menu #menu="mdMenu">
+  <mat-menu #menu="matMenu">
     <ng-template ngFor #categoryObject [ngForOf]="categories" let-index="index">
-      <button md-menu-item [routerLink]="['products', categories[index].link]">
+      <button mat-menu-item [routerLink]="['products', categories[index].link]">
         {{categories[index].title[dictionary.language]}}
       </button>
     </ng-template>
-    <button md-menu-item [routerLink]="['contacts']">
+    <button mat-menu-item [routerLink]="['contacts']">
       {{dictionary.getTexts('headerContact')}}
     </button>
-  </md-menu>
+  </mat-menu>
   <span class="fill-remaining-space"></span>
-  <md-icon [routerLink]="['cart']">add_shopping_cart</md-icon>
+  <mat-icon [routerLink]="['cart']">add_shopping_cart</mat-icon>
   <search></search>
-  <button md-icon-button (click)="changeLanguage()">
+  <button mat-icon-button (click)="changeLanguage()">
     <image 
       [src]="'./src/img/' + dictionary.nextLanguage() + '.png'"
       [alt]="dictionary.language"></image>
   </button>
-</md-toolbar>
+</mat-toolbar>

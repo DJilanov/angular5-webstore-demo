@@ -23,16 +23,16 @@
             </div>
         </div>
     </div>
-    <button class="md-icon-button left-arrow-button md-button md-ink-ripple" type="button" aria-label="chevron_left">
-        <md-icon (click)="previous()" class="material-icons" role="button" tabindex="0">chevron_left</md-icon>
+    <button class="mat-icon-button left-arrow-button md-button md-ink-ripple" type="button" aria-label="chevron_left">
+        <mat-icon (click)="previous()" class="material-icons" role="button" tabindex="0">chevron_left</mat-icon>
     </button>
-    <button class="md-icon-button right-arrow-button md-button md-ink-ripple" type="button" aria-label="chevron_right">
-        <md-icon (click)="next()" class="material-icons" role="button" tabindex="0">chevron_right</md-icon>
+    <button class="mat-icon-button right-arrow-button md-button md-ink-ripple" type="button" aria-label="chevron_right">
+        <mat-icon (click)="next()" class="material-icons" role="button" tabindex="0">chevron_right</mat-icon>
     </button>
-    <md-radio-group 
+    <mat-radio-group 
         [(ngModel)]="selectedSlide"
         name="radio_options" 
         class="radio-buttons-container">
-        <md-radio-button *ngFor="let radioItem of slides;let i = index" name="radio_options" [value]="i" (click)="selectSlide(i)"></md-radio-button>
-    </md-radio-group>
+        <mat-radio-button *ngFor="let radioItem of slides;let i = index" name="radio_options" [value]="i" (click)="selectSlide(i)"></mat-radio-button>
+    </mat-radio-group>
 </div>
