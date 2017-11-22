@@ -17,15 +17,15 @@ import { EventEmiterService } from '../../services/event.emiter.service';
 export class SuggestionListComponent {
 
     @Input()
-    private product: Object;
+    public product: Object;
 
-    private category: Object = {};
-    private products: Array<Object> = [];
+    public category: Object = {};
+    public products: Array<Object> = [];
 
     constructor(
-        private router: Router,
-        private dictionary: Dictionary,
-        private productsService: ProductsService
+        public router: Router,
+        public dictionary: Dictionary,
+        public productsService: ProductsService
     ) {};
 
     ngOnChanges(changes: any) {

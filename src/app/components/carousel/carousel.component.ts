@@ -52,14 +52,14 @@ export class CarouselComponent {
 
     @ViewChild('carousel') carousel;
     
-    private width: string = window.innerWidth + 'px';
+    public width: string = window.innerWidth + 'px';
 
-    private selectedSlide: number = 0;
+    public selectedSlide: number = 0;
 
-    private carouselWholeWidth: number = window.innerWidth;
+    public carouselWholeWidth: number = window.innerWidth;
 
     constructor(
-        private router: Router
+        public router: Router
     ) {}
 
     ngOnChanges(changes: any) {
@@ -68,20 +68,20 @@ export class CarouselComponent {
         }
     }
     
-    private openLink(product) {
+    public openLink(product) {
         this.router.navigate(['/details/' + product.link]);
     }
 
-    private selectSlide(index) {
+    public selectSlide(index) {
         this.selectedSlide = index;
         this.moveToSlide();
     }
 
-    private moveToSlide() {
+    public moveToSlide() {
         this.carousel.nativeElement.style.marginLeft = '-' + (this.selectedSlide * window.innerWidth )+ 'px';
     }
 
-    private next() {
+    public next() {
         this.selectedSlide++;
         if(this.selectedSlide >= this.slides.length) {
             this.selectedSlide = 0;
@@ -89,7 +89,7 @@ export class CarouselComponent {
         this.moveToSlide();
     }
 
-    private previous() {
+    public previous() {
         this.selectedSlide--;
         if(this.selectedSlide < 0) {
             this.selectedSlide = this.slides.length - 1;
@@ -97,7 +97,7 @@ export class CarouselComponent {
         this.moveToSlide();
     }
 
-    private calculateWidth() {
+    public calculateWidth() {
         this.carouselWholeWidth = parseInt(this.width) * this.slides.length;
     }
 }

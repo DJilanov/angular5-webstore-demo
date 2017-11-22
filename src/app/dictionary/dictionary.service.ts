@@ -7,7 +7,7 @@ import { BulgarianDictionary } from './bg.dictionary';
 export class Dictionary {
     // the variables containing the language jsons
     // will contain the default language
-    private language: string = ''; 
+    public language: string = ''; 
     // will return the texts from witch we fill our forms
     public getTexts(text) {
         return this[this.language].language[text];
@@ -30,7 +30,7 @@ export class Dictionary {
         this.language = this.nextLanguage();
     }
 
-    constructor(private en: EnglishDictionary, private bg: BulgarianDictionary) {
+    constructor(public en: EnglishDictionary, public bg: BulgarianDictionary) {
         this.language = Config.defaultLang;
     };
 }

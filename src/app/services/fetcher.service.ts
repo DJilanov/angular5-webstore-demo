@@ -128,5 +128,5 @@ export class FetcherService {
         return this.http.delete( Config.messageUrl, { search: params } );
     }
 
-    constructor( private http: Http ) {}
+    constructor( public http: Http ) {}
 }

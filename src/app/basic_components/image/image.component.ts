@@ -16,7 +16,7 @@ export class ImageComponent implements OnInit {
     @Input()
     alt: Object;
 
-    private blankImage: string = '/img/3bf7019.png';
+    public blankImage: string = '/img/3bf7019.png';
     /**
      * @ngOnInit on init
      */

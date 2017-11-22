@@ -11,7 +11,7 @@ export class ProductsService {
     // will be used when we have live update of products and everything is dynamic
     public productsUpdate: EventEmitter<any>;
 
-    private products = Array<Object>();
+    public products = Array<Object>();
     /**
     * @getProducts get all products
     * @return {Array} all drivers

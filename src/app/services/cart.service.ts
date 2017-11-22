@@ -14,7 +14,7 @@ export class CartService {
     /**
     * @info: Contains all of the cart items
     */
-    private cartArray: Array<Object> = [];
+    public cartArray: Array<Object> = [];
 
     /**
     * @getCart get all cart items
@@ -61,7 +61,7 @@ export class CartService {
     }
 
     constructor(
-        private storage: LocalStorageService,
+        public storage: LocalStorageService,
     ) {
         this.cartUpdate = new EventEmitter();
         this.cartArray = this.storage.retrieve('cartProducts') || [];

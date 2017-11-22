@@ -18,21 +18,21 @@ export class ContactFormComponent implements OnInit {
     @Input()
     type: String;
 
-    private ngForm: FormGroup;
+    public ngForm: FormGroup;
 
-    private captcha: boolean = false;
+    public captcha: boolean = false;
 
-    private wrongCaptcha: boolean = false;
+    public wrongCaptcha: boolean = false;
 
-    private emailValidationRegex: string = '^[a-zA-Z0-9.!#$%&’*+\/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$';
+    public emailValidationRegex: string = '^[a-zA-Z0-9.!#$%&’*+\/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$';
 
-    private phoneValidationRegex: string = '^[(]{0,1}[0-9]{3}[)]{0,1}[-\s\.]{0,1}[0-9]{3}[-\s\.]{0,1}[0-9]{4}$';
+    public phoneValidationRegex: string = '^[(]{0,1}[0-9]{3}[)]{0,1}[-\s\.]{0,1}[0-9]{3}[-\s\.]{0,1}[0-9]{4}$';
 
-    private messageSuccess: boolean = false;
+    public messageSuccess: boolean = false;
 
-    private messageFail: boolean = false;
+    public messageFail: boolean = false;
 
-    private formValidations: Array<Object> = [
+    public formValidations: Array<Object> = [
         {
             field: 'name',
             validation: [<any>Validators.required, <any>Validators.maxLength(40)]
@@ -52,10 +52,10 @@ export class ContactFormComponent implements OnInit {
     ];
     
     constructor(
-        private fetcherService: FetcherService,
-        private eventEmiterService: EventEmiterService,
-        private errorHandlerService: ErrorHandlerService,
-        private dictionary: Dictionary
+        public fetcherService: FetcherService,
+        public eventEmiterService: EventEmiterService,
+        public errorHandlerService: ErrorHandlerService,
+        public dictionary: Dictionary
     ) {
         this.eventEmiterService.formComplete.subscribe(response => this.onFormComplete(response));
     }
@@ -72,7 +72,7 @@ export class ContactFormComponent implements OnInit {
         this.ngForm = new FormGroup(formGroupObject);
     }
 
-    private resolvedCaptcha(value) {
+    public resolvedCaptcha(value) {
         if((value !== null) && (value.length > 0)) {
             this.captcha = true;
         } else {
@@ -80,17 +80,17 @@ export class ContactFormComponent implements OnInit {
         }
     }
 
-    private onMessageSend(response) {
+    public onMessageSend(response) {
         this.messageSuccess = true;
         this.ngForm.reset();
     }
 
-    private onMessageFail(err) {
+    public onMessageFail(err) {
         this.messageFail = true;
         this.errorHandlerService.handleError(err)
     }
 
-    private onFormComplete(response) {
+    public onFormComplete(response) {
         if(response.success) {
             this.onMessageSend(response.response);
         } else {
@@ -98,7 +98,7 @@ export class ContactFormComponent implements OnInit {
         }
     }
 
-    private formSubmit(formData) {
+    public formSubmit(formData) {
         // we reset the captcha
         if(!this.captcha) {
             this.wrongCaptcha = true;

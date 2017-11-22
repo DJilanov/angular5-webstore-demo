@@ -10,9 +10,9 @@ import { Dictionary } from '../../dictionary/dictionary.service';
 export class PriceComponent {
     
     @Input()
-    priceOptions: Object;
+    public priceOptions;
     
     constructor(
-        private dictionary: Dictionary
+        public dictionary: Dictionary
     ) {}
 }

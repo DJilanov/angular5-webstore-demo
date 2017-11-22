@@ -19,17 +19,17 @@ export class CartComponent {
 
     public cartProducts: Array<Object> = [];
 
-    private emailValidationRegex: string = '^[a-zA-Z0-9.!#$%&’*+\/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$';
+    public emailValidationRegex: string = '^[a-zA-Z0-9.!#$%&’*+\/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$';
 
-    private phoneValidationRegex: string = '^[(]{0,1}[0-9]{3}[)]{0,1}[-\s\.]{0,1}[0-9]{3}[-\s\.]{0,1}[0-9]{4}$';
+    public phoneValidationRegex: string = '^[(]{0,1}[0-9]{3}[)]{0,1}[-\s\.]{0,1}[0-9]{3}[-\s\.]{0,1}[0-9]{4}$';
 
-    private messageSuccess: boolean = false;
+    public messageSuccess: boolean = false;
 
-    private messageFail: boolean = false;
+    public messageFail: boolean = false;
 
-    private totalPrice: any = 0;
+    public totalPrice: any = 0;
 
-    private onOrderFormSubmit(formData) {
+    public onOrderFormSubmit(formData) {
         if(formData.type == 'cart') {
             let data = formData.formData.value;
             data.products = [];
@@ -48,16 +48,16 @@ export class CartComponent {
         }
     }
 
-    private onOrderSend(response, formData) {
+    public onOrderSend(response, formData) {
         this.cartService.emptyCart();
         this.eventEmiterService.emitFormComplete(response, true);
     }
 
-    private onMessageFail(err) {
+    public onMessageFail(err) {
         this.eventEmiterService.emitFormComplete(err, false);
     }
 
-    private updateCart(products) {
+    public updateCart(products) {
         this.cartProducts = products;
         for(let productCounter = 0; productCounter < products.length; productCounter++) {
             this.totalPrice += parseFloat(products[productCounter]['new_price']);
@@ -67,7 +67,7 @@ export class CartComponent {
         }
     }
 
-    private removeProductFromCart(product) {
+    public removeProductFromCart(product) {
         this.cartProducts = this.cartProducts.filter(function(el) {
             if(el['_id'] !== product._id) {
                 return el;
@@ -77,12 +77,12 @@ export class CartComponent {
     }
 
     constructor(
-        private dictionary: Dictionary,
-        private storage: LocalStorageService,
-        private fetcherService: FetcherService,
-        private cartService: CartService,
-        private eventEmiterService: EventEmiterService,
-        private errorHandlerService: ErrorHandlerService
+        public dictionary: Dictionary,
+        public storage: LocalStorageService,
+        public fetcherService: FetcherService,
+        public cartService: CartService,
+        public eventEmiterService: EventEmiterService,
+        public errorHandlerService: ErrorHandlerService
     ) {
         // we save the products in the cart via ID and amount. We later get the products by id
         this.cartProducts = this.storage.retrieve('cartProducts') || [];

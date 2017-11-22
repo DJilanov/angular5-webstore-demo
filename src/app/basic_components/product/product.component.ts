@@ -13,27 +13,27 @@ import { CartService } from '../../services/cart.service';
 
 export class ProductComponent {
     @Input()
-    productObject: Object;
+    productObject;
 
     @Output()
-    productImage: Object = {};
+    productImage = {};
 
-    private blankImage: string = 'http://1.bp.blogspot.com/--Gn3G0ImmUo/VTvLaHI0ScI/AAAAAAAAAOI/LIqMbamy8jM/s1600/COMputer%2Bparts.jpg';
+    public blankImage: string = 'http://1.bp.blogspot.com/--Gn3G0ImmUo/VTvLaHI0ScI/AAAAAAAAAOI/LIqMbamy8jM/s1600/COMputer%2Bparts.jpg';
 
-    private onAddToCart(product) {
+    public onAddToCart(product) {
         this.cartService.addToCart(product);
         // remove it when we have proper popup
         this.router.navigate(['cart']);
         return false;
     }
 
-    private isNaN(number) {
+    public isNaN(number) {
         return !isNaN(number);
     }
 
     constructor(
-        private router: Router,
-        private dictionary: Dictionary,
-        private cartService: CartService
+        public router: Router,
+        public dictionary: Dictionary,
+        public cartService: CartService
     ){}
 }

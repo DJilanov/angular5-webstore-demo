@@ -15,15 +15,15 @@ export class HomeComponent {
     // todo: Fill it with the real images and items
     public slides: Array<Object> = [];
 
-    private products =  Array<Object>();
+    public products =  Array<Object>();
 
-    private categories = Array<Object>();
+    public categories = Array<Object>();
 
     constructor(
-        private dictionary: Dictionary,
-        private productsService: ProductsService,
-        private categoriesService: CategoriesService,
-        private eventEmiterService: EventEmiterService
+        public dictionary: Dictionary,
+        public productsService: ProductsService,
+        public categoriesService: CategoriesService,
+        public eventEmiterService: EventEmiterService
     ) {
       this.products = productsService.getProducts();
       this.categories = categoriesService.getCategories();
@@ -33,13 +33,13 @@ export class HomeComponent {
       this.eventEmiterService.dataFetched.subscribe(data => this.onFetchedData(data));
     };
 
-    private onFetchedData(data) {
+    public onFetchedData(data) {
       this.products = data.products;
       this.categories = data.categories;
       this.setCarouselSlides();
     }
 
-    private setCarouselSlides() {
+    public setCarouselSlides() {
       // we sort the categories based on the array
       let categoriesArray = this.categories;
       let array = [];
@@ -68,7 +68,7 @@ export class HomeComponent {
       this.slides = tmpArray;
     }
 
-    private sortCategories(categories) {
+    public sortCategories(categories) {
       let sortedCategories = [];
       for(let categoryCounter = 0; categoryCounter < categories.length; categoryCounter++) {
         sortedCategories[+this.categories[categoryCounter]['zIndex']] = this.categories[categoryCounter];
@@ -76,7 +76,7 @@ export class HomeComponent {
       return sortedCategories.filter(function(n){ return n != undefined });
     }
 
-    private productsByCategory(category) {
+    public productsByCategory(category) {
       return this.productsService.getProductsByCategory(category.products);
     }
 }

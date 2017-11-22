@@ -14,33 +14,33 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 export class DetailsComponent implements OnInit {
 
-    private product: Object;
+    public product;
 
-    private productLink: String;
+    public productLink: String;
 
-    private imagesArray: Array<Object>;
+    public imagesArray: Array<Object>;
 
-    private productPrice: Object;
+    public productPrice: Object;
 
-    private productOldPrice: Object;
+    public productOldPrice: Object;
 
-    private starsCount: number = Math.random() * (5 - 3.8) + 3.8;
-    private voters: number = Math.floor(Math.random() * (50 - 10) + 10);
+    public starsCount: number = Math.random() * (5 - 3.8) + 3.8;
+    public voters: number = Math.floor(Math.random() * (50 - 10) + 10);
 
     constructor(
-        private router: Router,
-        private dictionary: Dictionary,
-        private metaService: Meta,
-        private routeParams: ActivatedRoute,
-        private productsService: ProductsService,
-        private eventEmiterService: EventEmiterService
+        public router: Router,
+        public dictionary: Dictionary,
+        public metaService: Meta,
+        public routeParams: ActivatedRoute,
+        public productsService: ProductsService,
+        public eventEmiterService: EventEmiterService
     ) {
         this.routeParams.params.subscribe(params => this.setParams(params));
         // TODO: REFACTOR IT!!!! ITS FIRING 7 TIMES FFS
         this.router.events.subscribe(data => this.changeTitle(data));
     };
 
-    private setParams(params) {
+    public setParams(params) {
         if(params['productLink']) {
             this.product = this.productsService.getProductByLink(params['productLink']);
             if(this.product == undefined) {
@@ -62,7 +62,7 @@ export class DetailsComponent implements OnInit {
         }
     }
 
-    private onProductsUpdate(products) {
+    public onProductsUpdate(products) {
         if(this.productLink !== undefined) {
             this.product = this.productsService.getProductByLink(this.productLink);
             this.productPrice = {
@@ -78,7 +78,7 @@ export class DetailsComponent implements OnInit {
         }
     }
 
-    private changeTitle(data) {
+    public changeTitle(data) {
         if(this.router.url.indexOf('/details') !== -1) {
             if(this.product['title']) {
                 this.metaService.updateTag({

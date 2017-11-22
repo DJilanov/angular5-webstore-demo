@@ -13,7 +13,7 @@ export class CategoriesService {
     /**
     * @info: Contains all of the categories
     */
-    private categoryArray = Array<Object>();
+    public categoryArray = Array<Object>();
 
     /**
     * @getCategories get all categories

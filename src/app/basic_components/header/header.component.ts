@@ -14,13 +14,13 @@ import { EventEmiterService } from '../../services/event.emiter.service';
 
 export class HeaderComponent {
 
-    private categories:Array<Object>;
+    public categories:Array<Object>;
 
     constructor(
-        private router: Router,
-        private dictionary: Dictionary,
-        private categoriesService: CategoriesService,
-        private eventEmiterService: EventEmiterService
+        public router: Router,
+        public dictionary: Dictionary,
+        public categoriesService: CategoriesService,
+        public eventEmiterService: EventEmiterService
     ) {
       this.categories = categoriesService.getCategories();
       this.updateCategoriesIndex();
@@ -28,16 +28,16 @@ export class HeaderComponent {
       this.eventEmiterService.dataFetched.subscribe(data => this.onFetchedData(data));
     };
 
-    private onFetchedData(data) {
+    public onFetchedData(data) {
       this.categories = data.categories;
       this.updateCategoriesIndex();
     }
 
-    private changeLanguage() {
+    public changeLanguage() {
       this.dictionary.changeLanguage();
     }
 
-    private updateCategoriesIndex(){
+    public updateCategoriesIndex(){
       let array = [];
       for(let categoriesCounter = 0; categoriesCounter < this.categories.length; categoriesCounter++) {
         array[+this.categories[categoriesCounter]['zIndex']] = this.categories[categoriesCounter];

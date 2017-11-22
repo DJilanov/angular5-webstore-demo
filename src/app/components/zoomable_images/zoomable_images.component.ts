@@ -14,10 +14,10 @@ export class ZoomableImagesComponent {
     @Input()
     alt: String;
 
-    private selectedImage: Object;
+    public selectedImage: Object;
 
     // used to change the selected image
-    private selectImage(image) {
+    public selectImage(image) {
         this.selectedImage = image;
     }
 

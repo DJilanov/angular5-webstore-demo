@@ -15,7 +15,7 @@ export class NotificationComponent implements OnInit {
     @Output()
     cPayChanged = new EventEmitter();
 
-    private showOverlay = false;
+    public showOverlay = false;
 
     /**
      * @ngOnInit on init

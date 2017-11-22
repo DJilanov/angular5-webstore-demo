@@ -17,34 +17,34 @@ import { EventEmiterService } from '../../services/event.emiter.service';
 
 export class ProductListComponent implements OnInit {
     @Input()
-    products: Array<Object> = [];
+    public products: Array<Object> = [];
 
     @Input()
-    category: Object = {};
+    public category;
 
-    private categoryUrl: any;
+    public categoryUrl: any;
 
-    private categoryLink: String;
+    public categoryLink: String;
 
     /**
      * @constructor on init
      */
     public constructor(
-        private router: Router,
-        private dictionary: Dictionary,
-        private metaService: Meta,
-        private sanitizer: DomSanitizer,
-        private routeParams: ActivatedRoute,
-        private productsService: ProductsService,
-        private categoriesService: CategoriesService,
-        private eventEmiterService: EventEmiterService
+        public router: Router,
+        public dictionary: Dictionary,
+        public metaService: Meta,
+        public sanitizer: DomSanitizer,
+        public routeParams: ActivatedRoute,
+        public productsService: ProductsService,
+        public categoriesService: CategoriesService,
+        public eventEmiterService: EventEmiterService
     ) {
         this.routeParams.params.subscribe(params => this.setParams(params));
         // TODO: REFACTOR IT!!!! ITS FIRING 7 TIMES FFS
         this.router.events.subscribe(data => this.changeTitle(data));
     }
 
-    private setParams(params) {
+    public setParams(params) {
         if(params['category']) {
             let category = params.category.toLowerCase();
             this.category = this.categoriesService.getCategoryByLink(category);
@@ -60,13 +60,13 @@ export class ProductListComponent implements OnInit {
         }
     }
 
-    private onFetchedData(data) {
+    public onFetchedData(data) {
         this.category = this.categoriesService.getCategoryByLink(this.categoryLink);
         this.products = this.productsService.getProductsByCategory(this.category['products']);
         this.categoryUrl = this.transform('products/' + this.category['link']);
     }
 
-    private changeTitle(data) {
+    public changeTitle(data) {
         if(this.router.url.indexOf('/products') !== -1) {
             if((this.category['title']) && (this.products[0])) {
                 this.metaService.updateTag({

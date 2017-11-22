@@ -12,18 +12,18 @@ import { CartService } from '../../services/cart.service';
 export class BuySectionComponent {
 
     @Input()
-    product: Object;
+    product;
 
-    private cartProducts: Array<Object> = [];
+    public cartProducts: Array<Object> = [];
 
     constructor(
-        private router: Router,
-        private dictionary: Dictionary,
-        private cartService: CartService
+        public router: Router,
+        public dictionary: Dictionary,
+        public cartService: CartService
     ) {}
     
 
-    private onAddToCart() {
+    public onAddToCart() {
         this.cartService.addToCart(this.product);
         // remove it when we have proper popup
         this.router.navigate(['cart']);

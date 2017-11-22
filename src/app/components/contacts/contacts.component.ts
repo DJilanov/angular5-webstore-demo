@@ -16,26 +16,28 @@ import { Config } from '../../config';
 
 export class ContactsComponent {
 
-    private mapCoordinates = Config.mapCoordinates;
-    private starsCount: number = 4.6;
+    public mapCoordinates = Config.mapCoordinates;
+    public starsCount: number = 4.6;
+    public messageFail: boolean = true;
+    public messageSuccess: boolean = true;
 
     constructor(
-        private dictionary: Dictionary,
-        private fetcherService: FetcherService,
-        private eventEmiterService: EventEmiterService
+        public dictionary: Dictionary,
+        public fetcherService: FetcherService,
+        public eventEmiterService: EventEmiterService
     ) {
         this.eventEmiterService.formSubmit.subscribe(data => this.onContactFormSubmit(data));
     }
 
-    private onMessageSend(response) {
+    public onMessageSend(response) {
         this.eventEmiterService.emitFormComplete(response, true);
     }
 
-    private onMessageFail(err) {
+    public onMessageFail(err) {
         this.eventEmiterService.emitFormComplete(err, false);
     }
 
-    private onContactFormSubmit(data) {
+    public onContactFormSubmit(data) {
         if(data.type == 'contact') {
             // send event to the contact module to send the request
             this.fetcherService.sendMessage(data.formData).subscribe(

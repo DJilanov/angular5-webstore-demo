@@ -11,7 +11,7 @@ import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
 export class ButtonComponent implements OnInit {
     
     @Input()
-    buttonOptions: Object;
+    buttonOptions;
     /**
      * @ngOnInit on init
      */

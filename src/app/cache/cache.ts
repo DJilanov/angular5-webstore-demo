@@ -5,11 +5,11 @@ import { ProductAndCategories } from './productAndCategories';
 export class Cache {
     // the variables containing the language jsons
     // will contain the default language
-    private language: string = ''; 
+    public language: string = ''; 
     // will return the texts from witch we fill our forms
     public getProductAndCategories() {
         return this.productAndCategories.cache
     };
 
-    constructor(private productAndCategories: ProductAndCategories) {};
+    constructor(public productAndCategories: ProductAndCategories) {};
 }

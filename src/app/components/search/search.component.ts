@@ -12,22 +12,22 @@ import { ProductsService } from '../../services/products.service';
 
 export class SearchComponent {
     
-    private products: Array<Object>;
+    public products: Array<Object>;
 
-    private valueCtrl: FormControl;
+    public valueCtrl: FormControl;
 
-    private filteredValues: any;
+    public filteredValues: any;
 
-    private filteredImages: Array<Object>;
+    public filteredImages: Array<Object>;
 
-    private filteredTitles: Array<string>;
+    public filteredTitles: Array<string>;
 
-    private searchQuery:string = '';
+    public searchQuery:string = '';
 
     constructor(
-        private dictionary: Dictionary,
-        private router: Router,
-        private productsService: ProductsService
+        public dictionary: Dictionary,
+        public router: Router,
+        public productsService: ProductsService
     ) {
       this.products = productsService.getProducts();
       this.addTypeaheadField();
@@ -36,12 +36,12 @@ export class SearchComponent {
       
     };
 
-    private onProductsUpdate(products) {
+    public onProductsUpdate(products) {
       this.products = products;
       this.addTypeaheadField();
     }
 
-    private addTypeaheadField() {
+    public addTypeaheadField() {
       this.valueCtrl = new FormControl();
       this.filteredTitles = this.products.map((product) => {
         return product['title'][this.dictionary['language']];
@@ -58,7 +58,7 @@ export class SearchComponent {
       return val ? this.filteredTitles.filter((s) => new RegExp(val, 'gi').test(s)) : this.filteredTitles;
     }
 
-    private onProductSelect(selected) {
+    public onProductSelect(selected) {
       this.valueCtrl.reset();
       this.router.navigate(['/details/', this.products[selected]['link']]);
     }
