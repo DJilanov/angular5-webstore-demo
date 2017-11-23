@@ -20,7 +20,6 @@ export class BulgarianDictionary {
         "headerSearch": "Търси",
         "headerSearchFor": "Потърси...",
         "headerYourProfile": "Профилът ви",
-        "headerCategories": "Видове продукти",
 
         "cartHeader": "Вашата количка с поръчки:",
         "storedAmount": "Остават още само",
@@ -28,18 +27,14 @@ export class BulgarianDictionary {
         "emptyCart": "Вашата количка с поръчки е все още празна. ",
         "cartSum": "Обща сума:",
         "undefinedPrice": "По договаряне",
-        "cart": "Количка",
-        "or": "или",
 
         "contactHeader": "За връзка с нас:",
         "contactMarker": "Координати",
         "contactAddress": "Улица Могилите. София 1836",
-        "contactOurAddress": "Или да ни потърсите на следния адрес",
+        "contactOurAddress": "Адрес",
         "contactCoordinateAdress": "жк.Левски Г,ул. Могилите бл.4, София 1836",
-        "contactPhoneTitle": "Да се свържете с нас на",
-        "contactFacebook": "https://www.facebook.com/Jilanovltd/",
-        "contactPhone1": "0878422063",
-        "contactPhone2": "0878613400",
+        "contactPhoneTitle": "Телефон за връзка",
+        "contactPhone": "0878422063 , 0878613400",
         "contactRules": "Посещения на място след предварително договаряне!",
         "contactFormTitle": "Може да ни изпратите запитване през формата",
         "contactOrderTitle": "Може да направите поръчка през формата",
@@ -50,7 +45,6 @@ export class BulgarianDictionary {
         "contactFormYourPhoneNumber": "Вашия телефонен номер",
         "contactFormYourPhoneNumberEnter": "Въведете вашия телефонен номер",
         "contactFormYourMoreInfo": "Забележки и допълнителна информация",
-        "contactRating": "рейтинг",
         // Implement it when you have time
         "contactFormYourMoreInfoEmpty": "Допълнителна информация за търсения от вас продукт",
 

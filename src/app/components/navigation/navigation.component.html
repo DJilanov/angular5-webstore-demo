@@ -1,0 +1,64 @@
+<a [routerLink]="['/admin']">
+  Back
+</a>
+<div *ngIf="categories.length > 0">
+  <h1>Website navigation</h1>
+  <h4>Drag and drop them to the navi in the order you want them to be</h4>
+  <ul class="list-group">
+      <li draggable *ngFor="let item of categoriesClone"
+          [dragData]="item" class="list-group-item">
+          {{item.title[dictionary.language]}} 
+      </li>
+  </ul>
+  <div class="header" 
+      droppable 
+      (onDrop)="onCategoryDrop($event)"
+    >
+    <a [routerLink]="['/']" class="logo pull-left">
+        <image 
+          [src]="'./src/img/navigation-logo.png'"
+          [alt]="'logo'"></image>
+    </a>
+    <ul class="nav navbar-nav navbar-left custom-navi">
+      <li *ngFor="let category of navItems">
+        <a>{{category.title[dictionary.language]}}</a>
+      </li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right custom-navi" 
+      *ngIf="categories.length > 0">
+      <li>
+        <a [routerLink]="['contacts']">{{dictionary.getTexts('headerContact')}}</a>
+      </li>
+      <li class="cart">
+        <a [routerLink]="['cart']">
+          <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+        </a>
+      </li>
+      <li>
+        <input placeholder="{{dictionary.getTexts('headerSearchFor')}}">
+      </li>
+      <li class="flag" (click)="changeLanguage()">
+        <image 
+          [src]="'./src/img/' + dictionary.nextLanguage() + '.png'"
+          [alt]="dictionary.language"></image>
+      </li>
+    </ul>
+  </div>
+</div>
+<div class="col-xs-12 buttons">
+  <button
+    (click)="saveNewPositioning()"
+    class="btn btn-primary col-xs-4">
+    update navigation
+  </button>
+  <button
+    (click)="refreshPositioning()"
+    class="btn btn-danger col-xs-4">
+    refresh
+  </button>
+  <button
+    (click)="removeLastChange()"
+    class="btn btn-danger col-xs-4">
+    remove last one
+  </button>
+</div>

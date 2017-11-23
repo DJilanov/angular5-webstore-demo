@@ -1,0 +1,56 @@
+.header {
+    background-color: #5857c9;
+    background-image: linear-gradient(to right, #2065b9 0%, #55afe8 100%);
+    padding: 20px;
+    height: 100px;
+}
+
+.buttons {
+    margin-top: 20px;
+}
+
+/*  header */
+
+.logo {
+    display: block;
+}
+
+.custom-navi {
+    margin-left: 20px;
+}
+
+.custom-navi li :hover,
+.custom-navi li :focus {
+    background-color: #2065b9;
+}
+
+.custom-navi.navbar-right {
+    margin-top: 7px;
+}
+
+.custom-navi.navbar-right li :hover,
+.custom-navi.navbar-right li :focus {
+    background-color: white;
+}
+
+.custom-navi.navbar-right li.flag :hover, 
+.custom-navi.navbar-right li.flag :focus,
+.custom-navi.navbar-right li.cart :hover, 
+.custom-navi.navbar-right li.cart :focus {
+    background-color: transparent;
+}
+
+.custom-navi li a {
+    color: white!important
+}
+
+.cart a {
+    margin-right: 20px;
+    color: white;
+    bottom: 7px;
+}
+
+.flag {
+    margin-left: 20px;
+    max-width: 35px;
+}

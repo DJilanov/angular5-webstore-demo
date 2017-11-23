@@ -11,19 +11,19 @@
     "build-prod": "ng build --prod"
   },
   "dependencies": {
+    "@agm/core": "1.0.0-beta.2",
     "@angular/animations": "5.0.2",
+    "@angular/cdk": "5.0.0-rc.1",
     "@angular/common": "5.0.2",
     "@angular/compiler": "5.0.2",
     "@angular/compiler-cli": "5.0.2",
     "@angular/core": "5.0.2",
     "@angular/forms": "5.0.2",
     "@angular/http": "5.0.2",
+    "@angular/material": "5.0.0-rc.1",
     "@angular/platform-browser": "5.0.2",
     "@angular/platform-browser-dynamic": "5.0.2",
     "@angular/router": "5.0.2",
-    "@angular/cdk": "5.0.0-rc.1",
-    "@angular/material": "5.0.0-rc.1",
-    "@agm/core": "1.0.0-beta.2",
     "@types/google-maps": "3.2.0",
     "@types/lodash": "4.14.64",
     "bootstrap-validator": "0.11.9",
@@ -32,11 +32,12 @@
     "lodash": "4.17.4",
     "moment": "2.18.1",
     "moment-timezone": "0.5.13",
-    "rxjs": "5.5.2",
-    "zone.js": "0.8.10",
+    "ng-drag-drop": "^4.0.0",
     "ng-recaptcha": "3.0.2",
+    "ngx-rating": "0.0.9",
     "ngx-webstorage": "2.0.0",
-    "ngx-rating": "0.0.9"
+    "rxjs": "5.5.2",
+    "zone.js": "0.8.10"
   },
   "devDependencies": {
     "@angular/cli": "1.4.4",

@@ -1,0 +1,124 @@
+<a [routerLink]="['/admin']">
+  Back
+</a>
+<div class="container" *ngIf="categories.length > 0">
+  <h1>All company categories</h1>
+  <!-- <template ngFor #categoriesObject [ngForOf]="categories" let-index="index">
+    <div class="container">
+      <h1> {{ categories[index].title.bg }} </h1>
+      <div class="col-xs-12">
+        <h4>{{ dictionary.getTexts('productTitle') }}</h4>
+        <div class="col-xs-6">
+          <label for="enTitle">BG</label>
+          <input 
+            [(ngModel)]="categories[index].title.bg"
+            required="true" 
+            type="text" 
+            class="form-control" 
+            name="enTitle" 
+            placeholder="{{ dictionary.getTexts('productTitle') }}">
+        </div>
+        <div class="col-xs-6">
+          <label for="bgTitle">EN</label>
+          <input 
+            [(ngModel)]="categories[index].title.en"
+            required="true" 
+            type="text" 
+            class="form-control" 
+            name="bgTitle" 
+            placeholder="{{ dictionary.getTexts('productTitle') }}">
+        </div>
+      </div>
+      <div class="col-xs-12">
+        <h4>{{ dictionary.getTexts('name') }}</h4>
+        <div class="col-xs-6">
+          <label for="enTitle">BG</label>
+          <input 
+            [(ngModel)]="categories[index].name.bg"
+            required="true" 
+            type="text" 
+            class="form-control" 
+            name="enTitle" 
+            placeholder="{{ dictionary.getTexts('name') }}">
+        </div>
+        <div class="col-xs-6">
+          <label for="bgTitle">EN</label>
+          <input 
+            [(ngModel)]="categories[index].name.en"
+            required="true" 
+            type="text" 
+            class="form-control" 
+            name="bgTitle" 
+            placeholder="{{ dictionary.getTexts('name') }}">
+        </div>
+      </div>
+      <div class="col-xs-12">
+          <h4>{{ dictionary.getTexts('products') }}</h4>
+          <input 
+            class="col-xs-12"
+            [(ngModel)]="categories[index].products"
+            required="true" 
+            type="text" 
+            class="form-control" 
+            name="bgTitle" 
+            placeholder="{{ dictionary.getTexts('products') }}">
+      </div>
+      <div class="col-xs-12">
+          <h4>{{ dictionary.getTexts('productZIndex') }}</h4>
+          <input 
+            class="col-xs-12"
+            [(ngModel)]="categories[index].zIndex"
+            required="true" 
+            type="text" 
+            class="form-control" 
+            name="bgTitle" 
+            placeholder="{{ dictionary.getTexts('productZIndex') }}">
+      </div>
+      <div class="col-xs-12">
+          <h4>{{ dictionary.getTexts('productShown') }}</h4>
+          <input 
+            class="col-xs-12"
+            [(ngModel)]="categories[index].shownOnNav"
+            required="true" 
+            type="checkbox" 
+            class="form-control" 
+            name="bgTitle">
+      </div>
+      <div class="col-xs-12">
+          <h4>{{ dictionary.getTexts('productLink') }}</h4>
+          <input 
+            class="col-xs-12"
+            [(ngModel)]="categories[index].link"
+            required="true" 
+            type="text" 
+            class="form-control" 
+            name="bgTitle" 
+            placeholder="{{ dictionary.getTexts('productLink') }}">
+      </div>
+      <div class="col-xs-12 buttons"
+        *ngIf="!categories[index].new">
+        <button
+          (click)="update(categories[index])"
+          class="btn btn-primary col-md-6 col-xs-12">
+          {{ dictionary.getTexts('editProduct') }}
+        </button>
+        <button
+          (click)="delete(categories[index])"
+          class="btn btn-danger col-md-6 col-xs-12">
+            {{ dictionary.getTexts('deleteBtn') }}
+        </button>
+      </div>
+      <div class="col-xs-12 buttons"
+        *ngIf="categories[index].new">
+        <button
+          (click)="create(categories[index])"
+          class="btn btn-primary col-xs-12">
+          {{ dictionary.getTexts('createProduct') }}
+        </button>
+      </div>
+    </div>
+  </template> -->
+  <div class="col-xs-12 add-new" (click)="addCategory()">
+     <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+  </div>
+</div>

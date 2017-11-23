@@ -1,0 +1,11 @@
+.add-new {
+    font-size: 100px;
+    text-align: center;
+}
+
+.container {
+    margin-bottom: 50px;
+    border: 1px solid black;
+    padding: 15px;
+    border-radius: 10px;
+}

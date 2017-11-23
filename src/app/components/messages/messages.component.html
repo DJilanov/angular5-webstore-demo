@@ -1,0 +1,38 @@
+<a [routerLink]="['/admin']">
+  Back
+</a>
+<div class="container" *ngIf="messages.length > 0">
+  <h1>All company messages</h1>
+  <!-- <template ngFor #messagesObject [ngForOf]="messages" let-index="index">
+      <h1> {{ messages[index].date }} </h1>
+      <div class="form-group">
+        <h4>{{ dictionary.getTexts('productTitle') }}</h4>
+        <div class="col-xs-12">
+          <label for="enTitle">Name</label>
+          <h3>{{ messages[index].name }}</h3>
+        </div>
+        <h4>{{ dictionary.getTexts('productTitle') }}</h4>
+        <div class="col-xs-12">
+          <label for="enTitle">Email</label>
+          <h3>{{ messages[index].email }}</h3>
+        </div>
+        <h4>{{ dictionary.getTexts('productTitle') }}</h4>
+        <div class="col-xs-12">
+          <label for="enTitle">Phone</label>
+          <h3>{{ messages[index].phone }}</h3>
+        </div>
+        <h4>{{ dictionary.getTexts('productTitle') }}</h4>
+        <div class="col-xs-12">
+          <label for="enTitle">Text</label>
+          <h3>{{ messages[index].text }}</h3>
+        </div>
+      </div>
+      <div class="col-xs-12 buttons">
+        <button
+          (click)="deleteMessage(messages[index])"
+          class="btn btn-danger col-xs-12">
+            {{ dictionary.getTexts('deleteBtn') }}
+        </button>
+      </div>
+  </template> -->
+</div>
