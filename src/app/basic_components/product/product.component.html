@@ -1,0 +1,60 @@
+<a [routerLink] = "['/details', productObject.link]">
+  <span 
+    *ngIf="productObject.daily_offer"
+    class="offer-box box">
+      <span>{{dictionary.getTexts('productOffer')}}</span>
+  </span>
+  <span 
+    *ngIf="productObject.is_new"
+    class="new-box box">
+      <span>{{dictionary.getTexts('productNew')}}</span>
+  </span>
+  <span 
+    *ngIf="productObject.count == 0"
+    class="over-box box">
+      <span>{{dictionary.getTexts('productOver')}}</span>
+  </span>
+  <div class="col-xs-12 product"  itemscope itemtype="http://schema.org/Product">
+    <div class="image-holder" itemprop="image">
+      <img 
+        [src]="'/img/small/' + productObject.main_image || blankImage"
+        [alt]="productObject.title.bg"/>
+      <!--<div class="like">
+        <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+      </div>-->
+    </div>
+    <div class="info-container">
+      <h2 class="title" itemprop="name">
+        {{productObject.title[dictionary.language]}}
+      </h2>
+      <div itemprop="aggregateRating">
+        <!--<rating [(ngModel)]="productObject.rating" max="5" stateOn="glyphicon-star"
+            stateOff="glyphicon-star-empty"></rating>-->
+      </div>
+      <div class="params" *ngIf="productObject.params" itemprop="description">
+        <ul *ngFor="let params of productObject.params[dictionary.language]">
+          <li 
+            *ngIf="params && params.length > 0"
+            >{{params}}</li>
+        </ul>
+      </div>
+      <div class="description" itemprop="description">
+        {{productObject.description[dictionary.language]}}
+      </div>
+      <div class="button-container">
+        <div class="price" itemprop="offers" itemscope itemtype="http://schema.org/AggregateOffer">
+          <span>{{dictionary.getTexts('price')}}</span>
+          <span class="new-price" itemprop="lowPrice">{{productObject.new_price}}</span>
+          <span class="old-price" itemprop="highPrice">{{productObject.old_price}}</span>
+          <span class="currency" itemprop="priceCurrency" 
+            *ngIf="isNaN(productObject.new_price)"> {{dictionary.getTexts('currency')}}</span>
+        </div>
+        <button
+          (click)="onAddToCart(productObject)"
+          class="btn btn-success">
+          {{dictionary.getTexts('addToCart')}}
+        </button>
+      </div>
+    </div>
+  </div>
+</a>

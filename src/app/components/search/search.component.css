@@ -1,0 +1,18 @@
+mat-form-field {
+    margin: 0 20px 0 20px;
+}
+
+md-option {
+    overflow: hidden;
+    height: 64px;
+}
+
+md-grid-tile div {
+    overflow: hidden;
+    height: 64px;
+}
+
+.image-holder {
+    display: inline-block;
+    width: 50px;
+}

@@ -1,0 +1,60 @@
+<div 
+  class="col-xs-12 details" 
+  *ngIf="product.title"
+  itemscope itemtype="http://schema.org/Product">
+  <div class="col-md-3 col-xs-12 images-section" itemprop="image">
+    <zoomable-images [zoomableImages]="imagesArray" [alt]="product.title[dictionary.language]"></zoomable-images>
+  </div>
+  <div class="col-md-7 col-xs-12 info-section">
+    <section class="center" itemprop="name">
+      <h1>{{product.title[dictionary.language]}}</h1>
+      <h4>{{dictionary.getTexts('detailsBy')}} {{product.make}}</h4>
+      <!-- Todo: set real stars from the back-end-->
+      <div class="stars rating">
+        <span>{{starsCount | number : '1.2-2'}}</span>
+        <rating [(ngModel)]="starsCount"
+          [readonly]="true"> 
+        </rating>
+        <span>({{voters}})</span>
+      </div>
+    </section>
+    <section class="center">
+      <h5 >{{dictionary.getTexts('detailsStatus')}} 
+        <strong *ngIf="product.count > 0">{{dictionary.getTexts('detailsStock')}}</strong>
+        <strong *ngIf="product.count == 0">{{dictionary.getTexts('detailsNotStock')}}</strong>
+      </h5>
+      <h5 itemscope itemtype="http://schema.org/AggregateOffer">{{dictionary.getTexts('price')}} 
+        <strong *ngIf="product.old_price.length > 0" itemprop="lowPrice">
+          <price [priceOptions]="productOldPrice"></price>
+        </strong>
+        <strong itemprop="highPrice">
+          <price [priceOptions]="productPrice"></price>
+        </strong>
+      </h5>
+    </section>
+    <section class="description center" itemprop="description">
+      <p>{{ product.description[dictionary.language] }}</p>
+    </section>
+    <div class="params" *ngIf="product.params" itemprop="description">
+      <ul *ngFor="let params of product.params[dictionary.language]">
+        <li 
+          *ngIf="params.length > 0"
+          >{{params}}</li>
+      </ul>
+    </div>
+    <section class="more-info center" itemprop="description">
+      <p>{{ product.more_info[dictionary.language] }}</p>
+    </section>
+  </div>
+  <div class="col-md-2 col-xs-12 buy-section">
+     <buy-section 
+      class="center" 
+      [product]="product"></buy-section> 
+  </div>
+  <div class="col-xs-12" itemprop="description">
+    <section class="more-details">
+      <p>{{ product.more_details[dictionary.language] }}</p>
+    </section>
+  </div>
+  <!--<suggestion-list [product]="product"></suggestion-list>-->
+</div>

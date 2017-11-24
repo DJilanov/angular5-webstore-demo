@@ -1,0 +1,42 @@
+<div class="container">
+	<div 
+		*ngIf="cartProducts && cartProducts.length > 0"
+		class="col-xs-12">
+		<h3>{{dictionary.getTexts('cartHeader')}}</h3>
+		<div class="row">
+			<ng-template ngFor #productObject [ngForOf]="cartProducts" let-index="index">
+				<div class="col-xs-12 col-sm-12 col-md-4 product">
+					<div class="remove" (click)="removeProductFromCart(cartProducts[index])">
+						<span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
+					</div>
+					<a [routerLink]="['/details', cartProducts[index].link]">
+						<div class="col-xs-12">
+							<div class="title">
+								{{cartProducts[index].title[dictionary.language]}}
+							</div>
+							<div class="price">
+								<span>{{dictionary.getTexts('price')}}</span>
+								<span class="new-price">{{cartProducts[index].new_price}}</span>
+								<span class="old-price">{{cartProducts[index].old_price}}</span>
+							</div>
+						</div>
+					</a>
+				</div>
+				<div *ngIf="index%3 == 2" class="clearfix visible-sm visible-md visible-lg"></div>
+			</ng-template>
+		</div>
+		<h3>{{dictionary.getTexts('cartSum')}} {{totalPrice}} </h3>
+	</div>
+	<div class="alert alert-success" *ngIf="messageSuccess">
+		<strong>{{dictionary.getTexts('contactOrderSuccess')}}</strong> {{dictionary.getTexts('contactOrderRecieved')}}
+	</div>
+	<div class="alert alert-danger" *ngIf="messageFail">
+		<strong>{{dictionary.getTexts('contactMessageFail')}}</strong> {{dictionary.getTexts('contactMessageNotRecieved')}} {{dictionary.getTexts('contactPhone')}}
+	</div>
+	<h4 
+		*ngIf="!cartProducts || cartProducts.length == 0">
+		{{dictionary.getTexts('emptyCart')}}
+	</h4>
+	<contact-form type="cart"></contact-form>
+</div>
+	

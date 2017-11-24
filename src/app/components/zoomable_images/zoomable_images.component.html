@@ -1,0 +1,16 @@
+<div class="main-image-container col-xs-12" *ngIf="zoomableImages">
+  <img 
+      image-zoom 
+      [src]="'/img/' + (selectedImage || zoomableImages[0])"
+      [alt]="alt">
+</div>
+<div class="sub-images-container col-xs-12">
+  <div 
+    class="sub-image-container" 
+    *ngFor="let image of zoomableImages">
+    <img 
+      (click)="selectImage(image)"
+      [src]="'/img/' + image"
+      [alt]="alt">
+  </div>
+</div>

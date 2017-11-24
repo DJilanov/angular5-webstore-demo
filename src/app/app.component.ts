@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Cache } from './cache/cache';
 import { Dictionary } from './dictionary/dictionary.service';
 import { FetcherService } from './services/fetcher.service';
 import { CategoriesService } from './services/categories.service';
@@ -10,7 +11,8 @@ import { ErrorHandlerService } from './services/error.handler.service';
 @Component({
     selector: 'app',
     templateUrl: './app.component.html',
-    styles: [ require('./sass/style.scss') ]
+    styleUrls: ['./app.component.css', './theme.css', './grid.css'],
+    encapsulation: ViewEncapsulation.None 
 })
 
 export class AppComponent {
@@ -20,6 +22,7 @@ export class AppComponent {
     public location: string;
 
     constructor(
+        public cache: Cache,
         public router: Router,
         public fetcher: FetcherService,
         public dictionary: Dictionary,
@@ -28,6 +31,7 @@ export class AppComponent {
         public eventEmiterService: EventEmiterService,
         public errorHandlerService: ErrorHandlerService
     ) {
+        this.setData(cache.getProductAndCategories());
         fetcher.getProductsAndCategories().subscribe(
             data => this.setData(data),
             err => this.errorHandlerService.handleError(err)

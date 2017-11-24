@@ -1,0 +1,23 @@
+.logo {
+    display: block;
+}
+
+.logo img {
+    height: 50px;
+}
+
+.nav-item {
+  flex: 1 1 auto;
+}
+
+.fill-remaining-space {
+  flex: 1 1 auto;
+}
+
+[role=img] {
+  cursor: pointer
+}
+
+.categories-button {
+  width: 200px;
+}

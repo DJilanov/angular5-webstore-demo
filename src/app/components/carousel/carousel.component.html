@@ -1,0 +1,38 @@
+<div 
+    class="carousel" 
+    [style.background]="background">
+    <!--Integrate the style="width: 4120px; transition: margin 0.5s ease-in-out; margin-left: -412px;" -->
+    <div 
+        #carousel 
+        [style.width]="carouselWholeWidth + 'px'"
+        class="slides-container layout-row" 
+        layout="row">
+        <!--Integrate the style="width: 412px; height: 258px;" -->
+        <div
+            *ngIf="slides" 
+            class="row">
+            <div 
+                *ngFor="let slide of slides; let i = index;" 
+                [style.height]="height"
+                [style.width]="width"
+                class="slide">
+                <div (click)="openLink(slides[i])" >
+                    <h2>{{slides[i].title['bg']}}</h2>
+                    <img src="{{'/img/small/' + slides[i].main_image || blankImage}}" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <button class="mat-icon-button left-arrow-button md-button md-ink-ripple" type="button" aria-label="chevron_left">
+        <mat-icon (click)="previous()" class="material-icons" role="button" tabindex="0">chevron_left</mat-icon>
+    </button>
+    <button class="mat-icon-button right-arrow-button md-button md-ink-ripple" type="button" aria-label="chevron_right">
+        <mat-icon (click)="next()" class="material-icons" role="button" tabindex="0">chevron_right</mat-icon>
+    </button>
+    <mat-radio-group 
+        [(ngModel)]="selectedSlide"
+        name="radio_options" 
+        class="radio-buttons-container">
+        <mat-radio-button *ngFor="let radioItem of slides;let i = index" name="radio_options" [value]="i" (click)="selectSlide(i)"></mat-radio-button>
+    </mat-radio-group>
+</div>

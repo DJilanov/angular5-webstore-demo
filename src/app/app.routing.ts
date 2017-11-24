@@ -2,57 +2,61 @@
 import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-// Admin Views
-import { LoginComponent } from './components/login/login.component';
+// Standard Views
 import { HomeComponent } from './components/home/home.component';
-import { MessagesComponent } from './components/messages/messages.component';
-import { ProductsComponent } from './components/products/products.component';
-import { CategoriesComponent } from './components/categories/categories.component';
-import { NavigationComponent } from './components/navigation/navigation.component';
+import { CartComponent } from './components/cart/cart.component';
+import { DetailsComponent } from './components/details/details.component';
+import { ContactsComponent } from './components/contacts/contacts.component';
+import { ProductListComponent } from './components/product_list/product_list.component';
+import { PageNotFoundComponent } from './components/page_not_found/page_not_found.component';
 
 const appRoutes: Routes = [
   { 
-    path: 'login', 
-    component: LoginComponent,
-    data: {
-      title: 'Login'
-    }
-  }, { 
-    path: 'home', 
+    path: '', 
     component: HomeComponent,
     data: {
-      title: 'Home'
+      meta: {
+        title: 'Компютърни компоненти Жиланов: евтини РАМ(RAM) памети, видеонаблюдение, твърд диск и видеокарти',
+        description: 'Изберете от десетките видове RAM памети, хард дискове и компютърни части на промоционалните ни цени!'
+      }
     }
   }, { 
-    path: 'navigation', 
-    component: NavigationComponent,
+    path: 'products/:category', 
+    component: ProductListComponent,
     data: {
-      title: 'Navigation'
+      meta: {
+        description: 'Изберете от десетките видове RAM памети, хард дискове и компютърни части на промоционалните ни цени!'
+      }
     }
   }, { 
-    path: 'products', 
-    component: ProductsComponent,
+    path: 'details/:productLink', 
+    component: DetailsComponent,
     data: {
-      title: 'Products'
+      meta: {
+        description: 'Изберете от десетките видове RAM памети, хард дискове и компютърни части на промоционалните ни цени!'
+      }
     }
   }, { 
-    path: 'categories', 
-    component: CategoriesComponent,
+    path: 'cart', 
+    component: CartComponent,
     data: {
-      title: 'Categories'
+      meta: {
+        title: 'Количка с поръчки от Жиланов ЕООД',
+        description: 'Не изпускайте момента да подобрите компютъра си на промоционалните ни цени!'
+      }
     }
   }, { 
-    path: 'messages', 
-    component: MessagesComponent,
+    path: 'contacts', 
+    component: ContactsComponent,
     data: {
-      title: 'Messages'
+      meta: {
+        title: 'Връзка с Жиланов ЕООД',
+        description: 'Можете да се свържете с нас на телефон 0878466180 или чрез контактната форма'
+      }
     }
-  }, {
+  }, { 
     path: '**', 
-    component: LoginComponent,
-    data: {
-      title: 'Login'
-    }
+    component: PageNotFoundComponent
   }
 ];
 
