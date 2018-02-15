@@ -7,7 +7,6 @@ export class CategoryModel {
 	zIndex: string;
 	shownOnNav: boolean;
 	link: string;
-	isNew: boolean;
 
 	constructor(
 		id?: string,
@@ -16,7 +15,6 @@ export class CategoryModel {
 		zIndex?: string,
 		shownOnNav?: boolean,
 		link?: string,
-		isNew?: boolean,
 	) {
 		this.id = id;
 		this.title = title;
@@ -24,6 +22,5 @@ export class CategoryModel {
 		this.zIndex = zIndex;
 		this.shownOnNav = shownOnNav;
 		this.link = link;
-		this.isNew = isNew;
 	}
 }

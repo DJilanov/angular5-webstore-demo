@@ -59,42 +59,4 @@ export class BackendService {
     public sendOrder(body) {
         return this.backendRequest('post', 'order', body);
     }
-    /**
-    * @adminLogin send request with login data to the back-end
-    * @return {Object} response of the back-end
-    */
-    public adminLogin(body) {
-        return this.backendRequest('post', 'admin/login', body);
-    }
-    /**
-    * @updateProduct send request with changed product
-    * @return {Object} response of the back-end
-    */
-    public updateProduct(body) {
-        return this.backendRequest('post', 'products', body);
-    }
-    /**
-    * @updateCategories send request with changed categories array
-    * @return {Object} response of the back-end
-    */
-    public updateCategories(body) {
-        return this.backendRequest('post', 'categories', body);
-    }
-    /**
-    * @getMessages get all messages
-    * @return {Array} messages
-    */
-    public getMessages(body) {
-        let request = Object.assign(body, {'type': 'get'});
-        return this.backendRequest('post', 'message', request);
-    }
-    /**
-    * @deleteMessage send request with message for deletion
-    * @return {Object} response of the back-end
-    */
-    public deleteMessage(body) {
-        let request = Object.assign(body, {'type': 'delete'});
-        return this.backendRequest('post', 'message', request);
-    }
-
 }

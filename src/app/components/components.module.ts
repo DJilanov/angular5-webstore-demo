@@ -2,6 +2,8 @@ import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
+import { CarouselComponent } from './carousel/carousel.component';
+
 import { throwIfAlreadyLoaded } from '../core/module-import-guard';
 
 @NgModule({
@@ -10,10 +12,10 @@ import { throwIfAlreadyLoaded } from '../core/module-import-guard';
         CommonModule
     ],
     exports: [
+        CarouselComponent
     ],
     declarations: [
-    ],
-    providers: [
+        CarouselComponent
     ]
 })
 export class ComponentsModule {

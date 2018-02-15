@@ -1,40 +1,16 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand">
         <img class="logo" src="./assets/images/logo.png" alt="logo">
-        <span translate>Admin panel</span>
+        <span translate>Jilanov EOOD</span>
     </a>
 
     <div class="collapse navbar-collapse">
         <ul class="navbar-nav mr-auto">
-            <!-- <li (click)="makeActiveTab('home')"
+            <li *ngFor="let category of categories"
+                (click)="makeActiveTab(category.link)"
                 class="nav-item">
-                <a [class.active]="activeTab === 'home'"
-                    class="nav-link" routerLink="/home" translate>Home</a>
-            </li> -->
-            <li (click)="makeActiveTab('navigation')"
-                class="nav-item">
-                <a [class.active]="activeTab === 'navigation'"
-                    class="nav-link" routerLink="/navigation" translate>Navigation</a>
-            </li>
-            <li (click)="makeActiveTab('products')"
-                class="nav-item">
-                <a [class.active]="activeTab === 'products'"
-                    class="nav-link" routerLink="/products" translate>Products</a>
-            </li>
-            <li (click)="makeActiveTab('categories')"
-                class="nav-item">
-                <a [class.active]="activeTab === 'categories'"
-                    class="nav-link" routerLink="/categories" translate>Categories</a>
-            </li>
-            <li (click)="makeActiveTab('messages')"
-                class="nav-item">
-                <a [class.active]="activeTab === 'messages'"
-                    class="nav-link" routerLink="/messages" translate>Messages</a>
-            </li>
-            <li (click)="makeActiveTab('analytics')"
-                class="nav-item">
-                <a [class.active]="activeTab === 'analytics'"
-                    class="nav-link" routerLink="/messages" translate>Analytics</a>
+                <a [class.active]="activeTab === category.link"
+                    class="nav-link" [routerLink]="'/products/' + category.link" translate>{{category.name[language]}}</a>
             </li>
         </ul>
         <form

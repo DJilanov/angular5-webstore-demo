@@ -5,8 +5,6 @@ import { BackendService } from './backend/backend.service';
 import { ErrorHandlerService } from './error-handler/error-handler.service';
 import { EventBusService } from './event-bus/event-bus.service';
 
-import { LoginGuard } from './login-guard/login-guard.service';
-
 import { throwIfAlreadyLoaded } from './module-import-guard';
 
 @NgModule({
@@ -14,7 +12,6 @@ import { throwIfAlreadyLoaded } from './module-import-guard';
 		CommonModule
 	],
 	providers: [
-		LoginGuard,
 		BackendService,
 		EventBusService,
 		ErrorHandlerService

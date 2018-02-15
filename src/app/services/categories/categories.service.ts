@@ -33,6 +33,7 @@ export class CategoriesService {
     * @setCategories set all categories
     */
     public setCategories(categories: CategoryModel[]) {
+        // TODO: Handle show on nav check
         this.categoryArray = categories;
         this.emitCategories();
     }

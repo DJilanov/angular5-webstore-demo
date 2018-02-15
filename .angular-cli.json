@@ -2,7 +2,7 @@
 	"$schema": "./node_modules/@angular/cli/lib/config/schema.json",
 	"project": {
 		"version": "1.0.0",
-		"name": "angular5-website-admin-panel"
+		"name": "angular5-website-panel"
 	},
 	"apps": [
 		{
@@ -29,6 +29,10 @@
 					"input": "../node_modules/font-awesome/css/font-awesome.min.css", 
 					"output": "font-awesome.css" 
 				}
+			],
+			"scripts": [
+				"../node_modules/jquery/dist/jquery.min.js",
+				"../node_modules/bootstrap/dist/js/bootstrap.min.js"
 			],
 			"environmentSource": "environments/environment.ts",
 			"environments": {

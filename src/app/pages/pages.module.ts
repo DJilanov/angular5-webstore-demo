@@ -8,40 +8,34 @@ import { DndModule } from 'ng2-dnd';
 import { throwIfAlreadyLoaded } from '../core/module-import-guard';
 
 import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './login/login.component';
-import { MessagesComponent } from './messages/messages.component';
-import { ProductsComponent } from './products/products.component';
-import { NavigationComponent } from './navigation/navigation.component';
-import { CategoriesComponent } from './categories/categories.component';
-import { ProductEditComponent } from './product-edit/product-edit.component';
-import { CategoryEditComponent } from './category-edit/category-edit.component';
+import { CartComponent } from './cart/cart.component';
+import { ContactComponent } from './contact/contact.component';
+import { CategoryComponent } from './category/category.component';
+import { ProductDetailsComponent } from './product-details/product-details.component';
+
+import { ComponentsModule } from '../components/components.module';
 
 @NgModule({
     imports: [
         RouterModule,
         CommonModule,
         FormsModule,
+        ComponentsModule,
         DndModule.forRoot()
     ],
     exports: [
         HomeComponent,
-        LoginComponent,
-        MessagesComponent,
-        ProductsComponent,
-        NavigationComponent,
-        CategoriesComponent,
-        ProductEditComponent,
-        CategoryEditComponent
+        CartComponent,
+        ContactComponent,
+        CategoryComponent,
+        ProductDetailsComponent,
     ],
     declarations: [
         HomeComponent,
-        LoginComponent,
-        MessagesComponent,
-        ProductsComponent,
-        NavigationComponent,
-        CategoriesComponent,
-        ProductEditComponent,
-        CategoryEditComponent
+        CartComponent,
+        ContactComponent,
+        CategoryComponent,
+        ProductDetailsComponent,
     ]
 })
 export class PagesModule {

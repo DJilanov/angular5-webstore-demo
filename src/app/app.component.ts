@@ -5,9 +5,7 @@ import { BackendService } from './core/backend/backend.service';
 import { EventBusService } from './core/event-bus/event-bus.service';
 import { ErrorHandlerService } from './core/error-handler/error-handler.service';
 
-import { AuthService } from './services/auth/auth.service';
 import { ProductsService } from './services/products/products.service';
-import { MessagesService } from './services/messages/messages.service';
 import { CategoriesService } from './services/categories/categories.service';
 
 @Component({
@@ -25,15 +23,12 @@ export class AppComponent {
 
     constructor(
         private router: Router,
-        private authService: AuthService,
         private backendService: BackendService,
-        private productsService: ProductsService,
-        private messagesService: MessagesService,
         private eventBusService: EventBusService,
+        private productsService: ProductsService,
         private categoriesService: CategoriesService,
         private errorHandlerService: ErrorHandlerService
     ) {
-        this.eventBusService.loggedIn.subscribe(data => this.onLogin(data));
 		this.eventBusService.changeSharedOptions.subscribe(
 			(options) => this.updateSharedOptions(options)
 		);
@@ -43,26 +38,23 @@ export class AppComponent {
 					this.eventBusService.emitChangeRoute(event.url);
 				}
 			}
-		);
+        );
+        this.getData();
     };
     
-    private updateSharedOptions(options) {
-        this.options.header = options.header || false;
-        this.options.footer = options.footer || false;
-    }
-
-    private onLogin(eventData) {
-        this.backendService.getAllData(
-            this.authService.getLoginData()
-        ).subscribe(
-            data => this.setData(data.json()),
+    private getData() {
+        this.backendService.getProducts().subscribe(
+            data => this.productsService.setProducts(data.json()),
+            err => this.errorHandlerService.handleRequestError(err)
+        );
+        this.backendService.getCategories().subscribe(
+            data => this.categoriesService.setCategories(data.json()),
             err => this.errorHandlerService.handleRequestError(err)
         );
     }
 
-    private setData(result) {
-        this.productsService.setProducts(result.products);
-        this.messagesService.setMessages(result.messages);
-        this.categoriesService.setCategories(result.categories);
+    private updateSharedOptions(options) {
+        this.options.header = options.header || false;
+        this.options.footer = options.footer || false;
     }
 }

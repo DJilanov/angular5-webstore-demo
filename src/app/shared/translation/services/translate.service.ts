@@ -5,7 +5,7 @@ import { EventBusService } from '../../../core/event-bus/event-bus.service';
 
 declare function require(url: string);
 
-const defaultLanguage = 'en';
+const defaultLanguage = 'bg';
 const english = require('../languages/lang-en.json');
 const bulgarian = require('../languages/lang-bg.json');
 
