@@ -1,0 +1,20 @@
+{
+    "---------------FOOTER--------------------": "COMMENT",
+    "Docs": "Docs",
+    "About me": "About me",
+    "Designed and built by ": "Designed and built by ",
+    "---------------HEADER--------------------": "COMMENT",
+    "Home": "Home",
+    "Pro tips": "Pro tips",
+    "Search": "Search",
+    "---------------CONTACT PAGE--------------------": "COMMENT",
+    "You’re here, so I guess it would be rude not to introduce myself. My name is Dimitar Jilanov (DJ) and I am passionate about helping people just like you to find their toolkit and use it to create fast and beautiful applications all over the web.": "You’re here, so I guess it would be rude not to introduce myself. My name is Dimitar Jilanov (DJ) and I am passionate about helping people just like you to find their toolkit and use it to create fast and beautiful applications all over the web.",
+    "So, How Did I Get Here?": "So, How Did I Get Here?",
+    "After years of experience with creating a wide variety of products and adapting to the ever changing needs of the modern world and businesses I understood that high-end software development requires the strive for perfection for each element of the software during all stages of its development, to assure that the end-user can experience the highest possible quality of service. This includes anything from building interaction designs to front-end web development, as well as working with NodeJS, TypeScript, NativeScript, Angular5 and many others. I have confidence in my own ability to overcome any challenge I come across - from concept sketches to pixel perfect mock ups and ready-made HTML prototypes.": "After years of experience with creating a wide variety of products and adapting to the ever changing needs of the modern world and businesses I understood that high-end software development requires the strive for perfection for each element of the software during all stages of its development, to assure that the end-user can experience the highest possible quality of service. This includes anything from building interaction designs to front-end web development, as well as working with NodeJS, TypeScript, NativeScript, Angular5 and many others. I have confidence in my own ability to overcome any challenge I come across - from concept sketches to pixel perfect mock ups and ready-made HTML prototypes.",
+    "---------------DOCS PAGE--------------------": "COMMENT",
+    "---------------HOME PAGE--------------------": "COMMENT",
+    "Angular 5 boilerplate that utilize service bus architecture": "Angular 5 boilerplate that utilize service bus architecture",
+    "Build responsive, bulletproof projects on the web with the boilerplate that is great from the smallest to atomic projects.": "Build responsive, bulletproof projects on the web with the boilerplate that is great from the smallest to atomic projects.",
+    "The boilerplate is an open source toolkit for developing with Angular 5. Quickly prototype your ideas or build your entire app with our extensive prebuilt components that asist your data transfer and error handling.": "The boilerplate is an open source toolkit for developing with Angular 5. Quickly prototype your ideas or build your entire app with our extensive prebuilt components that asist your data transfer and error handling.",
+    "---------------SUGGESTIONS PAGE--------------------": "COMMENT"
+}

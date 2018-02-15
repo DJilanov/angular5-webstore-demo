@@ -1,104 +1,82 @@
 <!DOCTYPE html>
 <html lang="bg">
-
-<head>
-    <base href="/">
-    <meta charset=UTF-8>
-    <title>Всичко за вашия компютър на най-конкурентни цени от Жиланов ЕООД</title>
-    <!-- fav icons -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
-    <link rel="manifest" href="/manifest.json">
-    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-    <style>
-        .loading {
-            opacity: 0;
-            transition: opacity .8s ease-in-out;
-            position: fixed;
-            height: 100%;
-            width: 100%;
-            top: 0;
-            left: 0;
-            background: #8fb5ee;
-            z-index: -1;
-        }
-        
-        app:empty+.loading {
-            opacity: 1;
-            z-index: 100;
-        }
-        
-        app:empty+.loading h1 {
-            color: #EEE;
-            position: absolute;
-            top: 50%;
-            width: 100%;
-            text-align: center;
-            transform: translate(0, -50%);
-        }
-
-        .image {
-            width: 150px;
-            height: 120px;
-            position: absolute;
-            top: 40%;
-            margin-left: auto;
-            margin-right: auto;
-            left: 0;
-            right: 0;
-        }
-        
-        .loader {
-            border: 16px solid #3498db;
-            /* Light grey */
-            border-top: 16px solid #f3f3f3;
-            /* Blue */
-            border-radius: 50%;
-            width: 120px;
-            height: 120px;
-            animation: spin 2s linear infinite;
-            position: absolute;
-            top: 40%;
-            margin-left: auto;
-            margin-right: auto;
-            left: 0;
-            right: 0;
-        }
-        
-        @keyframes spin {
-            0% {
-                transform: rotate(0deg);
+    <head>
+        <base href="/">
+        <meta charset=UTF-8>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Всичко за вашия компютър на най-конкурентни цени от Жиланов ЕООД</title>
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+        <!-- Styles for the loader window -->
+        <style>
+            .loading {
+                opacity: 0;
+                transition: opacity .8s ease-in-out;
+                position: fixed;
+                height: 100%;
+                width: 100%;
+                top: 0;
+                left: 0;
+                background: #8fb5ee;
+                z-index: -1;
             }
-            100% {
-                transform: rotate(360deg);
+            
+            app:empty+.loading {
+                opacity: 1;
+                z-index: 100;
             }
-        }
-    </style>
-    <style>
-        /* global styles */
-        .carousel-indicators li {
-            border: 1px solid lightgray!important;
-        }
+            
+            app:empty+.loading h1 {
+                color: #EEE;
+                position: absolute;
+                top: 50%;
+                width: 100%;
+                text-align: center;
+                transform: translate(0, -50%);
+            }
 
-        .carousel-indicators li.active {
-            border: 1px solid lightslategray!important;
-        }
-        slide img {
-            max-height: 300px;
-        }
-    </style>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
-</head>
-
-<body>
-    <app></app>
-    <div class="loading">
-        <img class="image" src="./src/img/navigation-logo.png" alt="logo">
-        <div class="loader"></div>
-    </div>
-</body>
-
+            .image {
+                width: 150px;
+                height: 120px;
+                position: absolute;
+                top: 40%;
+                margin-left: auto;
+                margin-right: auto;
+                left: 0;
+                right: 0;
+            }
+            
+            .loader {
+                border: 16px solid #3498db;
+                /* Light grey */
+                border-top: 16px solid #f3f3f3;
+                /* Blue */
+                border-radius: 50%;
+                width: 120px;
+                height: 120px;
+                animation: spin 2s linear infinite;
+                position: absolute;
+                top: 40%;
+                margin-left: auto;
+                margin-right: auto;
+                left: 0;
+                right: 0;
+            }
+            
+            @keyframes spin {
+                0% {
+                    transform: rotate(0deg);
+                }
+                100% {
+                    transform: rotate(360deg);
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <app></app>
+        <div class="loading">
+            <img class="image" src="./assets/images/logo.png" alt="logo">
+            <div class="loader"></div>
+        </div>
+    </body>
 </html>

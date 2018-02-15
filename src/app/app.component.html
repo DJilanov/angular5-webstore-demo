@@ -1,19 +1,5 @@
-<div 
-  [hidden]="this.products.length == 0"
-  class="col-md-12 no-paddings">
-  <custom-header 
-    [hidden]="router.url.indexOf('admin') !== -1"
-    class="col-md-12" 
-  ></custom-header>
-  <!-- <side-menu class="col-md-1"></side-menu> -->
-  <div class="col-md-12 no-paddings">
-      <router-outlet></router-outlet>
-  </div>
-</div>
-<div [hidden]="this.products.length > 0">
-    <div class="loading">
-        <img class="image" src="./src/img/navigation-logo.png" alt="logo">
-        <div class="loader"></div>
-        <h1 class="loader-text">{{dictionary.getTexts('loading')}}</h1>
-    </div>
-</div>
+<app-header *ngIf="this.options.header"></app-header>
+
+<router-outlet></router-outlet>
+
+<app-footer *ngIf="this.options.footer"></app-footer>

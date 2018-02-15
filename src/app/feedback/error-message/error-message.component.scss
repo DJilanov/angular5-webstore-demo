@@ -1,0 +1,30 @@
+@import '../../../variables';
+
+.alert {
+	z-index: 1000;
+	transition: all 1s ease;
+	text-align: center;
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	margin-right: auto;
+	margin-left: auto;
+	max-width: 800px;
+	margin-bottom: 0px;
+	border-radius: 2px;
+	box-shadow: 0 0 8px 0 rgba(0,0,0,0.2);
+	color: $webpage-dark-font-color;
+	background: $webpage-base-white-color;
+}
+
+.remove-icon {
+	margin-top: -0.5rem;
+	margin-right: -0.5rem;
+}
+
+.inner-error-body {
+	margin-left: auto;
+	margin-right: auto;
+	width: 80%;
+}

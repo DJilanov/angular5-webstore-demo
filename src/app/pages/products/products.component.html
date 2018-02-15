@@ -1,0 +1,52 @@
+<div class="container">
+  <table class="table table-striped text-center">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Category</th>
+        <th>New Price</th>
+        <th>Count</th>
+        <th>Is On Carousel</th>
+        <th>Edit</th>
+      </tr>
+      <tr>
+        <th>
+          <input name="title" type="text" class="form-control" [(ngModel)]="searchData.title" placeholder="Title" (change)="filterProducts($event)">
+        </th>
+        <th>
+          <input name="category" type="text" class="form-control" [(ngModel)]="searchData.category" placeholder="Category" (change)="filterProducts($event)">
+        </th>
+        <th>
+          <input name="newPrice" type="text" class="form-control" [(ngModel)]="searchData.newPrice" placeholder="New price" (change)="filterProducts($event)">
+        </th>
+        <th>
+          <input name="count" type="text" class="form-control" [(ngModel)]="searchData.count" placeholder="Count" (change)="filterProducts($event)">
+        </th>
+        <th>
+          <input name="isOnCarousel" class="form-control" type="checkbox" [(ngModel)]="searchData.isOnCarousel" (change)="filterProducts($event)"/>
+        </th>
+        <th>
+            <span (click)="create()">
+                <i class="fa fa-plus" aria-hidden="true"></i>
+            </span>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of products">
+        <td>{{product.title[getLanguage()]}}</td>
+        <td>{{product.category}}</td>
+        <td>{{product.newPrice}}</td>
+        <td>{{product.count}}</td>
+        <td>
+          <input type="checkbox" [checked]="product.isOnCarousel" disabled />
+        </td>
+        <td class="text-center pointer">
+            <span (click)="edit(product)">
+                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+            </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

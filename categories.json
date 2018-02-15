@@ -1,7 +1,0 @@
-{"_id":{"$oid":"5800f5c0f36d2851f2ad10e7"},"link":"diskove","name":{"bg":"Дискове","en":"ДисковеEN"},"products":"discs","shownOnNav":"false","title":{"bg":"Дискове","en":"HDD"},"zIndex":"6"}
-{"_id":{"$oid":"5800f60bf36d2851f2ad10f7"},"link":"videokarti","name":{"bg":"Видеокарти","en":""},"products":"videocards","shownOnNav":"false","title":{"bg":"Видеокарти","en":""},"zIndex":"4"}
-{"_id":{"$oid":"5800f6baf36d2851f2ad1153"},"link":"uslugi","name":{"bg":"Услуги","en":""},"products":"services","shownOnNav":"false","title":{"bg":"Услуги","en":"Services"},"zIndex":2}
-{"_id":{"$oid":"5800f715f36d2851f2ad116a"},"link":"videonabludenie","name":{"bg":"Видеонаблюдение","en":"ВидеонаблюдениеEN"},"products":"videosecurity","shownOnNav":"false","title":{"bg":"Видеонаблюдение","en":"VIDEOSURVEILLANCE"},"zIndex":3}
-{"_id":{"$oid":"5800f747f36d2851f2ad1188"},"link":"procesori","name":{"bg":"Процесори","en":""},"products":"cpus","shownOnNav":"false","title":{"bg":"Процесори","en":"CPU"},"zIndex":"1"}
-{"_id":{"$oid":"5800f76cf36d2851f2ad11ab"},"link":"pameti","name":{"bg":"Памети","en":"ПаметиEN"},"products":"ram","shownOnNav":"false","title":{"bg":"Памети","en":"MEMORY"},"zIndex":"0"}
-{"_id":{"$oid":"585579b27561ae0004c236fd"},"link":"dynni-platki","name":{"bg":"Дънни платки","en":"Mainboards"},"products":"MB","shownOnNav":false,"title":{"bg":"Дънни платки","en":"Mainboards"},"zIndex":"4"}

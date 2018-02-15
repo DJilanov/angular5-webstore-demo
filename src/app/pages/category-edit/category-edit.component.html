@@ -1,0 +1,81 @@
+<div class="container">
+        <form #categoryEditForm="ngForm" class="medium-top-margin"
+            role="form"
+            id="categoryEditForm">
+    
+            <div class="form-group medium-top-margin">
+                <label class="input-label">Title BG*</label>
+                <input type="text" class="form-control"
+                       [(ngModel)]="category.title['bg']"
+                       placeholder="Title BG"
+                       name="title"
+                       required
+                       pattern="^[A-Za-z'-]+$">
+            </div>
+    
+            <div class="form-group medium-top-margin">
+                <label class="input-label">Title EN*</label>
+                <input type="text" class="form-control"
+                        [(ngModel)]="category.title['en']"
+                        placeholder="Title EN*"
+                        name="title"
+                        required
+                        pattern="^[A-Za-z'-]+$">
+            </div>
+    
+            <div class="form-group medium-top-margin">
+                <label class="input-label">Name BG*</label>
+                <textarea type="text" class="form-control"
+                        [(ngModel)]="category.name['bg']"
+                        placeholder="Name BG"
+                        name="name"
+                        required
+                        pattern="^[A-Za-z'-]+$"></textarea>
+            </div>
+    
+            <div class="form-group medium-top-margin">
+                <label class="input-label">Index in the list*</label>
+                <input type="number" class="form-control"
+                        [(ngModel)]="category.zIndex"
+                        placeholder="Index in the list*"
+                        name="zIndex"
+                        required
+                        pattern="^[0-9]+$">
+            </div>
+            
+            <div class="form-group medium-top-margin">
+                <label class="input-label">Is shown on nav*</label>
+                <input type="checkbox"
+                        [(ngModel)]="category.shownOnNav"
+                        name="shownOnNav"
+                        required>
+            </div>
+            
+            <div class="form-group medium-top-margin">
+                <label class="input-label">Is new*</label>
+                <input type="checkbox"
+                        [(ngModel)]="category.isNew"
+                        name="isNew"
+                        required>
+            </div>
+            
+            <div class="form-group medium-top-margin">
+                <label class="input-label">Link in the browser URL*</label>
+                <input type="text" class="form-control"
+                        [(ngModel)]="category.link"
+                        placeholder="Link in the browser URL"
+                        name="link"
+                        required>
+            </div>
+    
+            <button type="button" class="btn btn-primary" 
+                (click)="saveCategory()">
+                Save category
+            </button>
+            
+            <button type="button" class="btn btn-danger" 
+                (click)="deleteCategory()">
+                Delete category
+            </button>
+        </form>
+      </div>

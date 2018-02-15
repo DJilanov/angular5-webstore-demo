@@ -1,0 +1,19 @@
+<div>
+	<div *ngIf="showErrorMessage" [@errorWindowSlide]
+		 class="alert" role="alert">
+		<div>
+			<button type="button" class="close text-left" (click)="hideError()">
+				<span class="glyphicon remove-icon" aria-hidden="true"></span>
+			</button>
+		</div>
+		<div>
+			<span i18n><span class="red default-bold">Sorry</span>, there's a problem</span>
+			<div class="inner-error-body">
+				<br />
+				<span i18n>All we know is...</span>
+				<div class="form-group has-feedback">
+					{{errorMessage}}
+				</div>
+		</div>
+	</div>
+</div>

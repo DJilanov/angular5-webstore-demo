@@ -1,7 +1,0 @@
-<carousel *ngIf="slides" [slides]="slides"></carousel>
-<div *ngFor="let category of sortCategories(categories)">
-  <product-list 
-    [category]=category 
-    [products]=productsByCategory(category)>
-  </product-list>
-</div>

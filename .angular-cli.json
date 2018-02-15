@@ -1,15 +1,16 @@
 {
 	"$schema": "./node_modules/@angular/cli/lib/config/schema.json",
 	"project": {
-		"version": "0.0.1",
-		"name": "jilanov-web"
+		"version": "1.0.0",
+		"name": "angular5-website-admin-panel"
 	},
 	"apps": [
 		{
 			"root": "src",
 			"outDir": "dist",
 			"assets": [
-				"assets"
+				"assets", 
+				"robots.txt"
 			],
 			"index": "index.html",
 			"main": "main.ts",
@@ -18,12 +19,25 @@
 			"tsconfig": "tsconfig.app.json",
 			"testTsconfig": "tsconfig.spec.json",
 			"prefix": "app",
-			"mobile": false
+			"styles": [
+				"styles.scss",
+				{ 
+					"input": "../node_modules/bootstrap/dist/css/bootstrap.min.css", 
+					"output": "bootstrap.css" 
+				},
+				{
+					"input": "../node_modules/font-awesome/css/font-awesome.min.css", 
+					"output": "font-awesome.css" 
+				}
+			],
+			"environmentSource": "environments/environment.ts",
+			"environments": {
+				"dev": "environments/environment.ts",
+				"prod": "environments/environment.prod.ts",
+				"local": "environments/environment.local.ts",
+				"uat": "environments/environment.uat.ts"
+			}
 		}
-	],
-	"addons": [
-	],
-	"packages": [
 	],
 	"e2e": {
 		"protractor": {
