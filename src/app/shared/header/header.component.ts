@@ -38,6 +38,7 @@ export class HeaderComponent {
 		if(this.router.url.length> 1) {
 			this.activeTab = params[params.length - 1];
 		}
+		this.categories = this.categoriesService.getCategories();
 		this.language = this.translateService.getLanguage();
 	}
     
