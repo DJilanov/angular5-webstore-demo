@@ -10,18 +10,21 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li (click)="makeActiveTab('home')"
-                class="nav-item">
+                class="nav-item"
+                data-toggle="collapse" data-target=".navbar-collapse.show">
                 <a [class.active]="activeTab === 'home'"
                     class="nav-link" [routerLink]="['./']" translate>Home</a>
             </li>
             <li *ngFor="let category of categories"
                 (click)="makeActiveTab(category.link)"
-                class="nav-item">
+                class="nav-item"
+                data-toggle="collapse" data-target=".navbar-collapse.show">
                 <a [class.active]="activeTab === category.link"
-                    class="nav-link" [routerLink]="'/products/' + category.link" translate>{{category.name[language]}}</a>
+                    class="nav-link" [routerLink]="'/products/' + category.link">{{category.name[language]}}</a>
             </li>
             <li (click)="makeActiveTab('contacts')"
-                class="nav-item">
+                class="nav-item"
+                data-toggle="collapse" data-target=".navbar-collapse.show">
                 <a [class.active]="activeTab === 'contacts'"
                     class="nav-link" [routerLink]="['./contacts']" translate>Contacts</a>
             </li>

@@ -18,6 +18,9 @@ export class ContactComponent {
     public lng = environment.mapCoordinates.lng;
     public zoom = environment.mapCoordinates.zoom;
 
+    public messageSuccess: boolean;
+    public messageFail: boolean;
+
     constructor(
         private router: Router,
         private eventBusService: EventBusService

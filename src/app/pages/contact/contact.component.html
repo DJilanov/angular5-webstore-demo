@@ -1,4 +1,4 @@
-<div>
+<div class="contact-page">
   <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
       <agm-marker [latitude]="lat" [longitude]="lng">
           <agm-info-window>
@@ -16,17 +16,14 @@
       <strong translate>or</strong>
       <strong>{{phoneNumbers[1]}}</strong>
     </div>
-    Контактна форма
+    <!-- Тук контактна форма -->
   </div>
-  <div class="text-center col-xs-12 container-fluid">
-    <h3>Or send us a message via</h3>
+  <div class="text-center col-xs-12 container-fluid phone-contact">
+    <h3 translate>Or send us a message via</h3>
     <div class="row">
-      <h2 translate>Contact us on</h2>
       <div class="col-xs-12 col-md-3">
-        <div class="col-xs-3">
-          <img 
-            src="./src/img/phone-icon.png"
-            alt="phone-icon"/>
+        <div class="col-xs-3 icon">
+            <i class="fa fa-phone"></i>
         </div>
         <div class="col-xs-9 contact duo">
           <a href="tel:{{phoneNumbers[0]}}">{{phoneNumbers[0]}}</a>
@@ -34,10 +31,8 @@
         </div>
       </div>
       <div class="col-xs-12 col-md-3">
-        <div class="col-xs-3">
-          <img 
-            src="./src/img/viber-icon.png"
-            alt="viber-icon"/>
+        <div class="col-xs-3 icon">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAARWSURBVGhD7dlZqHZTHMfxY57nIVKUuSSzKFNmSt4SIXKBIsmQckEkFHJhipC4oczThbiQeUqGXJiSWWSeMg/f7/O8q1a7/7PX2vvsc8771PurT+1zzl7r2fvstdZeaz0zS7M0S242waE4H3fhVXyK3/Ff5md8jjfwCK7FGdgXa2JBsjOuwQfIL7avv/ESLsEWmPMchBcRXcxQ/sWT2AODZyM8jOiD54o3dCfWxSDZBbbt6MPmw/vYBrPK9vgB0QfMJwcPB5VeWQcfI6q4q9/QHMW6egbLoHNuQ1RhLYfb/bEhUtbHAbgOXyMq1+ZEdMpWcEiMKsv9Gfwu+Qwrw6y6WJ41cBn+QFQ+8i465UpEFSUf4iisBEeVBxGd9w2+g/3sl8XH92IRUjPZC18hKh/ZE9V5B1El8m9rIc+KeAHNc7/FxkhZDzaPV+D5m8Nsh9pB5XJUZQNEFST7IYrlmm96n4DN1H6yNlJ8GqfjC+zgL8gRyMtO8hSq4qOOKtCvaBs5DkZUzhv6ER/hIqwGcyT8XRoQal66XsPyKOYkRBXIjlmq5D7kZfyvp47uHO1RvAmfoLE/3jw+HD2dvOwkNsViLkVUODkcbfFD8vN/gs3RfmR8otfDJuKxM98v4TTIvI28fOQwFOP8Jiqc3I+2OKpE5XyaV8GL96k6aKQLuh2njg9Hs+qofO40FFOa3f6FTRFlS5Sm9qfAnIebxoej390wPpw5G1G5nK2mGNt0VDjnoqgZ27xNJDo/Zx8xLsYeGx+ORiz7ljkWUbnc1SjG0SUqnPPl1pzEHYfo3CbrPwS3IDXTo3Hr+HDUbKJyuRtRTFQwcjfy7IjovDZOSg/EE3BYNr7wonNzaZSbGDthVHASLyLP44jOq/EcnFA6n4r+niveiIkKTuI6IV/BbYu2ieRQqvpI14WUE8b8bX8yXKZG5w7lYhTzCaLCbZyO5zkH/yA61/fJW/BFGf29xrko5mlEhdv4BE5AHtt7c63vz1vDrIIL0GfleAyKuQNR4RIXYs0VnJNDN+58N9mfdkczu+I9RHVOYplizkJUuIbNyel51zjfugdRnU3OLJqrzTBu/0QVdOGafAV0ybJ4CFF9Obdkq7IcvkdUSRf2tc3QJccjqit3Barj9CGqpCunI85q2xZjeWpmvruhOnsjqqQvZ9SlvVxfpq7+ovKJO/md40ZyVFlfDtEPIPqPOgrVbAamJUCnuOys2dvqw3/SmfB94HA/6eWZew32315xKI0qnW82uZ0wq1yIuZ47tXHf2FnCIHEF12evdrbciHCdM2hWh9/5+UKKPnRITmfsQ2nnZc7iV3DRBfTlxPFl+B7ZB77l5yXuokQXlHsdfsvras7NCt/I9jcnkQ6jNlcnka79u05nBkvpRvxSpmpit9Bpu5FnYX+aiky6keexYF/+90l0I37f0fzeZIlP80bcypmqJ5GS34i76lPTJ5pxL8th1f2lqRidpiQzM/8DTdqIWYL+a24AAAAASUVORK5CYII=">
         </div>
         <div class="col-xs-9 contact">
           <div class="bold">
@@ -46,10 +41,8 @@
         </div>
       </div>
       <div class="col-xs-12 col-md-3">
-        <div class="col-xs-3">
-          <img 
-            src="./src/img/facebook-icon.png"
-            alt="facebook-icon"/>
+        <div class="col-xs-3 icon">
+            <i class="fa fa-facebook"></i>
         </div>
         <div class="col-xs-9 contact">
           <div class="bold">
@@ -58,10 +51,8 @@
         </div>
       </div>
       <div class="col-xs-12 col-md-3">
-        <div class="col-xs-3">
-          <img 
-            src="./src/img/skype-icon.png"
-            alt="skype-icon"/>
+        <div class="col-xs-3 icon">
+            <i class="fa fa-skype"></i>
         </div>
         <div class="col-xs-9 contact">
           <div class="bold">
@@ -71,9 +62,9 @@
       </div>
     </div>
   </div>
-  <div class="map-section col-xs-12 container">
-      <h2 translate>Or you can find us on</h2>
-      <h4 translate>Levski G, bl. 4, Sofia 1836</h4>
-      <h4 class="red" translate>Always call us on the phone first!</h4>
+  <div class="text-center location-info col-xs-12 container">
+      <h3 translate>Or you can find us on</h3>
+      <h5 translate>Levski G, bl. 4, Sofia 1836</h5>
+      <h5 class="red" translate>Always call us on the phone first!</h5>
   </div>
 </div>

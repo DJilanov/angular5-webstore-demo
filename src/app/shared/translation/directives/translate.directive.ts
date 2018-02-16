@@ -22,6 +22,10 @@ export class TranslateDirective {
     }
 
     private handleOnLanguageChange() {
-        this.element.nativeElement.textContent = this.translateService.translate(this.element.nativeElement.textContent);
+        if(this.element.nativeElement.tagName == 'INPUT') {
+            this.element.nativeElement.placeholder = this.translateService.translate(this.element.nativeElement.placeholder);
+        } else {
+            this.element.nativeElement.textContent = this.translateService.translate(this.element.nativeElement.textContent);
+        }
     }
 }

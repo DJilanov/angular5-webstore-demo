@@ -4,6 +4,30 @@
     flex: 1 0 auto;
 }
 
-agm-map {
-    height: 30rem;
+.contact-page {
+    padding-bottom: 1rem;
+    
+    agm-map {
+        height: 30rem;
+    }
+    
+    .phone-contact {
+        .col-xs-9 {
+            padding-top: 2rem;
+        }
+        .icon {
+            img {
+                height: 30px;
+            }
+        
+            i {
+                font-size: 30px;
+            }
+        }
+    }
+    
+    h3 {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
 }
