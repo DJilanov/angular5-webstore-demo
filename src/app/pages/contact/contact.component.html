@@ -1,44 +1,79 @@
-<div class="container">
-  <ul>
-    <li class="col-lg-2">
-      <a [routerLink]="['./navigation']" class="round green">
-        Navigation
-        <span class="round">
-          Here you can view or edit the navigation.
-        </span>
-      </a>
-    </li>
-  <li class="col-lg-2">
-    <a [routerLink]="['./products']" class="round yellow">
-      Products
-      <span class="round">
-        Here you can view or edit the products that are sorted based on their list
-      </span>
-    </a>
-  </li>
-  <li class="col-lg-2">
-    <a [routerLink]="['./categories']" class="round red">
-      Category
-      <span class="round">
-        Here you can view or edit the categories
-      </span>
-    </a>
-  </li>
-  <li class="col-lg-2">
-    <a [routerLink]="['./messages']" class="round green">
-      Messages
-        <span class="round">
-          Here you can see all recieved messages and delete if you dont need some of them
-        </span>
-    </a>
-  </li>
-  <!-- <li class="col-lg-2">
-    <a [routerLink]="['./orders']" class="round yellow">
-      Orders
-      <span class="round">
-          Here you can see all recived orders and delete if you dont need some of them
-      </span>
-    </a>
-  </li> -->
-</ul>
+<div>
+  <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+      <agm-marker [latitude]="lat" [longitude]="lng">
+          <agm-info-window>
+            <strong translate>Working time: 14:00 - 21:00</strong>
+          </agm-info-window>
+      </agm-marker>
+  </agm-map>
+  <div class="form-section col-xs-12">
+    <div class="alert alert-success" *ngIf="messageSuccess">
+      <strong translate>Message send successfully</strong>
+    </div>
+    <div class="alert alert-danger" *ngIf="messageFail">
+      <strong translate>Ooops.. something happend... please call us on:</strong>
+      <strong>{{phoneNumbers[0]}}</strong>
+      <strong translate>or</strong>
+      <strong>{{phoneNumbers[1]}}</strong>
+    </div>
+    Контактна форма
+  </div>
+  <div class="text-center col-xs-12 container-fluid">
+    <h3>Or send us a message via</h3>
+    <div class="row">
+      <h2 translate>Contact us on</h2>
+      <div class="col-xs-12 col-md-3">
+        <div class="col-xs-3">
+          <img 
+            src="./src/img/phone-icon.png"
+            alt="phone-icon"/>
+        </div>
+        <div class="col-xs-9 contact duo">
+          <a href="tel:{{phoneNumbers[0]}}">{{phoneNumbers[0]}}</a>
+          <a href="tel:{{phoneNumbers[1]}}">{{phoneNumbers[1]}}</a>
+        </div>
+      </div>
+      <div class="col-xs-12 col-md-3">
+        <div class="col-xs-3">
+          <img 
+            src="./src/img/viber-icon.png"
+            alt="viber-icon"/>
+        </div>
+        <div class="col-xs-9 contact">
+          <div class="bold">
+            <a href="viber://add?number=%2B359878422063&text=hey">{{phoneNumbers[0]}}</a>
+            </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-md-3">
+        <div class="col-xs-3">
+          <img 
+            src="./src/img/facebook-icon.png"
+            alt="facebook-icon"/>
+        </div>
+        <div class="col-xs-9 contact">
+          <div class="bold">
+            <a target="_blank" href="http://www.facebook.com/Jilanovltd/">Jilanovltd</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-md-3">
+        <div class="col-xs-3">
+          <img 
+            src="./src/img/skype-icon.png"
+            alt="skype-icon"/>
+        </div>
+        <div class="col-xs-9 contact">
+          <div class="bold">
+            <a href="skype:t_jilanov?chat">t_jilanov</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="map-section col-xs-12 container">
+      <h2 translate>Or you can find us on</h2>
+      <h4 translate>Levski G, bl. 4, Sofia 1836</h4>
+      <h4 class="red" translate>Always call us on the phone first!</h4>
+  </div>
 </div>

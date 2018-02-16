@@ -2,6 +2,7 @@ import { Injectable, EventEmitter } from '@angular/core';
 
 import { CategoryModel } from './category.model';
 
+import { UtilsService } from '../utils/utils.service';
 import { EventBusService } from '../../core/event-bus/event-bus.service';
 
 @Injectable()
@@ -13,9 +14,10 @@ export class CategoriesService {
     /**
     * @info: Contains all of the categories
     */
-    private categoryArray: CategoryModel[];
+    private categoryArray: CategoryModel[] = [];
     
     constructor(
+        private utilsService: UtilsService,
         private eventBusService: EventBusService
     ) {
         // eventBusService.categoriesUpdate.subscribe((eventData) => this.setCategories(eventData.categories));
@@ -73,6 +75,14 @@ export class CategoriesService {
             }
         }
         this.emitCategories();
+    }
+    
+    public sortCategoriesByZIndex() {
+        let sortedCategories = [];
+        this.categoryArray.forEach((category) => {
+            sortedCategories[category.zIndex] = category;
+        })
+        return sortedCategories;
     }
 
     public removeCategory(category) {

@@ -3,3 +3,110 @@
 :host {
     flex: 1 0 auto;
 }
+
+.product {
+    background: white;
+    color: black;
+    border: 1px solid #F8F8F8;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    height: 560px;
+}
+
+.product:hover {
+    -webkit-box-shadow: 0px 0px 26px 6px rgba(207,207,207,1);
+    -moz-box-shadow: 0px 0px 26px 6px rgba(207,207,207,1);
+    box-shadow: 0px 0px 26px 6px rgba(207,207,207,1);
+}
+
+.info-container {
+    max-height: 240px;
+    overflow: hidden;
+}
+
+.params {
+    text-align: left;
+    max-height: 130px;
+    overflow: hidden;
+}
+
+.new-price {
+    font-weight: 900;
+}
+
+.image-holder {
+    background-color: white;
+    position: relative;
+    text-align: center;
+}
+
+.old-price {
+    color: lightgray;
+    text-decoration: line-through;
+}
+
+.like {
+    position: absolute;
+    top: 0;
+}
+
+img {
+    max-width: 100%;;
+    height: 230px;
+}
+
+.button-container {
+    text-align: center;
+    margin-top: 10px;
+    position: absolute;
+    bottom: 10px;
+    width: 90%;
+}
+
+.box {
+    position: absolute;
+    left: -4px;
+    overflow: hidden;
+    height: 85px;
+    width: 85px;
+    text-align: center;
+    z-index: 10;
+}
+
+.box span {
+    font: 700 14px/12px Arial, Helvetica, sans-serif;
+    text-transform: uppercase;
+    padding: 9px 0 7px;
+    text-shadow: 1px 1px rgba(0, 0, 0, 0.24);
+    width: 120px;
+    text-align: center;
+    display: block;
+    position: absolute;
+    left: -17px;
+    top: 30px;
+    z-index: 1;
+    -webkit-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+.over-box span {
+    color: #fff;
+    background: #000;
+}
+
+.new-box span {
+    color: #fff;
+    background: #6ad4ff;
+}
+
+.offer-box span {
+    color: #fff;
+    background: #FF0015;
+}
+
+h2 {
+    font-size: 18px;
+}

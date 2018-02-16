@@ -3,3 +3,48 @@
 :host {
     flex: 1 0 auto;
 }
+
+.carousel {
+    background: #f1f1f1;
+
+    .carousel-item {
+        height: 25rem;
+
+        @media screen and (max-width: 600px) {
+            height: 20rem;
+        }
+
+        img {
+            margin: auto;
+            max-height: 100%;
+            padding-top: 5rem;
+            padding-bottom: 5rem;
+        }
+        
+        h3 {
+            color: black;
+        }
+    }
+
+    .carousel-indicators {
+        li {
+            background-color: gray;
+            &.active {
+                background-color: #ff0000;
+            }
+        }
+    }
+
+    .carousel-control-prev-icon {
+        -webkit-transform: rotate(180deg);
+        -moz-transform: rotate(180deg);
+        -o-transform: rotate(180deg);
+        -ms-transform: rotate(180deg);
+        transform: rotate(180deg);
+    }
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        background-image : url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23ff0000' viewBox='0 0 8 8'%3E%3Cpath d='M1.5 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
+        color: black;
+    }
+}

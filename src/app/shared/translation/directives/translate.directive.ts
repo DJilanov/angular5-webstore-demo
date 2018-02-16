@@ -17,7 +17,8 @@ export class TranslateDirective {
 		);
 		this.eventBusService.changeLanguage.subscribe(
 			() => this.handleOnLanguageChange()
-		);
+        );
+        this.handleOnLanguageChange();
     }
 
     private handleOnLanguageChange() {

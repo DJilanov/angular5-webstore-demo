@@ -19,6 +19,15 @@ const routes: Routes = [
       }
     }
   }, { 
+    path: 'home', 
+    component: HomeComponent,
+    data: {
+      meta: {
+        title: 'Компютърни компоненти Жиланов: евтини РАМ(RAM) памети, видеонаблюдение, твърд диск и видеокарти',
+        description: 'Изберете от десетките видове RAM памети, хард дискове и компютърни части на промоционалните ни цени!'
+      }
+    }
+  }, {
     path: 'products/:category', 
     component: CategoryComponent,
     data: {

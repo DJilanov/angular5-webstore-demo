@@ -2,6 +2,9 @@ import { Injectable, EventEmitter } from '@angular/core';
 
 import { ProductModel } from './product.model';
 
+import { UtilsService } from '../utils/utils.service';
+
+import { CategoriesService } from '../categories/categories.service';
 import { EventBusService } from '../../core/event-bus/event-bus.service';
 
 @Injectable()
@@ -11,10 +14,12 @@ import { EventBusService } from '../../core/event-bus/event-bus.service';
  */
 export class ProductsService {
     
-    private products:ProductModel[];
+    private products:ProductModel[] = [];
     
     constructor(
-        private eventBusService: EventBusService
+        private utilsService: UtilsService,
+        private eventBusService: EventBusService,
+        private categoriesService: CategoriesService
     ) {
         // this.eventBusService.productsUpdate.subscribe((eventData) => this.setProducts(eventData.messages));
     }
@@ -28,6 +33,7 @@ export class ProductsService {
 
     public setProducts(products: ProductModel[]) {
         this.products = products;
+        this.emitProducts();
     }
     
     /**
@@ -46,7 +52,7 @@ export class ProductsService {
     }
 
     public getProductById(id) {
-        for(var productsCounter = 0; productsCounter < this.products.length; productsCounter++) {
+        for(let productsCounter = 0; productsCounter < this.products.length; productsCounter++) {
             if(this.products[productsCounter]['_id'] == id) {
                 return this.products[productsCounter];
             }
@@ -54,8 +60,8 @@ export class ProductsService {
     }
 
     public getProductsByCategory(category_id) {
-        var productsByCategory = [];
-        for(var productsCounter = 0; productsCounter < this.products.length; productsCounter++) {
+        let productsByCategory = [];
+        for(let productsCounter = 0; productsCounter < this.products.length; productsCounter++) {
             if(this.products[productsCounter]['category'] == category_id) {
                 productsByCategory.push(this.products[productsCounter]);
             }
@@ -63,22 +69,30 @@ export class ProductsService {
         return productsByCategory;
     }
 
-    public getProductsByNotCategory(category_id) {
-        var productsByCategory = [];
-        for(var productsCounter = 0; productsCounter < this.products.length; productsCounter++) {
-            if(this.products[productsCounter]['category'] != category_id) {
-                productsByCategory.push(this.products[productsCounter]);
-            }
-        }
-        return productsByCategory;
-    }
-
     public getProductByLink(link) {
-        for(var productsCounter = 0; productsCounter < this.products.length; productsCounter++) {
+        for(let productsCounter = 0; productsCounter < this.products.length; productsCounter++) {
             if(this.products[productsCounter]['link'] == link) {
                 return this.products[productsCounter];
             }
         }
+    }
+
+    public getMainPageProducts() {
+        return this.sortProductsByCategories().map((category) => {
+            category.products = category.products.filter((product) => {
+                return product.isShownMainPage;
+            });
+            return category;
+        })
+    }
+    
+    public sortProductsByCategories() {
+        return this.categoriesService.sortCategoriesByZIndex()
+            .map((category) => {
+                let updatedCategory = this.utilsService.cloneObject(category);
+                updatedCategory.products = this.getProductsByCategory(category.products);
+                return updatedCategory
+            });
     }
 
     public addProduct(product) {
@@ -86,7 +100,7 @@ export class ProductsService {
     }
 
     public removeProduct(id) {
-        for(var productsCounter = 0; productsCounter < this.products.length; productsCounter++) {
+        for(let productsCounter = 0; productsCounter < this.products.length; productsCounter++) {
             if(this.products[productsCounter]['_id'] == id) {
                 this.products.splice(productsCounter, 1);
             }

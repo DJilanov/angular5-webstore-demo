@@ -1,5 +1,5 @@
-<app-header *ngIf="this.options.header"></app-header>
-
-<router-outlet></router-outlet>
-
-<app-footer *ngIf="this.options.footer"></app-footer>
+<main *ngIf="!loading">
+    <app-header></app-header>
+    <router-outlet></router-outlet>
+    <app-footer></app-footer>
+</main>

@@ -3,6 +3,7 @@ import { LanguageModel } from '../utils/language.model';
 export class ProductModel {
 	id: string;
 	category: string;
+	isShownMainPage: boolean;
 	title: LanguageModel;
 	description: LanguageModel;
 	moreInfo: LanguageModel;
@@ -26,6 +27,7 @@ export class ProductModel {
 	constructor(
 		id?: string,
 		category?: string,
+		isShownMainPage?: boolean,
 		title?: LanguageModel,
 		description?: LanguageModel,
 		moreInfo?: LanguageModel,
@@ -47,6 +49,7 @@ export class ProductModel {
 	) {
 		this.id = id;
 		this.category = category;
+		this.isShownMainPage = isShownMainPage;
 		this.title = title;
 		this.description = description;
 		this.moreInfo = moreInfo;

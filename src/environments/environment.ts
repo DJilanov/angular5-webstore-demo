@@ -8,4 +8,9 @@ export const environment = {
 	envName: 'dev-test',
 	appUrl: 'http://localhost:4200/',
 	apiUrl: 'http://localhost:8080/api/',
+	mapCoordinates: { 
+		lat: 42.711330, 
+		lng: 23.375995, 
+		zoom: 13 
+	}
 };

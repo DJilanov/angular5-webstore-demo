@@ -2,8 +2,8 @@ import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-
-import { DndModule } from 'ng2-dnd';
+import { AgmCoreModule } from '@agm/core';
+import { SharedModule } from '../shared/shared.module';
 
 import { throwIfAlreadyLoaded } from '../core/module-import-guard';
 
@@ -21,7 +21,8 @@ import { ComponentsModule } from '../components/components.module';
         CommonModule,
         FormsModule,
         ComponentsModule,
-        DndModule.forRoot()
+        AgmCoreModule,
+        SharedModule
     ],
     exports: [
         HomeComponent,

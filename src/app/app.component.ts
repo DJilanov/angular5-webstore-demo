@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, NavigationStart } from '@angular/router';
 
 import { BackendService } from './core/backend/backend.service';
@@ -16,10 +16,7 @@ import { CategoriesService } from './services/categories/categories.service';
 
 export class AppComponent {
 
-    public options = {
-        header: false,
-        footer: false
-    }
+    public loading: boolean = true;
 
     constructor(
         private router: Router,
@@ -29,9 +26,6 @@ export class AppComponent {
         private categoriesService: CategoriesService,
         private errorHandlerService: ErrorHandlerService
     ) {
-		this.eventBusService.changeSharedOptions.subscribe(
-			(options) => this.updateSharedOptions(options)
-		);
 		this.router.events.subscribe(
 			(event) => {
 				if(event instanceof NavigationStart) {
@@ -39,6 +33,11 @@ export class AppComponent {
 				}
 			}
         );
+        this.eventBusService.productsUpdate.subscribe(() => {
+            if(this.loading) {
+                this.loading = false;
+            }
+        })
         this.getData();
     };
     
@@ -51,10 +50,5 @@ export class AppComponent {
             data => this.categoriesService.setCategories(data.json()),
             err => this.errorHandlerService.handleRequestError(err)
         );
-    }
-
-    private updateSharedOptions(options) {
-        this.options.header = options.header || false;
-        this.options.footer = options.footer || false;
     }
 }

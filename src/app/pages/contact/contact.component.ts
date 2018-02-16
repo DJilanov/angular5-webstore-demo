@@ -1,12 +1,9 @@
-import { Component, Input, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { EventBusService } from '../../core/event-bus/event-bus.service';
 
-const sharredOptions = {
-	header: true,
-	footer: true
-};
+import { environment } from 'environments/environment';
 
 @Component({
     selector: 'contact',
@@ -16,10 +13,19 @@ const sharredOptions = {
 
 export class ContactComponent {
 
+    public phoneNumbers = [ '0878422063', '0878613400' ];
+    public lat = environment.mapCoordinates.lat;
+    public lng = environment.mapCoordinates.lng;
+    public zoom = environment.mapCoordinates.zoom;
+
     constructor(
         private router: Router,
         private eventBusService: EventBusService
     ) {
-        this.eventBusService.emitChangeSharedOptions(sharredOptions);
+
     };
+    
+    ngOnInit() {
+		this.eventBusService.emitTranslate({});
+    }
 }

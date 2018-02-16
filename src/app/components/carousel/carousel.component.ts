@@ -1,4 +1,4 @@
-import { Component, Input, Output } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { EventBusService } from '../../core/event-bus/event-bus.service';
@@ -34,6 +34,7 @@ export class CarouselComponent {
             this.products = this.productsService.getCarouselProducts();
         });
 
+        this.products = this.productsService.getCarouselProducts();
         this.language = this.translateService.getLanguage();
     };
 }

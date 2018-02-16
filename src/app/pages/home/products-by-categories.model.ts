@@ -1,13 +1,14 @@
-import { LanguageModel } from '../utils/language.model';
+import { LanguageModel } from '../../services/utils/language.model';
+import { ProductModel } from '../../services/products/product.model';
 
-export class CategoryModel {
+export class ProductsByCategoriesModel {
 	id: string;
 	title: LanguageModel;
 	name: LanguageModel;
 	zIndex: string;
 	shownOnNav: boolean;
 	link: string;
-	products: string;
+	products: ProductModel[];
 
 	constructor(
 		id?: string,
@@ -16,7 +17,7 @@ export class CategoryModel {
 		zIndex?: string,
 		shownOnNav?: boolean,
 		link?: string,
-		products?: string,
+		products?: ProductModel[],
 	) {
 		this.id = id;
 		this.title = title;
