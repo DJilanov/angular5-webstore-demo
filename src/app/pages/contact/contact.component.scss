@@ -33,9 +33,14 @@
     }
     
     .phone-contact {
+        .contact-row > .col-xs-12 {
+            padding-bottom: 3rem;
+        }
+
         .col-xs-9 {
             padding-top: 2rem;
         }
+
         .icon {
             img {
                 height: 30px;
