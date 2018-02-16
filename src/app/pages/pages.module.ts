@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { AgmCoreModule } from '@agm/core';
+import { ReCaptchaModule } from 'angular2-recaptcha';
 import { SharedModule } from '../shared/shared.module';
 
 import { throwIfAlreadyLoaded } from '../core/module-import-guard';
@@ -22,6 +23,7 @@ import { ComponentsModule } from '../components/components.module';
         FormsModule,
         ComponentsModule,
         AgmCoreModule,
+        ReCaptchaModule,
         SharedModule
     ],
     exports: [

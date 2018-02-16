@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AgmCoreModule } from '@agm/core';
+import { ReCaptchaModule } from 'angular2-recaptcha';
 
 import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './core/core.module';
@@ -26,6 +27,7 @@ import { AppComponent } from './app.component';
 		BrowserAnimationsModule,
 		FormsModule,
 		HttpModule,
+		ReCaptchaModule,
 
 		AgmCoreModule.forRoot({
 		  apiKey: 'AIzaSyDJ7JbwKivO6_50DDkipCoxkgtcURyelr8'

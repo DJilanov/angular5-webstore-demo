@@ -7,16 +7,50 @@
       </agm-marker>
   </agm-map>
   <div class="form-section col-xs-12">
-    <div class="alert alert-success" *ngIf="messageSuccess">
-      <strong translate>Message send successfully</strong>
+    <div class="container">
+      <h3 translate>Contact with us</h3>
+      <form>
+        <div class="form-group">
+          <label for="name" translate>Name</label>
+          <input [(ngModel)]="formData.name"
+            type="text" class="form-control" id="name" aria-describedby="nameHelp" placeholder="Enter name" name="name" translate>
+          <small id="nameHelp" class="form-text text-muted" translate>We'll use it when we call you.</small>
+        </div>
+        <div class="form-group">
+          <label for="email" translate>Email address</label>
+          <input [(ngModel)]="formData.email"
+            type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email" name="email" translate>
+          <small id="emailHelp" class="form-text text-muted" translate>We'll use it to contact you if you dont answer your phone.</small>
+        </div>
+        <div class="form-group">
+          <label for="phone" translate>Phone</label>
+          <input [(ngModel)]="formData.phone"
+            type="phone" class="form-control" id="phone" aria-describedby="phoneHelp" placeholder="Enter phone" name="phone" translate>
+          <small id="phoneHelp" class="form-text text-muted" translate>We'll use it to call you.</small>
+        </div>
+        <div class="form-group">
+          <label for="message" translate>Message</label>
+          <textarea [(ngModel)]="formData.message"
+            class="form-control" id="message" aria-describedby="messageHelp" placeholder="Enter message" name="message" translate></textarea>
+          <small id="messageHelp" class="form-text text-muted" translate>Just tell us everything we need to know about your problem!</small>
+        </div>
+        <strong class="form-text text-muted" translate>We'll never share your data with anyone else!</strong>
+        <re-captcha site_key="6Lf10xETAAAAAFoODW33iIglPTpRXndsVkUmUOQh" language="bg"></re-captcha>
+        <div class="alert alert-success text-center" *ngIf="messageSuccess">
+          <strong translate>Message send successfully</strong>
+        </div>
+        <div class="alert alert-danger text-center" *ngIf="messageFail">
+          <strong translate>Ooops.. something happend... please call us on:</strong>
+          <strong>{{phoneNumbers[0]}}</strong>
+          <strong translate>or</strong>
+          <strong>{{phoneNumbers[1]}}</strong>
+        </div>
+        <button 
+          (click)="submitForm()"
+          [disabled]="!isValid()"
+          class="btn btn-primary small-top-padding" translate>Submit</button>
+      </form>
     </div>
-    <div class="alert alert-danger" *ngIf="messageFail">
-      <strong translate>Ooops.. something happend... please call us on:</strong>
-      <strong>{{phoneNumbers[0]}}</strong>
-      <strong translate>or</strong>
-      <strong>{{phoneNumbers[1]}}</strong>
-    </div>
-    <!-- Тук контактна форма -->
   </div>
   <div class="text-center col-xs-12 container-fluid phone-contact">
     <h3 translate>Or send us a message via</h3>
@@ -26,8 +60,12 @@
             <i class="fa fa-phone"></i>
         </div>
         <div class="col-xs-9 contact duo">
-          <a href="tel:{{phoneNumbers[0]}}">{{phoneNumbers[0]}}</a>
-          <a href="tel:{{phoneNumbers[1]}}">{{phoneNumbers[1]}}</a>
+          <div class="col-xs-12">
+            <a href="tel:{{phoneNumbers[0]}}">{{phoneNumbers[0]}}</a>
+          </div>
+          <div class="col-xs-12">
+            <a href="tel:{{phoneNumbers[1]}}">{{phoneNumbers[1]}}</a>
+          </div>
         </div>
       </div>
       <div class="col-xs-12 col-md-3">

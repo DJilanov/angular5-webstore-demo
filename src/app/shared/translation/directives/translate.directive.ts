@@ -22,7 +22,7 @@ export class TranslateDirective {
     }
 
     private handleOnLanguageChange() {
-        if(this.element.nativeElement.tagName == 'INPUT') {
+        if(this.element.nativeElement.tagName == 'INPUT' || this.element.nativeElement.tagName == 'TEXTAREA') {
             this.element.nativeElement.placeholder = this.translateService.translate(this.element.nativeElement.placeholder);
         } else {
             this.element.nativeElement.textContent = this.translateService.translate(this.element.nativeElement.textContent);
