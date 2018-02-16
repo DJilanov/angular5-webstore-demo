@@ -18,7 +18,7 @@
         <div class="col-xs-12 product"  itemscope itemtype="http://schema.org/Product">
             <div class="image-holder" itemprop="image">
             <img 
-                [src]="'./assets/product-images/' + product.mainImage || blankImage"
+                [src]="'./assets/product-images/small/' + product.mainImage || blankImage"
                 [alt]="product.title.bg"/>
             <!--<div class="like">
                 <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
@@ -44,16 +44,15 @@
             </div>
             <div class="button-container">
                 <div class="price" itemprop="offers" itemscope itemtype="http://schema.org/AggregateOffer">
-                <span>price</span>
                 <span class="new-price" itemprop="lowPrice">{{product.newPrice}}</span>
                 <span class="old-price" itemprop="highPrice">{{product.oldPrice}}</span>
                 <span class="currency" itemprop="priceCurrency" 
-                    *ngIf="isNaN(product.newPrice)"> currency}</span>
+                    *ngIf="isNaN(product.newPrice)" translate>лева</span>
                 </div>
                 <button
                 (click)="onAddToCart(product)"
                 class="btn btn-success">
-                    Add to cart
+                    <span ranslate>Добави в количката</span>
                 </button>
             </div>
             </div>
