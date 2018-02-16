@@ -8,4 +8,9 @@ export const environment = {
 	envName: 'prod',
 	appUrl: 'http://jilanov.com:4200/',
 	apiUrl: 'http://jilanov.com:8080/api/',
+	mapCoordinates: { 
+		lat: 42.711330, 
+		lng: 23.375995, 
+		zoom: 13 
+	}
 };
