@@ -1,8 +1,27 @@
 <div class="contact-page">
   <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
       <agm-marker [latitude]="lat" [longitude]="lng">
-          <agm-info-window>
-            <strong translate>Working time: 14:00 - 21:00</strong>
+          <agm-info-window [isOpen]="true">
+            <div class="row">
+              <div class="col-md-3">
+                  <img class="logo" src="./assets/images/logo.png" alt="logo">
+              </div>
+              <div class="col-md-9">
+                <div>
+                  <strong translate>Jilanov EOOD</strong>
+                </div>
+                <div>
+                    <span class="orange">{{starsCount}} </span>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <span>493 <span translate>People liked it</span></span>
+                </div>
+                <strong translate>Working time: 14:00 - 21:00</strong>
+              </div>
+            </div>
           </agm-info-window>
       </agm-marker>
   </agm-map>
@@ -48,7 +67,7 @@
         <button 
           (click)="submitForm()"
           [disabled]="!isValid()"
-          class="btn btn-primary small-top-padding" translate>Submit</button>
+          class="btn btn-primary" translate>Submit</button>
       </form>
     </div>
   </div>

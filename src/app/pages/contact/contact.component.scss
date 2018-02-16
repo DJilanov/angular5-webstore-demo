@@ -9,6 +9,27 @@
     
     agm-map {
         height: 30rem;
+
+        .row {
+            margin-left: 0;
+            margin-right: 0;
+
+            .col-md-3,
+            .col-md-9 {
+                padding-left: 0;
+                padding-right: 0;
+            }
+            
+            img {
+                max-height: 100%;
+                max-width: 100%;
+            }
+            
+            .orange,
+            .fa-star {
+              color: rgb(242, 118, 28)
+            }
+        }
     }
     
     .phone-contact {

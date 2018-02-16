@@ -23,6 +23,7 @@ export class ContactComponent {
     public lat = environment.mapCoordinates.lat;
     public lng = environment.mapCoordinates.lng;
     public zoom = environment.mapCoordinates.zoom;
+    public starsCount = 4.8;
 
     public formData: ContactModel = new ContactModel();
 
