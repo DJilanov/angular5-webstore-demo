@@ -32,7 +32,7 @@
                 <!--<rating [(ngModel)]="product.rating" max="5" stateOn="glyphicon-star"
                     stateOff="glyphicon-star-empty"></rating>-->
             </div>
-            <div class="params" *ngIf="isArray(product.params)" itemprop="description">
+            <div class="params" *ngIf="isArray(product.params[language])" itemprop="description">
                 <ul *ngFor="let params of product.params[language]">
                 <li 
                     *ngIf="params && params.length > 0"
