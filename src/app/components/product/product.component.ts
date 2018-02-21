@@ -39,4 +39,8 @@ export class ProductComponent {
     public isNaN(number) {
         return !isNaN(number);
     }
+
+    public isArray(array) {
+        return Array.isArray(array)
+    }
 }

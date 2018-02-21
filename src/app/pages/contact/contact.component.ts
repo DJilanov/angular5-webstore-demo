@@ -27,6 +27,8 @@ export class ContactComponent {
 
     public formData: ContactModel = new ContactModel();
 
+    public correctCaptcha: boolean = false;
+
     public messageSuccess: boolean;
     public messageFail: boolean;
 
@@ -42,8 +44,12 @@ export class ContactComponent {
 		this.eventBusService.emitTranslate({});
     }
 
-    isValid() {
-        return !!this.captcha.getResponse() && (this.captcha.getResponse().length > 0);
+    handleCorrectCaptcha() {
+        this.correctCaptcha = true;
+    }
+    
+    handleExpireCaptcha() {
+        this.correctCaptcha = false;
     }
 
     submitForm() {

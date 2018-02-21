@@ -54,7 +54,8 @@
           <small id="messageHelp" class="form-text text-muted" translate>Just tell us everything we need to know about your problem!</small>
         </div>
         <strong class="form-text text-muted" translate>We'll never share your data with anyone else!</strong>
-        <re-captcha site_key="6Lf10xETAAAAAFoODW33iIglPTpRXndsVkUmUOQh" language="bg"></re-captcha>
+        <re-captcha (captchaResponse)="handleCorrectCaptcha($event)" (captchaExpired)="handleExpireCaptcha($event)"
+          site_key="6Lf10xETAAAAAFoODW33iIglPTpRXndsVkUmUOQh" language="bg"></re-captcha>
         <div class="alert alert-success text-center" *ngIf="messageSuccess">
           <strong translate>Message send successfully</strong>
         </div>
@@ -66,7 +67,7 @@
         </div>
         <button 
           (click)="submitForm()"
-          [disabled]="!isValid()"
+          [disabled]="!correctCaptcha"
           class="btn btn-primary" translate>Submit</button>
       </form>
     </div>
