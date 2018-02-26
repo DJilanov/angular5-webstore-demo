@@ -5,6 +5,7 @@ import { ProductsService } from '../../services/products/products.service';
 import { CategoriesService } from '../../services/categories/categories.service';
 
 import { EventBusService } from '../../core/event-bus/event-bus.service';
+import { TranslateService } from '../../shared/translation/services/translate.service';
 
 import { ProductModel } from '../../services/products/product.model';
 import { CategoryModel } from '../../services/categories/category.model';
@@ -21,12 +22,14 @@ export class CategoryComponent {
     public products: ProductModel[];
 
     public categoryLink: string;
+    public language: string;
 
     constructor(
         private router: Router,
         private routeParams: ActivatedRoute,
         private productsService: ProductsService,
         private eventBusService: EventBusService,
+        private translateService: TranslateService,
         private categoriesService: CategoriesService
     ) {
         this.routeParams.params.subscribe(params => this.setParams(params));
@@ -35,6 +38,7 @@ export class CategoryComponent {
     private setParams(params) {
         if(params['category']) {
             let category = params.category.toLowerCase();
+            this.language = this.translateService.getLanguage();
             this.category = this.categoriesService.getCategoryByLink(category);
             if(!this.category) {
                 this.categoryLink = category;
@@ -43,6 +47,8 @@ export class CategoryComponent {
                 return;
             }
             this.products = this.productsService.getProductsByCategory(this.category['products']);
+        } else {
+            this.router.navigate(['/home']);
         }
     }
 

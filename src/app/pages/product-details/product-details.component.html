@@ -1,52 +1,70 @@
-<!-- <div class="container">
-  <table class="table table-striped text-center">
-    <thead>
-      <tr>
-        <th>Title</th>
-        <th>Category</th>
-        <th>New Price</th>
-        <th>Count</th>
-        <th>Is On Carousel</th>
-        <th>Edit</th>
-      </tr>
-      <tr>
-        <th>
-          <input name="title" type="text" class="form-control" [(ngModel)]="searchData.title" placeholder="Title" (change)="filterProducts($event)">
-        </th>
-        <th>
-          <input name="category" type="text" class="form-control" [(ngModel)]="searchData.category" placeholder="Category" (change)="filterProducts($event)">
-        </th>
-        <th>
-          <input name="newPrice" type="text" class="form-control" [(ngModel)]="searchData.newPrice" placeholder="New price" (change)="filterProducts($event)">
-        </th>
-        <th>
-          <input name="count" type="text" class="form-control" [(ngModel)]="searchData.count" placeholder="Count" (change)="filterProducts($event)">
-        </th>
-        <th>
-          <input name="isOnCarousel" class="form-control" type="checkbox" [(ngModel)]="searchData.isOnCarousel" (change)="filterProducts($event)"/>
-        </th>
-        <th>
-            <span (click)="create()">
-                <i class="fa fa-plus" aria-hidden="true"></i>
-            </span>
-        </th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let product of products">
-        <td>{{product.title[getLanguage()]}}</td>
-        <td>{{product.category}}</td>
-        <td>{{product.newPrice}}</td>
-        <td>{{product.count}}</td>
-        <td>
-          <input type="checkbox" [checked]="product.isOnCarousel" disabled />
-        </td>
-        <td class="text-center pointer">
-            <span (click)="edit(product)">
-                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-            </span>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div> -->
+<div 
+  class="col-xs-12 details" 
+  *ngIf="product.title"
+  itemscope itemtype="http://schema.org/Product">
+  <div class="row">
+    <div class="col-md-3 col-xs-12 images-section" itemprop="image">
+      <carousel [products]="imagesArray" [zoom]="true"></carousel>
+    </div>
+    <div class="col-md-7 col-xs-12 info-section">
+      <section class="center" itemprop="name">
+        <h1>{{product.title[language]}}</h1>
+        <h4>
+          <span translate>Производител</span>: {{product.make}}
+        </h4>
+        <!-- Todo: set real stars from the back-end-->
+        <div class="stars rating">
+          <!-- <span>{{starsCount | number : '1.2-2'}}</span>
+          <rating [(ngModel)]="starsCount"
+            [readonly]="true"> 
+          </rating>
+          <span>({{voters}})</span> -->
+        </div>
+      </section>
+      <section class="center">
+        <h5>
+          <span>Статус</span>:
+          <strong *ngIf="product.count > 0" translate>Налична</strong>
+          <strong *ngIf="product.count == 0" translate>Изчерпана</strong>
+        </h5>
+        <h5 itemscope itemtype="http://schema.org/AggregateOffer">
+          <span translate>Цена</span> 
+          <strong *ngIf="product.oldPrice.length > 0" itemprop="lowPrice">
+            <!-- <price [priceOptions]="productOldPrice"></price> -->
+          </strong>
+          <strong itemprop="highPrice">
+            <!-- <price [priceOptions]="productPrice"></price> -->
+          </strong>
+        </h5>
+      </section>
+      <section class="description center" itemprop="description">
+        <p>{{ product.description[language] }}</p>
+      </section>
+      <div class="params" *ngIf="product.params" itemprop="description">
+        <ul *ngFor="let params of product.params[language]">
+          <li 
+            *ngIf="params.length > 0"
+            >{{params}}</li>
+        </ul>
+      </div>
+      <section class="more-info center" itemprop="description">
+        <p>{{ product.moreInfo[language] }}</p>
+      </section>
+    </div>
+    <div class="col-md-2 col-xs-12 buy-section">
+      <!-- <buy-section 
+        class="center" 
+        [product]="product"></buy-section>  -->
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12" itemprop="description">
+      <section class="more-details">
+        <p>{{ product.moreDetails[language] }}</p>
+      </section>
+    </div>
+  </div>
+  <div class="row">
+  <!--<suggestion-list [product]="product"></suggestion-list>-->
+  </div>
+</div>

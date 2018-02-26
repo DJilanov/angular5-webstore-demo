@@ -1,6 +1,7 @@
 import { Injectable, EventEmitter } from '@angular/core';
 
 import { ProductModel } from './product.model';
+import { CarouselModel } from '../../components/carousel/carousel.model';
 
 import { UtilsService } from '../utils/utils.service';
 
@@ -48,6 +49,12 @@ export class ProductsService {
     public getCarouselProducts() {
         return this.products.filter(product => {
             return product.isOnCarousel && product.isShown;
+        }).map(product => {
+            return {
+                title: product.title,
+                link: product.link,
+                image: product.mainImage
+            }
         });
     }
 

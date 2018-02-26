@@ -6,6 +6,7 @@ import { ProductsService } from '../../services/products/products.service';
 import { TranslateService } from '../../shared/translation/services/translate.service';
 
 import { ProductsByCategoriesModel } from './products-by-categories.model';
+import { CarouselModel } from '../../components/carousel/carousel.model';
 
 @Component({
     selector: 'home',
@@ -16,6 +17,8 @@ import { ProductsByCategoriesModel } from './products-by-categories.model';
 export class HomeComponent {
 
     public language: string;
+    public carouselProducts: CarouselModel[];
+    
 	public productsByCategories: ProductsByCategoriesModel[];
 
     constructor(
@@ -26,8 +29,10 @@ export class HomeComponent {
     ) {
         this.eventBusService.categoriesUpdate.subscribe(() => {
             this.productsByCategories = this.productsService.getMainPageProducts();
+            this.carouselProducts = this.productsService.getCarouselProducts();
         });
         this.productsByCategories = this.productsService.getMainPageProducts();
+        this.carouselProducts = this.productsService.getCarouselProducts();
         this.language = this.translateService.getLanguage();
     };
 }

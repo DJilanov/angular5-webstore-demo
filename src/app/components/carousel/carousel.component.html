@@ -8,10 +8,11 @@
   </ol>
   <div class="carousel-inner" role="listbox">
     <div *ngFor="let product of products; let i = index"
+      (click)="onClick(product)"
       [class.active]="i == 0"
       class="carousel-item">
       <img class="d-block img-fluid" 
-        [src]="'./assets/product-images/' + product.mainImage" 
+        [src]="'./assets/product-images/' + product.image" 
         [alt]="product.title[language]">
       <div class="carousel-caption d-none d-md-block">
         <h3>{{product.title[language]}}</h3>
@@ -26,4 +27,45 @@
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="sr-only">Next</span>
   </a>
+</div>
+
+<div class="modal fade" id="carouselModal" tabindex="-1" role="dialog" aria-labelledby="carouselModal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <div id="carouselIndicators" class="carousel slide" data-ride="carousel">
+            <ol  class="carousel-indicators">
+              <li *ngFor="let product of products; let i = index"
+                data-target="#carouselIndicators" 
+                [attr.data-slide-to]="i" 
+                [class.active]="i == 0">
+              </li>
+            </ol>
+            <div class="carousel-inner" role="listbox">
+              <div *ngFor="let product of products; let i = index"
+                [class.active]="i == 0"
+                class="carousel-item">
+                <img class="d-block img-fluid" 
+                  [src]="'./assets/product-images/' + product.image" 
+                  [alt]="product.title[language]">
+                <div class="carousel-caption d-none d-md-block">
+                  <h3>{{product.title[language]}}</h3>
+                </div>
+              </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselIndicators" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselIndicators" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+      </div>
+    </div>
+  </div>
 </div>
