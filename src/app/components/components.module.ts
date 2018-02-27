@@ -6,6 +6,7 @@ import { SharedModule } from '../shared/shared.module';
 
 import { ProductComponent } from './product/product.component';
 import { CarouselComponent } from './carousel/carousel.component';
+import { OrderPanelComponent } from './order-panel/order-panel.component';
 
 import { throwIfAlreadyLoaded } from '../core/module-import-guard';
 
@@ -17,11 +18,13 @@ import { throwIfAlreadyLoaded } from '../core/module-import-guard';
     ],
     exports: [
         ProductComponent,
-        CarouselComponent
+        CarouselComponent,
+        OrderPanelComponent
     ],
     declarations: [
         ProductComponent,
-        CarouselComponent
+        CarouselComponent,
+        OrderPanelComponent
     ]
 })
 export class ComponentsModule {

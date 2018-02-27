@@ -23,6 +23,7 @@ export class ProductDetailsComponent {
     
     private productLink: string;
 
+    public starsRating: number;
     public product: ProductModel;
     public language: string;
     public imagesArray: CarouselModel[];
@@ -38,7 +39,8 @@ export class ProductDetailsComponent {
     };
     
     ngOnInit() {
-		this.eventBusService.emitTranslate({});
+        this.eventBusService.emitTranslate({});
+        this.starsRating = Math.round((Math.random() * (5 - 4.4) + 4.4) * 100) / 100;
     }
     
     public setParams(params) {

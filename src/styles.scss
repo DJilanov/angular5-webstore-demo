@@ -12,8 +12,16 @@ $body-font-size-desktop: 22px;
     flex-grow: 1;
 }
 
+.inline-block {
+    display: inline-block;
+}
+
 .tiny-left-margin {
     margin-left: 0.5rem;
+}
+
+.small-top-margin {
+    margin-top: 0.5rem;
 }
 
 .medium-top-margin {

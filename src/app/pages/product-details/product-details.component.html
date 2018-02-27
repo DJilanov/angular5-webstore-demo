@@ -7,39 +7,36 @@
       <carousel [products]="imagesArray" [zoom]="true"></carousel>
     </div>
     <div class="col-md-7 col-xs-12 info-section">
-      <section class="center" itemprop="name">
-        <h1>{{product.title[language]}}</h1>
-        <h4>
-          <span translate>Производител</span>: {{product.make}}
-        </h4>
-        <!-- Todo: set real stars from the back-end-->
-        <div class="stars rating">
-          <!-- <span>{{starsCount | number : '1.2-2'}}</span>
-          <rating [(ngModel)]="starsCount"
-            [readonly]="true"> 
-          </rating>
-          <span>({{voters}})</span> -->
+      <h2>{{product.title[language]}}</h2>
+      <hr/>
+      <div class="row">
+        <span translate>Производител</span>: {{product.make}}
+      </div>
+      <div class="row">
+        <span translate>Статус</span>:
+        <strong *ngIf="product.count > 0" translate>Налична</strong>
+        <strong *ngIf="product.count == 0" translate>Изчерпана</strong>
+      </div>
+      <div class="row" itemscope itemtype="http://schema.org/AggregateOffer">
+        <span translate>Цена</span>:
+        <strong *ngIf="product.oldPrice.length > 0" itemprop="lowPrice">
+          <!-- <price [priceOptions]="productOldPrice"></price> -->
+        </strong>
+        <strong itemprop="highPrice">
+          <!-- <price [priceOptions]="productPrice"></price> -->
+        </strong>
+      </div>
+      <div class="row">
+        <span translate>Оценка</span>: 
+        <div class="inline-block">
+            <span class="orange">{{starsRating}} </span>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
         </div>
-      </section>
-      <section class="center">
-        <h5>
-          <span>Статус</span>:
-          <strong *ngIf="product.count > 0" translate>Налична</strong>
-          <strong *ngIf="product.count == 0" translate>Изчерпана</strong>
-        </h5>
-        <h5 itemscope itemtype="http://schema.org/AggregateOffer">
-          <span translate>Цена</span> 
-          <strong *ngIf="product.oldPrice.length > 0" itemprop="lowPrice">
-            <!-- <price [priceOptions]="productOldPrice"></price> -->
-          </strong>
-          <strong itemprop="highPrice">
-            <!-- <price [priceOptions]="productPrice"></price> -->
-          </strong>
-        </h5>
-      </section>
-      <section class="description center" itemprop="description">
-        <p>{{ product.description[language] }}</p>
-      </section>
+      </div>
       <div class="params" *ngIf="product.params" itemprop="description">
         <ul *ngFor="let params of product.params[language]">
           <li 
@@ -47,21 +44,22 @@
             >{{params}}</li>
         </ul>
       </div>
-      <section class="more-info center" itemprop="description">
-        <p>{{ product.moreInfo[language] }}</p>
-      </section>
+      <div class="row medium-top-margin" itemprop="description">
+        {{ product.description[language] }}
+      </div>
+      <div class="row" itemprop="description">
+        {{ product.moreInfo[language] }}
+      </div>
     </div>
-    <div class="col-md-2 col-xs-12 buy-section">
-      <!-- <buy-section 
+    <div class="col-md-2 col-xs-12">
+      <order-panel 
         class="center" 
-        [product]="product"></buy-section>  -->
+        [product]="product"></order-panel> 
     </div>
   </div>
   <div class="row">
-    <div class="col-xs-12" itemprop="description">
-      <section class="more-details">
-        <p>{{ product.moreDetails[language] }}</p>
-      </section>
+    <div class="container medium-top-margin" itemprop="description">
+      {{ product.moreDetails[language] }}
     </div>
   </div>
   <div class="row">

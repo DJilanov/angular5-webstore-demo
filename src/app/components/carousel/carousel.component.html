@@ -14,7 +14,8 @@
       <img class="d-block img-fluid" 
         [src]="'./assets/product-images/' + product.image" 
         [alt]="product.title[language]">
-      <div class="carousel-caption d-none d-md-block">
+      <div *ngIf="!zoom"
+        class="carousel-caption d-none d-md-block">
         <h3>{{product.title[language]}}</h3>
       </div>
     </div>
