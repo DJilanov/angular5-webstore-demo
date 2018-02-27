@@ -37,7 +37,7 @@
             <i class="fa fa-star" aria-hidden="true"></i>
         </div>
       </div>
-      <div class="params" *ngIf="product.params" itemprop="description">
+      <div class="params" *ngIf="product.params && product.params.length" itemprop="description">
         <ul *ngFor="let params of product.params[language]">
           <li 
             *ngIf="params.length > 0"
