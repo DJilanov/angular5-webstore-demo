@@ -20,7 +20,7 @@
                 class="nav-item"
                 data-toggle="collapse" data-target=".navbar-collapse.show">
                 <a [class.active]="activeTab === category.link"
-                    class="nav-link" [routerLink]="'/products/' + category.link">{{category.name[language]}}</a>
+                    class="nav-link" [routerLink]="'/categories/' + category.link">{{category.name[language]}}</a>
             </li>
             <li (click)="makeActiveTab('contacts')"
                 class="nav-item"

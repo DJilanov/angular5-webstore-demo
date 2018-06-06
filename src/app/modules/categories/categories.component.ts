@@ -26,29 +26,28 @@ export class CategoriesComponent {
 
     constructor(
         private router: Router,
-        private routeParams: ActivatedRoute,
         private productsService: ProductsService,
         private eventBusService: EventBusService,
         private translateService: TranslateService,
         private categoriesService: CategoriesService
     ) {
-        this.routeParams.params.subscribe(params => this.setParams(params));
+        this.setCategoryData(this.router.url.split('/')[2]);
     };
     
-    private setParams(params) {
-        if(params['category']) {
-            let category = params.category.toLowerCase();
+    private setCategoryData(category) {
+        if(category) {
+            let lowercaseCategory = category.toLowerCase();
             this.language = this.translateService.getLanguage();
-            this.category = this.categoriesService.getCategoryByLink(category);
+            this.category = this.categoriesService.getCategoryByLink(lowercaseCategory);
             if(!this.category) {
-                this.categoryLink = category;
+                this.categoryLink = lowercaseCategory;
                 this.eventBusService.productsUpdate.subscribe(() => this.onFetchedData());
                 this.eventBusService.categoriesUpdate.subscribe(() => this.onFetchedData());
                 return;
             }
             this.products = this.productsService.getProductsByCategory(this.category['products']);
         } else {
-            this.router.navigate(['/home']);
+            this.router.navigate(['']);
         }
     }
 

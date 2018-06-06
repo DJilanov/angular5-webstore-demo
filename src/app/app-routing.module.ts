@@ -17,7 +17,7 @@ const routes: Routes = [
     },
     { 
         path: 'categories', 
-        loadChildren: './modules/categories/categories.module',
+        loadChildren: './modules/categories/categories.module#CategoriesModule',
         data: {
             preload: true,
             meta: {

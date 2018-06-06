@@ -2,21 +2,39 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 
-import { SharedModule } from '../../shared/shared.module';
-
 import { CategoriesComponent } from './categories.component';
 
+import { SharedModule } from '../../shared/shared.module';
+
 const routes: Routes = [
-    { path: '', component: CategoriesComponent }
+    {
+        path: '',
+        component: CategoriesComponent,
+        children: [
+            {
+                path: '**',
+                children: [
+                    {
+                        path: '/:productTitle/',
+                        loadChildren: 'app/modules/product-details/product-details.module#ProductDetailsModule',
+                    }
+                ]
+            }
+        ]
+    }
+
 ];
 
 @NgModule({
     imports: [
         CommonModule,
-        SharedModule,
-        RouterModule.forChild(routes)
+        RouterModule.forChild(routes),
+
+        SharedModule
     ],
-    exports: [],
+    exports: [
+
+    ],
     declarations: [
         CategoriesComponent
     ]

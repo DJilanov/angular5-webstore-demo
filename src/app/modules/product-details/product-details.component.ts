@@ -19,7 +19,7 @@ const sharredOptions = {
     templateUrl: './product-details.component.html'
 })
 
-export class ProductComponent {
+export class ProductDetailsComponent {
     
     private productLink: string;
 
@@ -35,6 +35,7 @@ export class ProductComponent {
         private productsService: ProductsService,
         private translateService: TranslateService,
     ) {
+        debugger;
         this.routeParams.params.subscribe(params => this.setParams(params));
     };
     
@@ -44,25 +45,25 @@ export class ProductComponent {
     }
     
     public setParams(params) {
-        if(params['productLink']) {
-            this.language = this.translateService.getLanguage();
-            this.product = this.productsService.getProductByLink(params['productLink']);
-            if(this.product == undefined) {
-                this.product = new ProductModel();
-                this.productLink = params['productLink'];
-                this.eventBusService.productsUpdate.subscribe(() => this.setParams(this.productLink));
-                return;
-            }
-            let images = [this.product['mainImage']].concat(this.product['otherImages']);
-            this.imagesArray = images.map(image => {
-                return {
-                    title: this.product.title,
-                    link: this.product.link,
-                    image: image
-                }
-            });
-        } else {
-            this.router.navigate(['/home']);
-        }
+        // if(params['productLink']) {
+        //     this.language = this.translateService.getLanguage();
+        //     this.product = this.productsService.getProductByLink(params['productLink']);
+        //     if(this.product == undefined) {
+        //         this.product = new ProductModel();
+        //         this.productLink = params['productLink'];
+        //         this.eventBusService.productsUpdate.subscribe(() => this.setParams(this.productLink));
+        //         return;
+        //     }
+        //     let images = [this.product['mainImage']].concat(this.product['otherImages']);
+        //     this.imagesArray = images.map(image => {
+        //         return {
+        //             title: this.product.title,
+        //             link: this.product.link,
+        //             image: image
+        //         }
+        //     });
+        // } else {
+        //     this.router.navigate(['/home']);
+        // }
     }
 }
