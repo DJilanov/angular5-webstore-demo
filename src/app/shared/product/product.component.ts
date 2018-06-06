@@ -1,8 +1,9 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { EventBusService } from '../../core/event-bus/event-bus.service';
 import { ProductsService } from '../../services/products/products.service';
+import { CategoriesService } from '../../services/categories/categories.service';
 import { TranslateService } from '../../shared/translation/services/translate.service';
 
 import { ProductModel } from '../../models/product.model';
@@ -16,16 +17,22 @@ import { ProductModel } from '../../models/product.model';
 export class ProductComponent {
 
     public language: string;
+    public categoryLink: string;
 	@Input() product: ProductModel;
 
     constructor(
         private router: Router,
         private productsService: ProductsService,
+        private categoriesService: CategoriesService,
         private eventBusService: EventBusService,
         private translateService: TranslateService
     ) {
         this.language = this.translateService.getLanguage();
     };
+
+    ngOnInit() {
+        this.categoryLink = this.categoriesService.getCategoryByProductLink(this.product.category).link;
+    }
 
     public blankImage: string = 'http://1.bp.blogspot.com/--Gn3G0ImmUo/VTvLaHI0ScI/AAAAAAAAAOI/LIqMbamy8jM/s1600/COMputer%2Bparts.jpg';
     

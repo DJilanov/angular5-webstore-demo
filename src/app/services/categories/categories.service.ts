@@ -52,6 +52,17 @@ export class CategoriesService {
     }
     
     /**
+    * @getCategoryByLink 
+    */
+    public getCategoryByProductLink(link) {
+        for(var categoryCounter = 0; categoryCounter < this.categoryArray.length; categoryCounter++) {
+            if(this.categoryArray[categoryCounter]['products'] == link) {
+                return this.categoryArray[categoryCounter];
+            }
+        }
+    }
+    
+    /**
     * @getCategoryById 
     */
     public getCategoryById(id) {

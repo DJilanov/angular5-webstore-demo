@@ -1,5 +1,5 @@
 <div *ngIf="product">
-    <a [routerLink] = "['/details', product.link]">
+    <a [routerLink] = "['/categories/', categoryLink, product.link]">
         <span 
             *ngIf="product.isDailyOffer"
             class="offer-box box">
