@@ -8,7 +8,7 @@ import { TranslateService } from '../../shared/translation/services/translate.se
 import { ProductModel } from '../../models/product.model';
 
 @Component({
-    selector: 'order-panel',
+    selector: 'app-order-panel',
     styleUrls: ['./order-panel.component.scss'],
     templateUrl: './order-panel.component.html'
 })

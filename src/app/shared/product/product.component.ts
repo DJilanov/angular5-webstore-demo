@@ -8,7 +8,7 @@ import { TranslateService } from '../../shared/translation/services/translate.se
 import { ProductModel } from '../../models/product.model';
 
 @Component({
-    selector: 'product',
+    selector: 'app-product',
     styleUrls: ['./product.component.scss'],
     templateUrl: './product.component.html'
 })

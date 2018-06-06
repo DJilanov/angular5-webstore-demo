@@ -9,7 +9,7 @@ import { ProductsByCategoriesModel } from '../../models/products-by-categories.m
 import { CarouselModel } from '../../models/carousel.model';
 
 @Component({
-    selector: 'home',
+    selector: 'app-home',
     styleUrls: ['./home.component.scss'],
     templateUrl: './home.component.html'
 })

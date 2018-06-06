@@ -18,8 +18,4 @@ import { throwIfAlreadyLoaded } from '../core/module-import-guard';
     ],
     exports: []
 })
-export class ServicesModule {
-	constructor( @Optional() @SkipSelf() parentModule: CommonModule) {
-		throwIfAlreadyLoaded(parentModule, 'ServiceModule');
-	}
-}
+export class ServicesModule { }

@@ -37,7 +37,10 @@ import { AppComponent } from './app.component';
 	],
 	providers: [
 		CoreModule,
-	],
+        SharedModule,
+        ServicesModule,
+        FeedbackModule
+    ],
 	bootstrap: [AppComponent]
 })
 export class AppModule { }

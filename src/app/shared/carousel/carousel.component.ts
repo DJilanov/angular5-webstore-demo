@@ -15,7 +15,7 @@ const sharredOptions = {
 declare var $: any;
 
 @Component({
-    selector: 'carousel',
+    selector: 'app-carousel',
     styleUrls: ['./carousel.component.scss'],
     templateUrl: './carousel.component.html'
 })

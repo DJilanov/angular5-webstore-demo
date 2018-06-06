@@ -1,10 +1,12 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 
+import { HomeComponent } from './home.component';
+
 import { SharedModule } from '../../shared/shared.module';
 
-import { HomeComponent } from './home.component';
+import { throwIfAlreadyLoaded } from '../../core/module-import-guard';
 
 const routes: Routes = [
     { path: '', component: HomeComponent }
@@ -13,10 +15,13 @@ const routes: Routes = [
 @NgModule({
     imports: [
         CommonModule,
-        SharedModule,
-        RouterModule.forChild(routes)
+        RouterModule.forChild(routes),
+
+        SharedModule
     ],
-    exports: [],
+    exports: [
+
+    ],
     declarations: [
         HomeComponent
     ]
