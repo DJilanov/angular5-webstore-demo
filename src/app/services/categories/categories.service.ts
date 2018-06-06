@@ -1,6 +1,6 @@
 import { Injectable, EventEmitter } from '@angular/core';
 
-import { CategoryModel } from './category.model';
+import { CategoryModel } from '../../models/category.model';
 
 import { UtilsService } from '../utils/utils.service';
 import { EventBusService } from '../../core/event-bus/event-bus.service';

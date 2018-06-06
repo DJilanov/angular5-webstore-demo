@@ -1,0 +1,19 @@
+@import '../../../variables';
+
+:host {
+    flex: 1 0 auto;
+}
+
+.row {
+    margin-left: 0;
+    padding-bottom: 0.2rem;
+}
+
+.details {
+    margin-top: 40px;
+    overflow-x: hidden;
+}
+
+.rating {
+    color: rgb(242, 118, 28)
+}

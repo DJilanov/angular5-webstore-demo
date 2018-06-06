@@ -1,7 +1,7 @@
 import { Injectable, EventEmitter } from '@angular/core';
 
-import { ProductModel } from './product.model';
-import { CarouselModel } from '../../components/carousel/carousel.model';
+import { ProductModel } from '../../models/product.model';
+import { CarouselModel } from '../../models/carousel.model';
 
 import { UtilsService } from '../utils/utils.service';
 

@@ -5,7 +5,7 @@ import { EventBusService } from '../../core/event-bus/event-bus.service';
 import { CategoriesService } from '../../services/categories/categories.service';
 import { TranslateService } from '../../shared/translation/services/translate.service';
 
-import { CategoryModel } from '../../services/categories/category.model';
+import { CategoryModel } from '../../models/category.model';
 
 const sharredOptions = {};
 

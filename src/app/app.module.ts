@@ -12,9 +12,6 @@ import { SharedModule } from './shared/shared.module';
 import { ServicesModule } from './services/services.module';
 import { FeedbackModule } from './feedback/feedback.module';
 
-import { PagesModule } from './pages/pages.module';
-import { ComponentsModule } from './components/components.module';
-
 import { AppComponent } from './app.component';
 
 @NgModule({
@@ -33,17 +30,13 @@ import { AppComponent } from './app.component';
 		  apiKey: 'AIzaSyDJ7JbwKivO6_50DDkipCoxkgtcURyelr8'
 		}),
 
-		CoreModule,
-		SharedModule,
-		ServicesModule,
-        FeedbackModule,
-        
-        PagesModule,
-        ComponentsModule
+        CoreModule,
+        SharedModule,
+        ServicesModule,
+        FeedbackModule
 	],
 	providers: [
 		CoreModule,
-		SharedModule
 	],
 	bootstrap: [AppComponent]
 })

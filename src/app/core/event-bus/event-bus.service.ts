@@ -15,6 +15,7 @@ export class EventBusService {
 	public productsUpdate: EventEmitter<any>;
 	public messagesUpdate: EventEmitter<any>;
 	public categoriesUpdate: EventEmitter<any>;
+	public cartProductsUpdate: EventEmitter<any>;
 
 	public changeSharedOptions: EventEmitter<any>;
 
@@ -27,6 +28,7 @@ export class EventBusService {
 		this.productsUpdate = new EventEmitter();
 		this.messagesUpdate = new EventEmitter();
 		this.categoriesUpdate = new EventEmitter();
+		this.cartProductsUpdate = new EventEmitter();
 
 		this.changeSharedOptions = new EventEmitter();		
 	}
@@ -62,6 +64,11 @@ export class EventBusService {
 	public emitCategoriesUpdate(categories) {
 		this.categoriesUpdate.emit(categories);
 	}
+
+	public emitCartProductsUpdate(products) {
+		this.cartProductsUpdate.emit(products);
+	}
+
 	
 	public emitChangeSharedOptions(sharedOptions) {
 		this.changeSharedOptions.emit(sharedOptions);

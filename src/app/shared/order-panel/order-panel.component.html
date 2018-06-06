@@ -1,0 +1,14 @@
+<div class="col-xs-12" *ngIf="product.title">
+	<div class="text-container">
+		<span>Налични</span> 
+		<span>{{product.count}}</span>
+		<span>бройки</span> 
+	</div>
+	<div class="small-top-margin">
+		<button
+			(click)="onAddToCart()"
+			class="btn btn-success">
+			<span>Добави в количката</span>
+		</button>
+	</div>
+</div>
