@@ -1,5 +1,6 @@
 import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HttpModule } from '@angular/http';
 
 import { BackendService } from './backend/backend.service';
 import { ErrorHandlerService } from './error-handler/error-handler.service';
@@ -9,7 +10,8 @@ import { throwIfAlreadyLoaded } from './module-import-guard';
 
 @NgModule({
 	imports: [
-		CommonModule
+		HttpModule,
+		CommonModule,
 	],
 	providers: [
 		BackendService,
@@ -17,8 +19,4 @@ import { throwIfAlreadyLoaded } from './module-import-guard';
 		ErrorHandlerService
 	]
 })
-export class CoreModule {
-	constructor( @Optional() @SkipSelf() parentModule: CoreModule) {
-		throwIfAlreadyLoaded(parentModule, 'CoreModule');
-	}
-}
+export class CoreModule { }

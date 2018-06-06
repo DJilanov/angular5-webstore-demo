@@ -38,8 +38,8 @@ const routes: Routes = [
         }
     },
     { 
-        path: 'contact', 
-        loadChildren: './modules/contact/contact.module',
+        path: 'contacts', 
+        loadChildren: './modules/contact/contact.module#ContactModule',
         data: {
             preload: true,
             meta: {
