@@ -16,8 +16,19 @@ const routes: Routes = [
         }
     },
     { 
-        path: 'categories', 
+        path: 'categories/:id', 
         loadChildren: './modules/categories/categories.module#CategoriesModule',
+        data: {
+            preload: true,
+            meta: {
+                title: 'Компютърни компоненти Жиланов: евтини РАМ(RAM) памети, видеонаблюдение, твърд диск и видеокарти',
+                description: 'Изберете от десетките видове RAM памети, хард дискове и компютърни части на промоционалните ни цени!'
+            }
+        }
+    },
+    { 
+        path: 'categories/:id/:id2', 
+        loadChildren: './modules/product-details/product-details.module#ProductDetailsModule',
         data: {
             preload: true,
             meta: {
@@ -49,7 +60,7 @@ const routes: Routes = [
         }
     },
     {
-        path: '**',
+        path: 'error-page',
         component: ServerErrorPageComponent
     }
 ];

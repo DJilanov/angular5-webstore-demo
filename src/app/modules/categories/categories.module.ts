@@ -10,17 +10,7 @@ const routes: Routes = [
     {
         path: '',
         component: CategoriesComponent,
-        children: [
-            {
-                path: '**',
-                children: [
-                    {
-                        path: '/:productTitle/',
-                        loadChildren: 'app/modules/product-details/product-details.module#ProductDetailsModule',
-                    }
-                ]
-            }
-        ]
+        loadChildren: '../product-details/product-details.module#ProductDetailsModule'
     }
 
 ];

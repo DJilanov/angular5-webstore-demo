@@ -18,10 +18,10 @@ const routes: Routes = [
         RouterModule.forChild(routes)
     ],
     exports: [
-        
+
     ],
     declarations: [
         ProductDetailsComponent
     ]
 })
-export class ProductModule { }
+export class ProductDetailsModule { }

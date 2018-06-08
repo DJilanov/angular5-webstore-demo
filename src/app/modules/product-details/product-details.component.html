@@ -1,68 +1,61 @@
-<div 
-  class="col-xs-12 details" 
-  *ngIf="product.title"
-  itemscope itemtype="http://schema.org/Product">
-  <div class="row">
-    <div class="col-md-3 col-xs-12 images-section" itemprop="image">
-      <carousel [products]="imagesArray" [zoom]="true"></carousel>
-    </div>
-    <div class="col-md-7 col-xs-12 info-section">
-      <h2>{{product.title[language]}}</h2>
-      <hr/>
-      <div class="row">
-        <span translate>Производител</span>: {{product.make}}
-      </div>
-      <div class="row">
-        <span translate>Статус</span>:
-        <strong *ngIf="product.count > 0" translate>Налична</strong>
-        <strong *ngIf="product.count == 0" translate>Изчерпана</strong>
-      </div>
-      <div class="row" itemscope itemtype="http://schema.org/AggregateOffer">
-        <span translate>Цена</span>:
-        <strong *ngIf="product.oldPrice.length > 0" itemprop="lowPrice">
-          <!-- <price [priceOptions]="productOldPrice"></price> -->
-        </strong>
-        <strong itemprop="highPrice">
-          <!-- <price [priceOptions]="productPrice"></price> -->
-        </strong>
-      </div>
-      <div class="row">
-        <span translate>Оценка</span>: 
-        <div class="inline-block">
-            <span class="orange">{{starsRating}} </span>
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star" aria-hidden="true"></i>
+<div class="col-xs-12 details" *ngIf="product.title" itemscope itemtype="http://schema.org/Product">
+    <div class="row">
+        <div class="col-md-3 col-xs-12 images-section" itemprop="image">
+            <!-- <carousel [products]="imagesArray" [zoom]="true"></carousel> -->
         </div>
-      </div>
-      <div class="params" *ngIf="product.params && product.params.length" itemprop="description">
-        <ul *ngFor="let params of product.params[language]">
-          <li 
-            *ngIf="params.length > 0"
-            >{{params}}</li>
-        </ul>
-      </div>
-      <div class="row medium-top-margin" itemprop="description">
-        {{ product.description[language] }}
-      </div>
-      <div class="row" itemprop="description">
-        {{ product.moreInfo[language] }}
-      </div>
+        <div class="col-md-7 col-xs-12 info-section">
+            <h2>{{product.title[language]}}</h2>
+            <hr/>
+            <div class="row">
+                <span translate>Производител</span>: {{product.make}}
+            </div>
+            <div class="row">
+                <span translate>Статус</span>:
+                <strong *ngIf="product.count > 0" translate>Налична</strong>
+                <strong *ngIf="product.count == 0" translate>Изчерпана</strong>
+            </div>
+            <div class="row" itemscope itemtype="http://schema.org/AggregateOffer">
+                <span translate>Цена</span>:
+                <strong *ngIf="product.oldPrice.length > 0" itemprop="lowPrice">
+                    <!-- <price [priceOptions]="productOldPrice"></price> -->
+                </strong>
+                <strong itemprop="highPrice">
+                    <!-- <price [priceOptions]="productPrice"></price> -->
+                </strong>
+            </div>
+            <div class="row">
+                <span translate>Оценка</span>:
+                <div class="inline-block">
+                    <span class="orange">{{starsRating}} </span>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                </div>
+            </div>
+            <div class="params" *ngIf="product.params && product.params.length" itemprop="description">
+                <ul *ngFor="let params of product.params[language]">
+                    <li *ngIf="params.length > 0">{{params}}</li>
+                </ul>
+            </div>
+            <div class="row medium-top-margin" itemprop="description">
+                {{ product.description[language] }}
+            </div>
+            <div class="row" itemprop="description">
+                {{ product.moreInfo[language] }}
+            </div>
+        </div>
+        <div class="col-md-2 col-xs-12">
+            <!-- <order-panel class="center" [product]="product"></order-panel> -->
+        </div>
     </div>
-    <div class="col-md-2 col-xs-12">
-      <order-panel 
-        class="center" 
-        [product]="product"></order-panel> 
+    <div class="row">
+        <div class="container medium-top-margin" itemprop="description">
+            {{ product.moreDetails[language] }}
+        </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="container medium-top-margin" itemprop="description">
-      {{ product.moreDetails[language] }}
+    <div class="row">
+        <!--<suggestion-list [product]="product"></suggestion-list>-->
     </div>
-  </div>
-  <div class="row">
-  <!--<suggestion-list [product]="product"></suggestion-list>-->
-  </div>
 </div>
