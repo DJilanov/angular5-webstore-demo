@@ -1,8 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { EventBusService } from '../../core/event-bus/event-bus.service';
-import { ProductsService } from '../../services/products/products.service';
+import { CategoriesService } from '../../services/categories/categories.service';
 import { TranslateService } from '../../shared/translation/services/translate.service';
 
 import { CarouselModel } from '../../models/carousel.model';
@@ -30,6 +29,7 @@ export class CarouselComponent {
 
     constructor(
         private router: Router,
+        private categoriesService: CategoriesService,
         private translateService: TranslateService
     ) {
         this.language = this.translateService.getLanguage();
@@ -37,7 +37,7 @@ export class CarouselComponent {
 
     public onClick(product) {
         if(this.enableRouting) {
-            this.router.navigate(['/details', product.link]);
+            this.router.navigate(['/categories/', product.link]);
         }
         if(this.zoom) {
             $('#carouselModal').modal({

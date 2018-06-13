@@ -1,128 +1,128 @@
 <div class="contact-page">
-  <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
-      <agm-marker [latitude]="lat" [longitude]="lng">
-          <agm-info-window [isOpen]="true">
-            <div class="row">
-              <div class="col-3">
-                  <img class="logo" src="./assets/images/logo.png" alt="logo">
-              </div>
-              <div class="col-9">
-                <div>
-                  <strong translate>Jilanov EOOD</strong>
+    <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+        <agm-marker [latitude]="lat" [longitude]="lng">
+            <agm-info-window [isOpen]="true">
+                <div class="row">
+                    <div class="col-3">
+                        <img class="logo" src="./assets/images/logo.png" alt="logo">
+                    </div>
+                    <div class="col-9">
+                        <div>
+                            <strong translate>Jilanov EOOD</strong>
+                        </div>
+                        <div>
+                            <span class="orange">{{starsCount}}</span>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <span>493
+                                <span translate>People liked it</span>
+                            </span>
+                        </div>
+                        <strong>
+                            <span translate>Working time</span>: 14:00 - 21:00</strong>
+                    </div>
                 </div>
-                <div>
-                    <span class="orange">{{starsCount}}</span>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <span>493 <span translate>People liked it</span></span>
+            </agm-info-window>
+        </agm-marker>
+    </agm-map>
+    <div class="form-section col-xs-12">
+        <div class="container">
+            <h3 translate>Contact with us</h3>
+            <form>
+                <div class="form-group">
+                    <label for="name" translate>Name</label>
+                    <input [(ngModel)]="formData.name" type="text" class="form-control" id="name" aria-describedby="nameHelp" placeholder="Enter name"
+                        name="name" translate>
+                    <small id="nameHelp" class="form-text text-muted" translate>We'll use it when we call you.</small>
                 </div>
-                <strong><span translate>Working time</span>: 14:00 - 21:00</strong>
-              </div>
-            </div>
-          </agm-info-window>
-      </agm-marker>
-  </agm-map>
-  <div class="form-section col-xs-12">
-    <div class="container">
-      <h3 translate>Contact with us</h3>
-      <form>
-        <div class="form-group">
-          <label for="name" translate>Name</label>
-          <input [(ngModel)]="formData.name"
-            type="text" class="form-control" id="name" aria-describedby="nameHelp" placeholder="Enter name" name="name" translate>
-          <small id="nameHelp" class="form-text text-muted" translate>We'll use it when we call you.</small>
+                <div class="form-group">
+                    <label for="email" translate>Email address</label>
+                    <input [(ngModel)]="formData.email" type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email"
+                        name="email" translate>
+                    <small id="emailHelp" class="form-text text-muted" translate>We'll use it to contact you if you dont answer your phone.</small>
+                </div>
+                <div class="form-group">
+                    <label for="phone" translate>Phone</label>
+                    <input [(ngModel)]="formData.phone" type="phone" class="form-control" id="phone" aria-describedby="phoneHelp" placeholder="Enter phone"
+                        name="phone" translate>
+                    <small id="phoneHelp" class="form-text text-muted" translate>We'll use it to call you.</small>
+                </div>
+                <div class="form-group">
+                    <label for="message" translate>Message</label>
+                    <textarea [(ngModel)]="formData.message" class="form-control" id="message" aria-describedby="messageHelp" placeholder="Enter message"
+                        name="message" translate></textarea>
+                    <small id="messageHelp" class="form-text text-muted" translate>Just tell us everything we need to know about your problem!</small>
+                </div>
+                <strong class="form-text text-muted" translate>We'll never share your data with anyone else!</strong>
+                <re-captcha (captchaResponse)="handleCorrectCaptcha()" (captchaExpired)="handleExpireCaptcha()" site_key="6Lf10xETAAAAAFoODW33iIglPTpRXndsVkUmUOQh"
+                    language="bg"></re-captcha>
+                <div class="alert alert-success text-center" *ngIf="messageSuccess">
+                    <strong translate>Message send successfully</strong>
+                </div>
+                <div class="alert alert-danger text-center" *ngIf="messageFail">
+                    <strong translate>Ooops.. something happend... please call us on:</strong>
+                    <strong>{{phoneNumbers[0]}}</strong>
+                    <strong translate>or</strong>
+                    <strong>{{phoneNumbers[1]}}</strong>
+                </div>
+                <button (click)="submitForm()" [disabled]="!correctCaptcha" class="btn btn-primary small-top-margin" translate>Submit</button>
+            </form>
         </div>
-        <div class="form-group">
-          <label for="email" translate>Email address</label>
-          <input [(ngModel)]="formData.email"
-            type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email" name="email" translate>
-          <small id="emailHelp" class="form-text text-muted" translate>We'll use it to contact you if you dont answer your phone.</small>
-        </div>
-        <div class="form-group">
-          <label for="phone" translate>Phone</label>
-          <input [(ngModel)]="formData.phone"
-            type="phone" class="form-control" id="phone" aria-describedby="phoneHelp" placeholder="Enter phone" name="phone" translate>
-          <small id="phoneHelp" class="form-text text-muted" translate>We'll use it to call you.</small>
-        </div>
-        <div class="form-group">
-          <label for="message" translate>Message</label>
-          <textarea [(ngModel)]="formData.message"
-            class="form-control" id="message" aria-describedby="messageHelp" placeholder="Enter message" name="message" translate></textarea>
-          <small id="messageHelp" class="form-text text-muted" translate>Just tell us everything we need to know about your problem!</small>
-        </div>
-        <strong class="form-text text-muted" translate>We'll never share your data with anyone else!</strong>
-        <re-captcha (captchaResponse)="handleCorrectCaptcha()" (captchaExpired)="handleExpireCaptcha()"
-          site_key="6Lf10xETAAAAAFoODW33iIglPTpRXndsVkUmUOQh" language="bg"></re-captcha>
-        <div class="alert alert-success text-center" *ngIf="messageSuccess">
-          <strong translate>Message send successfully</strong>
-        </div>
-        <div class="alert alert-danger text-center" *ngIf="messageFail">
-          <strong translate>Ooops.. something happend... please call us on:</strong>
-          <strong>{{phoneNumbers[0]}}</strong>
-          <strong translate>or</strong>
-          <strong>{{phoneNumbers[1]}}</strong>
-        </div>
-        <button 
-          (click)="submitForm()"
-          [disabled]="!correctCaptcha"
-          class="btn btn-primary" translate>Submit</button>
-      </form>
     </div>
-  </div>
-  <div class="text-center col-xs-12 container-fluid phone-contact">
-    <h3 translate>Or send us a message via</h3>
-    <div class="row contact-row">
-      <div class="col-xs-12 col-md-3">
-        <div class="col-xs-3 icon">
-            <i class="fa fa-phone"></i>
-        </div>
-        <div class="col-xs-9 contact duo">
-          <div class="col-xs-12">
-            <a href="tel:{{phoneNumbers[0]}}">{{phoneNumbers[0]}}</a>
-          </div>
-          <div class="col-xs-12">
-            <a href="tel:{{phoneNumbers[1]}}">{{phoneNumbers[1]}}</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-xs-12 col-md-3">
-        <div class="col-xs-3 icon">
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAARWSURBVGhD7dlZqHZTHMfxY57nIVKUuSSzKFNmSt4SIXKBIsmQckEkFHJhipC4oczThbiQeUqGXJiSWWSeMg/f7/O8q1a7/7PX2vvsc8771PurT+1zzl7r2fvstdZeaz0zS7M0S242waE4H3fhVXyK3/Ff5md8jjfwCK7FGdgXa2JBsjOuwQfIL7avv/ESLsEWmPMchBcRXcxQ/sWT2AODZyM8jOiD54o3dCfWxSDZBbbt6MPmw/vYBrPK9vgB0QfMJwcPB5VeWQcfI6q4q9/QHMW6egbLoHNuQ1RhLYfb/bEhUtbHAbgOXyMq1+ZEdMpWcEiMKsv9Gfwu+Qwrw6y6WJ41cBn+QFQ+8i465UpEFSUf4iisBEeVBxGd9w2+g/3sl8XH92IRUjPZC18hKh/ZE9V5B1El8m9rIc+KeAHNc7/FxkhZDzaPV+D5m8Nsh9pB5XJUZQNEFST7IYrlmm96n4DN1H6yNlJ8GqfjC+zgL8gRyMtO8hSq4qOOKtCvaBs5DkZUzhv6ER/hIqwGcyT8XRoQal66XsPyKOYkRBXIjlmq5D7kZfyvp47uHO1RvAmfoLE/3jw+HD2dvOwkNsViLkVUODkcbfFD8vN/gs3RfmR8otfDJuKxM98v4TTIvI28fOQwFOP8Jiqc3I+2OKpE5XyaV8GL96k6aKQLuh2njg9Hs+qofO40FFOa3f6FTRFlS5Sm9qfAnIebxoej390wPpw5G1G5nK2mGNt0VDjnoqgZ27xNJDo/Zx8xLsYeGx+ORiz7ljkWUbnc1SjG0SUqnPPl1pzEHYfo3CbrPwS3IDXTo3Hr+HDUbKJyuRtRTFQwcjfy7IjovDZOSg/EE3BYNr7wonNzaZSbGDthVHASLyLP44jOq/EcnFA6n4r+niveiIkKTuI6IV/BbYu2ieRQqvpI14WUE8b8bX8yXKZG5w7lYhTzCaLCbZyO5zkH/yA61/fJW/BFGf29xrko5mlEhdv4BE5AHtt7c63vz1vDrIIL0GfleAyKuQNR4RIXYs0VnJNDN+58N9mfdkczu+I9RHVOYplizkJUuIbNyel51zjfugdRnU3OLJqrzTBu/0QVdOGafAV0ybJ4CFF9Obdkq7IcvkdUSRf2tc3QJccjqit3Barj9CGqpCunI85q2xZjeWpmvruhOnsjqqQvZ9SlvVxfpq7+ovKJO/md40ZyVFlfDtEPIPqPOgrVbAamJUCnuOys2dvqw3/SmfB94HA/6eWZew32315xKI0qnW82uZ0wq1yIuZ47tXHf2FnCIHEF12evdrbciHCdM2hWh9/5+UKKPnRITmfsQ2nnZc7iV3DRBfTlxPFl+B7ZB77l5yXuokQXlHsdfsvras7NCt/I9jcnkQ6jNlcnka79u05nBkvpRvxSpmpit9Bpu5FnYX+aiky6keexYF/+90l0I37f0fzeZIlP80bcypmqJ5GS34i76lPTJ5pxL8th1f2lqRidpiQzM/8DTdqIWYL+a24AAAAASUVORK5CYII=">
-        </div>
-        <div class="col-xs-9 contact">
-          <div class="bold">
-            <a href="viber://add?number=%2B359878422063&text=hey">{{phoneNumbers[0]}}</a>
+    <div class="text-center col-xs-12 container-fluid phone-contact">
+        <h3 translate>Or send us a message via</h3>
+        <div class="row contact-row">
+            <div class="col-xs-12 col-md-3">
+                <div class="col-xs-3 icon">
+                    <i class="fa fa-phone"></i>
+                </div>
+                <div class="col-xs-9 contact duo">
+                    <div class="col-xs-12">
+                        <a href="tel:{{phoneNumbers[0]}}">{{phoneNumbers[0]}}</a>
+                    </div>
+                    <div class="col-xs-12">
+                        <a href="tel:{{phoneNumbers[1]}}">{{phoneNumbers[1]}}</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-3">
+                <div class="col-xs-3 icon">
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAARWSURBVGhD7dlZqHZTHMfxY57nIVKUuSSzKFNmSt4SIXKBIsmQckEkFHJhipC4oczThbiQeUqGXJiSWWSeMg/f7/O8q1a7/7PX2vvsc8771PurT+1zzl7r2fvstdZeaz0zS7M0S242waE4H3fhVXyK3/Ff5md8jjfwCK7FGdgXa2JBsjOuwQfIL7avv/ESLsEWmPMchBcRXcxQ/sWT2AODZyM8jOiD54o3dCfWxSDZBbbt6MPmw/vYBrPK9vgB0QfMJwcPB5VeWQcfI6q4q9/QHMW6egbLoHNuQ1RhLYfb/bEhUtbHAbgOXyMq1+ZEdMpWcEiMKsv9Gfwu+Qwrw6y6WJ41cBn+QFQ+8i465UpEFSUf4iisBEeVBxGd9w2+g/3sl8XH92IRUjPZC18hKh/ZE9V5B1El8m9rIc+KeAHNc7/FxkhZDzaPV+D5m8Nsh9pB5XJUZQNEFST7IYrlmm96n4DN1H6yNlJ8GqfjC+zgL8gRyMtO8hSq4qOOKtCvaBs5DkZUzhv6ER/hIqwGcyT8XRoQal66XsPyKOYkRBXIjlmq5D7kZfyvp47uHO1RvAmfoLE/3jw+HD2dvOwkNsViLkVUODkcbfFD8vN/gs3RfmR8otfDJuKxM98v4TTIvI28fOQwFOP8Jiqc3I+2OKpE5XyaV8GL96k6aKQLuh2njg9Hs+qofO40FFOa3f6FTRFlS5Sm9qfAnIebxoej390wPpw5G1G5nK2mGNt0VDjnoqgZ27xNJDo/Zx8xLsYeGx+ORiz7ljkWUbnc1SjG0SUqnPPl1pzEHYfo3CbrPwS3IDXTo3Hr+HDUbKJyuRtRTFQwcjfy7IjovDZOSg/EE3BYNr7wonNzaZSbGDthVHASLyLP44jOq/EcnFA6n4r+niveiIkKTuI6IV/BbYu2ieRQqvpI14WUE8b8bX8yXKZG5w7lYhTzCaLCbZyO5zkH/yA61/fJW/BFGf29xrko5mlEhdv4BE5AHtt7c63vz1vDrIIL0GfleAyKuQNR4RIXYs0VnJNDN+58N9mfdkczu+I9RHVOYplizkJUuIbNyel51zjfugdRnU3OLJqrzTBu/0QVdOGafAV0ybJ4CFF9Obdkq7IcvkdUSRf2tc3QJccjqit3Barj9CGqpCunI85q2xZjeWpmvruhOnsjqqQvZ9SlvVxfpq7+ovKJO/md40ZyVFlfDtEPIPqPOgrVbAamJUCnuOys2dvqw3/SmfB94HA/6eWZew32315xKI0qnW82uZ0wq1yIuZ47tXHf2FnCIHEF12evdrbciHCdM2hWh9/5+UKKPnRITmfsQ2nnZc7iV3DRBfTlxPFl+B7ZB77l5yXuokQXlHsdfsvras7NCt/I9jcnkQ6jNlcnka79u05nBkvpRvxSpmpit9Bpu5FnYX+aiky6keexYF/+90l0I37f0fzeZIlP80bcypmqJ5GS34i76lPTJ5pxL8th1f2lqRidpiQzM/8DTdqIWYL+a24AAAAASUVORK5CYII=">
+                </div>
+                <div class="col-xs-9 contact">
+                    <div class="bold">
+                        <a href="viber://add?number=%2B359878422063&text=hey">{{phoneNumbers[0]}}</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-3">
+                <div class="col-xs-3 icon">
+                    <i class="fa fa-facebook"></i>
+                </div>
+                <div class="col-xs-9 contact">
+                    <div class="bold">
+                        <a target="_blank" href="http://www.facebook.com/Jilanovltd/">Jilanovltd</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-3">
+                <div class="col-xs-3 icon">
+                    <i class="fa fa-skype"></i>
+                </div>
+                <div class="col-xs-9 contact">
+                    <div class="bold">
+                        <a href="skype:t_jilanov?chat">t_jilanov</a>
+                    </div>
+                </div>
             </div>
         </div>
-      </div>
-      <div class="col-xs-12 col-md-3">
-        <div class="col-xs-3 icon">
-            <i class="fa fa-facebook"></i>
-        </div>
-        <div class="col-xs-9 contact">
-          <div class="bold">
-            <a target="_blank" href="http://www.facebook.com/Jilanovltd/">Jilanovltd</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-xs-12 col-md-3">
-        <div class="col-xs-3 icon">
-            <i class="fa fa-skype"></i>
-        </div>
-        <div class="col-xs-9 contact">
-          <div class="bold">
-            <a href="skype:t_jilanov?chat">t_jilanov</a>
-          </div>
-        </div>
-      </div>
     </div>
-  </div>
-  <div class="text-center location-info col-xs-12 container">
-      <h3 translate>Or you can find us on</h3>
-      <h5 translate>Levski G, bl. 4, Sofia 1836</h5>
-      <h5 class="red" translate>Always call us on the phone first!</h5>
-  </div>
+    <div class="text-center location-info col-xs-12 container">
+        <h3 translate>Or you can find us on</h3>
+        <h5 translate>Levski G, bl. 4, Sofia 1836</h5>
+        <h5 class="red" translate>Always call us on the phone first!</h5>
+    </div>
 </div>

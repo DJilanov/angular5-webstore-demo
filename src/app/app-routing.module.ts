@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 
 import { ServerErrorPageComponent } from './feedback/server-error-page/server-error-page.component';
 
@@ -66,7 +66,15 @@ const routes: Routes = [
 ];
 
 @NgModule({
-    imports: [RouterModule.forRoot(routes)],
+    imports: [
+        RouterModule.forRoot(
+            routes, 
+            { 
+                useHash: true, 
+                preloadingStrategy: PreloadAllModules 
+            }
+        )
+    ],
     exports: [RouterModule],
     providers: []
 })

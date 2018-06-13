@@ -35,8 +35,13 @@ export class ProductDetailsComponent {
         private productsService: ProductsService,
         private translateService: TranslateService,
     ) {
-        debugger;
-        this.routeParams.params.subscribe(params => this.setParams(params));
+        let splittedUrl = this.router.url.split('/');
+        let productLink = splittedUrl[splittedUrl.length - 1];
+        if(!productLink) {
+            this.router.navigate(['/home']);
+        } else {
+            this.setProduct(productLink);
+        }
     };
     
     ngOnInit() {
@@ -44,26 +49,26 @@ export class ProductDetailsComponent {
         this.starsRating = Math.round((Math.random() * (5 - 4.4) + 4.4) * 100) / 100;
     }
     
-    public setParams(params) {
-        // if(params['productLink']) {
-        //     this.language = this.translateService.getLanguage();
-        //     this.product = this.productsService.getProductByLink(params['productLink']);
-        //     if(this.product == undefined) {
-        //         this.product = new ProductModel();
-        //         this.productLink = params['productLink'];
-        //         this.eventBusService.productsUpdate.subscribe(() => this.setParams(this.productLink));
-        //         return;
-        //     }
-        //     let images = [this.product['mainImage']].concat(this.product['otherImages']);
-        //     this.imagesArray = images.map(image => {
-        //         return {
-        //             title: this.product.title,
-        //             link: this.product.link,
-        //             image: image
-        //         }
-        //     });
-        // } else {
-        //     this.router.navigate(['/home']);
-        // }
+    public setProduct(productLink) {
+        if(productLink) {
+            this.language = this.translateService.getLanguage();
+            this.product = this.productsService.getProductByLink(productLink);
+            if(this.product == undefined) {
+                this.product = new ProductModel();
+                this.productLink = productLink;
+                this.eventBusService.productsUpdate.subscribe(() => this.setProduct(this.productLink));
+                return;
+            }
+            let images = [this.product['mainImage']].concat(this.product['otherImages']);
+            this.imagesArray = images.map(image => {
+                return {
+                    title: this.product.title,
+                    link: this.product.link,
+                    image: image
+                }
+            });
+        } else {
+            this.router.navigate(['/home']);
+        }
     }
 }

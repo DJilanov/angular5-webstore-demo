@@ -31,7 +31,6 @@ export class CategoriesComponent {
         private translateService: TranslateService,
         private categoriesService: CategoriesService
     ) {
-        debugger;
         let splitted = this.router.url.split('/');
         this.setCategoryData(splitted[splitted.length - 1]);
     };
