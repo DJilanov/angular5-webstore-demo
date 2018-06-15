@@ -8,7 +8,6 @@ const routes: Routes = [
         path: '', 
         loadChildren: 'app/modules/home/home.module#HomeModule',
         data: {
-            preload: true,
             meta: {
                 title: 'Компютърни компоненти Жиланов: евтини РАМ(RAM) памети, видеонаблюдение, твърд диск и видеокарти',
                 description: 'Изберете от десетките видове RAM памети, хард дискове и компютърни части на промоционалните ни цени!'
@@ -16,10 +15,9 @@ const routes: Routes = [
         }
     },
     { 
-        path: 'categories/:id', 
+        path: 'categories/:category', 
         loadChildren: './modules/categories/categories.module#CategoriesModule',
         data: {
-            preload: true,
             meta: {
                 title: 'Компютърни компоненти Жиланов: евтини РАМ(RAM) памети, видеонаблюдение, твърд диск и видеокарти',
                 description: 'Изберете от десетките видове RAM памети, хард дискове и компютърни части на промоционалните ни цени!'
@@ -27,10 +25,9 @@ const routes: Routes = [
         }
     },
     { 
-        path: 'categories/:id/:id2', 
+        path: 'categories/:category/:product', 
         loadChildren: './modules/product-details/product-details.module#ProductDetailsModule',
         data: {
-            preload: true,
             meta: {
                 title: 'Компютърни компоненти Жиланов: евтини РАМ(RAM) памети, видеонаблюдение, твърд диск и видеокарти',
                 description: 'Изберете от десетките видове RAM памети, хард дискове и компютърни части на промоционалните ни цени!'
@@ -39,9 +36,8 @@ const routes: Routes = [
     },
     { 
         path: 'cart', 
-        loadChildren: './modules/cart/cart.module',
+        loadChildren: './modules/cart/cart.module#CartModule',
         data: {
-            preload: true,
             meta: {
                 title: 'Количка с поръчки от Жиланов ЕООД',
                 description: 'Не изпускайте момента да подобрите компютъра си на промоционалните ни цени!'
@@ -52,7 +48,6 @@ const routes: Routes = [
         path: 'contacts', 
         loadChildren: './modules/contact/contact.module#ContactModule',
         data: {
-            preload: true,
             meta: {
                 title: 'Връзка с Жиланов ЕООД',
                 description: 'Можете да се свържете с нас на телефон 0878466180 или чрез контактната форма'

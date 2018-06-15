@@ -1,44 +1,5 @@
-<div class="container">
-  <ul>
-    <li class="col-lg-2">
-      <a [routerLink]="['./navigation']" class="round green">
-        Navigation
-        <span class="round">
-          Here you can view or edit the navigation.
-        </span>
-      </a>
-    </li>
-  <li class="col-lg-2">
-    <a [routerLink]="['./products']" class="round yellow">
-      Products
-      <span class="round">
-        Here you can view or edit the products that are sorted based on their list
-      </span>
-    </a>
-  </li>
-  <li class="col-lg-2">
-    <a [routerLink]="['./categories']" class="round red">
-      Category
-      <span class="round">
-        Here you can view or edit the categories
-      </span>
-    </a>
-  </li>
-  <li class="col-lg-2">
-    <a [routerLink]="['./messages']" class="round green">
-      Messages
-        <span class="round">
-          Here you can see all recieved messages and delete if you dont need some of them
-        </span>
-    </a>
-  </li>
-  <!-- <li class="col-lg-2">
-    <a [routerLink]="['./orders']" class="round yellow">
-      Orders
-      <span class="round">
-          Here you can see all recived orders and delete if you dont need some of them
-      </span>
-    </a>
-  </li> -->
-</ul>
+<div class="row">
+    <div *ngFor="let product of cartProducts;" class="col-12 col-lg-3 col-md-4 col-sm-6 p-3">
+        {{product.id}}
+    </div>
 </div>

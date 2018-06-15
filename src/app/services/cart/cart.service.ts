@@ -1,10 +1,12 @@
 import { Injectable, EventEmitter } from '@angular/core';
 
-import { CartProductModel } from '../../models/cart-product.model';
+import { ProductModel } from '../../models/product.model';
 import { CarouselModel } from '../../models/carousel.model';
+import { CartProductModel } from '../../models/cart-product.model';
 
 import { UtilsService } from '../utils/utils.service';
 
+import { ProductsService } from '../products/products.service';
 import { CategoriesService } from '../categories/categories.service';
 import { EventBusService } from '../../core/event-bus/event-bus.service';
 
@@ -20,9 +22,10 @@ export class CartService {
     constructor(
         private utilsService: UtilsService,
         private eventBusService: EventBusService,
+        private productsService: ProductsService,
         private categoriesService: CategoriesService
     ) {
-        // this.eventBusService.productsUpdate.subscribe((eventData) => this.setProducts(eventData.messages));
+        this.getProductsFromLocalstorage();
     }
     /**
     * @getProducts get all products
@@ -32,18 +35,47 @@ export class CartService {
         return this.products;
     }
 
-    public addCartProduct(product: CartProductModel) {
-        this.products.push(product);
+    public addCartProduct(product: ProductModel) {
+        this.products.push(this.productToCartItem(product));
+        this.addToLocalstorage();
         this.emitCartProducts();
     }
 
-    public removeCartProduct(product: CartProductModel) {
+    public removeCartProduct(product: ProductModel) {
         for(let productCounter = 0; productCounter < this.products.length; productCounter++) {
             if(this.products[productCounter].id === product.id) {
                 this.products.splice(productCounter, 1);
                 break;
             }
         }
+    }
+
+    private productToCartItem(product) {
+        return {
+            id: product.id,
+            mainImage: product.mainImage,
+            title: product.title,
+            amount: 1
+        }
+    }
+
+    private addToLocalstorage() {
+        localStorage.setItem('cart', 
+            JSON.stringify(
+                this.products.map(
+                    (product) => this.utilsService.cartToLocalstorageModel(product)
+                )
+            )
+        );
+    }
+
+    private getProductsFromLocalstorage() {
+        let localstoageProducts = JSON.parse(localStorage.getItem('cart') || '[]');
+        this.products = localstoageProducts.map((product) => {
+            return this.productToCartItem(
+                this.productsService.getProductById(product.id)
+            );
+        });
     }
     
     /**

@@ -60,7 +60,7 @@ export class ProductsService {
 
     public getProductById(id) {
         for(let productsCounter = 0; productsCounter < this.products.length; productsCounter++) {
-            if(this.products[productsCounter]['_id'] == id) {
+            if(this.products[productsCounter]['id'] == id) {
                 return this.products[productsCounter];
             }
         }

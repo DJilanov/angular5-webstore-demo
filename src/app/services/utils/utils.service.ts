@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
 
+import { ProductModel } from '../../models/product.model';
+import { CartProductModel } from '../../models/cart-product.model';
+
 @Injectable()
 
 /**
@@ -7,9 +10,16 @@ import { Injectable } from '@angular/core';
  */
 export class UtilsService {
 
-    constructor() {}
+    constructor() { }
 
     public cloneObject(obj) {
         return JSON.parse(JSON.stringify(obj));
+    }
+
+    public cartToLocalstorageModel(product: CartProductModel) {
+        return {
+            id: product.id,
+            amount: product.amount || 1
+        }
     }
 }

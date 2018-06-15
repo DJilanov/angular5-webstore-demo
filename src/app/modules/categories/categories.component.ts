@@ -1,5 +1,5 @@
-import { Component, Input, Output } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Component, Input, Output, OnDestroy } from '@angular/core';
+import { Router, NavigationEnd, Event as NavigationEvent } from '@angular/router';
 
 import { ProductsService } from '../../services/products/products.service';
 import { CategoriesService } from '../../services/categories/categories.service';
@@ -31,16 +31,15 @@ export class CategoriesComponent {
         private translateService: TranslateService,
         private categoriesService: CategoriesService
     ) {
-        let splitted = this.router.url.split('/');
-        this.setCategoryData(splitted[splitted.length - 1]);
+        this.setDynamicCategories();
     };
-    
+
     private setCategoryData(category) {
-        if(category) {
+        if (category) {
             let lowercaseCategory = category.toLowerCase();
             this.language = this.translateService.getLanguage();
             this.category = this.categoriesService.getCategoryByLink(lowercaseCategory);
-            if(!this.category) {
+            if (!this.category) {
                 this.categoryLink = lowercaseCategory;
                 this.eventBusService.productsUpdate.subscribe(() => this.onFetchedData());
                 this.eventBusService.categoriesUpdate.subscribe(() => this.onFetchedData());
@@ -54,10 +53,20 @@ export class CategoriesComponent {
 
     private onFetchedData() {
         this.category = this.categoriesService.getCategoryByLink(this.categoryLink);
-        if(!this.category) {
+        if (!this.category) {
             return
         }
         this.products = this.productsService.getProductsByCategory(this.category['products']);
+    }
+
+    private setDynamicCategories() {
+        this.router.events.forEach((event: NavigationEvent) => {
+            if ((event instanceof NavigationEnd) && (event.url.includes('categories'))) {
+                console.log('route change detected');
+                let splitted = event.url.split('/');
+                this.setCategoryData(splitted[splitted.length - 1]);
+            }
+        });
     }
 
 }
