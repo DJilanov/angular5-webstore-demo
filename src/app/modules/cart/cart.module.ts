@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 
 import { SharedModule } from '../../shared/shared.module';
+import { CartProductComponent } from './panels/cart-product/cart-product.component';
 
 import { CartComponent } from './cart.component';
 
@@ -18,7 +19,8 @@ const routes: Routes = [
     ],
     exports: [],
     declarations: [
-        CartComponent
+        CartComponent,
+        CartProductComponent
     ]
 })
 export class CartModule { }

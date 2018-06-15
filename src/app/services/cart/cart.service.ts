@@ -55,6 +55,7 @@ export class CartService {
             id: product.id,
             mainImage: product.mainImage,
             title: product.title,
+            price: product.newPrice,
             amount: 1
         }
     }
