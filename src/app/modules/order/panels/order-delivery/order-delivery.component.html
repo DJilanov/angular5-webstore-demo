@@ -1,0 +1,14 @@
+<div class="col-md-12" *ngIf="product.id">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    <div class="col-md-2 inline-block">
+        <img [src]="'./assets/product-images/small/' + product.mainImage || blankImage" [alt]="product.title.bg" />
+    </div>
+    <div class="col-md-8 inline-block">
+        <div>{{product.title[language]}}</div>
+    </div>
+    <div class="col-md-2 inline-block">
+        <div>{{(product.price * product.amount) || 'Цената е по договаряне в'}} лева</div>
+    </div>
+</div>

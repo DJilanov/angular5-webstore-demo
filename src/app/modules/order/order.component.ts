@@ -12,12 +12,12 @@ const sharredOptions = {
 };
 
 @Component({
-    selector: 'app-cart',
+    selector: 'app-order',
     styleUrls: ['./cart.component.scss'],
     templateUrl: './cart.component.html'
 })
 
-export class CartComponent {
+export class OrderComponent {
 
     public cartProducts: CartProductModel[];
 

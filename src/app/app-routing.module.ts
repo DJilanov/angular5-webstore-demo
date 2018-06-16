@@ -45,6 +45,16 @@ const routes: Routes = [
         }
     },
     { 
+        path: 'order', 
+        loadChildren: './modules/order/order.module#OrderModule',
+        data: {
+            meta: {
+                title: 'Вашите поръчки от Жиланов ЕООД',
+                description: 'Благодарим ви, че пазарувахте от нас!'
+            }
+        }
+    },
+    { 
         path: 'contacts', 
         loadChildren: './modules/contact/contact.module#ContactModule',
         data: {
