@@ -56,6 +56,23 @@
                         name="message" translate></textarea>
                     <small id="messageHelp" class="form-text text-muted" translate>Just tell us everything we need to know about your problem!</small>
                 </div>
+                <div class="form-group small-top-margin">
+                    <label for="newspaper" translate>Shall we send you information about our products</label>
+                    <div class="funkyradio" id="newspaper">
+                        <div class="funkyradio-success">
+                            <input type="radio" name="radio" id="radio1" checked />
+                            <label for="radio1" translate>New shipment</label>
+                        </div>
+                        <div class="funkyradio-primary">
+                            <input type="radio" name="radio" id="radio2" />
+                            <label for="radio2" translate>Once per month</label>
+                        </div>
+                        <div class="funkyradio-default">
+                            <input type="radio" name="radio" id="radio3" />
+                            <label for="radio3" translate>Once per three months</label>
+                        </div>
+                    </div>
+                </div>
                 <strong class="form-text text-muted" translate>We'll never share your data with anyone else!</strong>
                 <re-captcha (captchaResponse)="handleCorrectCaptcha()" (captchaExpired)="handleExpireCaptcha()" site_key="6Lf10xETAAAAAFoODW33iIglPTpRXndsVkUmUOQh"
                     language="bg"></re-captcha>
