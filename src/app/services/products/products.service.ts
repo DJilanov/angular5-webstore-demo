@@ -52,7 +52,7 @@ export class ProductsService {
         }).map(product => {
             return {
                 title: product.title,
-                link: this.categoriesService.getCategoryByProductLink(product.category).link + '/' + product.link,
+                link: this.categoriesService.getCategoryByProductLink(product.category) && (this.categoriesService.getCategoryByProductLink(product.category).link + '/' + product.link),
                 image: product.mainImage
             }
         });
