@@ -13,8 +13,8 @@ const sharredOptions = {
 
 @Component({
     selector: 'app-order',
-    styleUrls: ['./cart.component.scss'],
-    templateUrl: './cart.component.html'
+    styleUrls: ['./order.component.scss'],
+    templateUrl: './order.component.html'
 })
 
 export class OrderComponent {

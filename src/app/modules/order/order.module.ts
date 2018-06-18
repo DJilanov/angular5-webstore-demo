@@ -4,6 +4,8 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { SharedModule } from '../../shared/shared.module';
 import { OrderCompleteComponent } from './panels/order-complete/order-complete.component';
+import { OrderDeliveryComponent } from './panels/order-delivery/order-delivery.component';
+import { OrderProcessingComponent } from './panels/order-processing/order-processing.component';
 
 import { OrderComponent } from './order.component';
 
@@ -20,7 +22,9 @@ const routes: Routes = [
     exports: [],
     declarations: [
         OrderComponent,
-        OrderCompleteComponent
+        OrderCompleteComponent,
+        OrderDeliveryComponent,
+        OrderProcessingComponent
     ]
 })
 export class OrderModule { }
