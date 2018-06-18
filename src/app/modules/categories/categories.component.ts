@@ -11,7 +11,7 @@ import { ProductModel } from '../../models/product.model';
 import { CategoryModel } from '../../models/category.model';
 
 @Component({
-    selector: 'categories',
+    selector: 'app-categories',
     styleUrls: ['./categories.component.scss'],
     templateUrl: './categories.component.html'
 })

@@ -10,7 +10,7 @@ import { ContactModel } from '../../models/contact.model';
 import { environment } from 'environments/environment';
 
 @Component({
-    selector: 'contact',
+    selector: 'app-contact',
     styleUrls: ['./contact.component.scss'],
     templateUrl: './contact.component.html'
 })
