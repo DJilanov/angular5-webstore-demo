@@ -1,5 +1,5 @@
 import { Component, Input, Output } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, NavigationEnd, Event as NavigationEvent } from '@angular/router';
 
 import { CartService } from '../../services/cart/cart.service';
 import { EventBusService } from '../../core/event-bus/event-bus.service';
@@ -7,8 +7,8 @@ import { EventBusService } from '../../core/event-bus/event-bus.service';
 import { CartProductModel } from '../../models/cart-product.model';
 
 const sharredOptions = {
-	header: true,
-	footer: true
+    header: true,
+    footer: true
 };
 
 @Component({
@@ -19,20 +19,24 @@ const sharredOptions = {
 
 export class OrderComponent {
 
-    public cartProducts: CartProductModel[];
+    public orderPage = '';
 
     constructor(
         private router: Router,
         private cartService: CartService,
         private eventBusService: EventBusService
     ) {
-        this.eventBusService.emitChangeSharedOptions(sharredOptions);
-        this.updateCartProducts();
-        this.eventBusService.cartProductsUpdate.subscribe(() => this.updateCartProducts());
+        this.setDynamicPages();
 
     };
 
-    private updateCartProducts() {
-        this.cartProducts = this.cartService.getCartProducts();
+    private setDynamicPages() {
+        this.router.events.forEach((event: NavigationEvent) => {
+            if ((event instanceof NavigationEnd) && (event.url.includes('order'))) {
+                console.log('route change detected');
+                let splitted = event.url.split('/');
+                this.orderPage = splitted[splitted.length - 1];
+            }
+        });
     }
 }

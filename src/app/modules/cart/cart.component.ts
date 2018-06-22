@@ -20,6 +20,7 @@ const sharredOptions = {
 export class CartComponent {
 
     public cartProducts: CartProductModel[];
+    public totalSum: number = 0;
 
     constructor(
         private router: Router,
@@ -34,5 +35,15 @@ export class CartComponent {
 
     private updateCartProducts() {
         this.cartProducts = this.cartService.getCartProducts();
+        this.cartProducts.map((product) => {
+            let price = product.amount * +product.price;
+            if(!isNaN(price)) {
+                this.totalSum += product.amount * +product.price;
+            }
+        })
+    }
+
+    public removeProduct(product) {
+        this.cartService.removeCartProduct(product);
     }
 }

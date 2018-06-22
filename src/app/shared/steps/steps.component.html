@@ -1,0 +1,6 @@
+<div class="text-center small-top-margin">
+    <span *ngFor="let step of stepsArrayMock" 
+        [class.active]="step==activeStep" 
+        [class.finish]="step < activeStep"
+        class="step">{{step}}</span>
+</div>

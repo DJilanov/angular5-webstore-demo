@@ -1,0 +1,30 @@
+@import '../../../variables';
+
+:host {
+    flex: 1 0 auto;
+}
+
+/* Make circles that indicate the steps of the form: */
+.step {
+    height: 28px;
+    width: 28px;
+    margin: 10px;
+    background-color: #bbbbbb;
+    border: none; 
+    border-radius: 50%;
+    display: inline-block;
+    opacity: 0.5;
+    cursor: cell;
+}
+
+/* Mark the active step: */
+.step.active {
+    background-color: #007bff;
+    color: white;
+    opacity: 1;
+}
+
+/* Mark the steps that are finished and valid: */
+.step.finish {
+    background-color: #4CAF50;
+}

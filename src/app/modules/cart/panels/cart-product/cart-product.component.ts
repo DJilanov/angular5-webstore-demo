@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { CartService } from '../../../../services/cart/cart.service';
@@ -16,6 +16,7 @@ export class CartProductComponent {
 
     public language: string;
 	@Input() product: ProductModel;
+    @Output() removeProduct = new EventEmitter<ProductModel>();
 
     constructor(
         private router: Router,
@@ -24,4 +25,8 @@ export class CartProductComponent {
     ) {
         this.language = this.translateService.getLanguage();
     };
+
+    public remove() {
+        this.removeProduct.emit(this.product);
+    }
 }

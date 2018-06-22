@@ -15,7 +15,7 @@ import { EventBusService } from '../../core/event-bus/event-bus.service';
 /**
  * @DriverService used on all connections to the back-end for the drivers
  */
-export class CartService {
+export class OrderService {
     
     private products:CartProductModel[] = [];
     

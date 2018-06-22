@@ -1,6 +1,12 @@
-<h1>Автоматичните поръчки са в процес на разработка! Моля да ни извините и да се свържете с нас по телефона</h1>
-
+<app-steps [steps]="3" [activeStep]="1"></app-steps>
 <div class="container">
     <h1 class="medium-top-margin medium-bottom-margin text-center">Продукти в количката: ({{cartProducts.length}})</h1>
-    <app-cart-product *ngFor="let product of cartProducts;" [product]="product"></app-cart-product>
+    <app-cart-product *ngFor="let product of cartProducts;" 
+        (removeProduct)="removeProduct($event)"
+        [product]="product"></app-cart-product>
+    <div class="text-center medium-bottom-margin">
+        <span>Обща сума: {{totalSum}} лева</span>
+    </div>
+    <a [routerLink] = "['/order/contact']"
+        class="btn btn-primary medium-bottom-margin col-md-12">Продължи с поръчката</a>
 </div>

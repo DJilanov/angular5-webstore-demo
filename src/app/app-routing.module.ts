@@ -45,7 +45,7 @@ const routes: Routes = [
         }
     },
     { 
-        path: 'order', 
+        path: 'order/:orderPage', 
         loadChildren: './modules/order/order.module#OrderModule',
         data: {
             meta: {
@@ -75,7 +75,7 @@ const routes: Routes = [
         RouterModule.forRoot(
             routes, 
             { 
-                useHash: true, 
+                useHash: false, 
                 preloadingStrategy: PreloadAllModules 
             }
         )
