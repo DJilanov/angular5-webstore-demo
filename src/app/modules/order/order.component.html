@@ -1,1 +1,2 @@
-<app-order-contact></app-order-contact>
+<app-order-contact *ngIf="orderPage === 'contact'"></app-order-contact>
+<app-order-processing *ngIf="orderPage === 'check-order'"></app-order-processing>

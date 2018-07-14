@@ -46,3 +46,7 @@ $body-font-size-desktop: 22px;
 .red {
     color: $webpage-base-red-color;
 }
+
+textarea {
+    overflow:hidden!important;
+}

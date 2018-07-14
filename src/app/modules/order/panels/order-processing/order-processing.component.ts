@@ -15,7 +15,7 @@ import { ProductModel } from '../../../../models/product.model';
 export class OrderProcessingComponent {
 
     public language: string;
-	@Input() product: ProductModel;
+    public orderNumer: number;
 
     constructor(
         private router: Router,
@@ -23,5 +23,11 @@ export class OrderProcessingComponent {
         private translateService: TranslateService
     ) {
         this.language = this.translateService.getLanguage();
+        this.setDynamicPages();
     };
+
+    private setDynamicPages() {
+        let splitted = this.router.url.split('/');
+        this.orderNumer = +splitted[splitted.length - 1];
+    }
 }

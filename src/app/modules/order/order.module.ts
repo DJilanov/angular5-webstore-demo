@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
+import { ReCaptchaModule } from 'angular2-recaptcha';
 
 import { SharedModule } from '../../shared/shared.module';
 import { OrderContactComponent } from './panels/order-contact/order-contact.component';
@@ -11,15 +13,16 @@ import { OrderProcessingComponent } from './panels/order-processing/order-proces
 import { OrderComponent } from './order.component';
 
 const routes: Routes = [
-    { path: '', component: OrderComponent, pathMatch: 'full' },
-    { path: '/contact', component: OrderContactComponent }
+    { path: '**', component: OrderComponent, pathMatch: 'full' },
 ];
 
 @NgModule({
     imports: [
+        FormsModule,
         CommonModule,
         SharedModule,
-        RouterModule.forChild(routes)
+        RouterModule.forChild(routes),
+		ReCaptchaModule
     ],
     exports: [],
     declarations: [

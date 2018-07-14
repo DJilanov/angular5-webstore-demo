@@ -1,14 +1,6 @@
-<div class="col-md-12" *ngIf="product.id">
-    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-    </button>
-    <div class="col-md-2 inline-block">
-        <img [src]="'./assets/product-images/small/' + product.mainImage || blankImage" [alt]="product.title.bg" />
-    </div>
-    <div class="col-md-8 inline-block">
-        <div>{{product.title[language]}}</div>
-    </div>
-    <div class="col-md-2 inline-block">
-        <div>{{(product.price * product.amount) || 'Цената е по договаряне в'}} лева</div>
-    </div>
+<app-steps [steps]="3" [activeStep]="3"></app-steps>
+<div class="container text-center">
+    <h2>Благодарим ви, че пазарувахте от нас!</h2>
+    <h3>Номера на вашата поръчка е: {{orderNumer}}</h3>
+    <p class="small-top-margin">Ще се свържем с вас съвсем скоро</p>
 </div>

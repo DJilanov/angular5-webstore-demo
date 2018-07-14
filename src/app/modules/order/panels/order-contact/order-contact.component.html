@@ -1,1 +1,66 @@
 <app-steps [steps]="3" [activeStep]="2"></app-steps>
+<div class="container">
+    <div class="form-section col-xs-12">
+        <h3 class="text-center" translate>Вашите данни</h3>
+        <form>
+            <div class="form-group">
+                <label for="name" translate>Name</label>
+                <input [(ngModel)]="formData.name" type="text" class="form-control" id="name" aria-describedby="nameHelp" placeholder="Enter name"
+                    name="name" translate>
+                <small id="nameHelp" class="form-text text-muted" translate>We'll use it when we call you.</small>
+            </div>
+            <div class="form-group">
+                <label for="email" translate>Email address</label>
+                <input [(ngModel)]="formData.email" type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email"
+                    name="email" translate>
+                <small id="emailHelp" class="form-text text-muted" translate>We'll use it to contact you if you dont answer your phone.</small>
+            </div>
+            <div class="form-group">
+                <label for="phone" translate>Phone</label>
+                <input [(ngModel)]="formData.phone" type="phone" class="form-control" id="phone" aria-describedby="phoneHelp" placeholder="Enter phone"
+                    name="phone" translate>
+                <small id="phoneHelp" class="form-text text-muted" translate>We'll use it to call you.</small>
+            </div>
+            <div class="form-group">
+                <label for="message" translate>Message</label>
+                <textarea [(ngModel)]="formData.message" class="form-control" id="message" aria-describedby="messageHelp" placeholder="Enter message"
+                    name="message" translate></textarea>
+                <small id="messageHelp" class="form-text text-muted" translate>Just tell us everything we need to know about your problem!</small>
+            </div>
+            <div class="form-group small-top-margin">
+                <label for="newspaper" translate>Shall we send you information about our products</label>
+                <div class="funkyradio" id="newspaper">
+                    <div class="funkyradio-success">
+                        <input type="radio" name="radio" id="radio1" checked />
+                        <label for="radio1" translate>New shipment</label>
+                    </div>
+                    <div class="funkyradio-primary">
+                        <input type="radio" name="radio" id="radio2" />
+                        <label for="radio2" translate>Once per month</label>
+                    </div>
+                    <div class="funkyradio-default">
+                        <input type="radio" name="radio" id="radio3" />
+                        <label for="radio3" translate>Once per three months</label>
+                    </div>
+                    <div class="funkyradio-default">
+                        <input type="radio" name="radio" id="radio4" />
+                        <label for="radio4" translate>Never</label>
+                    </div>
+                </div>
+            </div>
+            <strong class="form-text text-muted" translate>We'll never share your data with anyone else!</strong>
+            <re-captcha (captchaResponse)="handleCorrectCaptcha()" (captchaExpired)="handleExpireCaptcha()" site_key="6Lf10xETAAAAAFoODW33iIglPTpRXndsVkUmUOQh"
+                language="bg"></re-captcha>
+            <div class="alert alert-success text-center" *ngIf="messageSuccess">
+                <strong translate>Message send successfully</strong>
+            </div>
+            <div class="alert alert-danger text-center" *ngIf="messageFail">
+                <strong translate>Ooops.. something happend... please call us on:</strong>
+                <strong>{{phoneNumbers[0]}}</strong>
+                <strong translate>or</strong>
+                <strong>{{phoneNumbers[1]}}</strong>
+            </div>
+            <button (click)="submitForm()" [disabled]="!correctCaptcha" class="btn btn-primary small-top-margin medium-bottom-margin" translate>Изпрати поръчката</button>
+        </form>
+    </div>
+</div>

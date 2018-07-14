@@ -35,6 +35,10 @@ export class CartService {
         return this.products;
     }
 
+    public getCartProductsAsLocalstorageModel() {
+        return JSON.parse(localStorage.getItem('cart') || '[]');;
+    }
+
     public addCartProduct(product: ProductModel) {
         this.products.push(this.productToCartItem(product));
         this.addToLocalstorage();

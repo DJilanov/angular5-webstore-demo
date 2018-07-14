@@ -27,7 +27,6 @@ export class OrderComponent {
         private eventBusService: EventBusService
     ) {
         this.setDynamicPages();
-
     };
 
     private setDynamicPages() {
@@ -35,7 +34,8 @@ export class OrderComponent {
             if ((event instanceof NavigationEnd) && (event.url.includes('order'))) {
                 console.log('route change detected');
                 let splitted = event.url.split('/');
-                this.orderPage = splitted[splitted.length - 1];
+                this.orderPage = splitted[splitted.indexOf('order') + 1];
+                //  TODO : Check the ID and show the user that is processed!!!
             }
         });
     }
