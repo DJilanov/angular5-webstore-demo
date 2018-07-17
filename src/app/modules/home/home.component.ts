@@ -19,7 +19,7 @@ export class HomeComponent {
     public language: string;
     public carouselProducts: CarouselModel[];
     
-	public productsByCategories: ProductsByCategoriesModel[];
+	  public productsByCategories: ProductsByCategoriesModel[];
 
     constructor(
         private router: Router,

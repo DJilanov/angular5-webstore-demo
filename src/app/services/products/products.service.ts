@@ -8,6 +8,8 @@ import { UtilsService } from '../utils/utils.service';
 import { CategoriesService } from '../categories/categories.service';
 import { EventBusService } from '../../core/event-bus/event-bus.service';
 
+import * as products from '../jsons/products.json';
+
 @Injectable()
 
 /**
@@ -15,14 +17,14 @@ import { EventBusService } from '../../core/event-bus/event-bus.service';
  */
 export class ProductsService {
     
-    private products:ProductModel[] = [];
+    private products = [];
     
     constructor(
         private utilsService: UtilsService,
         private eventBusService: EventBusService,
         private categoriesService: CategoriesService
     ) {
-        // this.eventBusService.productsUpdate.subscribe((eventData) => this.setProducts(eventData.messages));
+        this.products = utilsService.objectToArray(products);
     }
     /**
     * @getProducts get all products

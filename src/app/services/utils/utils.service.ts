@@ -22,4 +22,10 @@ export class UtilsService {
             amount: product.amount || 1
         }
     }
+
+    public objectToArray(obj) {
+        return Object.keys(obj).map(function(key) {
+            return obj[key];
+        });
+    }
 }

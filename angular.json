@@ -119,7 +119,9 @@
             ],
             "assets": [
               "src/assets",
-              "src/robots.txt"
+              "src/robots.txt",
+              "src/app/services/cache-loader/products.json",
+              "src/app/services/cache-loader/categories.json"
             ]
           }
         },
