@@ -57,7 +57,7 @@ export class OrderContactComponent {
             data => {
                 this.messageSuccess = true;
                 this.captcha.reset();
-                this.router.navigate(['order/check-order', data.json().orderId || 1]);
+                this.router.navigate(['order/check-order', data.json().response.orderId || 1]);
             },
             err => this.messageFail = true
         );
