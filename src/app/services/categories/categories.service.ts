@@ -27,7 +27,7 @@ export class CategoriesService {
     * @getCategories get all categories
     * @return {Array} all categoties
     */
-    public getCategories() {
+    public getCategories(): CategoryModel[] {
         return this.categoryArray;
     }
 
