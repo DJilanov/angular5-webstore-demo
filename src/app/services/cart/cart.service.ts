@@ -56,6 +56,11 @@ export class CartService {
         this.emitCartProducts();
     }
 
+    public resetCart() {
+      this.products = [];
+      this.addToLocalstorage();
+    }
+
     private productToCartItem(product) {
         return {
             id: product.id,
