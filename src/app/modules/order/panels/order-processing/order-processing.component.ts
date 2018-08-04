@@ -15,7 +15,7 @@ import { ProductModel } from '../../../../models/product.model';
 export class OrderProcessingComponent {
 
     public language: string;
-    public orderNumer: number;
+    public orderNumer: string;
 
     constructor(
         private router: Router,
@@ -28,6 +28,6 @@ export class OrderProcessingComponent {
 
     private setDynamicPages() {
         let splitted = this.router.url.split('/');
-        this.orderNumer = +splitted[splitted.length - 1];
+        this.orderNumer = splitted[splitted.length - 1];
     }
 }
