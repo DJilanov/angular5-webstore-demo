@@ -22,6 +22,12 @@
                 <small id="phoneHelp" class="form-text text-muted" translate>We'll use it to call you.</small>
             </div>
             <div class="form-group">
+                <label for="message" translate>Address</label>
+                <textarea [(ngModel)]="formData.address" class="form-control" id="address" aria-describedby="messageHelp" placeholder="Enter address"
+                    name="message" translate></textarea>
+                <small id="messageHelp" class="form-text text-muted" translate>We'll use it to send your order.</small>
+            </div>
+            <div class="form-group">
                 <label for="message" translate>Message</label>
                 <textarea [(ngModel)]="formData.message" class="form-control" id="message" aria-describedby="messageHelp" placeholder="Enter message"
                     name="message" translate></textarea>
